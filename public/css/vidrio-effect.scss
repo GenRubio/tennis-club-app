@@ -1,0 +1,34 @@
+.cristal-effect{
+    --transition-duration: 500ms;
+    --transition-easing: ease-out;
+
+    transition: transform 
+    var(--transition-duration) 
+    var(--transition-easing);
+  
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    background: rgba(white, 0.4);
+    width: 60%;
+    height: 100%;
+    top: 0%;
+    left: -125%;
+    
+    transform: skew(45deg);
+    
+    position: absolute;
+    
+    transition: left 
+      var(--transition-duration)
+      var(--transition-easing);
+  }
+  
+  &:hover {
+    
+    &::before {
+      left: 150%;
+    }
+  }
+}
