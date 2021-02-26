@@ -101,6 +101,23 @@
     .fc-list-event-dot {
         visibility: hidden;
     }
+    .fc-event-title-container{
+        background-color: red !important;
+        border: red !important;
+    }
+    .fc-event-title.fc-sticky{
+        font-weight: bold !important;
+    }
+    .fc-event-title-container:hover{
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .fc-list-event.fc-event.fc-event-start.fc-event-future{
+        background-color: red !important;
+    }
+    .fc-list-event.fc-event.fc-event-end.fc-event-future{
+        background-color: red !important;
+    }
 
 </style>
 
@@ -117,8 +134,11 @@
             <div class="modal-body">
                 <p id="inicioEvento" style="color: black;"></p>
                 <p id="finalEvento" style="color: black; margin-top: -17px;"></p>
-                <img id="imagen">
-                <p id="descripcion" style="color: black;"></p>
+                <div style="height: 500px; width:100%;">
+                    <img id="imagen" style='height: 100%; width: 100%; object-fit: contain'>
+                </div>
+                <div id="descripcion" style="color:black !important;">
+                </div>
             </div>
         </div>
     </div>
@@ -136,43 +156,7 @@
                 right: 'dayGridMonth,listYear'
             },
             displayEventTime: false,
-            events: [{
-                    'id': '1',
-                    'title': 'Patata',
-                    'start': '2021-02-25 11:22:00',
-                    'end': '2021-02-25 11:22:00',
-                    'extendedProps': {
-                        description: 'hola 1',
-                        image: 'imagen',
-                        fInici: '2021-02-21 11:22:00',
-                        fFinal: '2021-02-21 11:22:00'
-                    },
-                },
-                {
-                    'id': '2',
-                    'title': 'Patata2 sdfgsdfg',
-                    'start': '2021-02-26 11:22:00',
-                    'end': '2021-02-26 11:22:00',
-                    'extendedProps': {
-                        description: 'hola 2',
-                        image: 'imagen',
-                        fInici: '2021-02-21 11:22:00',
-                        fFinal: '2021-02-21 11:22:00'
-                    },
-                },
-                {
-                    'id': '4',
-                    'title': 'Patata2 sdfgsdfg',
-                    'start': '2021-02-21 11:22:00',
-                    'end': '2021-02-21 11:22:00',
-                    'extendedProps': {
-                        description: 'hola 3',
-                        image: 'imagen',
-                        fInici: '2021-02-21 11:22:00',
-                        fFinal: '2021-02-21 11:22:00'
-                    },
-                }
-            ],
+            events: "{{ route('calendar.eventos') }}",
             eventClick: function(arg) {
                 let event = arg.event;
                 console.log(event);
@@ -180,7 +164,7 @@
                 $('#inicioEvento').text('Inicio evento: ' + event.extendedProps.fInici);
                 $('#finalEvento').text('Final evento: ' + event.extendedProps.fFinal);
                 $('#descripcion').html(event.extendedProps.description);
-                $("#imagen").attr("src",event.extendedProps.image)
+                $("#imagen").attr("src", event.extendedProps.image)
                 $('#calendarModal').modal();
             },
         });

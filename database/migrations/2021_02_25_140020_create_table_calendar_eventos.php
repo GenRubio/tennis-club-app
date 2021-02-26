@@ -13,8 +13,13 @@ class CreateTableCalendarEventos extends Migration
      */
     public function up()
     {
-        Schema::create('table_calendar_eventos', function (Blueprint $table) {
+        Schema::create('calendar_eventos', function (Blueprint $table) {
             $table->id();
+            $table->string('titulo');
+            $table->string('descripcion');
+            $table->date('data_inicio');
+            $table->date('data_final');
+            $table->string('url')->nullable('true');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateTableCalendarEventos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_calendar_eventos');
+        Schema::dropIfExists('calendar_eventos');
     }
 }

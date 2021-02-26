@@ -35,7 +35,7 @@
             color: whitesmoke;
         }
 
-        p {
+        .texto-blanco {
             color: whitesmoke;
         }
 
@@ -251,9 +251,10 @@
         <br>
         <div class="row featurette">
             <div class="col-md-7">
-                <p>Publicat el 4 juny, 2020</p>
-                <h2 class="featurette-heading">CURS TENNIS ó PADEL 2020-2021</h2>
-                <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta iure laborum minima quis,
+                <p class="text-color-white">Publicat el 4 juny, 2020</p>
+                <h2 class="featurette-heading text-color-white">CURS TENNIS ó PADEL 2020-2021</h2>
+                <p class="lead text-color-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta iure
+                    laborum minima quis,
                     dolores laboriosam nulla, perferendis facilis ipsa praesentium adipisci, aliquid voluptatum maiores.
                     Sint quia itaque aliquam quam asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
                     totam quisquam tenetur dicta laudantium ipsam, quam optio consectetur necessitatibus sapiente,
@@ -270,9 +271,10 @@
         <br>
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
-                <p>Publicat el 4 juny, 2020</p>
+                <p class="text-color-white">Publicat el 4 juny, 2020</p>
                 <h2 class="featurette-heading">CASAL D’ESTIU 2020</span></h2>
-                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse voluptas quae aliquam dolore
+                <p class="lead text-color-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse voluptas quae
+                    aliquam dolore
                     natus corporis deserunt, cumque commodi eaque soluta unde assumenda tenetur alias est, dignissimos
                     inventore expedita fugit rerum?
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam vero repellendus, ullam, aspernatur
@@ -291,9 +293,10 @@
         <br>
         <div class="row featurette">
             <div class="col-md-7">
-                <p>Publicat el 4 juny, 2020</p>
+                <p class="text-color-white">Publicat el 4 juny, 2020</p>
                 <h2 class="featurette-heading">CASAL D’ESTIU 2020: EL CARTELL + MESURES CONTRA COVID-19</span></h2>
-                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, alias consequuntur, est
+                <p class="lead text-color-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, alias
+                    consequuntur, est
                     sit quod praesentium voluptates aspernatur fugiat dicta in omnis? Voluptas distinctio officiis
                     temporibus consequatur similique dolore fugiat maxime!
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa quidem quos voluptatem modi. Dolore
@@ -376,7 +379,8 @@
         <div class="row featurette">
             <div class="col-md-5">
                 <h2 class="featurette-heading">CALENDARIO DE EVENTOS</h2>
-                <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta iure laborum minima quis,
+                <p class="lead text-color-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta iure
+                    laborum minima quis,
                     dolores laboriosam nulla, perferendis facilis ipsa praesentium adipisci, aliquid voluptatum maiores.
                     Sint quia itaque aliquam quam asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
                     totam quisquam tenetur dicta laudantium ipsam, quam optio consectetur necessitatibus sapiente,
@@ -387,9 +391,88 @@
             </div>
         </div>
         <br>
-        <hr class="featurette-divider">
-    </div>
+        <hr class="featurette-divider" id="instalaciones">
+        <br>
+        <br>
+        <h1 class="color-red" style="font-weight: bold; z-index:999;">Instalaciones</h1>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow border-0">
+                    <img style="height: 250px;"
+                        src="{{ url('/images/instalaciones/tennis-court-hard-cover-tennis-concepts-3d-tennis-stadium.jpg') }}"
+                        class="card-img-top" alt="..." />
+                    <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                        <div class="d-flex justify-content-center">
+                            <h5 class="card-title"><strong>PISTAS DE TENNIS</strong></h5>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow border-0">
+                    <img style="height: 250px;" src="{{ url('/images/instalaciones/nueva_557.jpg') }}"
+                        class="card-img-top" alt="..." />
+                    <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                        <div class="d-flex justify-content-center">
+                            <h5 class="card-title"><strong>PISTAS DE PADEL</strong></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow border-0">
+                    <img style="height: 250px;" src="{{ url('/images/instalaciones/unnamed.jpg') }}" class="card-img-top"
+                        alt="..." />
+                    <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                        <div class="d-flex justify-content-center">
+                            <h5 class="card-title"><strong>PISCINA</strong></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow border-0">
+                    <img style="height: 250px;" src="{{ url('/images/instalaciones/450_1000.jpeg') }}"
+                        class="card-img-top" alt="..." />
+                    <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                        <div class="d-flex justify-content-center">
+                            <h5 class="card-title"><strong>SALA FITNESS</strong></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow border-0">
+                    <img style="height: 250px;" src="{{ url('/images/instalaciones/42699526--624x383.jpg') }}"
+                        class="card-img-top" alt="..." />
+                    <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                        <div class="d-flex justify-content-center">
+                            <h5 class="card-title"><strong>AREA DE JUEGOS</strong></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow border-0">
+                    <img style="height: 250px;"
+                        src="{{ url('/images/instalaciones/f4b132a349db60de299dd4d1e4fa1a57.jpg') }}"
+                        class="card-img-top" alt="..." />
+                    <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                        <div class="d-flex justify-content-center">
+                            <h5 class="card-title"><strong>ZONA BARBACOA</strong></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+    <br>
+    @include('components.footer')
 @endsection
 
 @section('personal-script')
@@ -413,6 +496,11 @@
             $("#tag3").click(function() {
                 $('html, body').animate({
                     scrollTop: $("#section34").offset().top
+                }, 1000);
+            });
+            $("#tag4").click(function() {
+                $('html, body').animate({
+                    scrollTop: $("#instalaciones").offset().top
                 }, 1000);
             });
         });

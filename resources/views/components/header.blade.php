@@ -37,13 +37,11 @@
         background-size: cover;
         background-position: center;
     }
-
-    .nav-second-margin {
-        margin-top: 300px;
+    .banner-center{
+        height: 300px;
     }
 
 </style>
-
 <div id="header">
     <div class="nav-banner">
         <div class="nav-superior">
@@ -52,6 +50,11 @@
                     <button type="button" class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block">LOGIN</button>
                     <button type="button" class="btn btn-danger mt-1 d-none d-sm-block">SING UP</button>
                 </div>
+            </div>
+        </div>
+        <div class="banner-center">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <img src="{{ url('/images/logo.png') }}" height="170px;" width="170px">
             </div>
         </div>
         <div class="nav-second-margin">

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
-class ShopArticle extends Model
+class CalendarEvento extends Model
 {
     use CrudTrait;
 
@@ -17,16 +17,17 @@ class ShopArticle extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'shop_articles';
+    protected $table = 'calendar_eventos';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'name',
-        'imagen',
+        'titulo',
         'descripcion',
-        'precio',
-        'activo'
+        'data_inicio',
+        'data_final',
+        'url',
+        'active'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -60,19 +61,14 @@ class ShopArticle extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-    public function setPrecioAttribute($value)
+    public function setUrlAttribute($value)
     {
-        return $this->attributes['precio'] = $value;
-    }
-
-    public function setImagenAttribute($value)
-    {
-        $attribute_name = 'imagen';
+        $attribute_name = 'url';
 
         if (!$this->preventAttrSet) {
             $disk = config('backpack.base.root_disk_name');
-            $destination_path = 'public/images/articulos/';
-            $destination_path_db = 'images/articulos/';
+            $destination_path = 'public/images/calendario/';
+            $destination_path_db = 'images/calendario/';
             if ($value == null) {
                 Storage::disk($disk)->delete('public/'.$this->{$attribute_name});
                 $this->attributes[$attribute_name] = null;
