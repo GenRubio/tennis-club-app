@@ -72,7 +72,8 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto text-center mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">
+                                <a class="nav-link" href="{{ route('home') }}"
+                                    style="{{ Request::is('/') ? 'color:whitesmoke !important' : '' }}">
                                     HOME
                                 </a>
                             </li>
