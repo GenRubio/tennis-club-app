@@ -14,7 +14,6 @@
 
     .fc-col-header-cell-cushion {
         color: red !important;
-
     }
 
     .fc-col-header-cell-cushion:hover {
@@ -118,26 +117,56 @@
     .fc-list-event.fc-event.fc-event-end.fc-event-future{
         background-color: red !important;
     }
+    #inicioEvento{
+        color: whitesmoke;
+    }
+    #finalEvento{
+        color: whitesmoke; 
+        margin-top: -17px;
+    }
+    #descripcion{
+        color:whitesmoke !important;
+    }
+    .modal-evento-image-div{
+        height: 500px; 
+        width:100%;
+    }
+    #imagen{
+        height: 100%; 
+        width: 100%; 
+        object-fit: contain;
+    }
+    .color-modal{
+        background-color: #43464d !important;
+    }
+    #titulo{
+        color: red !important;
+        font-weight: bold;
+    }
+    .modal-header{
+        border-bottom: 1px solid red !important;
+    }
 
 </style>
 
 <div id="calendar"></div>
 <div id="calendarModal" class="modal fade">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content color-modal">
             <div class="modal-header">
-                <h5 class="modal-title" id="titulo"></h5>
+                <h5 class="modal-title w-100 text-center" id="titulo"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p id="inicioEvento" style="color: black;"></p>
-                <p id="finalEvento" style="color: black; margin-top: -17px;"></p>
-                <div style="height: 500px; width:100%;">
-                    <img id="imagen" style='height: 100%; width: 100%; object-fit: contain'>
+                <p id="inicioEvento"></p>
+                <p id="finalEvento"></p>
+                <div class="modal-evento-image-div">
+                    <img id="imagen">
                 </div>
-                <div id="descripcion" style="color:black !important;">
+                <hr class="featurette-divider">
+                <div id="descripcion">
                 </div>
             </div>
         </div>

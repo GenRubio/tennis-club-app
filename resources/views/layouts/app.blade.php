@@ -19,6 +19,12 @@
     @yield('personal-style')
     <title>Tennis Padel</title>
 </head>
+<style>
+    body {
+        background-color: #36393f;
+    }
+
+</style>
 
 <body>
     @include('components.header')

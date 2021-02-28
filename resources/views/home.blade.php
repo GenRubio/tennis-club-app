@@ -6,10 +6,6 @@
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <style>
-        body {
-            background-color: #36393f;
-        }
-
         .icons-home {
             font-size: 70px;
             color: red;
@@ -76,14 +72,13 @@
         .lms-carusel-img {
             height: 370px;
             width: auto;
-
         }
 
         .lms-carusel-content {
             height: 370px;
             width: auto;
             position: relative;
-            transition: all 2s transform;
+            transition: transform 2s;
         }
 
         .lms-carusel-content:hover {
@@ -134,7 +129,6 @@
         .cristal-effect:hover::before {
             left: 150%;
         }
-
     </style>
 @endsection
 @section('content')
@@ -398,7 +392,7 @@
         <br>
         <div class="row">
             <div class="col-md-4">
-                <div class="card mb-4 box-shadow border-0">
+                <div class="card mb-4 box-shadow border-0 instalaciones">
                     <img style="height: 250px;"
                         src="{{ url('/images/instalaciones/tennis-court-hard-cover-tennis-concepts-3d-tennis-stadium.jpg') }}"
                         class="card-img-top" alt="..." />
@@ -411,7 +405,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card mb-4 box-shadow border-0">
+                <div class="card mb-4 box-shadow border-0 instalaciones">
                     <img style="height: 250px;" src="{{ url('/images/instalaciones/nueva_557.jpg') }}"
                         class="card-img-top" alt="..." />
                     <div class="card-body" style="background-color: #434956; color:whitesmoke">
@@ -422,7 +416,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card mb-4 box-shadow border-0">
+                <div class="card mb-4 box-shadow border-0 instalaciones">
                     <img style="height: 250px;" src="{{ url('/images/instalaciones/unnamed.jpg') }}" class="card-img-top"
                         alt="..." />
                     <div class="card-body" style="background-color: #434956; color:whitesmoke">
@@ -434,7 +428,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card mb-4 box-shadow border-0">
+                <div class="card mb-4 box-shadow border-0 instalaciones">
                     <img style="height: 250px;" src="{{ url('/images/instalaciones/450_1000.jpeg') }}"
                         class="card-img-top" alt="..." />
                     <div class="card-body" style="background-color: #434956; color:whitesmoke">
@@ -445,7 +439,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card mb-4 box-shadow border-0">
+                <div class="card mb-4 box-shadow border-0 instalaciones">
                     <img style="height: 250px;" src="{{ url('/images/instalaciones/42699526--624x383.jpg') }}"
                         class="card-img-top" alt="..." />
                     <div class="card-body" style="background-color: #434956; color:whitesmoke">
@@ -456,7 +450,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card mb-4 box-shadow border-0">
+                <div class="card mb-4 box-shadow border-0 instalaciones">
                     <img style="height: 250px;"
                         src="{{ url('/images/instalaciones/f4b132a349db60de299dd4d1e4fa1a57.jpg') }}"
                         class="card-img-top" alt="..." />

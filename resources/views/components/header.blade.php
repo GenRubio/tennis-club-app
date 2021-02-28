@@ -36,8 +36,10 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+
     }
-    .banner-center{
+
+    .banner-center {
         height: 300px;
     }
 
@@ -47,8 +49,10 @@
         <div class="nav-superior">
             <div class="container">
                 <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block">LOGIN</button>
-                    <button type="button" class="btn btn-danger mt-1 d-none d-sm-block">SING UP</button>
+                    <a href="{{ route('login') }}" type="button"
+                        class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block">LOGIN</a>
+                    <a href="{{ route('registro') }}" type="button" class="btn btn-danger mt-1 d-none d-sm-block">SING
+                        UP</a>
                 </div>
             </div>
         </div>
@@ -68,7 +72,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto text-center mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{ route('home') }}">
                                     HOME
                                 </a>
                             </li>
@@ -132,3 +136,27 @@
     </div>
 
 </div>
+<script>
+    $(document).ready(function() {
+
+        /*var count = 0;
+        setInterval(function(){
+            count++;
+            switch (count) {
+                case 1:
+                    $('.nav-banner').css("background-image", "url('{{ url('/images/home/780473.jpg') }}')");
+                    break;
+                case 2:
+                    $('.nav-banner').css("background-image", "url('{{ url('/images/home/216.jpg') }}')");
+                    break;
+                default:
+                    //fibra-padel-sports-club.png
+                    $('.nav-banner').css("background-image",
+                        "url('{{ url('/images/home/fibra-padel-sports-club.png') }}')", "filter");
+                    count = 0;
+                    break;
+            }
+        }, 20000);*/
+    });
+
+</script>
