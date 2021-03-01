@@ -210,10 +210,10 @@
         .marquee-content li img {
             width: 100%;
             height: 100%;
-            border: 1px solid red;
+           
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 1000px) {
             html {
                 font-size: 12px;
             }
@@ -492,7 +492,7 @@
         <h1 class="color-red" style="font-weight: bold; z-index:999;">Instalaciones</h1>
         <br>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12">
                 <div class="card mb-4 box-shadow border-0 instalaciones">
                     <img style="height: 250px;"
                         src="{{ url('/images/instalaciones/tennis-court-hard-cover-tennis-concepts-3d-tennis-stadium.jpg') }}"
@@ -505,7 +505,7 @@
 
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12">
                 <div class="card mb-4 box-shadow border-0 instalaciones">
                     <img style="height: 250px;" src="{{ url('/images/instalaciones/nueva_557.jpg') }}"
                         class="card-img-top" alt="..." />
@@ -516,7 +516,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12">
                 <div class="card mb-4 box-shadow border-0 instalaciones">
                     <img style="height: 250px;" src="{{ url('/images/instalaciones/unnamed.jpg') }}" class="card-img-top"
                         alt="..." />
@@ -528,7 +528,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12">
                 <div class="card mb-4 box-shadow border-0 instalaciones">
                     <img style="height: 250px;" src="{{ url('/images/instalaciones/450_1000.jpeg') }}"
                         class="card-img-top" alt="..." />
@@ -539,7 +539,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12">
                 <div class="card mb-4 box-shadow border-0 instalaciones">
                     <img style="height: 250px;" src="{{ url('/images/instalaciones/42699526--624x383.jpg') }}"
                         class="card-img-top" alt="..." />
@@ -550,7 +550,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12">
                 <div class="card mb-4 box-shadow border-0 instalaciones">
                     <img style="height: 250px;"
                         src="{{ url('/images/instalaciones/f4b132a349db60de299dd4d1e4fa1a57.jpg') }}"

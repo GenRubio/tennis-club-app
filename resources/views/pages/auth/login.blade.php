@@ -160,7 +160,7 @@
         }
         .google {
             background-color: white !important;
-            color: black;
+            color: black !important;;
             font-weight: bold;
             border-style: solid !important;
             border-color: rgb(207, 205, 205) !important;

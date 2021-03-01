@@ -30,7 +30,7 @@
     }
 
     .nav-banner {
-        background-image: url("{{ url('/images/home/fibra-padel-sports-club.png') }}");
+        background-image: url("{{ url('/images/home/780473.jpg') }}");
         width: 100%;
         height: 350px;
         background-repeat: no-repeat;
@@ -58,7 +58,9 @@
         </div>
         <div class="banner-center">
             <div class="d-flex justify-content-center align-items-center h-100">
-                <img src="{{ url('/images/logo.png') }}" height="170px;" width="170px">
+                <a href="{{ route('home') }}">
+                    <img src="{{ url('/images/logo.png') }}" height="170px;" width="170px">
+                </a>
             </div>
         </div>
         <div class="nav-second-margin">
