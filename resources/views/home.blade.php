@@ -70,11 +70,13 @@
         }
 
         .lms-carusel-img {
+            min-height: 370px;
             height: 370px;
             width: auto;
         }
 
         .lms-carusel-content {
+            min-height: 370px;
             height: 370px;
             width: auto;
             position: relative;
@@ -130,11 +132,6 @@
             left: 150%;
         }
 
-
-
-
-
-
         :root {
             --marquee-width: 100%;
             --marquee-height: 20vh;
@@ -182,8 +179,8 @@
         }
 
         /* .marquee-content:hover {
-          animation-play-state: paused;
-        } */
+                                  animation-play-state: paused;
+                                } */
         @keyframes scrolling {
             0% {
                 transform: translateX(0);
@@ -210,14 +207,10 @@
         .marquee-content li img {
             width: 100%;
             height: 100%;
-           
+
         }
 
         @media (max-width: 1000px) {
-            html {
-                font-size: 12px;
-            }
-
             :root {
                 --marquee-width: 100vw;
                 --marquee-height: 16vh;
@@ -227,6 +220,83 @@
             .marquee:before,
             .marquee:after {
                 width: 5rem;
+            }
+        }
+
+
+
+        .b-game-card__cover {
+            z-index: 1;
+            max-width: 100%;
+            height: 90%;
+            overflow: hidden;
+            background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            background-size: cover;
+            perspective-origin: 50% 50%;
+            transform-style: preserve-3d;
+            transform-origin: top center;
+            will-change: transform;
+            transform: skewX(0.001deg);
+            transition: transform 0.35s ease-in-out;
+        }
+
+        .b-game-card__cover::after {
+
+            z-index: 100;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(226deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 35%, rgba(255, 255, 255, 0.2) 42%, rgba(255, 255, 255, 0) 60%);
+            transform: translateY(-20%);
+            will-change: transform;
+            transition: transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);
+        }
+
+        .b-game-card:hover .b-game-card__cover {
+            transform: rotateX(7deg) translateY(-6px);
+        }
+
+        .b-game-card:hover .b-game-card__cover::after {
+            transform: translateY(0%);
+        }
+
+        .b-game-card::before {
+
+            top: 5%;
+            left: 5%;
+            width: 90%;
+            height: 90%;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 6px 12px 12px rgba(0, 0, 0, 0.4);
+            will-change: opacity;
+            transform-origin: top center;
+            transform: skewX(0.001deg);
+            transition: transform 0.35s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        .b-game-card:hover::before {
+            opacity: 0.6;
+            transform: rotateX(7deg) translateY(-6px) scale(1.05);
+        }
+
+        .url-instalaciones:hover {
+            text-decoration: none;
+        }
+
+        @media (max-width: 540px) {
+            .lms-carusel-img {
+                min-height: 370px;
+                height: 370px;
+                width: auto;
+            }
+
+            .lms-carusel-content {
+                min-height: 370px;
+                height: 370px;
+                width: auto;
+                position: relative;
+                transition: transform 2s;
             }
         }
 
@@ -492,75 +562,86 @@
         <h1 class="color-red" style="font-weight: bold; z-index:999;">Instalaciones</h1>
         <br>
         <div class="row">
-            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="card mb-4 box-shadow border-0 instalaciones">
-                    <img style="height: 250px;"
-                        src="{{ url('/images/instalaciones/tennis-court-hard-cover-tennis-concepts-3d-tennis-stadium.jpg') }}"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body" style="background-color: #434956; color:whitesmoke">
-                        <div class="d-flex justify-content-center">
-                            <h5 class="card-title"><strong>PISTAS DE TENNIS</strong></h5>
+            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
+                <a href="#" class="url-instalaciones">
+                    <div class="card mb-4 box-shadow border-0 instalaciones b-game-card__cover ">
+                        <img style="height: 250px;"
+                            src="{{ url('/images/instalaciones/tennis-court-hard-cover-tennis-concepts-3d-tennis-stadium.jpg') }}"
+                            class="card-img-top" alt="..." />
+                        <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                            <div class="d-flex justify-content-center">
+                                <h5 class="card-title"><strong>PISTAS DE TENNIS</strong></h5>
+                            </div>
                         </div>
                     </div>
+                </a>
+            </div>
+            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
+                <a href="#" class="url-instalaciones">
+                    <div class="card mb-4 box-shadow border-0 instalaciones b-game-card__cover ">
+                        <img style="height: 250px;" src="{{ url('/images/instalaciones/nueva_557.jpg') }}"
+                            class="card-img-top" alt="..." />
+                        <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                            <div class="d-flex justify-content-center">
+                                <h5 class="card-title"><strong>PISTAS DE PADEL</strong></h5>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
+                <a href="#" class="url-instalaciones">
+                    <div class="card mb-4 box-shadow border-0 instalaciones b-game-card__cover ">
+                        <img style="height: 250px;" src="{{ url('/images/instalaciones/unnamed.jpg') }}"
+                            class="card-img-top" alt="..." />
+                        <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                            <div class="d-flex justify-content-center">
+                                <h5 class="card-title"><strong>PISCINA</strong></h5>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-                </div>
-            </div>
-            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="card mb-4 box-shadow border-0 instalaciones">
-                    <img style="height: 250px;" src="{{ url('/images/instalaciones/nueva_557.jpg') }}"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body" style="background-color: #434956; color:whitesmoke">
-                        <div class="d-flex justify-content-center">
-                            <h5 class="card-title"><strong>PISTAS DE PADEL</strong></h5>
+            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
+                <a href="#" class="url-instalaciones">
+                    <div class="card mb-4 box-shadow border-0 instalaciones b-game-card__cover ">
+                        <img style="height: 250px;" src="{{ url('/images/instalaciones/450_1000.jpeg') }}"
+                            class="card-img-top" alt="..." />
+                        <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                            <div class="d-flex justify-content-center">
+                                <h5 class="card-title"><strong>SALA FITNESS</strong></h5>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="card mb-4 box-shadow border-0 instalaciones">
-                    <img style="height: 250px;" src="{{ url('/images/instalaciones/unnamed.jpg') }}" class="card-img-top"
-                        alt="..." />
-                    <div class="card-body" style="background-color: #434956; color:whitesmoke">
-                        <div class="d-flex justify-content-center">
-                            <h5 class="card-title"><strong>PISCINA</strong></h5>
+            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
+                <a href="#" class="url-instalaciones">
+                    <div class="card mb-4 box-shadow border-0 instalaciones  b-game-card__cover">
+                        <img style="height: 250px;" src="{{ url('/images/instalaciones/42699526--624x383.jpg') }}"
+                            class="card-img-top" alt="..." />
+                        <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                            <div class="d-flex justify-content-center">
+                                <h5 class="card-title"><strong>AREA DE JUEGOS</strong></h5>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-
-            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="card mb-4 box-shadow border-0 instalaciones">
-                    <img style="height: 250px;" src="{{ url('/images/instalaciones/450_1000.jpeg') }}"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body" style="background-color: #434956; color:whitesmoke">
-                        <div class="d-flex justify-content-center">
-                            <h5 class="card-title"><strong>SALA FITNESS</strong></h5>
+            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
+                <a href="#" class="url-instalaciones">
+                    <div class="card mb-4 box-shadow border-0 instalaciones b-game-card__cover">
+                        <img style="height: 250px;"
+                            src="{{ url('/images/instalaciones/f4b132a349db60de299dd4d1e4fa1a57.jpg') }}"
+                            class="card-img-top" alt="..." />
+                        <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                            <div class="d-flex justify-content-center">
+                                <h5 class="card-title"><strong>ZONA BARBACOA</strong></h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="card mb-4 box-shadow border-0 instalaciones">
-                    <img style="height: 250px;" src="{{ url('/images/instalaciones/42699526--624x383.jpg') }}"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body" style="background-color: #434956; color:whitesmoke">
-                        <div class="d-flex justify-content-center">
-                            <h5 class="card-title"><strong>AREA DE JUEGOS</strong></h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="card mb-4 box-shadow border-0 instalaciones">
-                    <img style="height: 250px;"
-                        src="{{ url('/images/instalaciones/f4b132a349db60de299dd4d1e4fa1a57.jpg') }}"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body" style="background-color: #434956; color:whitesmoke">
-                        <div class="d-flex justify-content-center">
-                            <h5 class="card-title"><strong>ZONA BARBACOA</strong></h5>
-                        </div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
         <br>
@@ -589,7 +670,7 @@
         $(document).ready(function() {
             const root = document.documentElement;
             const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue(
-            "--marquee-elements-displayed");
+                "--marquee-elements-displayed");
             const marqueeContent = document.querySelector("ul.marquee-content");
 
             root.style.setProperty("--marquee-elements", marqueeContent.children.length);
@@ -609,17 +690,17 @@
             $("#tag2").click(function() {
                 $('html, body').animate({
                     scrollTop: $("#particles-js").offset().top
-                }, 1000);
+                }, 2000);
             });
             $("#tag3").click(function() {
                 $('html, body').animate({
                     scrollTop: $("#section34").offset().top
-                }, 1000);
+                }, 2000);
             });
             $("#tag4").click(function() {
                 $('html, body').animate({
                     scrollTop: $("#instalaciones").offset().top
-                }, 1000);
+                }, 2000);
             });
         });
         $('.torneos').slick({
@@ -650,7 +731,7 @@
                     }
                 },
                 {
-                    breakpoint: 740,
+                    breakpoint: 540,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1

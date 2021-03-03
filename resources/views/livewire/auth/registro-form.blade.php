@@ -1,17 +1,21 @@
 <div>
-    <form>
+    <form wire:submit.prevent="create">
+
         <div class="form-group">
-            <input type="text" id="nombre" class="form-control inputs-style" placeholder="Nombre">
+            @error('first_name') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+            <input wire:model="first_name" type="text" class="form-control inputs-style" placeholder="Nombre">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control inputs-style" placeholder="Apellidos">
+            @error('second_name') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+            <input wire:model="second_name" type="text" class="form-control inputs-style" placeholder="Apellidos">
         </div>
         <div class="form-group">
-            <input type="email" name="email" id="email" class="form-control inputs-style" placeholder="Email">
+            @error('email') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+            <input wire:model="email" type="email" ¡ class="form-control inputs-style" placeholder="Email">
         </div>
         <div class="form-group mb-4">
-            <input type="password" name="password" id="password" class="form-control inputs-style"
-                placeholder="Contraseña">
+            @error('password') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+            <input wire:model="password" type="password" class="form-control inputs-style" placeholder="Contraseña">
             <small id="emailHelp" class="form-text text-muted"
                 style="margin-top: -20px; color:rgb(195, 195, 195) !important;">
                 La contraseña debe contener minimo 8 caracteres letra mayuscula, minuscula y un
@@ -19,20 +23,26 @@
             </small>
         </div>
         <div class="form-group mb-4">
-            <input type="password" name="password" id="password" class="form-control inputs-style"
+            @error('password_repeat') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+            <input wire:model="password_repeat" type="password" class="form-control inputs-style"
                 placeholder="Repite contraseña">
         </div>
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="newsletter">
+            <input wire:model="newsletter" wire:click="newsletterCheck" type="checkbox" class="form-check-input"
+                id="newsletter">
             <label class="form-check-label color-whitesmoke" for="newsletter">Recibir noticias y
                 novedades</label>
         </div>
+        <br>
+        @error('terminos') <span class="error" style="color: red;">{{ $message }}</span>
+        @enderror
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="terminos">
+            <input wire:model="terminos" type="checkbox" class="form-check-input" id="terminos">
             <label class="form-check-label color-whitesmoke" for="terminos">Aceptar terminos y
                 condiciones</label>
         </div>
         <br>
-        <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Registrarse">
+        <input type="submit" name="login" id="login" class="btn btn-block login-btn mb-4" type="button"
+            value="Registrarse">
     </form>
 </div>
