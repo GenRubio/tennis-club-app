@@ -3,7 +3,7 @@
 
         <div class="form-group">
             @error('first_name') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-            <input wire:model="first_name" type="text" class="form-control inputs-style" placeholder="Nombre">
+            <input wire:model="first_name" id="nombre" type="text" class="form-control inputs-style" placeholder="Nombre">
         </div>
         <div class="form-group">
             @error('second_name') <span class="error" style="color: red;">{{ $message }}</span> @enderror
@@ -17,7 +17,7 @@
             @error('password') <span class="error" style="color: red;">{{ $message }}</span> @enderror
             <input wire:model="password" type="password" class="form-control inputs-style" placeholder="Contraseña">
             <small id="emailHelp" class="form-text text-muted"
-                style="margin-top: -20px; color:rgb(195, 195, 195) !important;">
+                style="margin-top: -15px; color:rgb(195, 195, 195) !important;">
                 La contraseña debe contener minimo 8 caracteres letra mayuscula, minuscula y un
                 numero.
             </small>

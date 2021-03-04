@@ -33,6 +33,8 @@ class LoginForm extends Component
         else{
             session()->flash('error', 'Email o contraseña incorrectos.');
         }
+
+        $this->resetForm();
     }
     public function resetForm(){
         $this->email = "";

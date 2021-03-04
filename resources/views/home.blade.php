@@ -1,14 +1,12 @@
 @extends('layouts.app')
 
 @section('personal-style')
-    <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <style>
         .icons-home {
             font-size: 70px;
-            color: red;
+            color: #e3342f;
             margin-top: 23px;
         }
 

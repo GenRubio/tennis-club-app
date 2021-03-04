@@ -9,7 +9,7 @@
     }
 
     .nav-link {
-        color: red !important;
+        color: #e3342f !important;
         font-weight: bold !important;
         -webkit-transition: all .3s linear;
         -o-transition: all .3s linear;
@@ -26,7 +26,7 @@
     }
 
     .navbar-light .navbar-toggler {
-        border-color: red !important;
+        border-color: #e3342f !important;
     }
 
     .nav-banner {

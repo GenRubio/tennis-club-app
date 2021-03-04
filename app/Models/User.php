@@ -25,6 +25,8 @@ class User extends Authenticatable
         'first_name',
         'second_name',
         'newsletter',
+        'token_recover_email',
+        'active_token_email'
     ];
 
     /**

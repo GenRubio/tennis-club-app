@@ -105,6 +105,10 @@
             color: #0d2366;
             margin-bottom: 60px;
         }
+        .login-recover-password {
+            font-size: 16px;
+            margin-bottom: 60px;
+        }
 
         @media (max-width: 767px) {
             .login-card-footer-text {
@@ -192,6 +196,7 @@
                         
                         <livewire:auth.login-form/>
 
+                        <a href="{{ route('recover.password') }}" class="login-recover-password color-whitesmoke">¿Has olvidado la contraseña?</a>
                         <p class="login-card-footer-text color-whitesmoke">¿No tienes cuenta? 
                             <a href="{{ route('registro') }}" class="text-reset button-login-here">Registrarse</a></p>
                     </div>

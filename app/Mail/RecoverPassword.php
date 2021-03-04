@@ -11,23 +11,17 @@ class RecoverPassword extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $url;
+    public $nombre;
+    public function __construct($url, $nombre)
     {
-        //
+        $this->url = $url;
+        $this->nombre = $nombre;
     }
-
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
-        return $this->markdown('emails.recover-password');
+        return $this->subject('TennisPadel recuperar contraseña')
+        ->markdown('emails.recover-password')
+        ->with($this->url, $this->nombre);
     }
 }

@@ -1,12 +1,13 @@
 @component('mail::message')
-# Introduction
+# 
 
-The body of your message.
-
-@component('mail::button', ['url' => ''])
-Button Text
+Hola {{ $nombre }} , has solicitado el cambio de contraseña.
+<br>
+Haz clic en el botón para cambiar tu contraseña.
+@component('mail::button', ['url' => $url])
+Cambiar contraseña
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+<br>
+TennisPadel
 @endcomponent
