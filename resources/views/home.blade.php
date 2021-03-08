@@ -40,10 +40,6 @@
             width: 100%;
         }
 
-        .featurette-divider {
-            background-color: red;
-        }
-
         .color-red {
             color: red;
         }
@@ -129,98 +125,6 @@
         .cristal-effect:hover::before {
             left: 150%;
         }
-
-        :root {
-            --marquee-width: 100%;
-            --marquee-height: 20vh;
-            /* --marquee-elements: 12; */
-            /* defined with JavaScript */
-            --marquee-elements-displayed: 5;
-            --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
-            --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
-        }
-
-        .marquee {
-            width: var(--marquee-width);
-            height: var(--marquee-height);
-            background-color: #111;
-            color: #eee;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .marquee:before,
-        .marquee:after {
-            position: absolute;
-            top: 0;
-            width: 10rem;
-            height: 100%;
-            content: "";
-            z-index: 1;
-        }
-
-        .marquee:before {
-            left: 0;
-            background: linear-gradient(to right, #111 0%, transparent 100%);
-        }
-
-        .marquee:after {
-            right: 0;
-            background: linear-gradient(to left, #111 0%, transparent 100%);
-        }
-
-        .marquee-content {
-            list-style: none;
-            height: 100%;
-            display: flex;
-            animation: scrolling var(--marquee-animation-duration) linear infinite;
-        }
-
-        /* .marquee-content:hover {
-                                  animation-play-state: paused;
-                                } */
-        @keyframes scrolling {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
-            }
-        }
-
-        .marquee-content li {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* text-align: center; */
-            flex-shrink: 0;
-            width: var(--marquee-element-width);
-            max-height: 100%;
-            font-size: calc(var(--marquee-height)*3/4);
-            /* 5rem; */
-            white-space: nowrap;
-        }
-
-        .marquee-content li img {
-            width: 100%;
-            height: 100%;
-
-        }
-
-        @media (max-width: 1000px) {
-            :root {
-                --marquee-width: 100vw;
-                --marquee-height: 16vh;
-                --marquee-elements-displayed: 3;
-            }
-
-            .marquee:before,
-            .marquee:after {
-                width: 5rem;
-            }
-        }
-
 
 
         .b-game-card__cover {
@@ -560,103 +464,29 @@
         <h1 class="color-red" style="font-weight: bold; z-index:999;">Instalaciones</h1>
         <br>
         <div class="row">
-            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
-                <a href="#" class="url-instalaciones">
-                    <div class="card mb-4 box-shadow border-0 instalaciones b-game-card__cover ">
-                        <img style="height: 250px;"
-                            src="{{ url('/images/instalaciones/tennis-court-hard-cover-tennis-concepts-3d-tennis-stadium.jpg') }}"
-                            class="card-img-top" alt="..." />
-                        <div class="card-body" style="background-color: #434956; color:whitesmoke">
-                            <div class="d-flex justify-content-center">
-                                <h5 class="card-title"><strong>PISTAS DE TENNIS</strong></h5>
+            @foreach ($instalaciones as $instalacion)
+                <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
+                    <a href="{{ route('instalacion', $instalacion->slug) }}" class="url-instalaciones">
+                        <div class="card mb-4 box-shadow border-0 instalaciones b-game-card__cover ">
+                            <img style="height: 250px;"
+                                src="{{ $instalacion->image }}"
+                                class="card-img-top" alt="..." />
+                            <div class="card-body" style="background-color: #434956; color:whitesmoke">
+                                <div class="d-flex justify-content-center">
+                                    <h5 class="card-title"><strong>{{ $instalacion->titulo }}</strong></h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
-                <a href="#" class="url-instalaciones">
-                    <div class="card mb-4 box-shadow border-0 instalaciones b-game-card__cover ">
-                        <img style="height: 250px;" src="{{ url('/images/instalaciones/nueva_557.jpg') }}"
-                            class="card-img-top" alt="..." />
-                        <div class="card-body" style="background-color: #434956; color:whitesmoke">
-                            <div class="d-flex justify-content-center">
-                                <h5 class="card-title"><strong>PISTAS DE PADEL</strong></h5>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
-                <a href="#" class="url-instalaciones">
-                    <div class="card mb-4 box-shadow border-0 instalaciones b-game-card__cover ">
-                        <img style="height: 250px;" src="{{ url('/images/instalaciones/unnamed.jpg') }}"
-                            class="card-img-top" alt="..." />
-                        <div class="card-body" style="background-color: #434956; color:whitesmoke">
-                            <div class="d-flex justify-content-center">
-                                <h5 class="card-title"><strong>PISCINA</strong></h5>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
-                <a href="#" class="url-instalaciones">
-                    <div class="card mb-4 box-shadow border-0 instalaciones b-game-card__cover ">
-                        <img style="height: 250px;" src="{{ url('/images/instalaciones/450_1000.jpeg') }}"
-                            class="card-img-top" alt="..." />
-                        <div class="card-body" style="background-color: #434956; color:whitesmoke">
-                            <div class="d-flex justify-content-center">
-                                <h5 class="card-title"><strong>SALA FITNESS</strong></h5>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
-                <a href="#" class="url-instalaciones">
-                    <div class="card mb-4 box-shadow border-0 instalaciones  b-game-card__cover">
-                        <img style="height: 250px;" src="{{ url('/images/instalaciones/42699526--624x383.jpg') }}"
-                            class="card-img-top" alt="..." />
-                        <div class="card-body" style="background-color: #434956; color:whitesmoke">
-                            <div class="d-flex justify-content-center">
-                                <h5 class="card-title"><strong>AREA DE JUEGOS</strong></h5>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lx-4 col-lg-4 col-md-6 col-sm-12 col-12 b-game-card">
-                <a href="#" class="url-instalaciones">
-                    <div class="card mb-4 box-shadow border-0 instalaciones b-game-card__cover">
-                        <img style="height: 250px;"
-                            src="{{ url('/images/instalaciones/f4b132a349db60de299dd4d1e4fa1a57.jpg') }}"
-                            class="card-img-top" alt="..." />
-                        <div class="card-body" style="background-color: #434956; color:whitesmoke">
-                            <div class="d-flex justify-content-center">
-                                <h5 class="card-title"><strong>ZONA BARBACOA</strong></h5>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            @endforeach
         </div>
         <br>
         <br>
     </div>
     <br>
     <br>
-    <div class="marquee">
-        <ul class="marquee-content">
-            <li><img src="{{ url('/images/home/caruselFooter/234324.jpg') }}"></li>
-            <li><img src="{{ url('/images/home/caruselFooter/780473.jpg') }}"></li>
-            <li><img src="{{ url('/images/home/caruselFooter/descarga.jpg') }}"></li>
-            <li><img src="{{ url('/images/home/caruselFooter/images.jpg') }}"></li>
-            <li><img src="{{ url('/images/home/caruselFooter/tennis-wallpaper-4.jpg') }}"></li>
-            <li><img src="{{ url('/images/home/caruselFooter/WS-42467_WP.jpg') }}"></li>
-        </ul>
-    </div>
+    @include('components.carusel-footer')
     @include('components.footer')
 @endsection
 
@@ -666,20 +496,7 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
         $(document).ready(function() {
-            const root = document.documentElement;
-            const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue(
-                "--marquee-elements-displayed");
-            const marqueeContent = document.querySelector("ul.marquee-content");
-
-            root.style.setProperty("--marquee-elements", marqueeContent.children.length);
-
-            for (let i = 0; i < marqueeElementsDisplayed; i++) {
-                marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
-            }
-
-
-            $('.fc-daygrid-event-dot').remove();
-
+           
             $("#tag1").click(function() {
                 $('html, body').animate({
                     scrollTop: $("#section1").offset().top

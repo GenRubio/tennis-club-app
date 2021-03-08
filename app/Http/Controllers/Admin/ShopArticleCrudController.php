@@ -15,6 +15,9 @@ class ShopArticleCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+
+    use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
+
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
@@ -60,18 +63,12 @@ class ShopArticleCrudController extends CrudController
                 'name' => 'name',
                 'label' => 'Nombre',
                 'type' => 'text',
-                'attributes' => [
-                    'required' => 'required',
-                ],
             ],
             [
                 'name' => 'descripcion',
                 'label' => 'Descripcion',
                 'type' => 'ckeditor',
                 'limint' => -1,
-                'attributes' => [
-                    'required' => 'required',
-                ],
             ],
             [
                 'name' => 'imagen',
@@ -79,12 +76,21 @@ class ShopArticleCrudController extends CrudController
                 'type' => 'image',
             ],
             [
+                'label' => 'Categoria',
+                'type' => 'select2',
+                'name' => 'shop_categorie_id',
+                'model'     => "App\Models\ShopCategorie",
+                'attribute' => 'titulo',
+                'options'   => (function ($query) {
+                    return $query->orderBy('titulo', 'ASC')->where('activo', 1)->get();
+                }),
+            ],
+            [
                 'name' => 'precio',
                 'label' => 'Precio',
                 'type' => 'number',
                 'attributes' => [
                     'step' => 'any',
-                    'required' => 'required',
                 ],
             ],
             [

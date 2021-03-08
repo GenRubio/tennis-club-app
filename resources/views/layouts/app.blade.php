@@ -24,6 +24,10 @@
         background-color: #36393f;
     }
 
+    .featurette-divider {
+        background-color: red;
+    }
+
 </style>
 
 <body>

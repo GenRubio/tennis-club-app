@@ -26,7 +26,8 @@ class ShopArticle extends Model
         'imagen',
         'descripcion',
         'precio',
-        'activo'
+        'activo',
+        'shop_categorie_id'
     ];
     // protected $hidden = [];
     // protected $dates = [];

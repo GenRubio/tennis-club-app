@@ -33,4 +33,11 @@ Route::group([
     Route::crud('casalhistorial', 'CasalHistorialCrudController');
     Route::crud('alquilerpista', 'AlquilerPistaCrudController');
     Route::crud('calendarevento', 'CalendarEventoCrudController');
+    Route::crud('instalacione', 'InstalacioneCrudController');
+
+    Route::group(['prefix' => 'instalacione/{instalacion_id}'], function () {
+        Route::crud('images', 'InstalacionImageCrudController');
+    });
+    //Route::crud('instalacionimage', 'InstalacionImageCrudController');
+    Route::crud('shopcategorie', 'ShopCategorieCrudController');
 }); // this should be the absolute last line of this file

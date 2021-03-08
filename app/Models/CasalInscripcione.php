@@ -53,10 +53,6 @@ class CasalInscripcione extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function casalInsripcionesMeses()
-    {
-        return $this->hasMany(AcademyLesson::class, 'inscripcion_id');
-    }
 
     /*
     |--------------------------------------------------------------------------

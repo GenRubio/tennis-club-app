@@ -115,7 +115,8 @@
                                 <a class="nav-link" href="#">GALERIA</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">TIENDA</a>
+                                <a class="nav-link" href="{{ route('tienda') }}"
+                                    style="{{ Request::is('tienda') ? 'color:whitesmoke !important' : '' }}">TIENDA</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">RESTAURANTE</a>

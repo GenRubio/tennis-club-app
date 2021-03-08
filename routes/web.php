@@ -10,6 +10,8 @@ use App\Http\Controllers\Auth\RecoverPasswordController;
 use App\Http\Controllers\Auth\RegistroController;
 use App\Http\Controllers\Home\CalendarController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Home\InstalacionesController;
+use App\Http\Controllers\Home\TiendaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -25,11 +27,15 @@ Route::get('/recover-password', [RecoverPasswordController::class, 'index'])
 
 Route::get('/recover-password-validate', [RecoverPasswordController::class, 'recoverPassword'])
     ->name('recover.password.validate');
-
-
 ///Home
 Route::get('/get-calendar-events', [CalendarController::class, 'index'])
     ->name('calendar.eventos');
+
+Route::get('/instalaciones/{slug}', [InstalacionesController::class, 'index'])
+    ->name('instalacion');
+
+Route::get('/tienda', [TiendaController::class, 'index'])
+    ->name('tienda');
 //Registro
 Route::get('/registro', [RegistroController::class, 'index'])
     ->name('registro');
