@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RecoverPasswordController;
 use App\Http\Controllers\Auth\RegistroController;
 use App\Http\Controllers\Home\CalendarController;
+use App\Http\Controllers\Home\ContactoController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\InstalacionesController;
 use App\Http\Controllers\Home\TiendaController;
@@ -36,6 +37,9 @@ Route::get('/instalaciones/{slug}', [InstalacionesController::class, 'index'])
 
 Route::get('/tienda', [TiendaController::class, 'index'])
     ->name('tienda');
+
+Route::get('/contacto', [ContactoController::class, 'index'])
+    ->name('contacto');
 //Registro
 Route::get('/registro', [RegistroController::class, 'index'])
     ->name('registro');

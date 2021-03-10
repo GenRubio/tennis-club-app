@@ -122,7 +122,8 @@
                                 <a class="nav-link" href="#">RESTAURANTE</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">CONTACTO</a>
+                                <a class="nav-link" href="{{ route('contacto') }}"
+                                    style="{{ Request::is('contacto') ? 'color:whitesmoke !important' : '' }}">CONTACTO</a>
                             </li>
                             <li class="nav-item">
                                 <div class="btn-group" role="group">
