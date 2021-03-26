@@ -1,15 +1,16 @@
 <?php
 
 use App\Http\Controllers\Admin\Clientes\ClienteController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Empleados\EmpleadoController;
 use App\Http\Controllers\Admin\Welcome\PerfilController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RecoverPasswordController;
 use App\Http\Controllers\Auth\RegistroController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Home\CalendarController;
 use App\Http\Controllers\Home\ContactoController;
+use App\Http\Controllers\Home\GalleriaController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\InstalacionesController;
 use App\Http\Controllers\Home\TiendaController;
@@ -40,6 +41,9 @@ Route::get('/tienda', [TiendaController::class, 'index'])
 
 Route::get('/contacto', [ContactoController::class, 'index'])
     ->name('contacto');
+
+Route::get('/galleria', [GalleriaController::class, 'index'])
+    ->name('galleria');
 //Registro
 Route::get('/registro', [RegistroController::class, 'index'])
     ->name('registro');
@@ -48,4 +52,7 @@ Route::get('/login', [LoginController::class, 'index'])
     ->name('login');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/me', [DashboardController::class, 'index'])->name('me');
+
+    Route::get('/logout', [DashboardController::class, 'logaut'])->name('user.logaut');
 });

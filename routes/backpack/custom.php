@@ -40,4 +40,6 @@ Route::group([
     });
     //Route::crud('instalacionimage', 'InstalacionImageCrudController');
     Route::crud('shopcategorie', 'ShopCategorieCrudController');
+    Route::crud('galleriaimage', 'GalleriaImageCrudController');
+    Route::crud('noticia', 'NoticiaCrudController');
 }); // this should be the absolute last line of this file

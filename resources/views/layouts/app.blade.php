@@ -21,11 +21,19 @@
 </head>
 <style>
     body {
-        background-color: #36393f;
+        -webkit-font-smoothing: antialiased;
+        -webkit-backface-visibility: hidden;
+        background-color: #202123;
     }
 
+
     .featurette-divider {
-        background-color: red;
+        background-color: #e3342f;
+    }
+
+    .anti-parpadeo {
+        -webkit-font-smoothing: antialiased;
+        -webkit-backface-visibility: hidden;
     }
 
 </style>

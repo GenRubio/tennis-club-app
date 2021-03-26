@@ -32,7 +32,7 @@
         <h3 style="color: white">{{ $instalacion->titulo }}- INSTAL·LACIONS ESPORTIVES</h3>
         <hr class="featurette-divider">
         @foreach ($instalaciones as $item)
-            <a href="{{ route('instalacion', $item->id) }}" class="btn btn-outline-danger mr-2 mb-2">{{ $item->titulo }}</a>
+            <a href="{{ route('instalacion', $item->slug) }}" class="btn btn-outline-danger mr-2 mb-2">{{ $item->titulo }}</a>
         @endforeach
         <br>
         <br><br>

@@ -29,6 +29,7 @@ class LoginForm extends Component
 
         if (Auth::attempt($credentials, true)){
             //Redirect to dashboard
+            redirect()->route('me');
         }
         else{
             session()->flash('error', 'Email o contraseña incorrectos.');

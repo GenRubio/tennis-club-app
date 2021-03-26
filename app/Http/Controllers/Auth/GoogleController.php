@@ -32,7 +32,7 @@ class GoogleController extends Controller
         $users = User::where(['email' => $socialUser->email])->first();
         if ($users) {
             Auth::login($users);
-            //return redirect()->route('dashboard');
+            return redirect()->route('me');
         } else {
             return back();
         }

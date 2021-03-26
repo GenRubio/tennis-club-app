@@ -53,6 +53,7 @@ class RegistroForm extends Component
 
         //********************************************** */
         ////Sistema de login redireccionar a dashboard
+        redirect()->route('me');
 
         $this->resetForm();
     }
