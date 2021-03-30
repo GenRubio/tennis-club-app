@@ -17,11 +17,3 @@
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('galleriaimage') }}'><i class='nav-icon la la-question'></i> Galleria</a></li>
     </ul>
 </li>
-<li class="nav-item nav-dropdown">
-    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-newspaper-o"></i>Casal</a>
-    <ul class="nav-dropdown-items">
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('casalinscripcionesvalidade') }}'>Alumnos inscritos</a></li>
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('casalinscripcione') }}'>Inscripciones pendientes</a></li>
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('casalhistorial') }}'>Historial</a></li>
-    </ul>
-</li>

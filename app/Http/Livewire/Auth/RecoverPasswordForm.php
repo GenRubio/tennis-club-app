@@ -27,8 +27,6 @@ class RecoverPasswordForm extends Component
         $this->validate();
 
         if (User::where('email', $this->email)->first()) {
-            session()->flash('success', 'Email enviado. Revisa tu bandeja de entrada.');
-
             $user = User::where('email', $this->email)
                 ->first();
 
@@ -41,6 +39,9 @@ class RecoverPasswordForm extends Component
             //Enviar email de recumeracion
             Mail::to($this->email)
             ->send(new RecoverPassword($url, $user->first_name . ', ' . $user->second_name));
+
+            $this->dispatchBrowserEvent(
+                'alert', ['message' => 'Te hemos enviado un email de recuperación. Revisa tu bandeja de entrada.']);
 
         } else {
             session()->flash('error', 'Email incorecto.');

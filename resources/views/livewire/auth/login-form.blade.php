@@ -9,7 +9,7 @@
             </a>
         </div>
         <div class="form-group">
-            <a href="#" class="facebook btn btn-block btn-dark shadow-sm bg-white">
+            <a href="#" class="facebook btn btn-block btn-dark shadow-sm bg-white disabled">
                 <div>
                     <i><img src="{{ url('/images/home/login/facebook-2.svg') }}" height="20" , width="20"></i>
                     <span class="ml-2"> Continuar con Facebook</span>
@@ -27,6 +27,6 @@
             <input wire:model="password" type="password" name="password" id="password" class="form-control inputs-style"
                 placeholder="Contraseña">
         </div>
-        <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Entrar">
+        <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Entrar">
     </form>
 </div>

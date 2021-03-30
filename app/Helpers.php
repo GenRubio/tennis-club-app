@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 function eliminar_tildes($cadena)
 {
     $cadena = str_replace(
@@ -39,4 +41,28 @@ function eliminar_tildes($cadena)
     );
 
     return $cadena;
+}
+function getCountComments($slug)
+{
+}
+function formatDate($date)
+{
+    return date_format($date, 'd/m/Y');
+}
+function previous_route()
+{
+    $previousRequest = app('request')->create(app('url')->previous());
+    try {
+        $routeName = app('router')->getRoutes()->match($previousRequest)->getName();
+    } catch (NotFoundHttpException $exception) {
+        return null;
+    }
+    return $routeName;
+}
+
+function data_noticia($data){
+    setlocale(LC_ALL,"es_ES");
+    $string = $data;
+    $date = DateTime::createFromFormat("jS F Y h:i:s A", $string);
+    return strftime("%A",$date->getTimestamp());
 }

@@ -36,35 +36,43 @@
             height: 190px;
             overflow: hidden;
         }
-        .card-body-color{
+
+        .card-body-color {
             background-color: black;
         }
-        .card-point{
-            cursor: pointer;  
-        }
-        .card-title-color{
-            background-color: #000000d9;
+
+        .card-point {
+            cursor: pointer;
         }
 
+        .card-title-color {
+            background-color: #000000d9;
+        }
     </style>
     <div class="row">
         @foreach ($noticias as $noticia)
-            <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
-                <div class="card border-0 rounded card-border-personal card-point">
-                    <div class="div-image">
-                        <img class="img-auto-width rounded" src="{{ $noticia->image ? url($noticia->image) : '' }}">
-                    </div>
-                    <div class="card-body card-body-color">
-                        <h5 class="card-title noticia-titulo">{{ $noticia->titulo }}</h5>
-                        <div class="noticia-body">
-                            {!! $noticia->descripcion !!}
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-5">
+                <a href="{{ route('noticias', $noticia->slug) }}" style="text-decoration: none; color:whitesmoke">
+                    <div class="card border-0 rounded card-border-personal card-point">
+                        <div class="div-image">
+                            <img class="img-auto-width rounded"
+                                src="{{ $noticia->image ? url($noticia->image) : '' }}">
+                        </div>
+                        <div class="card-body card-body-color">
+                            <h5 class="card-title noticia-titulo">{{ $noticia->titulo }}</h5>
+                            <div class="noticia-body">
+                                {!! str_limit(strip_tags($noticia->descripcion), $limit = 370, $end = '...') !!}
+                            </div>
+                        </div>
+                        <div class="card-footer border-0 card-title-color">
+                            @php 
+                                 setlocale(LC_TIME, 'French');
+                            @endphp
+                            <small class="text-muted">Publicado:
+                                {{ $noticia->created_at->translatedFormat('jS F Y') }}</small>
                         </div>
                     </div>
-                    <div class="card-footer border-0 card-title-color">
-                        <small class="text-muted">Publicado:
-                            {{ $noticia->created_at->format('jS F Y h:i:s A') }}</small>
-                    </div>
-                </div>
+                </a>
             </div>
         @endforeach
     </div>

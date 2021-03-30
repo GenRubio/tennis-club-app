@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\Clientes\ClienteController;
-use App\Http\Controllers\Admin\Empleados\EmpleadoController;
-use App\Http\Controllers\Admin\Welcome\PerfilController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RecoverPasswordController;
@@ -13,7 +10,10 @@ use App\Http\Controllers\Home\ContactoController;
 use App\Http\Controllers\Home\GalleriaController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\InstalacionesController;
+use App\Http\Controllers\Home\NoticiaComentariosController;
+use App\Http\Controllers\Home\NoticiasController;
 use App\Http\Controllers\Home\TiendaController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -50,9 +50,14 @@ Route::get('/registro', [RegistroController::class, 'index'])
 //Login
 Route::get('/login', [LoginController::class, 'index'])
     ->name('login');
+//Noticias
+Route::get('/noticias/{slug?}', [NoticiasController::class, 'index'])->name('noticias');
+Route::post('/comentarios',  [NoticiaComentariosController::class, 'index'])->name('comentarios');
+Route::get('/comentarios-refresh', [NoticiaComentariosController::class, 'refresh'])->name('comentariosRefresh');
 
 Route::middleware('auth')->group(function () {
     Route::get('/me', [DashboardController::class, 'index'])->name('me');
-
     Route::get('/logout', [DashboardController::class, 'logaut'])->name('user.logaut');
+
+    Route::post('/comment', [NoticiaComentariosController::class, 'store'])->name('comments.store');
 });

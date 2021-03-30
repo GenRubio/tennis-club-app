@@ -105,6 +105,7 @@
             color: #0d2366;
             margin-bottom: 60px;
         }
+
         .login-recover-password {
             font-size: 16px;
             margin-bottom: 60px;
@@ -122,8 +123,9 @@
         }
 
         .login-title {
-            color: red;
+            color: #e3342f;
             font-weight: bold;
+            font-size: 32px;
         }
 
         .inputs-style {
@@ -142,29 +144,39 @@
         .featurette-divider {
             background-color: red;
         }
-        .color-whitesmoke{
-            color:whitesmoke;
+
+        .color-whitesmoke {
+            color: whitesmoke;
         }
-        .button-login-here{
-            color:red !important;
+
+        .button-login-here {
+            color: #e3342f !important;
             font-weight: bold;
+            -webkit-transition: all .3s linear;
+            -o-transition: all .3s linear;
+            transition: all .3s linear
         }
-        .back-ground-login-form{
-            background-color: #34373c !important;
+
+        .back-ground-login-form {
+            background-color: #202123 !important;
         }
+
         .facebook {
             background-color: #1a538a !important;
             font-weight: bold;
             border-style: solid !important;
             border-color: #1a538a !important;
         }
+
         .facebook:hover {
             background-color: #184b7c !important;
             border-color: #184b7c !important;
         }
+
         .google {
             background-color: white !important;
-            color: black !important;;
+            color: black !important;
+            ;
             font-weight: bold;
             border-style: solid !important;
             border-color: rgb(207, 205, 205) !important;
@@ -174,46 +186,55 @@
             color: black !important;
             background-color: rgb(233, 232, 232) !important;
         }
+
         .button-login-here:hover {
-           text-decoration: none;
+            text-decoration: none;
+            color: white !important;
         }
 
     </style>
 @endsection
 @section('content')
-<br><br><br><br><br>
-<main class="d-flex align-items-center py-3 py-md-0 z-index:100">
-    <div class="container">
-        <div class="card login-card">
-            <div class="row no-gutters">
-                <div class="col-md-5 border-right border-danger">
-                    <img src="{{ url('/images/home/registro/31-315324_wallpaper-hd-iphone-tennis-ball-tennis-wallpaper-iphone.jpg') }}"
-                        alt="login" class="login-card-img">
-                </div>
-                <div class="col-md-7">
-                    <div class="card-body back-ground-login-form">
-                        <p class="login-card-description login-title">Inicie sesión</p>
-                        
-                        <livewire:auth.login-form/>
+    <br><br><br><br><br>
+    <main class="d-flex align-items-center py-3 py-md-0 z-index:100">
+        <div class="container">
+            <div class="card login-card">
+                <div class="row no-gutters">
+                    <div class="col-md-5 border-right border-danger">
+                        <img src="{{ url('/images/home/registro/31-315324_wallpaper-hd-iphone-tennis-ball-tennis-wallpaper-iphone.jpg') }}"
+                            alt="login" class="login-card-img">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body back-ground-login-form">
+                            <p class="login-card-description login-title">Inicie sesión</p>
 
-                        <a href="{{ route('recover.password') }}" class="login-recover-password color-whitesmoke">¿Has olvidado la contraseña?</a>
-                        <p class="login-card-footer-text color-whitesmoke">¿No tienes cuenta? 
-                            <a href="{{ route('registro') }}" class="text-reset button-login-here">Registrarse</a></p>
+                            <livewire:auth.login-form />
+
+                            <a href="{{ route('recover.password') }}" class="login-recover-password color-whitesmoke">¿Has
+                                olvidado la contraseña?</a>
+                            <p class="login-card-footer-text color-whitesmoke">¿No tienes cuenta?
+                                <a href="{{ route('registro') }}" class="text-reset button-login-here">Registrarse</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
-<br> <br> <br>
-@include('components.footer')
+    </main>
+    <br> <br> <br>
+    @include('components.footer')
 @endsection
 @section('personal-script')
     <script>
         $(document).ready(function() {
             $("#email").focus();
+            var status = "{{ session('status') }}";
+            if (status != "") {
+                toastr.options.closeButton = true;
+                toastr.options.timeOut = 20000;
+                toastr.success(status);
+            }
         })
-
     </script>
 
 @endsection

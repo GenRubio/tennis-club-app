@@ -72,6 +72,11 @@ class NoticiaCrudController extends CrudController
                 'type' => 'image',
             ],
             [
+                'name' => 'slug',
+                'label' => '',
+                'type' => 'hidden',
+            ],
+            [
                 'name' => 'activo',
                 'label' => 'Activo',
                 'type' => 'checkbox',

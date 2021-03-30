@@ -3,19 +3,19 @@
 
         <div class="form-group">
             @error('first_name') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-            <input wire:model="first_name" id="nombre" type="text" class="form-control inputs-style" placeholder="Nombre">
+            <input wire:model="first_name" id="nombre" type="text" class="form-control inputs-style" placeholder="Nombre" required>
         </div>
         <div class="form-group">
             @error('second_name') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-            <input wire:model="second_name" type="text" class="form-control inputs-style" placeholder="Apellidos">
+            <input wire:model="second_name" type="text" class="form-control inputs-style" placeholder="Apellidos" required>
         </div>
         <div class="form-group">
             @error('email') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-            <input wire:model="email" type="email" ¡ class="form-control inputs-style" placeholder="Email">
+            <input wire:model="email" type="email" ¡ class="form-control inputs-style" placeholder="Email" required>
         </div>
         <div class="form-group mb-4">
             @error('password') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-            <input wire:model="password" type="password" class="form-control inputs-style" placeholder="Contraseña">
+            <input wire:model="password" type="password" class="form-control inputs-style" placeholder="Contraseña" required>
             <small id="emailHelp" class="form-text text-muted"
                 style="margin-top: -15px; color:rgb(195, 195, 195) !important;">
                 La contraseña debe contener minimo 8 caracteres letra mayuscula, minuscula y un
@@ -25,7 +25,7 @@
         <div class="form-group mb-4">
             @error('password_repeat') <span class="error" style="color: red;">{{ $message }}</span> @enderror
             <input wire:model="password_repeat" type="password" class="form-control inputs-style"
-                placeholder="Repite contraseña">
+                placeholder="Repite contraseña" required>
         </div>
         <div class="form-check">
             <input wire:model="newsletter" wire:click="newsletterCheck" type="checkbox" class="form-check-input"
@@ -46,3 +46,4 @@
             value="Registrarse">
     </form>
 </div>
+

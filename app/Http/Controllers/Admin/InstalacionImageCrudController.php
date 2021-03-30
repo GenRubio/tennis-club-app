@@ -42,7 +42,7 @@ class InstalacionImageCrudController extends CrudController
         $this->crud->addColumn([
             'name' => 'active',
             'label' => 'Activado',
-            'type' => 'btnToggle'
+            'type' => 'check'
         ]);
     }
     protected function basicFields()

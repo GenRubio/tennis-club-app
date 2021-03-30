@@ -122,8 +122,9 @@
         }
 
         .login-title {
-            color: red;
+            color: #e3342f;
             font-weight: bold;
+            font-size: 32px;
         }
 
         .inputs-style {
@@ -150,7 +151,7 @@
             font-weight: bold;
         }
         .back-ground-login-form{
-            background-color: #34373c !important;
+            background-color: #202123 !important;
         }
         .facebook {
             background-color: #1a538a !important;

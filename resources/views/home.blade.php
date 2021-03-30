@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('personal-style')
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <style>
         .icons-home {
             font-size: 70px;
@@ -69,7 +67,7 @@
         #particles-js {
             position: absolute;
             width: 100%;
-            height: 530px;
+            height: 538px;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: 50% 50%;
@@ -145,11 +143,30 @@
             color: #fff;
             position: relative
         }
+
         .parallax h2 {
             font-size: 49px;
             font-weight: bold;
             color: #fff;
             position: relative
+        }
+
+        .category-div {
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .ver-mas-button {
+            color: #e3342f;
+            font-size: 18px;
+            -webkit-transition: all .3s linear;
+            -o-transition: all .3s linear;
+            transition: all .3s linear
+        }
+
+        .ver-mas-button:hover {
+            color: white !important;
+            font-weight: bold !important;
         }
 
     </style>
@@ -171,7 +188,7 @@
                 <div class="d-flex justify-content-center">
                     <h2 class="text-color-white">Noticias</h2>
                 </div>
-                <div style="height: 150px; overflow:hidden;">
+                <div class="category-div">
                     <p class="text-color-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi alias nam
                         similique aut cum doloremque
                         eaque, rerum non error ipsum numquam consequuntur voluptatum sint libero molestias earum consectetur
@@ -180,7 +197,7 @@
 
                 <div class="d-flex justify-content-center">
                     <button id="tag1" class="btn btn-secondary mb-2 button-see-more">
-                        <strong>Read more</strong></button>
+                        <strong>Ver más</strong></button>
                 </div>
             </div>
             <div class="col-lg-3 d-none d-lg-block">
@@ -194,9 +211,9 @@
                 </div>
                 <br>
                 <div class="d-flex justify-content-center">
-                    <h2 class="text-color-white">Troneos</h2>
+                    <h2 class="text-color-white">Torneos</h2>
                 </div>
-                <div style="height: 150px; overflow:hidden;">
+                <div class="category-div">
                     <p class="text-color-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum quam
                         expedita
                         soluta fugiat dolor
@@ -205,7 +222,7 @@
                 </div>
                 <div class="d-flex justify-content-center">
                     <button id="tag2" class="btn btn-secondary mb-2 button-see-more">
-                        <strong>Read more</strong>
+                        <strong>Ver más</strong>
                     </button>
                 </div>
             </div>
@@ -224,7 +241,7 @@
                         <h2 class="text-color-white">Eventos</h2>
                     </div>
                 </div>
-                <div style="height: 150px; overflow:hidden;">
+                <div class="category-div">
                     <p class="text-color-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem modi
                         illo
                         inventore similique
@@ -234,7 +251,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="d-flex justify-content-center">
                         <button id="tag3" class="btn btn-secondary mb-2 button-see-more">
-                            <strong>Read more</strong>
+                            <strong>Ver más</strong>
                         </button>
                     </div>
                 </div>
@@ -254,7 +271,7 @@
                         <h2 class="text-color-white">Instalaciones</h2>
                     </div>
                 </div>
-                <div style="height: 150px; overflow:hidden;">
+                <div class="category-div">
                     <p class="text-color-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem modi
                         illo
                         inventore similique
@@ -266,7 +283,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="d-flex justify-content-center">
                         <button id="tag4" class="btn btn-secondary mb-2 button-see-more">
-                            <strong>Read more</strong>
+                            <strong>Ver más</strong>
                         </button>
                     </div>
                 </div>
@@ -277,7 +294,8 @@
         <h1 class="color-red" style="font-weight: bold;">
             Ultimas noticias
             <span style="font-size: 14px;">
-                <a href="#" style="text-decoration: none; color: grey">Ver todas noticias</a>
+                <a href="#" class="ver-mas-button" style="text-decoration: none;">Ver más <i
+                        class="fas fa-arrow-right"></i></a>
             </span>
         </h1>
         <p style="color: whitesmoke; font-size: 16px;">Mantente informado de todas nuestras novedades</p>
@@ -292,7 +310,13 @@
     <div class="container-fluid" style="background-color: black">
         <div class="container">
             <br><br>
-            <h1 class="color-red" style="font-weight: bold; z-index:-1;">Eventos & Torneos</h1>
+            <h1 class="color-red" style="font-weight: bold; z-index:-1;">
+                Eventos & Torneos
+                <span style="font-size: 14px; position: relative;">
+                    <a href="#" class="ver-mas-button" style="text-decoration: none;">Ver más <i
+                            class="fas fa-arrow-right"></i></a>
+                </span>
+            </h1>
         </div>
         <div class="torneos">
             <img src="{{ url('/images/home/torneos/actualidad_526710657_162107073_855x1140.jpg') }}">
@@ -316,6 +340,9 @@
     <br>
     <div class="container">
         <br><br>
+        <h1 class="color-red" style="font-weight: bold;">
+            Calendario de eventos
+        </h1>
         <hr class="featurette-divider" id="section34">
         <br>
         <div class="row featurette">
@@ -333,8 +360,8 @@
             </div>
         </div>
         <br>
-        <hr class="featurette-divider" id="instalaciones">
-
+        <hr class="featurette-divider">
+        <br>
     </div>
     <div class="parallax" style="background-image: url({{ url('/images/reserva/gral.jpeg') }})">
         <div class="container">
@@ -351,12 +378,15 @@
                 </a>
             </div>
         </div>
-       
+
     </div>
     <div class="container">
-        <hr class="featurette-divider" id="instalaciones">
+        <br>
         <br>
         <h1 class="color-red" style="font-weight: bold; z-index:999;">Instalaciones</h1>
+        <p style="color: whitesmoke; font-size: 16px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
+            deleniti </p>
+        <hr class="featurette-divider" id="instalaciones">
         <br>
         @foreach ($instalaciones as $index => $instalacion)
             @if ($index % 2 == 0)
@@ -410,7 +440,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="container-img-instalacion">
-                            <img class="featurette-image img-fluid mx-auto img-instalacion"
+                            <img class="featurette-image img-fluid mx-auto img-instalacion headline"
                                 src="{{ $instalacion->image }}" alt="Generic placeholder image">
                         </div>
                     </div>
@@ -443,7 +473,7 @@
                     </div>
                     <div class="col-md-6 order-md-1">
                         <div class="container-img-instalacion">
-                            <img class="featurette-image img-fluid mx-auto img-instalacion"
+                            <img class="featurette-image img-fluid mx-auto img-instalacion headline"
                                 src="{{ $instalacion->image }}" alt="Generic placeholder image">
                         </div>
                     </div>
@@ -455,16 +485,21 @@
     </div>
     <br>
     <br>
-    @include('components.carusel-footer')
     @include('components.footer')
+    <script src="{{ url('/js/scrollreveal.js') }}"></script>
 @endsection
 
 @section('personal-script')
     <script src="{{ url('/js/parallax/parallax.js') }}"></script>
     <script src="{{ url('/js/particles.js') }}"></script>
     <script src="{{ url('/js/particulas.js') }}"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
+        ScrollReveal({
+            reset: true
+        });
+        ScrollReveal().reveal('.headline');
+
+
         $(document).ready(function() {
 
             $("#tag1").click(function() {

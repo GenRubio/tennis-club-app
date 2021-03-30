@@ -16,21 +16,7 @@ Route::group([
 ], function () { // custom admin routes
 
     Route::crud('shoparticle', 'ShopArticleCrudController');
-    Route::crud('casalinscripcione', 'CasalInscripcioneCrudController');
-    Route::group(['prefix' => 'casalinscripcione/{inscripcion_id}'], function () {
-        Route::crud('inscripcion-fechas', 'CasalIncripcionesMeseCrudController');
-        Route::crud('inscripcion-opciones', 'CasalInscripcionesDatoCrudController');
-    });
-    Route::group(['prefix' => 'casalinscripcionesvalidade/{inscripcion_id}'], function () {
-        Route::crud('inscripcion-fechas', 'CasalIncripcionesMeseCrudController');
-        Route::crud('inscripcion-opciones', 'CasalInscripcionesDatoCrudController');
-    });
-    Route::group(['prefix' => 'casalhistorial/{inscripcion_id}'], function () {
-        Route::crud('inscripcion-fechas', 'CasalIncripcionesMeseCrudController');
-        Route::crud('inscripcion-opciones', 'CasalInscripcionesDatoCrudController');
-    });
-    Route::crud('casalinscripcionesvalidade', 'CasalInscripcionesValidadeCrudController');
-    Route::crud('casalhistorial', 'CasalHistorialCrudController');
+    
     Route::crud('alquilerpista', 'AlquilerPistaCrudController');
     Route::crud('calendarevento', 'CalendarEventoCrudController');
     Route::crud('instalacione', 'InstalacioneCrudController');
@@ -42,4 +28,5 @@ Route::group([
     Route::crud('shopcategorie', 'ShopCategorieCrudController');
     Route::crud('galleriaimage', 'GalleriaImageCrudController');
     Route::crud('noticia', 'NoticiaCrudController');
+    Route::crud('noticiacomentario', 'NoticiaComentarioCrudController');
 }); // this should be the absolute last line of this file

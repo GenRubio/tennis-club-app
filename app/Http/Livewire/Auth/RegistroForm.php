@@ -39,21 +39,21 @@ class RegistroForm extends Component
     {
         $this->validate();
 
-        $user = User::create([
-            'first_name' => $this->first_name,
-            'second_name' => $this->second_name,
-            'email' => $this->email,
-            'password' => Hash::make($this->password),
-            'newsletter' => $this->newsletter != "1" ? "0" : $this->newsletter,
-        ]);
+        $user = new User();
+        $user->first_name = $this->first_name;
+        $user->second_name = $this->second_name;
+        $user->email = $this->email;
+        $user->password =  Hash::make($this->password);
+        $user->newsletter = $this->newsletter != "1" ? "0" : $this->newsletter;
+        $user->save();
         //Enviar email de bienvenida
-
         Mail::to($user->email)->send(
             new Welcome($user->first_name . ', ' . $user->second_name));
 
         //********************************************** */
-        ////Sistema de login redireccionar a dashboard
-        redirect()->route('me');
+
+        session()->flash('status', 'Hemos enviado correo electrónico de verificación a tu bandeja de entrada.');
+        return redirect(route('login'));
 
         $this->resetForm();
     }

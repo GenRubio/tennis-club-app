@@ -26,6 +26,7 @@ class Noticia extends Model
         'descripcion',
         'image',
         'activo',
+        'slug',
         'created_at',
     ];
     // protected $hidden = [];
@@ -60,6 +61,11 @@ class Noticia extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+    public function setSlugAttribute($value)
+    {
+        $name = mb_strtolower($this->attributes['titulo']);
+        $this->attributes['slug'] =  str_replace(' ', '-', eliminar_tildes($name));
+    }
     public function setImageAttribute($value)
     {
         $attribute_name = 'image';

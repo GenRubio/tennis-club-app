@@ -16,10 +16,10 @@
                 placeholder="Vuelve a escribir la contraseña">
         </div>
         <div class="d-flex justify-content-end">
-            <button type="submit"
-                class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block">Siguente</button>
             <a href="{{ route('login') }}" type="button"
-                class="btn btn-outline-light mr-2 mt-1 d-none d-sm-block">Cancelar</a>
+                class="btn btn-outline-danger mr-2 mt-1"><strong>Cancelar<strong></a>
+            <button type="submit" class="btn btn-danger mr-2 mt-1">Siguente</button>
+
         </div>
     </form>
 </div>

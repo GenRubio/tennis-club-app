@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class CasalInscripcionesDato extends Model
+class NoticiaComentario extends Model
 {
     use CrudTrait;
 
@@ -15,11 +15,16 @@ class CasalInscripcionesDato extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'casal_inscripciones_datos';
+    protected $table = 'noticia_comentarios';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    // protected $fillable = [];
+    protected $fillable = [
+        'user_id',
+        'noticia_id',
+        'comentario',
+        'activo',
+    ];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,7 +39,10 @@ class CasalInscripcionesDato extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

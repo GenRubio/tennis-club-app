@@ -118,8 +118,9 @@
         }
 
         .login-title {
-            color: red;
+            color: #e3342f;
             font-weight: bold;
+            font-size: 32px;
         }
 
         .inputs-style {
@@ -144,15 +145,19 @@
         }
 
         .button-login-here {
-            color: red !important;
+            color: #e3342f !important;
             font-weight: bold;
+            -webkit-transition: all .3s linear;
+            -o-transition: all .3s linear;
+            transition: all .3s linear
         }
         .button-login-here:hover {
            text-decoration: none;
+           color: white !important;
         }
 
         .back-ground-login-form {
-            background-color: #34373c !important;
+            background-color: #202123 !important;
         }
 
     </style>

@@ -6,18 +6,23 @@
             @if (session()->has('error'))
                 <span class="error" style="color: red;">{{ session('error') }}</span>
             @endif
-            @if (session()->has('success'))
-                <span class="success" style="color: rgb(10, 190, 34);">{{ session('success') }}</span>
-            @endif
-            @error('email') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+            @error('email') <span class="error" style="color: #e3342f;font-weight: bold;">{{ $message }}</span>
+            @enderror
             <input wire:model="email" type="email" name="email" id="email" class="form-control inputs-style"
-                placeholder="Email">
+                placeholder="Email" required>
         </div>
         <div class="d-flex justify-content-end">
-            <button type="submit"
-                class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block">Buscar</button>
             <a href="{{ route('login') }}" type="button"
-                class="btn btn-outline-light mr-2 mt-1 d-none d-sm-block">Cancelar</a>
+                class="btn btn-outline-danger mr-2 mt-1"><strong>Cancelar</strong></a>
+            <button type="submit" class="btn btn-danger mr-2 mt-1"><strong>Buscar</strong></button>
         </div>
     </form>
 </div>
+<script>
+    window.addEventListener('alert', event => {
+        toastr.options.closeButton = true;
+        toastr.options.timeOut = 20000;
+        toastr.success(event.detail.message);
+    })
+
+</script>

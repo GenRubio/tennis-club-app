@@ -86,6 +86,9 @@
         position: absolute;
         top: 5px;
     }
+    #userlogo:hover{
+        color: #e3342f;
+    }
 
 </style>
 <div id="header">
@@ -125,7 +128,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <a class="navbar-brand d-none d-lg-block" href="#">
+                            <a class="navbar-brand d-none d-lg-block" href="{{ route('home') }}">
                                 <img class="nav-bar-logo" src="{{ url('/images/logo.png') }}"
                                     width="46" height="46" alt="">
                             </a>
@@ -168,14 +171,6 @@
                                         <strong>CASAL</strong>
                                     </a>
                                 </li>
-
-                                <li class="nav-item t-border">
-                                    <a class="nav-link" href="{{ route('galleria') }}"
-                                        style="{{ Request::is('galleria') ? 'color:whitesmoke !important' : '' }}">
-                                        <strong>GALERIA</strong>
-                                    </a>
-                                </li>
-
                                 <li class="nav-item t-border">
                                     <a class="nav-link" href="{{ route('tienda') }}"
                                         style="{{ Request::is('tienda') ? 'color:whitesmoke !important' : '' }}">
@@ -186,6 +181,12 @@
                                 <li class="nav-item t-border">
                                     <a class="nav-link" href="#">
                                         <strong>RESTAURANTE</strong>
+                                    </a>
+                                </li>
+                                <li class="nav-item t-border">
+                                    <a class="nav-link" href="{{ route('galleria') }}"
+                                        style="{{ Request::is('galleria') ? 'color:whitesmoke !important' : '' }}">
+                                        <strong>GALERIA</strong>
                                     </a>
                                 </li>
                                 <li class="nav-item t-border">
@@ -208,9 +209,9 @@
                                 <form class="form-inline my-2 my-lg-0">
                                     <div class="btn-group">
                                         <a type="button" class="dropdown-toggle user-dropdown" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false">
-                                            Gen Rubio
-                                            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+                                            aria-haspopup="true" aria-expanded="false" style="text-decoration: none;" id="userlogo">
+                                            {{ auth()->user()->full_name }}
+                                            <img src="{{ auth()->user()->image ? url(auth()->user()->image) : url('/images/default.jpg') }}"
                                                 width="37" height="37" class="rounded-circle">
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right anti-parpadeo">

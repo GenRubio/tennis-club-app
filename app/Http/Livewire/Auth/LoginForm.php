@@ -28,7 +28,7 @@ class LoginForm extends Component
         $credentials = ['email' => $this->email, 'password' => $this->password];
 
         if (Auth::attempt($credentials, true)){
-            //Redirect to dashboard
+
             redirect()->route('me');
         }
         else{

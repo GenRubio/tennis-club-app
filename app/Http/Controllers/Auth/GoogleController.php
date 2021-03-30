@@ -17,25 +17,19 @@ class GoogleController extends Controller
     public function registerOrLogin()
     {
         $socialUser = Socialite::driver('google')->user();
-        User::firstOrCreate(
-            [
-                'email' => $socialUser->email
-            ],
-            [
-                'name' => $socialUser->name,
-                'provider_id' => $socialUser->id,
-                'provider' => 'google',
-                'image' => $this->getBigAvatar($socialUser, 'google'),
-            ]
-        );
 
         $users = User::where(['email' => $socialUser->email])->first();
         if ($users) {
             Auth::login($users);
-            return redirect()->route('me');
         } else {
-            return back();
+            $user = new User();
+            $user->name =  $socialUser->name;
+            $user->provider_id = $socialUser->id;
+            $user->provider = 'google';
+            $user->image = $this->getBigAvatar($socialUser, 'google');
+            $user->save();
         }
+        return redirect()->route('me');
     }
     public function getBigAvatar($user)
     {

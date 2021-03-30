@@ -52,7 +52,7 @@ class InstalacioneCrudController extends CrudController
         $this->crud->addColumn([
             'name' => 'activo',
             'label' => 'Activado',
-            'type' => 'btnToggle'
+            'type' => 'check'
         ]);
     }
     protected function basicFields()
