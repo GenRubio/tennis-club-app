@@ -17,3 +17,5 @@
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('galleriaimage') }}'><i class='nav-icon la la-question'></i> Multimedia</a></li>
     </ul>
 </li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('newsletter') }}'><i class='nav-icon la la-question'></i> Newsletters</a></li>

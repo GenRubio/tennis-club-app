@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auth;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -25,7 +26,7 @@ class LoginForm extends Component
     public function login(){
         $this->validate();
 
-        $credentials = ['email' => $this->email, 'password' => $this->password];
+        $credentials = ['email' => $this->email, 'password' => $this->password, 'email_validate' => 1];
 
         if (Auth::attempt($credentials, true)){
 

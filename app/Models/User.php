@@ -24,9 +24,10 @@ class User extends Authenticatable
         'provider'.
         'first_name',
         'second_name',
-        'newsletter',
         'token_recover_email',
         'active_token_email',
+        'token_validate_email',
+        'email_validate',
         'provider_id',
     ];
 
@@ -59,7 +60,9 @@ class User extends Authenticatable
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function newsletter(){
+        return $this->hasOne(Newsletter::class, 'email', 'email');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

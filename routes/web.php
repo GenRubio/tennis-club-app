@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\EmailValidateController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RecoverPasswordController;
@@ -22,6 +23,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/auth/redirect/google', [GoogleController::class, 'redirectToGoogle'])
     ->name('google.login');
 Route::get('/auth/callback/google', [GoogleController::class, 'registerOrLogin']);
+
+//Validate email
+Route::get('/email-validate', [EmailValidateController::class, 'validar'])
+    ->name('email.validate');
 
 //Recover password
 Route::get('/recover-password', [RecoverPasswordController::class, 'index'])
@@ -54,6 +59,8 @@ Route::get('/login', [LoginController::class, 'index'])
 Route::get('/noticias/{slug?}', [NoticiasController::class, 'index'])->name('noticias');
 Route::post('/comentarios',  [NoticiaComentariosController::class, 'index'])->name('comentarios');
 Route::get('/comentarios-refresh', [NoticiaComentariosController::class, 'refresh'])->name('comentariosRefresh');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/me', [DashboardController::class, 'index'])->name('me');

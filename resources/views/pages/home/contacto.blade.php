@@ -126,7 +126,7 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-12">
-                            <livewire:home.newsletter/>
+                            <livewire:home.newsletter-form/>
                         </div>
                     </div>
                 </div>

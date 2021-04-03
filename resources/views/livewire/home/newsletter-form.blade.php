@@ -1,14 +1,16 @@
 <div>
-    <form>
+    <form wire:submit.prevent="create">
         <div class="row">
             <div class="col-md-7 p-xl-0 p-lg-0">
                 <div>
-                    <input type="email" class="form-control" id="inputPassword2"
-                        placeholder="Tu email">
+                    @error('email') <span class="error" style="color: red;">{{ $message }}</span> @enderror
+                    <input wire:model="email" type="email" class="form-control" id="inputPassword2"
+                        placeholder="Tu email" required>
                 </div>
                 <div class="mt-4 mb-3" style="color: white;">
+                    @error('terminos') <span class="error" style="color: red;">{{ $message }}</span> @enderror
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input  wire:model="terminos" type="checkbox" class="form-check-input" id="exampleCheck1" required>
                         <label class="form-check-label" for="exampleCheck1"> Confirmo que he leido y
                             estoy de acuerdo con la Política de privacidad.</label>
                     </div>
@@ -22,3 +24,10 @@
         </div>
     </form>
 </div>
+<script>
+    window.addEventListener('alertNewsletter', event => {
+        toastr.options.closeButton = true;
+        toastr.success(event.detail.message);
+    })
+
+</script>
