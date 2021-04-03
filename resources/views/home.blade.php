@@ -48,26 +48,57 @@
             backface-visibility: visible;
         }
 
-        .slick-slide {
-            margin: 10px;
+
+        .wrap-img-cover-torneos {
+            position: relative;
             height: 370px;
+            overflow: hidden;
+            margin: 10px;
         }
 
-        .slick-slide img {
-            height: auto !important;
+        .img-cover-torneos {
+            height: 100% !important;
             left: 50% !important;
             position: absolute !important;
             top: 50% !important;
             transform: translate(-50%, -50%) !important;
             transition: 0.3s !important;
             max-width: none !important;
-            width: 100% !important;
+            width: auto !important;
         }
+
+        .wrap-img-cover-galleria {
+            position: relative;
+            height: 210px;
+            overflow: hidden;
+            margin: 5px;
+        }
+
+        .img-cover-torneos-galleria {
+            height: 120% !important;
+            left: 50% !important;
+            position: absolute !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            transition: 0.3s !important;
+            max-width: none !important;
+            width: auto !important;
+        }
+
 
         #particles-js {
             position: absolute;
             width: 100%;
             height: 538px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+
+        #particles-js2 {
+            position: absolute;
+            width: 100%;
+            height: 402px;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: 50% 50%;
@@ -169,6 +200,18 @@
             font-weight: bold !important;
         }
 
+        .contacto-section {
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .contacto-div-internal {
+            background-image: url("{{ url('/images/contact-us-banner-img.png') }}");
+            background-repeat: no-repeat;
+            background-size: 638px 449px;
+            min-height: 466px;
+        }
+
     </style>
 @endsection
 @section('content')
@@ -189,10 +232,9 @@
                     <h2 class="text-color-white">Noticias</h2>
                 </div>
                 <div class="category-div">
-                    <p class="text-color-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi alias nam
-                        similique aut cum doloremque
-                        eaque, rerum non error ipsum numquam consequuntur voluptatum sint libero molestias earum consectetur
-                        cupiditate voluptatibus.</p>
+                    <p class="text-color-white">Descubra las últimas noticias sobre nuestro centro aquí. Las ofertas
+                        especiales, renovaciones, colaboraciones u otras novedades. <br> Las podrá encontrar en el bloque de
+                        noticias.</p>
                 </div>
 
                 <div class="d-flex justify-content-center">
@@ -307,10 +349,10 @@
         <br>
     </div>
     <div id="particles-js"></div>
-    <div class="container-fluid" style="background-color: black">
+    <div class="container-fluid" style="background-color: black; overflow: hidden;">
         <div class="container">
             <br><br>
-            <h1 class="color-red" style="font-weight: bold; z-index:-1;">
+            <h1 class="color-red" style="font-weight: bold;position: relative;">
                 Eventos & Torneos
                 <span style="font-size: 14px; position: relative;">
                     <a href="#" class="ver-mas-button" style="text-decoration: none;">Ver más <i
@@ -319,21 +361,20 @@
             </h1>
         </div>
         <div class="torneos">
-            <img src="{{ url('/images/home/torneos/actualidad_526710657_162107073_855x1140.jpg') }}">
-            <img src="{{ url('/images/home/torneos/C0BFD825-DD3B-493B-B6B9-5ED502469E23-540x750.jpeg') }}">
-
-
-            <img src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}">
-
-
-            <img src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}">
-
-            <img src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}">
-
-            <img src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}">
-
-            <img src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}">
-
+            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
+                    src="{{ url('/images/home/torneos/actualidad_526710657_162107073_855x1140.jpg') }}"></div>
+            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
+                    src="{{ url('/images/home/torneos/C0BFD825-DD3B-493B-B6B9-5ED502469E23-540x750.jpeg') }}"></div>
+            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
+                    src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}"></div>
+            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
+                    src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}"></div>
+            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
+                    src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}"></div>
+            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
+                    src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}"></div>
+            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
+                    src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}"></div>
         </div>
         <br>
     </div>
@@ -482,9 +523,61 @@
         @endforeach
         <br>
         <br>
+        <br>
+        <br>
+    </div>
+    <div id="particles-js2"></div>
+    <div class="container-fluid" style="background-color:black; ">
+        <br><br>
+        <div class="container">
+            <h1 class="color-red" style="font-weight: bold; position: relative;">
+                Nuestra galeria
+                <span style="font-size: 14px;">
+                    <a href="{{ route('galleria') }}" class="ver-mas-button" style="text-decoration: none;">Ver más <i
+                            class="fas fa-arrow-right"></i></a>
+                </span>
+            </h1>
+            <br>
+        </div>
+        <div class="galeria" style="margin-left:75px;margin-right:75px;">
+            @foreach ($galleria as $item)
+                <div class="wrap-img-cover-galleria">
+                    <img class="img-cover-torneos-galleria" src="{{ url($item->image) }}">
+                </div>
+            @endforeach
+        </div>
+        <br><br>
     </div>
     <br>
     <br>
+    <br>
+    <div class="container">
+        <h1 class="color-red" style="font-weight: bold; position: relative;">
+            Contáctenos
+        </h1>
+        <hr class="featurette-divider" id="instalaciones">
+    </div>
+    <div class="contacto-section">
+        <br>
+        <div class="container" style="color:white">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-xl-7 col-lg-6 d-none d-lg-block">
+                            <div class="contacto-div-internal"></div>
+                        </div>
+                        <div class="col-12 col-md-12 col-sm-12 col-sm-12 col-xl-5 col-lg-6 ">
+                            <div>
+                                <livewire:home.contacto />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br> <br>
     @include('components.footer')
     <script src="{{ url('/js/scrollreveal.js') }}"></script>
 @endsection
@@ -498,8 +591,6 @@
             reset: true
         });
         ScrollReveal().reveal('.headline');
-
-
         $(document).ready(function() {
 
             $("#tag1").click(function() {
@@ -523,6 +614,45 @@
                 }, 2000);
             });
         });
+        $('.galeria').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 7,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 1000,
+            adaptiveHeight: false,
+            responsive: [{
+                    breakpoint: 1440,
+                    settings: {
+                        slidesToShow: 6,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 1160,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 920,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 540,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
         $('.torneos').slick({
             dots: true,
             infinite: true,
@@ -530,7 +660,7 @@
             slidesToShow: 5,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 4000,
             adaptiveHeight: false,
             responsive: [{
                     breakpoint: 1440,

@@ -185,8 +185,8 @@
                                 </li>
                                 <li class="nav-item t-border">
                                     <a class="nav-link" href="{{ route('galleria') }}"
-                                        style="{{ Request::is('galleria') ? 'color:whitesmoke !important' : '' }}">
-                                        <strong>GALERIA</strong>
+                                        style="{{ Request::is('multimedia') ? 'color:whitesmoke !important' : '' }}">
+                                        <strong>MULTIMEDIA</strong>
                                     </a>
                                 </li>
                                 <li class="nav-item t-border">

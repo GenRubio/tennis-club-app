@@ -229,4 +229,10 @@ return [
 
     ],
 
+    'datos-contacto' => [
+        'telefono' => '968 976 385',
+        'whatsapp' => '661 325 106',
+        'email' => 'contacto@streetpadel.com',
+        'horario-atencion' => '9:00 a 18:00',
+    ]
 ];

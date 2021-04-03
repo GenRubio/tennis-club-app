@@ -83,7 +83,7 @@ class InstalacioneCrudController extends CrudController
             ],
             [
                 'name' => 'image',
-                'label' => 'Imagen',
+                'label' => 'Imagen principal',
                 'type' => 'image',
             ],
             [

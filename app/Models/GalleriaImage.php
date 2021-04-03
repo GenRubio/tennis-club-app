@@ -24,6 +24,12 @@ class GalleriaImage extends Model
     protected $fillable = [
         'image',
         'activo',
+        'url_youtube',
+        'titulo',
+        'descripcion',
+        'destacada',
+        'carusel',
+        'tipo',
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -57,6 +63,14 @@ class GalleriaImage extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+    public function setUrlYoutubeAttribute($value)
+    {
+        if ($value != null) {
+            $this->attributes['url_youtube'] = str_replace("https://youtu.be/", "https://www.youtube.com/embed/", $value);
+        } else {
+            $this->attributes['url_youtube'] = "";
+        }
+    }
     public function setImageAttribute($value)
     {
         $attribute_name = 'image';

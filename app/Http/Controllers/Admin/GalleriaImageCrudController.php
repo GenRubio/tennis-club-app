@@ -24,7 +24,7 @@ class GalleriaImageCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\GalleriaImage::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/galleriaimage');
-        CRUD::setEntityNameStrings('imagen', 'Galleria imagenes');
+        CRUD::setEntityNameStrings('contenido', 'Multimedia');
     }
 
     protected function setupListOperation()
@@ -35,6 +35,21 @@ class GalleriaImageCrudController extends CrudController
             'type'  => 'image',
         ]);
         $this->crud->addColumn([
+            'name' => 'url_youtube',
+            'label' => 'Url Youtube',
+            'type'  => 'url',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'carusel',
+            'type' => 'check',
+            'label' => 'Carusel',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'destacada',
+            'type' => 'check',
+            'label' => 'Destacada',
+        ]);
+        $this->crud->addColumn([
             'name' => 'activo',
             'type' => 'check',
             'label' => 'Activo',
@@ -43,16 +58,73 @@ class GalleriaImageCrudController extends CrudController
     protected function basicFields()
     {
         $this->crud->addFields([
-
             [
                 'name' => 'image',
                 'label' => 'Imagen',
                 'type' => 'image',
+                'tab' => 'Imagen',
+            ],
+            [
+                'name' => 'destacada',
+                'label' => 'Imagen destacada',
+                'type' => 'checkbox',
+                'tab' => 'Imagen',
+            ],
+            [
+                'name'  => 'separator',
+                'type'  => 'custom_html',
+                'value' => '<hr>',
+                'tab' => 'Imagen',
+            ],
+            [
+                'name'  => 'p1',
+                'type'  => 'custom_html',
+                'value' => '
+                <h3>Opciones del carusel</h3>
+                <p style="color:red">Dejar todos campos vacios en caso de no querer colocar la imagen en el carusel</p>',
+                'tab' => 'Imagen',
+            ],
+            [
+                'name' => 'carusel',
+                'label' => 'Colocar imagen en carusel',
+                'type' => 'checkbox',
+                'tab' => 'Imagen',
+            ],
+            [
+                'name' => 'titulo',
+                'label' => 'Titulo de la imagen en carusel',
+                'type' => 'text',
+                'tab' => 'Imagen',
+            ],
+            [
+                'name' => 'descripcion',
+                'label' => 'Descripcion de la imagen en carusel',
+                'type' => 'text',
+                'tab' => 'Imagen',
+            ],
+            [
+                'name'  => 'separator2',
+                'type'  => 'custom_html',
+                'value' => '<hr>',
+                'tab' => 'Imagen',
             ],
             [
                 'name' => 'activo',
                 'label' => 'Activo',
                 'type' => 'checkbox',
+                'tab' => 'Imagen',
+            ],
+          
+            [
+                'name' => 'activo',
+                'label' => 'Activo',
+                'type' => 'checkbox',
+            ],
+            [ 
+                'name'  => 'url_youtube',
+                'type'  => 'text',
+                'label' => 'Url video de YouTube',
+                'tab' => 'Video YouTube',
             ],
 
         ]);

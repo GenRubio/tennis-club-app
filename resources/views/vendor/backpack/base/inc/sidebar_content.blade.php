@@ -14,6 +14,6 @@
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('noticia') }}'><i class='nav-icon la la-question'></i> Noticias</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('instalacione') }}'><i class='nav-icon la la-question'></i> Instalaciones</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('alquilerpista') }}'><i class='nav-icon la la-question'></i> Alquiler pistas</a></li>
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('galleriaimage') }}'><i class='nav-icon la la-question'></i> Galleria</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('galleriaimage') }}'><i class='nav-icon la la-question'></i> Multimedia</a></li>
     </ul>
 </li>

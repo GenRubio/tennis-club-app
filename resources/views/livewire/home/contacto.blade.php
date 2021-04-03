@@ -1,36 +1,35 @@
 <div>
     <form wire:submit.prevent="send">
+        @if ($errors->has('nombre') || $errors->has('email') || $errors->has('mensaje'))
+            <div class="alert alert-danger" role="alert">
+                @error('nombre') {{ $message }} <br>@enderror
+                @error('email') {{ $message }} <br>@enderror
+                @error('mensaje') {{ $message }} <br>@enderror
+            </div>
+        @endif
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="nombre" class="text-white">Nom *</label>
-                @error('nombre') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-                <input wire:model="nombre" type="text" class="form-control" id="nombre">
+                <label for="nombre">Nombre</label>
+                <input wire:model="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre" required>
             </div>
             <div class="form-group col-md-6">
-                <label for="telefono" class="text-white">Telèfon *</label>
-                @error('telefono') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-                <input wire:model="telefono" type="text" class="form-control" id="telefono">
+                <label for="email">Correo electrónico</label>
+                <input wire:model="email" type="email" class="form-control" id="email" placeholder="Correo electrónico"
+                    required>
             </div>
         </div>
         <div class="form-group">
-            <label for="email" class="text-white">E-mail *</label>
-            @error('email') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-            <input wire:model="email" type="email" class="form-control" id="email">
+            <label for="mensaje">Mensaje</label>
+            <textarea wire:model="mensaje" class="form-control" id="mensaje" rows="11" placeholder="Mensaje"
+                required></textarea>
         </div>
-        <div class="form-group">
-            <label for="contenido" class="text-white">Comentari *</label>
-            @error('comentario') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-            <textarea  wire:model="comentario" class="form-control" id="contenido" rows="5"></textarea>
-        </div>
-        <div class="form-group">
-            @error('validacion') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-            <div class="form-check">
-                <input  wire:model="validacion" class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label text-white" for="gridCheck">
-                    He llegit i accepto la Política de protecció de dades
-                </label>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-lg btn-danger">ENVIAR</button>
+        <button type="submit" class="btn btn-danger"><strong>ENVIAR</strong></button>
     </form>
 </div>
+<script>
+    window.addEventListener('alert', event => {
+        toastr.options.closeButton = true;
+        toastr.success(event.detail.message);
+    })
+
+</script>

@@ -42,7 +42,7 @@ Route::get('/tienda', [TiendaController::class, 'index'])
 Route::get('/contacto', [ContactoController::class, 'index'])
     ->name('contacto');
 
-Route::get('/galleria', [GalleriaController::class, 'index'])
+Route::get('/multimedia', [GalleriaController::class, 'index'])
     ->name('galleria');
 //Registro
 Route::get('/registro', [RegistroController::class, 'index'])

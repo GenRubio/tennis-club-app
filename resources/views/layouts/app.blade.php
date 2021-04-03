@@ -48,5 +48,4 @@
     @yield('personal-script')
     @yield('components.footer')
 </body>
-
 </html>
