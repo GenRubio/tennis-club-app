@@ -6,6 +6,7 @@
     <ul class="nav-dropdown-items">
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('shoparticle') }}'><i class='nav-icon la la-question'></i> Articulos</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('shopcategorie') }}'><i class='nav-icon la la-question'></i> Categorias</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('shopbannerimage') }}'><i class='nav-icon la la-question'></i> Carusel Imagenes</a></li>
     </ul>
 </li>
 <li class="nav-item nav-dropdown">

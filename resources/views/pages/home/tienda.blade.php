@@ -227,12 +227,21 @@
                 margin-bottom: 30px
             }
         }
+        .page-link{
+            color:#e3342f !important;
+        }
+
+        .page-item.active .page-link {
+            background-color: #e3342f !important;
+            border-color: #e3342f !important;
+            color:white !important;
+        }
 
     </style>
 @endsection
 @section('content')
     <br><br><br>
-    <livewire:home.tienda/>
+    <livewire:home.tienda />
     <br><br>
     <div class="container-fluid border-top border-danger">
         <div class="container p-3">

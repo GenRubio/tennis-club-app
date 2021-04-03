@@ -9,14 +9,14 @@
         }
 
         .img-cover {
-            height: auto !important;
+            height: 190% !important;
             left: 50% !important;
             position: absolute !important;
             top: 50% !important;
             transform: translate(-50%, -50%) !important;
             transition: 0.3s !important;
             max-width: none !important;
-            width: 100% !important;
+            width: auto !important;
         }
 
         .wrap-img-cover-second {
@@ -74,13 +74,9 @@
     </style>
     <br> <br> <br> <br>
     <div class="container">
-        <div class="d-flex justify-content-center">
-            <h1 class="color-red" style="font-weight: bold;">
-                Nuestra multimedia
-                <span style="font-size: 14px;">
-            </h1>
-        </div>
-
+        <h1 class="color-red" style="font-weight: bold;">
+            Nuestra multimedia
+        </h1>
         <hr class="featurette-divider">
         <br>
         @if (count($carusel) > 0)

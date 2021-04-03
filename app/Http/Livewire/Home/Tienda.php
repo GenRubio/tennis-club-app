@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\ShopArticle;
+use App\Models\ShopBannerImage;
 use App\Models\ShopCategorie;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -20,10 +21,12 @@ class Tienda extends Component
     public $paginatorInterval = 16;
     public $totalItems = 0;
     public $currentPage = 1;
+
+    public $caruselImages;
     public function render()
     {
         $this->categorias = ShopCategorie::where('activo', 1)->get();
-
+        $this->caruselImages = ShopBannerImage::where('active', 1)->orderBy('id', 'DESC')->get();
         return view('livewire.home.tienda', [
             'articulos' => $this->paginatorArticulos($this->status)
         ]);
