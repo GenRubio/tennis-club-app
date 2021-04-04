@@ -15,7 +15,9 @@ class NoticiasController extends Controller
             return view('pages.home.noticias', compact('noticia', 'ultimasNoticias'));
         }
         else{
-            
+            $ultimasNoticias = Noticia::where('activo', 1)->orderBy('id', 'DESC')->limit(4)->get();
+            $noticias = Noticia::where('activo', 1)->orderBy('id', 'DESC')->get();
+            return view('pages.home.noticias', compact('noticias', 'ultimasNoticias'));
         }
     }
 }

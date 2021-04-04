@@ -336,7 +336,7 @@
         <h1 class="color-red" style="font-weight: bold;">
             Ultimas noticias
             <span style="font-size: 14px;">
-                <a href="#" class="ver-mas-button" style="text-decoration: none;">Ver más <i
+                <a href="{{ route('noticias') }}" class="ver-mas-button" style="text-decoration: none;">Ver más <i
                         class="fas fa-arrow-right"></i></a>
             </span>
         </h1>
