@@ -73,6 +73,5 @@
 
     <br> <br> <br> <br>
     <br> <br>
-    @include('components.carusel-footer')
     @include('components.footer')
 @endsection

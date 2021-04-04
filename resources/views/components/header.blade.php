@@ -86,7 +86,8 @@
         position: absolute;
         top: 5px;
     }
-    #userlogo:hover{
+
+    #userlogo:hover {
         color: #e3342f;
     }
 
@@ -129,8 +130,8 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <a class="navbar-brand d-none d-lg-block" href="{{ route('home') }}">
-                                <img class="nav-bar-logo" src="{{ url('/images/logo.png') }}"
-                                    width="46" height="46" alt="">
+                                <img class="nav-bar-logo" src="{{ url('/images/logo.png') }}" width="46" height="46"
+                                    alt="">
                             </a>
                             <ul class="navbar-nav  text-xl-center text-lg-center mr-auto ml-auto">
                                 <li class="nav-item t-border">
@@ -179,7 +180,8 @@
                                 </li>
 
                                 <li class="nav-item t-border">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="{{ route('restaurante') }}"
+                                        style="{{ Request::is('restaurante') ? 'color:whitesmoke !important' : '' }}">
                                         <strong>RESTAURANTE</strong>
                                     </a>
                                 </li>
@@ -209,7 +211,8 @@
                                 <form class="form-inline my-2 my-lg-0">
                                     <div class="btn-group">
                                         <a type="button" class="dropdown-toggle user-dropdown" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false" style="text-decoration: none;" id="userlogo">
+                                            aria-haspopup="true" aria-expanded="false" style="text-decoration: none;"
+                                            id="userlogo">
                                             {{ auth()->user()->full_name }}
                                             <img src="{{ auth()->user()->image ? url(auth()->user()->image) : url('/images/default.jpg') }}"
                                                 width="37" height="37" class="rounded-circle">

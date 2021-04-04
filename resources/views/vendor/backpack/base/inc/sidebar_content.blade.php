@@ -18,5 +18,12 @@
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('galleriaimage') }}'><i class='nav-icon la la-question'></i> Multimedia</a></li>
     </ul>
 </li>
+<li class="nav-item nav-dropdown">
+    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-newspaper-o"></i>Restaurante</a>
+    <ul class="nav-dropdown-items">
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('restaurantecategoria') }}'><i class='nav-icon la la-question'></i> Categorias</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('restauranteplato') }}'><i class='nav-icon la la-question'></i> Platos menu</a></li>
+    </ul>
+</li>
 
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('newsletter') }}'><i class='nav-icon la la-question'></i> Newsletters</a></li>

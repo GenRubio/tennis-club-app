@@ -379,7 +379,7 @@ if (isset($noticia)) {
                                         <div class="card-body card-body-color">
                                             <h5 class="card-title noticia-titulo">{{ $noticia->titulo }}</h5>
                                             <div class="noticia-body">
-                                                {!! str_limit(strip_tags($noticia->descripcion), $limit = 370, $end = '...') !!}
+                                                {!! str_limit(strip_tags($noticia->descripcion), $limit = 270, $end = '...') !!}
                                             </div>
                                         </div>
                                         <div class="card-footer border-0 card-title-color">

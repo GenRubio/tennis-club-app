@@ -13,6 +13,7 @@ use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\InstalacionesController;
 use App\Http\Controllers\Home\NoticiaComentariosController;
 use App\Http\Controllers\Home\NoticiasController;
+use App\Http\Controllers\Home\RestauranteController;
 use App\Http\Controllers\Home\TiendaController;
 
 use Illuminate\Support\Facades\Route;
@@ -59,6 +60,9 @@ Route::get('/login', [LoginController::class, 'index'])
 Route::get('/noticias/{slug?}', [NoticiasController::class, 'index'])->name('noticias');
 Route::post('/comentarios',  [NoticiaComentariosController::class, 'index'])->name('comentarios');
 Route::get('/comentarios-refresh', [NoticiaComentariosController::class, 'refresh'])->name('comentariosRefresh');
+
+//Restaurante
+Route::get('/restaurante', [RestauranteController::class, 'index'])->name('restaurante');
 
 
 
