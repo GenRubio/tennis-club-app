@@ -26,7 +26,11 @@ class CalendarEventoRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'url' => 'required|max:255',
+            'titulo' => 'required|max:255',
+            'descripcion' => 'required|max:255',
+            'data_inicio' => 'required',
+            'data_final' => 'required',
         ];
     }
 
