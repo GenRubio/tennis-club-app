@@ -23,6 +23,7 @@
     <ul class="nav-dropdown-items">
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('restaurantecategoria') }}'><i class='nav-icon la la-question'></i> Categorias</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('restauranteplato') }}'><i class='nav-icon la la-question'></i> Platos menu</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('restauranteimage') }}'><i class='nav-icon la la-question'></i> Galería</a></li>
     </ul>
 </li>
 

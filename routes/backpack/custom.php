@@ -33,4 +33,5 @@ Route::group([
     Route::crud('shopbannerimage', 'ShopBannerImageCrudController');
     Route::crud('restaurantecategoria', 'RestauranteCategoriaCrudController');
     Route::crud('restauranteplato', 'RestaurantePlatoCrudController');
+    Route::crud('restauranteimage', 'RestauranteImageCrudController');
 }); // this should be the absolute last line of this file

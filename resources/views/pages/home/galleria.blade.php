@@ -9,7 +9,7 @@
         }
 
         .img-cover {
-            height: 190% !important;
+            height: 200% !important;
             left: 50% !important;
             position: absolute !important;
             top: 50% !important;
@@ -203,7 +203,7 @@
     <br>
     <div class="container">
         <h3 class="color-red" style="font-weight: bold;">
-            Galleria
+            Galería
         </h3>
         <hr class="featurette-divider" id="section1">
         <br>

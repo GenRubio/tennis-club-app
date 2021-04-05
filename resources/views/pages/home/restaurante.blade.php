@@ -65,6 +65,13 @@
             position: relative
         }
 
+        .parallax h2 {
+            font-size: 38px;
+            font-weight: bold;
+            color: #fff;
+            position: relative
+        }
+
         #avatar {
             width: 80px;
             height: 80px;
@@ -101,6 +108,24 @@
         .div-plato:hover {
             color: #e3342f;
             text-decoration: none;
+        }
+
+        .wrap-img-cover-tercero {
+            position: relative;
+            height: 210px;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        .img-cover-tercero {
+            height: 150% !important;
+            left: 50% !important;
+            position: absolute !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            transition: 0.3s !important;
+            max-width: none !important;
+            width: auto !important;
         }
 
     </style>
@@ -238,7 +263,7 @@
                                 <div class="modal fade" id="plato{{ $plato->id }}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content" style="background-color: #211f1f;">
+                                        <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle"
                                                     style="color: black;">
@@ -261,9 +286,11 @@
                                                     </div>
                                                 </div>
                                                 @if ($plato->description)
-                                                    <p style="color: whitesmoke;">{!! $plato->description !!}</p>
+                                                    <div style="color: black !important">
+                                                        {!! $plato->description !!}
+                                                    </div>
                                                 @endif
-                                                <p style="color: whitesmoke;">Ingredientes: {{ $plato->ingredients }}</p>
+                                                <p style="color: black;">Ingredientes: {{ $plato->ingredients }}</p>
                                                 <br>
                                                 <div class="d-flex justify-content-center">
                                                     <strong
@@ -285,19 +312,52 @@
             </div>
         </div>
     @endif
+    <br>
+    <br>
+    <div class="parallax pra2" style="background-image: url({{ url('/images/restaurante/descarga100.png') }})">
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <h1>Descubre nuestra galería</h1>
+            </div>
+            <div class="d-flex justify-content-center">
+                <h2><i class="fas fa-chevron-down"></i></h2>
+            </div>
+        </div>
+    </div>
+    <br> <br><br><br>
+    <section class="gallery-block cards-gallery-fanart">
+        <div class="container">
+            <div class="row">
+                @foreach ($galeria as $item)
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card border-0 transform-on-hover">
+                            <div class="wrap-img-cover-tercero rounded headline">
+                                <a class="lightbox" href="{{ $item->image }}"><img class="img-cover-tercero"
+                                        src="{{ $item->image }}" alt="First slide"></a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
     <br> <br> <br> <br>
     <br> <br>
     @include('components.footer')
 @endsection
 
 @section('personal-script')
-<script src="{{ url('/js/scrollreveal.js') }}"></script>
-<script src="{{ url('/js/parallax/parallax.js') }}"></script>
-<script>
-    ScrollReveal({
-        reset: true
-    });
-    ScrollReveal().reveal('.headline');
+    <script src="{{ url('/js/scrollreveal.js') }}"></script>
+    <script src="{{ url('/js/parallax/parallax.js') }}"></script>
+    <script>
+        ScrollReveal({
+            reset: true
+        });
+        ScrollReveal().reveal('.headline');
+        
+        baguetteBox.run('.cards-gallery-fanart', {
+            animation: 'slideIn'
+        });
 
-</script>
+    </script>
 @endsection
