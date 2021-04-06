@@ -23,11 +23,12 @@
     @yield('personal-style')
     <title>Tennis Padel</title>
 </head>
+{{-- #202123 --}}
 <style>
     body {
         -webkit-font-smoothing: antialiased;
         -webkit-backface-visibility: hidden;
-        background-color: #202123;
+        background-color: #141414;
     }
 
 

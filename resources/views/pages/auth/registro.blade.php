@@ -157,7 +157,7 @@
         }
 
         .back-ground-login-form {
-            background-color: #202123 !important;
+            background-color: #141414 !important; 
         }
 
     </style>

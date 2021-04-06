@@ -140,6 +140,25 @@
         .card-title-color {
             background-color: #000000d9;
         }
+        
+        
+        .div-image-noticias-todas{
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+        .img-auto-width-noticias-todas{
+            height: auto;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.3s;
+            max-width: none;
+            width: 100%;
+        }
+        
 
     </style>
 @endsection
@@ -365,59 +384,31 @@ if (isset($noticia)) {
             <hr class="featurette-divider">
             <br>
             <div class="row">
-                <div class="col-xl-9 col-lg-12 col-md-12">
-                    <div class="row">
-                        @foreach ($noticias as $noticia)
-                            <div class="col-xl-4 col-lg-4 col-md-6 mb-5">
-                                <a href="{{ route('noticias', $noticia->slug) }}"
-                                    style="text-decoration: none; color:whitesmoke">
-                                    <div class="card border-0 rounded card-border-personal card-point">
-                                        <div class="div-image-noticia">
-                                            <img class="img-auto-width-noticia rounded"
-                                                src="{{ $noticia->image ? url($noticia->image) : '' }}">
-                                        </div>
-                                        <div class="card-body card-body-color">
-                                            <h5 class="card-title noticia-titulo">{{ $noticia->titulo }}</h5>
-                                            <div class="noticia-body">
-                                                {!! str_limit(strip_tags($noticia->descripcion), $limit = 270, $end = '...') !!}
-                                            </div>
-                                        </div>
-                                        <div class="card-footer border-0 card-title-color">
-                                            @php
-                                                setlocale(LC_TIME, 'French');
-                                            @endphp
-                                            <small class="text-muted">Publicado:
-                                                {{ $noticia->created_at->translatedFormat('jS F Y') }}</small>
-                                        </div>
+                @foreach ($noticias as $noticia)
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-5">
+                        <a href="{{ route('noticias', $noticia->slug) }}" style="text-decoration: none; color:whitesmoke">
+                            <div class="card border-0 rounded card-border-personal card-point">
+                                <div class="div-image-noticias-todas">
+                                    <img class="img-auto-width-noticias-todas rounded"
+                                        src="{{ $noticia->image ? url($noticia->image) : '' }}">
+                                </div>
+                                <div class="card-body card-body-color">
+                                    <h5 class="card-title noticia-titulo">{{ $noticia->titulo }}</h5>
+                                    <div class="noticia-body">
+                                        {!! str_limit(strip_tags($noticia->descripcion), $limit = 370, $end = '...') !!}
                                     </div>
-                                </a>
+                                </div>
+                                <div class="card-footer border-0 card-title-color">
+                                    @php 
+                                         setlocale(LC_TIME, 'French');
+                                    @endphp
+                                    <small class="text-muted">Publicado:
+                                        {{ $noticia->created_at->translatedFormat('jS F Y') }}</small>
+                                </div>
                             </div>
-                        @endforeach
+                        </a>
                     </div>
-
-                </div>
-                <div class="col-xl-3 d-none d-xl-block border-left border-dark">
-                    <h4><strong class="color-red">Ultimas noticias</strong></h4>
-                    <div class="row">
-                        @foreach ($ultimasNoticias as $noticia)
-                            <div class="col-12">
-                                <a href="{{ route('noticias', $noticia->slug) }}" style="text-decoration: none;">
-                                    <div class="div-image margin-b-10">
-                                        <img class="img-auto-width" src="{{ url($noticia->image) }}">
-                                    </div>
-                                    <div>
-                                        <p class="text-muted card-text margin-b-0">
-                                            <strong class="color-whitesmoke">{{ $noticia->titulo }}</strong>
-                                        </p>
-                                        <p class="div-data-nuevas-noticias">
-                                            {{ $noticia->created_at->format('jS F Y') }}</p>
-                                    </div>
-                                </a>
-                                <hr class="border border-dark">
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
         @include('components.footer')
