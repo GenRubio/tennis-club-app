@@ -38,6 +38,10 @@ class Noticia extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function comments(){
+        return $this->hasMany(NoticiaComentario::class, 'noticia_id', 'id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

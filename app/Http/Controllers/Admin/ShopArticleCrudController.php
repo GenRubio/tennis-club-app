@@ -53,6 +53,7 @@ class ShopArticleCrudController extends CrudController
         $this->crud->addColumn([
             'name' => 'activo',
             'label' => 'activo',
+            'type' => 'btnToggle',
         ]);
     }
     protected function basicFields()

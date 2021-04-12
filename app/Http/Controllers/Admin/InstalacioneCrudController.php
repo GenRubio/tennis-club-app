@@ -18,12 +18,10 @@ class InstalacioneCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    //Botton para eliminar multiples opciones
+    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkDeleteOperation;
 
-    /**
-     * Configure the CrudPanel object. Apply settings to all operations.
-     * 
-     * @return void
-     */
+
     public function setup()
     {
         CRUD::setModel(\App\Models\Instalacione::class);
@@ -31,9 +29,11 @@ class InstalacioneCrudController extends CrudController
         CRUD::setEntityNameStrings('instalacion', 'instalaciones');
     }
 
-  
     protected function setupListOperation()
     {
+        //Colocar el selector con el cual poder eliminar multiples opciones
+        $this->crud->enableBulkActions();
+
         $this->crud->addButtonFromView('line', 'add-image-instalacion', 'add-image-instalacion', 'beginning');
 
         $this->crud->addColumn([
@@ -52,13 +52,12 @@ class InstalacioneCrudController extends CrudController
         $this->crud->addColumn([
             'name' => 'activo',
             'label' => 'Activado',
-            'type' => 'check'
+            'type' => 'btnToggle'
         ]);
     }
     protected function basicFields()
     {
         $this->crud->addFields([
-
             [
                 'name' => 'titulo',
                 'label' => 'Titulo',
@@ -96,7 +95,6 @@ class InstalacioneCrudController extends CrudController
                 'label' => '',
                 'type' => 'hidden',
             ],
-
         ]);
     }
 

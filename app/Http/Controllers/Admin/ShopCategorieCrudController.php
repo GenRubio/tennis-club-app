@@ -28,7 +28,8 @@ class ShopCategorieCrudController extends CrudController
         ]);
         $this->crud->addColumn([
             'name' => 'activo',
-            'label' => 'Activada',
+            'label' => 'Activo',
+            'type' => 'btnToggle',
         ]);
 
     }

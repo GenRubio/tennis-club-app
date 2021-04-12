@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory, Notifiable;
 
     /**
@@ -17,18 +18,16 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
         'email',
+        'rol_id',
         'password',
-        'image',
-        'provider'.
-        'first_name',
-        'second_name',
         'token_recover_email',
         'active_token_email',
         'token_validate_email',
         'email_validate',
         'provider_id',
+        'provider',
+        'activo',
     ];
 
     /**
@@ -63,6 +62,14 @@ class User extends Authenticatable
     public function newsletter(){
         return $this->hasOne(Newsletter::class, 'email', 'email');
     }
+
+    public function role(){
+        return $this->hasOne(Role::class, 'id', 'rol_id');
+    }
+
+    public function client(){
+        return $this->hasOne(Client::class, 'user_id', 'id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -74,10 +81,7 @@ class User extends Authenticatable
     | ACCESSORS
     |--------------------------------------------------------------------------
     */
-    public function getFullNameAttribute()
-    {
-        return $this->attributes['name'];
-    }
+  
     /*
     |--------------------------------------------------------------------------
     | MUTATORS

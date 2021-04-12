@@ -5,6 +5,7 @@
 // --------------------------
 // This route file is loaded automatically by Backpack\Base.
 // Routes you generate using Backpack\Generators will be placed here.
+use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
@@ -16,7 +17,7 @@ Route::group([
 ], function () { // custom admin routes
 
     Route::crud('shoparticle', 'ShopArticleCrudController');
-    
+
     Route::crud('alquilerpista', 'AlquilerPistaCrudController');
     Route::crud('calendarevento', 'CalendarEventoCrudController');
     Route::crud('instalacione', 'InstalacioneCrudController');
@@ -24,7 +25,8 @@ Route::group([
     Route::group(['prefix' => 'instalacione/{instalacion_id}'], function () {
         Route::crud('images', 'InstalacionImageCrudController');
     });
-    //Route::crud('instalacionimage', 'InstalacionImageCrudController');
+
+
     Route::crud('shopcategorie', 'ShopCategorieCrudController');
     Route::crud('galleriaimage', 'GalleriaImageCrudController');
     Route::crud('noticia', 'NoticiaCrudController');
@@ -34,4 +36,18 @@ Route::group([
     Route::crud('restaurantecategoria', 'RestauranteCategoriaCrudController');
     Route::crud('restauranteplato', 'RestaurantePlatoCrudController');
     Route::crud('restauranteimage', 'RestauranteImageCrudController');
-}); // this should be the absolute last line of this file
+    Route::crud('user', 'UserCrudController');
+    Route::crud('role', 'RoleCrudController');
+    Route::crud('client', 'ClientCrudController');
+
+
+
+    
+    /*
+    * AJAX
+    */
+    /* Toggle Active */
+    Route::post('toggleField', function (Illuminate\Http\Request $request) {
+        return toggleField($request);
+    })->name('toggleField');
+});

@@ -6,11 +6,7 @@ use App\Http\Requests\InstalacionImageRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
-/**
- * Class InstalacionImageCrudController
- * @package App\Http\Controllers\Admin
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
- */
+
 class InstalacionImageCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
@@ -18,6 +14,9 @@ class InstalacionImageCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+
+    //Reordenar
+    //use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
 
     protected $instalacionId;
     public function setup()
@@ -41,8 +40,8 @@ class InstalacionImageCrudController extends CrudController
         ]);
         $this->crud->addColumn([
             'name' => 'active',
-            'label' => 'Activado',
-            'type' => 'check'
+            'label' => 'Activo',
+            'type' => 'btnToggle'
         ]);
     }
     protected function basicFields()
@@ -77,4 +76,12 @@ class InstalacionImageCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
+
+    /* Reordenar 
+    protected function setupReorderOperation()
+    {
+        $this->crud->set('reorder.label', 'image');
+        $this->crud->set('reorder.max_level', 2);
+    }
+    */
 }

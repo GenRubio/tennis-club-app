@@ -1,5 +1,6 @@
 <?php
 
+use App\CrudHelper;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 function eliminar_tildes($cadena)
@@ -65,4 +66,11 @@ function data_noticia($data){
     $string = $data;
     $date = DateTime::createFromFormat("jS F Y h:i:s A", $string);
     return strftime("%A",$date->getTimestamp());
+}
+
+if (!function_exists('toggleField')) {
+    function toggleField($request)
+    {
+        return CrudHelper::toggleField($request);
+    }
 }
