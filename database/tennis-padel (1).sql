@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-04-2021 a las 20:43:12
+-- Tiempo de generación: 12-04-2021 a las 16:09:28
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.1
 
@@ -85,18 +85,48 @@ INSERT INTO `calendar_eventos` (`id`, `titulo`, `descripcion`, `data_inicio`, `d
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `failed_jobs`
+-- Estructura de tabla para la tabla `clients`
 --
 
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `clients` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `second_name` varchar(50) NOT NULL,
+  `sexe` tinyint(1) NOT NULL,
+  `dni` varchar(20) NOT NULL,
+  `nacionalidad` varchar(20) NOT NULL,
+  `cat_salut` varchar(30) DEFAULT NULL,
+  `address` varchar(50) NOT NULL,
+  `poblacio` varchar(50) NOT NULL,
+  `cp` int(10) NOT NULL,
+  `provincia` varchar(20) NOT NULL,
+  `data_naxement` date NOT NULL,
+  `conte_bancari` varchar(30) DEFAULT NULL,
+  `telefono_1` varchar(20) NOT NULL,
+  `telefono_2` varchar(20) DEFAULT NULL,
+  `name_emergenica` varchar(20) DEFAULT NULL,
+  `telefono_1_emergencia` varchar(20) DEFAULT NULL,
+  `telefono_2_emergencia` varchar(20) DEFAULT NULL,
+  `socio` int(1) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `client_sons`
+--
+
+CREATE TABLE `client_sons` (
+  `id` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
+  `son_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -310,6 +340,28 @@ CREATE TABLE `noticia_comentarios` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `noticia_comentarios`
+--
+
+INSERT INTO `noticia_comentarios` (`id`, `user_id`, `noticia_id`, `comentario`, `activo`, `created_at`, `updated_at`) VALUES
+(12, 64, 13, 'Hola mundo', 1, '2021-04-06 17:23:07', '2021-04-06 17:23:07'),
+(13, 64, 13, 'ghsdfhsdfhsdfh', 1, '2021-04-06 17:23:46', '2021-04-06 17:23:46'),
+(14, 64, 13, 'fdfasdgasdg', 1, '2021-04-06 17:23:54', '2021-04-06 17:23:54'),
+(15, 64, 13, 'dgasdg', 1, '2021-04-06 17:25:36', '2021-04-06 17:25:36'),
+(16, 64, 10, 'sadgsadg', 1, '2021-04-06 17:25:47', '2021-04-06 17:25:47'),
+(17, 64, 10, 'sadgsadgs', 1, '2021-04-06 17:25:53', '2021-04-06 17:25:53'),
+(18, 64, 13, 'hola', 1, '2021-04-07 03:14:41', '2021-04-07 03:14:41'),
+(19, 64, 13, 'hola', 1, '2021-04-07 03:14:53', '2021-04-07 03:14:53'),
+(20, 64, 13, 'cvzxc', 1, '2021-04-07 03:15:10', '2021-04-07 03:15:10'),
+(21, 64, 13, 'sdfgsfg', 1, '2021-04-07 03:16:09', '2021-04-07 03:16:09'),
+(22, 64, 13, 'ffg', 1, '2021-04-07 03:16:29', '2021-04-07 03:16:29'),
+(23, 64, 13, 'gdsfg', 1, '2021-04-07 03:16:33', '2021-04-07 03:16:33'),
+(24, 64, 13, 'asf', 1, '2021-04-07 03:18:19', '2021-04-07 03:18:19'),
+(25, 64, 13, 'asf', 1, '2021-04-07 03:18:22', '2021-04-07 03:18:22'),
+(26, 64, 13, 'asdf', 1, '2021-04-07 03:18:40', '2021-04-07 03:18:40'),
+(27, 64, 13, 'asdf', 1, '2021-04-07 03:18:42', '2021-04-07 03:18:42');
+
 -- --------------------------------------------------------
 
 --
@@ -426,6 +478,28 @@ INSERT INTO `restaurante_platos` (`id`, `restaurante_categoria_id`, `image`, `na
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL,
+  `rol` varchar(100) NOT NULL,
+  `activo` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id`, `rol`, `activo`, `created_at`, `updated_at`) VALUES
+(1, 'Usuario', 1, '2021-04-11 05:33:23', '2021-04-11 09:30:47'),
+(2, 'Administrador', 1, '2021-04-11 05:34:12', '2021-04-11 09:30:46');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `shop_articles`
 --
 
@@ -525,25 +599,39 @@ INSERT INTO `shop_categories` (`id`, `titulo`, `slug`, `activo`, `created_at`, `
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `sons`
+--
+
+CREATE TABLE `sons` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `second_name` varchar(50) NOT NULL,
+  `data_naxement` date NOT NULL,
+  `cat_salut` varchar(30) NOT NULL,
+  `sexe` tinyint(1) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `first_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `second_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `provider_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `provider` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_validate` tinyint(1) NOT NULL DEFAULT 0,
   `token_validate_email` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
   `token_recover_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `active_token_email` int(1) NOT NULL DEFAULT 0,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `rol_id` int(11) NOT NULL DEFAULT 1,
+  `activo` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -552,8 +640,8 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `first_name`, `second_name`, `image`, `email`, `provider_id`, `provider`, `email_validate`, `token_validate_email`, `email_verified_at`, `token_recover_email`, `active_token_email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(64, NULL, 'EVGENY', 'LYUBEZNYY', NULL, 'keylorubio@gmail.com', NULL, NULL, 1, '', NULL, NULL, 0, '$2y$10$mRXaipCI5fSfZRI3IO58teeC2itXqxEbQRAaTm4kw9Z2PaJBFxKhW', NULL, '2021-04-03 09:03:10', '2021-04-03 09:03:29');
+INSERT INTO `users` (`id`, `email`, `provider_id`, `provider`, `email_validate`, `token_validate_email`, `token_recover_email`, `active_token_email`, `password`, `rol_id`, `activo`, `created_at`, `updated_at`) VALUES
+(64, 'keylorubio@gmail.com', NULL, NULL, 1, '', NULL, 0, '$2y$10$mRXaipCI5fSfZRI3IO58teeC2itXqxEbQRAaTm4kw9Z2PaJBFxKhW', 1, 1, '2021-04-03 09:03:10', '2021-04-11 09:24:48');
 
 --
 -- Índices para tablas volcadas
@@ -572,11 +660,16 @@ ALTER TABLE `calendar_eventos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `failed_jobs`
+-- Indices de la tabla `clients`
 --
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+ALTER TABLE `clients`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `client_sons`
+--
+ALTER TABLE `client_sons`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `galleria_images`
@@ -645,6 +738,12 @@ ALTER TABLE `restaurante_platos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `shop_articles`
 --
 ALTER TABLE `shop_articles`
@@ -660,6 +759,12 @@ ALTER TABLE `shop_banner_images`
 -- Indices de la tabla `shop_categories`
 --
 ALTER TABLE `shop_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `sons`
+--
+ALTER TABLE `sons`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -686,10 +791,16 @@ ALTER TABLE `calendar_eventos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `failed_jobs`
+-- AUTO_INCREMENT de la tabla `clients`
 --
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `clients`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `client_sons`
+--
+ALTER TABLE `client_sons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `galleria_images`
@@ -731,7 +842,7 @@ ALTER TABLE `noticias`
 -- AUTO_INCREMENT de la tabla `noticia_comentarios`
 --
 ALTER TABLE `noticia_comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `restaurante_categorias`
@@ -752,6 +863,12 @@ ALTER TABLE `restaurante_platos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `shop_articles`
 --
 ALTER TABLE `shop_articles`
@@ -770,10 +887,16 @@ ALTER TABLE `shop_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT de la tabla `sons`
+--
+ALTER TABLE `sons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
