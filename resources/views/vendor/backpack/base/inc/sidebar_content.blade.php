@@ -17,11 +17,15 @@
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('client') }}'><i
                     class='nav-icon la la-question'></i>
                 Datos cliente</a></li>
-                <li class='nav-item'><a class='nav-link' href='{{ backpack_url('clienttipospariente') }}'><i class='nav-icon la la-question'></i> Pariente tipos</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('clienttipospariente') }}'><i
+                    class='nav-icon la la-question'></i> Pariente tipos</a></li>
     </ul>
 </li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('newsletter') }}'><i
             class='nav-icon la la-question'></i> Newsletters</a></li>
+<li class="nav-title">Socios</li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('quotasocio') }}'><i class='nav-icon la la-question'></i> Quotas</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('servicio') }}'><i class='nav-icon la la-question'></i> Servicios</a></li>
 <li class="nav-title">Tenis y Padel Blanes</li>
 
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('noticia') }}'><i class='nav-icon la la-question'></i>

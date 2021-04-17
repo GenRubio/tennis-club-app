@@ -38,7 +38,7 @@ class Client extends Model
         'name_emergenica',
         'telefono_1_emergencia',
         'telefono_2_emergencia',
-        'socio',
+        'quota_socio_id',
         'image',
     ];
     // protected $hidden = [];
@@ -56,6 +56,9 @@ class Client extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function quotaSocio(){
+        return $this->hasOne(QuotaSocio::class, 'id', 'quota_socio_id');
+    }
   
     /*
     |--------------------------------------------------------------------------
@@ -73,14 +76,24 @@ class Client extends Model
         return $this->attributes['first_name'] . " " . $this->attributes['second_name'];
     }
 
-    public function getFamiliaresAttribute(){
-         
-    }
+    public function setQuotaSocioIdAttribute($value){
+        $familiares = Client::where('user_id', $this->attributes['user_id'])->get();
 
-    public function getClientTipoAttribute(){
-    
-        $clientPariente = ClientParientesRelacion::where('client_id_1', $this->attributes['id'])->first();
-        return $clientPariente ? $clientPariente->clientTipo->nom : '---';
+        if ($value == 4){
+            if (count($familiares) > 0){
+                Client::where('user_id', $this->attributes['user_id'])
+                ->where('id', '!=', $this->attributes['id'])
+                ->update(array("quota_socio_id" => $value));
+            }
+        }
+        else{
+            if (count($familiares) > 0){
+                Client::where('user_id', $this->attributes['user_id'])
+                ->where('id', '!=', $this->attributes['id'])
+                ->update(array("quota_socio_id" => null));
+            }
+        }
+        return $this->attributes['quota_socio_id'] = $value;
     }
 
     public function getClientTipo($parentId){

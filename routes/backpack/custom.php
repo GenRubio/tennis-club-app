@@ -59,4 +59,7 @@ Route::group([
         return toggleField($request);
     })->name('toggleField');
     Route::crud('clienttipospariente', 'ClientTiposParienteCrudController');
+    Route::crud('servicio', 'ServicioCrudController');
+
+    Route::crud('quotasocio', 'QuotaSocioCrudController');
 });

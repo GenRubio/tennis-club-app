@@ -98,6 +98,14 @@ class ClientCrudController extends CrudController
             'name' => 'telefono_1',
             'label' => 'Telefono',
         ]);
+
+        $this->crud->addColumn([
+            'name' => 'quotaSocio',
+            'label' => 'Quota',
+            'type' => 'relationship',
+            'attribute' => 'titulo',
+            'model'     => App\Models\QuotaSocio::class,
+        ]);
     }
     protected function basicFields()
     {
@@ -221,6 +229,15 @@ class ClientCrudController extends CrudController
                 'label' => 'Imagen',
                 'type' => 'image',
                 'tab' => 'Personals',
+            ],
+            [
+                'name' => 'quota_socio_id',
+                'label' => 'Quota socio',
+                'type' => 'select2',
+                'model'     => "App\Models\QuotaSocio", 
+                'attribute' => 'titulo',
+                'default'   => null,
+                'tab' => 'Quota',
             ],
         ]);
     }
