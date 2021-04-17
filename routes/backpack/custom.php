@@ -30,7 +30,11 @@ Route::group([
     Route::crud('shopcategorie', 'ShopCategorieCrudController');
     Route::crud('galleriaimage', 'GalleriaImageCrudController');
     Route::crud('noticia', 'NoticiaCrudController');
-    Route::crud('noticiacomentario', 'NoticiaComentarioCrudController');
+
+    Route::group(['prefix' => 'noticia/{noticia_id}'], function (){
+        Route::crud('noticia-comentario', 'NoticiaComentarioCrudController');
+    });
+
     Route::crud('newsletter', 'NewsletterCrudController');
     Route::crud('shopbannerimage', 'ShopBannerImageCrudController');
     Route::crud('restaurantecategoria', 'RestauranteCategoriaCrudController');

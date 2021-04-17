@@ -25,9 +25,11 @@ class NoticiaCrudController extends CrudController
   
     protected function setupListOperation()
     {
+        $this->crud->addButtonFromView('line', 'ver-comentarios', 'ver-comentarios', 'beginning');
+
         $this->crud->addColumn([
             'name' => 'created_at',
-            'label' => 'Fecha',
+            'label' => 'Publicada',
             'type'  => 'text',
         ]);
         $this->crud->addColumn([
@@ -47,7 +49,7 @@ class NoticiaCrudController extends CrudController
         ]);
         $this->crud->addColumn([
             'name' => 'activo',
-            'type' => 'check',
+            'type' => 'btnToggle',
             'label' => 'Activo',
         ]);
   

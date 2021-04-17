@@ -5,12 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\NoticiaComentarioRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Illuminate\Support\Facades\Route;
 
-/**
- * Class NoticiaComentarioCrudController
- * @package App\Http\Controllers\Admin
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
- */
 class NoticiaComentarioCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
@@ -19,60 +15,98 @@ class NoticiaComentarioCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
-    /**
-     * Configure the CrudPanel object. Apply settings to all operations.
-     * 
-     * @return void
-     */
+    protected $noticiaId;
+
     public function setup()
     {
         CRUD::setModel(\App\Models\NoticiaComentario::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/noticiacomentario');
-        CRUD::setEntityNameStrings('noticiacomentario', 'noticia_comentarios');
+
+        $this->noticiaId = Route::current()->parameter('noticia_id');
+
+        $this->crud->setRoute("admin/noticia/". $this->noticiaId . '/noticia-comentario');
+
+        $this->breadCrumbs();
+        $this->listFilter();
+
+
+        CRUD::setEntityNameStrings('comentario', 'Comentarios');
     }
 
-    /**
-     * Define what happens when the List operation is loaded.
-     * 
-     * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
-     * @return void
-     */
+    protected function breadCrumbs(){
+        $this->data['breadcrumbs'] = [
+            trans('backpack::crud.admin') => backpack_url('dashboard'),
+            'Noticias' => backpack_url('noticia'),
+            'Comentarios' => backpack_url("noticia/" . $this->noticiaId . "/noticia-comentario"),
+            trans('backpack::crud.list') => false,
+        ];
+    }
+
+    protected function listFilter(){
+        $this->crud->addClause('where', 'noticia_id', $this->noticiaId);
+    }
+
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
-         */
+        $this->crud->addColumn([
+            'name' => 'created_at',
+            'type' => 'data',
+            'label' => 'Publicado',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'user',
+            'label' => 'Usuario',
+            'type' => 'relationship',
+            'attribute' => 'user_name',
+            'model'     => App\Models\User::class,
+        ]);
+        $this->crud->addColumn([
+            'name' => 'comentario',
+            'type' => 'text',
+            'label' => 'Comentario',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'activo',
+            'type' => 'btnToggle',
+            'label' => 'Activo',
+        ]);
     }
 
-    /**
-     * Define what happens when the Create operation is loaded.
-     * 
-     * @see https://backpackforlaravel.com/docs/crud-operation-create
-     * @return void
-     */
+    protected function basicFields()
+    {
+        $this->crud->addFields([
+            [
+                'label' => 'Usuario',
+                'type' => 'select2',
+                'name' => 'user_id',
+                'model'     => "App\Models\User",
+                'attribute' => 'email',
+                'options'   => (function ($query) {
+                    return $query->where('users.email_validate', 1)
+                        ->orderBy('email', 'ASC')->get();
+                }),
+            ],
+            [
+                'name' => 'comentario',
+                'label' => 'Comentario',
+                'type' => 'ckeditor',
+                'limint' => -1,
+            ],
+            [
+                'name' => 'noticia_id',
+                'label' => '',
+                'value' => $this->noticiaId,
+                'type' => 'hidden',
+            ],
+        ]);
+    }
     protected function setupCreateOperation()
     {
         CRUD::setValidation(NoticiaComentarioRequest::class);
 
-        CRUD::setFromDb(); // fields
+        $this->basicFields();
 
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
-         */
     }
 
-    /**
-     * Define what happens when the Update operation is loaded.
-     * 
-     * @see https://backpackforlaravel.com/docs/crud-operation-update
-     * @return void
-     */
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();

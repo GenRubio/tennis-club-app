@@ -82,7 +82,23 @@ class User extends Authenticatable
     | ACCESSORS
     |--------------------------------------------------------------------------
     */
+    public function getUserNameAttribute(){
+        $cliente = Client::where('user_id',  $this->attributes['id'])
+        ->join('client_parientes_relacions', 'client_parientes_relacions.client_id_1', 'clients.id')
+        ->where('client_parientes_relacions.client_id_1', 1)
+        ->orWhere('client_parientes_relacions.client_id_1', 2)
+        ->limit(1)
+        ->first();
+        
+        if ($cliente){
+            return $cliente->full_name;
+        }
+        else{
+            $cliente = Client::where('user_id',  $this->attributes['id'])->first();
 
+            return $cliente->full_name;
+        }
+    }
     /*
     |--------------------------------------------------------------------------
     | MUTATORS
