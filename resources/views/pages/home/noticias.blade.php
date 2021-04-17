@@ -194,7 +194,7 @@ if (isset($noticia)) {
                     <div class="col-xl-9 col-lg-12 col-md-12">
                         <div class="color-whitesmoke">
                             <h2><strong class="color-whitesmoke">{!! $noticia->titulo !!}</strong></h2>
-                            <p>Publicado: {{ $noticia->created_at->format('jS F Y') }}</p>
+                            <p>Publicado: {{ $noticia->created_at->translatedFormat('jS F Y') }}</p>
                         </div>
                         <div>
                             {{-- <h5style="margin-bottom:20px;"><strong>!!$noticia->sub_titulo!!</strong></h5> --}}
@@ -238,45 +238,7 @@ if (isset($noticia)) {
                             </li>
                         </ul>
                         <br> <br>
-                        <h4>
-                            <strong class="color-red">Respuestas </strong>
-                            <span id="countComments" style="color: #e7e0e0;font-size: 16px;"></span>
-                        </h4>
-                        <hr class="featurette-divider">
-
-                        @auth
-                            <form id="createComment">
-                                @csrf
-                                <div class="form-group">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                                        placeholder="Escribe tu comentario aquí..." rows="5" name="comentario"></textarea>
-                                    <input type="hidden" name="noticia_id" value="{{ $noticia->id }}" />
-                                </div>
-                                <div class="d-flex justify-content-end">
-                                    <button type="reset" class="btn btn-outline-danger mr-3"><strong>Cancelar</strong></button>
-                                    <button type="submit" class="btn btn-danger"><strong>Publicar comentario</strong></button>
-                                </div>
-                            </form>
-                            <br> <br>
-                        @endauth
-                        @if (Auth::check() == false)
-                            <form>
-                                <div class="d-flex justify-content-end">
-                                    <a href="{{ route('login') }}" class="login-link" style="text-decoration: none;">
-                                        <i class="far fa-bell"></i> Iniciar sesión
-                                    </a>
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                                        placeholder="Escribe tu comentario aquí..." rows="5" disabled></textarea>
-                                </div>
-                                <div class="d-flex justify-content-end">
-                                    <a href="{{ route('registro') }}" class="btn btn-danger"><strong>Registrarse</strong></a>
-                                </div>
-                            </form>
-                            <br> <br>
-                        @endif
-                        <div id="comentarios"></div>
+                        <livewire:home.comentarios :noticia="$noticia->id" >
                         <br><br>
                     </div>
                     <div class="col-xl-3 d-none d-xl-block border-left border-dark">
@@ -306,74 +268,6 @@ if (isset($noticia)) {
         </div>
         @include('components.footer')
     @endsection
-
-    @section('personal-script')
-        <script>
-            $(document).ready(function() {
-
-                load_data();
-
-                function load_data(id = "") {
-                    $.ajax({
-                        url: "{{ route('comentarios') }}",
-                        method: 'POST',
-                        data: {
-                            id: id,
-                            noticia: "{{ $idNoticia }}",
-                            "_token": "{{ csrf_token() }}",
-                        },
-                        success: function(data) {
-                            $('#load_more_button').remove();
-                            $('#countComments').text(data.count + " comentarios");
-                            $('#comentarios').append(data.content);
-                        },
-                        error: function(error) {
-                            console.log(error);
-                        }
-                    })
-                }
-                $('#createComment').on('submit', function(event) {
-                    event.preventDefault();
-                    $.ajax({
-                        url: "{{ route('comments.store') }}",
-                        method: "POST",
-                        data: $(this).serialize(),
-                        success: function(data) {
-                            getComment();
-                            $('#createComment')[0].reset();
-                        },
-                        error: function(error) {
-                            console.log(error);
-                        }
-                    })
-                })
-
-                function getComment() {
-                    $.ajax({
-                        url: "{{ route('comentariosRefresh') }}",
-                        method: "GET",
-                        data: {
-                            id: "{{ $noticia->id }}"
-                        },
-                        success: function(data) {
-                            $('#countComments').text(data.count + " comentarios");
-                            $('#comentarios').html(data.content);
-                        },
-                        error: function(error) {
-                            console.log(error);
-                        }
-                    })
-                }
-                $(document).on('click', '#load_more_button', function() {
-                    var id = $(this).data('id');
-                    $('#load_more_button').html('<b>Cargando...</b>')
-                    load_data(id);
-                })
-            });
-
-        </script>
-    @endsection
-
 @else
     @section('content')
         <br><br> <br><br>

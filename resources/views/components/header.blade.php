@@ -213,7 +213,6 @@
                                         <a type="button" class="dropdown-toggle user-dropdown" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false" style="text-decoration: none;"
                                             id="userlogo">
-                                            {{ auth()->user()->full_name }}
                                             <img src="{{ auth()->user()->image ? url(auth()->user()->image) : url('/images/default.jpg') }}"
                                                 width="37" height="37" class="rounded-circle">
                                         </a>
