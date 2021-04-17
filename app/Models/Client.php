@@ -56,6 +56,7 @@ class Client extends Model
     |--------------------------------------------------------------------------
     */
 
+  
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -70,6 +71,23 @@ class Client extends Model
     public function getFullNameAttribute()
     {
         return $this->attributes['first_name'] . " " . $this->attributes['second_name'];
+    }
+
+    public function getFamiliaresAttribute(){
+         
+    }
+
+    public function getClientTipoAttribute(){
+    
+        $clientPariente = ClientParientesRelacion::where('client_id_1', $this->attributes['id'])->first();
+        return $clientPariente ? $clientPariente->clientTipo->nom : '---';
+    }
+
+    public function getClientTipo($parentId){
+        $clientPariente = ClientParientesRelacion::where('client_id_1', $this->attributes['id'])
+        ->where('client_id_2', $parentId)
+        ->first();
+        return $clientPariente ? $clientPariente->clientTipo->nom : '---';
     }
     /*
     |--------------------------------------------------------------------------

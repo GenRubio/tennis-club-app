@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class ClientTiposPariente extends Model
 {
     use CrudTrait;
 
@@ -15,13 +15,13 @@ class Role extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'roles';
+    protected $table = 'client_tipos_parientes';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'rol',
-        'activo'
+        'nom',
+        'activo',
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -37,10 +37,7 @@ class Role extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function users()
-    {
-        return $this->hasMany(User::class, 'rol_id', 'id');
-    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

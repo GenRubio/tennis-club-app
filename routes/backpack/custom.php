@@ -38,8 +38,12 @@ Route::group([
     Route::crud('restauranteimage', 'RestauranteImageCrudController');
     Route::crud('user', 'UserCrudController');
     Route::crud('role', 'RoleCrudController');
-    Route::crud('client', 'ClientCrudController');
 
+
+    Route::crud('client', 'ClientCrudController');
+    Route::group(['prefix' => 'client/{client_id}'], function (){
+        Route::crud('familiares', 'ClientCrudController');
+    });
 
 
     
@@ -50,4 +54,5 @@ Route::group([
     Route::post('toggleField', function (Illuminate\Http\Request $request) {
         return toggleField($request);
     })->name('toggleField');
+    Route::crud('clienttipospariente', 'ClientTiposParienteCrudController');
 });

@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\RoleRequest;
+use App\Http\Requests\ClientTiposParienteRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
-/**
- * Class RoleCrudController
- * @package App\Http\Controllers\Admin
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
- */
-class RoleCrudController extends CrudController
+class ClientTiposParienteCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -21,27 +16,20 @@ class RoleCrudController extends CrudController
 
     public function setup()
     {
-        CRUD::setModel(\App\Models\Role::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/role');
-        CRUD::setEntityNameStrings('role', 'roles');
+        CRUD::setModel(\App\Models\ClientTiposPariente::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/clienttipospariente');
+        CRUD::setEntityNameStrings('tipo pariente', 'Pariente tipos');
     }
+
+
     protected function setupListOperation()
     {
         $this->crud->addColumn([
-            'name' => 'rol',
-            'label' => 'Rol',
+            'name' => 'nom',
+            'label' => 'Tipo',
             'type' => 'text'
         ]);
-        $this->crud->addColumn([ 
-            'label' => 'Usuarios',
-            'type' => 'relationship_count',
-            'name' => 'users',
-            'wrapper' => [
-                'href' => function ($crud, $column, $entry, $related_key) {
-                    return backpack_url('user?rol_id='.$entry->getKey());
-                },
-            ],
-        ]);
+       
         $this->crud->addColumn([
             'name' => 'activo',
             'label' => 'Activo',
@@ -52,11 +40,12 @@ class RoleCrudController extends CrudController
 
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(RoleRequest::class);
+        CRUD::setValidation(ClientTiposParienteRequest::class);
 
         CRUD::setFromDb(); // fields
 
     }
+
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();

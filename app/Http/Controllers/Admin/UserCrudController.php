@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\UserRequest;
+use App\Models\Role;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Illuminate\Support\Facades\Hash;
@@ -26,17 +27,21 @@ class UserCrudController extends CrudController
   
     protected function setupListOperation()
     {
-        $this->crud->addColumn([
-            'name' => 'client',
-            'label' => 'Nombre',
-            'type' => 'relationship',
-            'attribute' => 'full_name',
-            'model'     => App\Models\Client::class,
-        ]);
+
         $this->crud->addColumn([
             'name' => 'email',
             'label' => 'Email',
             'type'  => 'email',
+        ]);
+        $this->crud->addColumn([ 
+            'label' => 'Clientes',
+            'type' => 'relationship_count',
+            'name' => 'clients',
+            'wrapper' => [
+                'href' => function ($crud, $column, $entry, $related_key) {
+                    return backpack_url('client?user_id='.$entry->getKey());
+                },
+            ],
         ]);
         $this->crud->addColumn([
             'name' => 'role',
@@ -51,6 +56,15 @@ class UserCrudController extends CrudController
             'type' => 'btnToggle'
         ]);
 
+
+        $this->crud->addFilter(
+            [
+                'name' => 'rol_id',
+                'type' => 'dropdown',
+                'label' => 'Rol de usuario',
+            ],
+            Role::all()->pluck('rol', 'id')->toArray(),
+        );
     }
     protected function basicFields()
     {

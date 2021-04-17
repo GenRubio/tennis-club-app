@@ -11,8 +11,15 @@
                     class='nav-icon la la-question'></i> Roles</a></li>
     </ul>
 </li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('client') }}'><i class='nav-icon la la-question'></i>
-        Datos usuario</a></li>
+<li class="nav-item nav-dropdown">
+    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-newspaper-o"></i>Clientes</a>
+    <ul class="nav-dropdown-items">
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('client') }}'><i
+                    class='nav-icon la la-question'></i>
+                Datos cliente</a></li>
+                <li class='nav-item'><a class='nav-link' href='{{ backpack_url('clienttipospariente') }}'><i class='nav-icon la la-question'></i> Pariente tipos</a></li>
+    </ul>
+</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('newsletter') }}'><i
             class='nav-icon la la-question'></i> Newsletters</a></li>
 <li class="nav-title">Tenis y Padel Blanes</li>

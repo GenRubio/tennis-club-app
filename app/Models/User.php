@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'id',
         'email',
         'rol_id',
         'password',
@@ -67,8 +68,8 @@ class User extends Authenticatable
         return $this->hasOne(Role::class, 'id', 'rol_id');
     }
 
-    public function client(){
-        return $this->hasOne(Client::class, 'user_id', 'id');
+    public function clients(){
+        return $this->hasMany(Client::class, 'user_id', 'id');
     }
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +82,7 @@ class User extends Authenticatable
     | ACCESSORS
     |--------------------------------------------------------------------------
     */
-  
+
     /*
     |--------------------------------------------------------------------------
     | MUTATORS
