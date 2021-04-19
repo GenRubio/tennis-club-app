@@ -11,7 +11,6 @@ use App\Http\Controllers\Home\ContactoController;
 use App\Http\Controllers\Home\GalleriaController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\InstalacionesController;
-use App\Http\Controllers\Home\NoticiaComentariosController;
 use App\Http\Controllers\Home\NoticiasController;
 use App\Http\Controllers\Home\RestauranteController;
 use App\Http\Controllers\Home\TiendaController;
@@ -58,8 +57,6 @@ Route::get('/login', [LoginController::class, 'index'])
     ->name('login');
 //Noticias
 Route::get('/noticias/{slug?}', [NoticiasController::class, 'index'])->name('noticias');
-Route::post('/comentarios',  [NoticiaComentariosController::class, 'index'])->name('comentarios');
-Route::get('/comentarios-refresh', [NoticiaComentariosController::class, 'refresh'])->name('comentariosRefresh');
 
 //Restaurante
 Route::get('/restaurante', [RestauranteController::class, 'index'])->name('restaurante');
@@ -68,7 +65,8 @@ Route::get('/restaurante', [RestauranteController::class, 'index'])->name('resta
 
 Route::middleware('auth')->group(function () {
     Route::get('/me', [DashboardController::class, 'index'])->name('me');
-    Route::get('/logout', [DashboardController::class, 'logaut'])->name('user.logaut');
+    Route::get('/logout', [DashboardController::class, 'logout'])->name('user.logaut');
 
-    Route::post('/comment', [NoticiaComentariosController::class, 'store'])->name('comments.store');
+    Route::get('/me/datos-cliente', [DashboardController::class, 'datosCliente'])->name('datos.cliente');
+
 });

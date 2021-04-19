@@ -11,8 +11,6 @@ use Livewire\Component;
 
 class RegistroForm extends Component
 {
-    public $first_name;
-    public $second_name;
     public $email;
     public $password;
     public $password_repeat;
@@ -24,8 +22,6 @@ class RegistroForm extends Component
     }
     protected $rules = [
         'email' => ['required', 'email', 'unique:users,email'],
-        'first_name' => ['required', 'min:1'],
-        'second_name' => ['required', 'min:1'],
         'password' => ['required', 'regex:/^(?=(?:.*[0-9]){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){2})\S{8,}$/'],
         'password_repeat' => ['required', 'required_with:password', 'same:password'],
         'terminos' => 'accepted',
@@ -49,8 +45,6 @@ class RegistroForm extends Component
         $this->validate();
 
         $user = new User();
-        $user->first_name = $this->first_name;
-        $user->second_name = $this->second_name;
         $user->email = $this->email;
         $user->password =  Hash::make($this->password);
         $user->token_validate_email = md5(uniqid(mt_rand(), false));
@@ -94,8 +88,6 @@ class RegistroForm extends Component
     }
     public function resetForm()
     {
-        $this->first_name = "";
-        $this->second_name = "";
         $this->email = "";
         $this->password = "";
         $this->password_repeat = "";

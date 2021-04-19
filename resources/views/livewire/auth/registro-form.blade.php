@@ -1,14 +1,5 @@
 <div>
     <form wire:submit.prevent="create">
-
-        <div class="form-group">
-            @error('first_name') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-            <input wire:model="first_name" id="nombre" type="text" class="form-control inputs-style" placeholder="Nombre" required>
-        </div>
-        <div class="form-group">
-            @error('second_name') <span class="error" style="color: red;">{{ $message }}</span> @enderror
-            <input wire:model="second_name" type="text" class="form-control inputs-style" placeholder="Apellidos" required>
-        </div>
         <div class="form-group">
             @error('email') <span class="error" style="color: red;">{{ $message }}</span> @enderror
             <input wire:model="email" type="email" ¡ class="form-control inputs-style" placeholder="Email" required>

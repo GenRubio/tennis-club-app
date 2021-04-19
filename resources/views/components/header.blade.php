@@ -208,24 +208,35 @@
                                 </li>
                             </ul>
                             @auth
-                                <form class="form-inline my-2 my-lg-0">
-                                    <div class="btn-group">
-                                        <a type="button" class="dropdown-toggle user-dropdown" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false" style="text-decoration: none;"
-                                            id="userlogo">
-                                            <img src="{{ auth()->user()->image ? url(auth()->user()->image) : url('/images/default.jpg') }}"
-                                                width="37" height="37" class="rounded-circle">
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right anti-parpadeo">
-                                            <a class="dropdown-item" type="button"><i class="fas fa-user"></i> Mi perfil</a>
-                                            <a class="dropdown-item" type="button"><i class="fas fa-cogs"></i> Ajustes</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a href="{{ route('user.logaut') }}" class="dropdown-item" type="button"><i
-                                                    class="fas fa-sign-out-alt"></i>
-                                                Salir</a>
+                                @if (count(auth()->user()->clients) > 0)
+                                    <form class="form-inline my-2 my-lg-0">
+                                        <div class="btn-group">
+                                            <a type="button" class="dropdown-toggle user-dropdown" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false" style="text-decoration: none;"
+                                                id="userlogo">
+                                                <img src="{{ auth()->user()->image ? url(auth()->user()->image) : url('/images/default.jpg') }}"
+                                                    width="37" height="37" class="rounded-circle">
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right anti-parpadeo">
+                                                <a class="dropdown-item" type="button"><i class="fas fa-user"></i> Mi
+                                                    perfil</a>
+                                                <a class="dropdown-item" type="button"><i class="fas fa-cogs"></i>
+                                                    Ajustes</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a href="{{ route('user.logaut') }}" class="dropdown-item"
+                                                    type="button"><i class="fas fa-sign-out-alt"></i>
+                                                    Salir</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                @else
+                                    <form class="form-inline my-2 my-lg-0">
+                                        <a href="{{ route('login') }}" type="button"
+                                            class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block">ENTRAR</a>
+                                        <a href="{{ route('registro') }}" type="button"
+                                            class="btn btn-danger mt-1 d-none d-sm-block">REGISTRO</a>
+                                    </form>
+                                @endif
                             @else
                                 <form class="form-inline my-2 my-lg-0">
                                     <a href="{{ route('login') }}" type="button"
