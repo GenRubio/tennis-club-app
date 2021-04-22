@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Auth;
 
+use App\Models\Client;
+use App\Models\ClientParientesRelacion;
 use DateInterval;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
@@ -9,7 +11,7 @@ use Livewire\Component;
 
 class ClienteDatos extends Component
 {
-    public $progress = 4;
+    public $progress = 1;
 
     //Personals
     public $nombre;
@@ -36,6 +38,9 @@ class ClienteDatos extends Component
     public $mobilEmergencia;
 
     //Familiares
+    public $updateFamiliar = false;
+    public $updateFamId = null;
+
     public $familiares = array();
     public $countId = 0;
     public $familiaresForm = false;
@@ -43,7 +48,7 @@ class ClienteDatos extends Component
     public $nombreF;
     public $apellidosF;
     public $tagetaSanitariaF;
-    public $nacionalidadF;
+    public $nacionalidadF = "null";
     public $sexeF = -1;
     public $dataNacimientoF;
 
@@ -67,9 +72,6 @@ class ClienteDatos extends Component
         } else if ($this->progress == 3) {
             $this->progress += 1;
         }
-        else if ($this->progress == 4) {
-            //Save data
-        }
     }
 
     public function atras()
@@ -83,33 +85,158 @@ class ClienteDatos extends Component
         return redirect()->route('login');
     }
 
-    public function addFormFamiliar(){
+    public function finalizar(){
+        $clientesFamiliares = [];
+
+        Client::insert(array(
+            'user_id' => auth()->user()->id,
+            'first_name' => $this->nombre,
+            'second_name' => $this->apellidos,
+            'sexe' => $this->sexe,
+            'dni' => $this->identificador,
+            'nacionalidad' => $this->nacionalidad,
+            'cat_salut' => $this->tagetaSanitaria,
+            'address' => $this->direccion,
+            'poblacio' => $this->poblacion,
+            'cp' => $this->codigoPostal,
+            'provincia' => $this->provincia,
+            'data_naxement' => $this->dataNacimiento,
+            'conte_bancari' => $this->cuentaBancaria,
+            'telefono_1' => $this->telefonoContacto1,
+            'telefono_2' => $this->telefonoContacto2,
+            'name_emergenica' => $this->nombreEmergencia,
+            'telefono_1_emergencia' => $this->mobilEmergencia,
+            'telefono_2_emergencia' => $this->telefonoEmergencia
+        ));
+
+        $clientePrincipal = Client::where('user_id', auth()->user()->id)->first();
+
+        foreach($this->familiares as $item){
+            array_push($clientesFamiliares, array(
+                'user_id' => auth()->user()->id,
+                'first_name' => $item['nombre'],
+                'second_name' => $item['apellidos'],
+                'sexe' => $item['sexe'],
+                'nacionalidad' => $item['nacionalidad'],
+                'cat_salut' => $item['targeta'],
+                'address' => $this->direccion,
+                'poblacio' => $this->poblacion,
+                'cp' => $this->codigoPostal,
+                'provincia' => $this->provincia,
+                'data_naxement' => $item['dataNacimiento'],
+                'name_emergenica' => $this->nombre,
+                'telefono_1_emergencia' => $this->telefonoContacto1,
+                'telefono_2_emergencia' => $this->telefonoContacto2
+            ));
+        }
+        Client::insert($clientesFamiliares);
+
+        $familiares = Client::where('user_id', auth()->user()->id)
+        ->orderBy('id', 'DESC')
+        ->limit(count($clientesFamiliares))
+        ->get();
+
+        
+        $insertClientFamiliares = [];
+        foreach($familiares as $item){
+            array_push($insertClientFamiliares, array(
+                'client_id_1' => $clientePrincipal->id,
+                'client_id_2' => $item->id,
+                'client_tipo_id' => 1,
+            ));
+            array_push($insertClientFamiliares, array(
+                'client_id_1' => $item->id,
+                'client_id_2' => $clientePrincipal->id,
+                'client_tipo_id' => 3,
+            ));
+        }
+
+        ClientParientesRelacion::insert($insertClientFamiliares);
+
+        return redirect()->route('me');
+    }
+
+    public function addFormFamiliar()
+    {
         $this->familiaresForm = true;
     }
 
-    public function addFamiliar(){
-        if ($this->validateFamiliarForm()){
-            //$this->countId += 1;
+    public function addFamiliar()
+    {
+        if ($this->validateFamiliarForm() == true) {
+            $this->countId += 1;
 
-        
-            $this->familiaresForm = false;
+            $this->familiares[$this->countId] = array(
+                'id' => $this->countId,
+                'nombre' => $this->nombreF,
+                'apellidos' => $this->apellidosF,
+                'dataNacimiento' => $this->dataNacimientoF,
+                'sexe' => $this->sexeF,
+                'targeta' => $this->tagetaSanitariaF,
+                'nacionalidad' => $this->nacionalidadF,
+            );
+
+            $this->cancelFormFamiliar();
         }
     }
 
+    public function deleteFamiliar($id)
+    {
+        unset($this->familiares[$id]);
+    }
 
-    public function cancelFormFamiliar(){
+    public function updateFamiliar()
+    {
+        unset($this->familiares[$this->updateFamId]);
+
+        $this->addFamiliar();
+    }
+
+    public function updateFamiliarForm($id)
+    {
+        $familiar = $this->familiares[$id];
+        $this->updateFamId = $id;
+
+        $this->nombreF = $familiar['nombre'];
+        $this->apellidosF =  $familiar['apellidos'];
+        $this->tagetaSanitariaF =  $familiar['targeta'];
+        $this->nacionalidadF = $familiar['nacionalidad'];
+        $this->sexeF =  $familiar['sexe'];
+        $this->dataNacimientoF =  $familiar['dataNacimiento'];
+
+        $this->updateFamiliar = true;
+        $this->familiaresForm = true;
+    }
+
+
+    public function cancelFormFamiliar()
+    {
+        $this->updateFamId = null;
+        $this->updateFamiliar = false;
         $this->familiaresForm = false;
 
         $this->nombreF = "";
         $this->apellidosF = "";
         $this->tagetaSanitariaF = "";
-        $this->nacionalidadF = "";
+        $this->nacionalidadF = "null";
         $this->sexeF = -1;
         $this->dataNacimientoF = "";
     }
 
-    private function validateFamiliarForm(){
-        return true;
+    private function validateFamiliarForm()
+    {
+        $this->validateAgeF();
+        $this->validateSexeF();
+        $this->validateNameF();
+        $this->validateApellidosF();
+        $this->validateNacionalidadF();
+        $this->validateTargetaSanitariaF();
+
+        if (count($this->getErrorBag()) > 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     private function validateAdressForm()
@@ -171,6 +298,58 @@ class ClienteDatos extends Component
             $this->addError('errorProvincia', 'Provincia incorrecta.');
         }
     }
+    ///Familiar form rules
+
+    private function calcular_edad($fecha)
+    {
+        $dias = explode("-", $fecha, 3);
+        $dias = mktime(0, 0, 0, $dias[1], $dias[0], $dias[2]);
+        $edad = (int)((time() - $dias) / 31556926);
+        return $edad;
+    }
+
+    private function validateTargetaSanitariaF()
+    {
+        if ($this->tagetaSanitariaF == "") {
+            $this->addError('errorTargeta', 'El campo targeta es requerido.');
+        }
+    }
+
+    private function validateAgeF()
+    {
+        if ($this->dataNacimientoF) {
+            if ($this->calcular_edad($this->dataNacimientoF) > 18 || $this->calcular_edad($this->dataNacimientoF) < 0) {
+                $this->addError('errorDataNacimiento', 'La fecha de nacimiento incorrecta.');
+            }
+        } else {
+            $this->addError('errorDataNacimiento', 'La fecha de nacimiento incorrecta.');
+        }
+    }
+    private function validateSexeF()
+    {
+        if ($this->sexeF == -1 || $this->sexeF > 1) {
+            $this->addError('errorSexe', 'Porfavor seleciona el sexe.');
+        }
+    }
+    private function validateNameF()
+    {
+        if ($this->nombreF == "") {
+            $this->addError('errorNombre', 'El campo nombre es requerido.');
+        }
+    }
+    private function validateApellidosF()
+    {
+        if ($this->apellidosF == "") {
+            $this->addError('errorApellidos', 'El campo apellidos es requerido.');
+        }
+    }
+    private function validateNacionalidadF()
+    {
+        if ($this->nacionalidadF == "null") {
+            $this->addError('errorNacionalidadF', 'El campo nacionalitat es requerido.');
+        }
+    }
+
     ///Personals Form rules
     private function validateAge()
     {

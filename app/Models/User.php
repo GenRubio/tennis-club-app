@@ -99,6 +99,7 @@ class User extends Authenticatable
             return $cliente->full_name;
         }
     }
+    
     /*
     |--------------------------------------------------------------------------
     | MUTATORS

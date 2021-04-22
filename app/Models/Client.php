@@ -50,16 +50,34 @@ class Client extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function parentsIds()
+    {
+        $clients = Client::whereIn('id', function ($query) {
+            $query->select('client_id_1')
+                ->from('client_parientes_relacions')
+                ->where('client_tipo_id', 2)
+                ->orWhere('client_tipo_id', 1)
+                ->groupBy('client_id_1');
+        })->orWhere(function ($query) {
+            $query->whereNotIn('id', function ($query) {
+                $query->select('client_id_1')
+                    ->from('client_parientes_relacions');
+            });
+        });
+        return $clients->pluck('id')->toArray();
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
 
-    public function quotaSocio(){
+    public function quotaSocio()
+    {
         return $this->hasOne(QuotaSocio::class, 'id', 'quota_socio_id');
     }
-  
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -76,30 +94,31 @@ class Client extends Model
         return $this->attributes['first_name'] . " " . $this->attributes['second_name'];
     }
 
-    public function setQuotaSocioIdAttribute($value){
+    public function setQuotaSocioIdAttribute($value)
+    {
         $familiares = Client::where('user_id', $this->attributes['user_id'])->get();
 
-        if ($value == 4){
-            if (count($familiares) > 0){
+        if ($value == 4) {
+            if (count($familiares) > 0) {
                 Client::where('user_id', $this->attributes['user_id'])
-                ->where('id', '!=', $this->attributes['id'])
-                ->update(array("quota_socio_id" => $value));
+                    ->where('id', '!=', $this->attributes['id'])
+                    ->update(array("quota_socio_id" => $value));
             }
-        }
-        else{
-            if (count($familiares) > 0){
+        } else {
+            if (count($familiares) > 0) {
                 Client::where('user_id', $this->attributes['user_id'])
-                ->where('id', '!=', $this->attributes['id'])
-                ->update(array("quota_socio_id" => null));
+                    ->where('id', '!=', $this->attributes['id'])
+                    ->update(array("quota_socio_id" => null));
             }
         }
         return $this->attributes['quota_socio_id'] = $value;
     }
 
-    public function getClientTipo($parentId){
+    public function getClientTipo($parentId)
+    {
         $clientPariente = ClientParientesRelacion::where('client_id_1', $this->attributes['id'])
-        ->where('client_id_2', $parentId)
-        ->first();
+            ->where('client_id_2', $parentId)
+            ->first();
         return $clientPariente ? $clientPariente->clientTipo->nom : '---';
     }
     /*

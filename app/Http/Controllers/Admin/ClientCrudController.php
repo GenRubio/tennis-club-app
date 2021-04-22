@@ -26,39 +26,60 @@ class ClientCrudController extends CrudController
         $this->clientId = Route::current()->parameter('client_id');
         if ($this->clientId) {
 
-            $this->crud->setRoute("admin/client/"
-                . $this->clientId . '/familiares');
-            
-            $cliente = Client::where('id', $this->clientId)->first();
-
-            $this->data['breadcrumbs'] = [
-                trans('backpack::crud.admin') => backpack_url('dashboard'),
-                'Clientes' => $this->clientId ? backpack_url('client?user_id=' . $cliente->user_id) : backpack_url('client'),
-                'Familiares' => backpack_url("client/" . $this->clientId . "/familiares"),
-
-                trans('backpack::crud.list') => false,
-            ];
-
-            $this->crud->addClause('whereIn', 'id', function($query){
-                $query->select('client_id_1')
-                ->from('client_parientes_relacions')
-                ->where('client_parientes_relacions.client_id_2', '=', $this->clientId);
-            });
+            $this->setRoute();
+            $this->broadCrumbs();
+            $this->filterFamiliares();
 
         } else {
             CRUD::setRoute(config('backpack.base.route_prefix') . '/client');
+            $this->filterParents();
         }
-
         CRUD::setEntityNameStrings('client', 'Datos clientes');
+
+
+        //Denegar accesso a boton de creacion de cliente
+        $this->crud->denyAccess('create');
+    }
+
+    private function setRoute()
+    {
+        $this->crud->setRoute("admin/client/"
+            . $this->clientId . '/familiares');
+    }
+
+    private function broadCrumbs()
+    {
+        $cliente = Client::where('id', $this->clientId)->first();
+
+        $this->data['breadcrumbs'] = [
+            trans('backpack::crud.admin') => backpack_url('dashboard'),
+            'Clientes' => $this->clientId ? backpack_url('client?user_id=' . $cliente->user_id) : backpack_url('client'),
+            'Familiares' => backpack_url("client/" . $this->clientId . "/familiares"),
+
+            trans('backpack::crud.list') => false,
+        ];
+    }
+
+    private function filterParents(){
+        $this->crud->addClause('whereIn', 'id',  $this->crud->model->parentsIds());
+    }
+
+    private function filterFamiliares()
+    {
+        $this->crud->addClause('whereIn', 'id', function ($query) {
+            $query->select('client_id_1')
+                ->from('client_parientes_relacions')
+                ->where('client_parientes_relacions.client_id_2', '=', $this->clientId);
+        });
     }
 
 
     protected function setupListOperation()
     {
-        if (!$this->clientId){
+        if (!$this->clientId) {
             $this->crud->addButtonFromView('line', 'ver-familiares', 'ver-familiares', 'beginning');
         }
-       
+
         $this->crud->addFilter(
             [
                 'label' => 'User ID',
@@ -73,7 +94,7 @@ class ClientCrudController extends CrudController
             'label' => 'Imagen',
             'type'  => 'image',
         ]);
-        if ($this->clientId){
+        if ($this->clientId) {
             $this->crud->addColumn([
                 'label' => 'Familia',
                 'name' => 'clienteTipoFuncion',
@@ -110,14 +131,6 @@ class ClientCrudController extends CrudController
     protected function basicFields()
     {
         $this->crud->addFields([
-            [
-                'name' => 'user_id',
-                'label' => 'Usuario',
-                'type' => 'select2',
-                'model'     => "App\Models\User",
-                'attribute' => 'email',
-                'tab' => 'Personals',
-            ],
             [
                 'name' => 'first_name',
                 'label' => 'Nombre',
@@ -234,7 +247,7 @@ class ClientCrudController extends CrudController
                 'name' => 'quota_socio_id',
                 'label' => 'Quota socio',
                 'type' => 'select2',
-                'model'     => "App\Models\QuotaSocio", 
+                'model'     => "App\Models\QuotaSocio",
                 'attribute' => 'titulo',
                 'default'   => null,
                 'tab' => 'Quota',

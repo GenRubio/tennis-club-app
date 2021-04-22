@@ -196,13 +196,15 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Targeta sanitaria <span style="color: red">*</span></label>
+                                    @error('errorTargeta') <span style="color: red">{{ $message }}</span>
+                                    @enderror
                                     <input wire:model="tagetaSanitariaF" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Nacionalitat <span style="color: red">*</span></label>
                                     @error('errorNacionalidadF') <span style="color: red">{{ $message }}</span>
                                     @enderror
-                                    <select wire:model="nacionalidad" class="form-control">
+                                    <select wire:model="nacionalidadF" class="form-control">
                                         @include('components.nacionalidades')
                                     </select>
                                 </div>
@@ -212,19 +214,43 @@
                                     <button wire:click="cancelFormFamiliar" class="btn btn-danger">Cancelar</button>
                                 </div>
                                 <div>
-                                    <button wire:click="addFamiliar" class="btn btn-success"><i class="fas fa-plus"></i>
-                                        Añadir</button>
+                                    @if ($updateFamiliar == true)
+                                        <button wire:click="updateFamiliar" class="btn btn-success"><i
+                                                class="fas fa-plus"></i>
+                                            Actualizar</button>
+                                    @else
+                                        <button wire:click="addFamiliar" class="btn btn-success"><i
+                                                class="fas fa-plus"></i>
+                                            Añadir</button>
+                                    @endif
                                 </div>
                             </div>
                         @else
                             @if (count($familiares) > 0)
                                 @foreach ($familiares as $familiar)
-                                   {{ $familiar }}
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div>
+                                                <p style="font-size: 17px;"><strong>Nova alta:</strong>
+                                                    {{ $familiar['nombre'] }}
+                                                    {{ $familiar['apellidos'] }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-flex justify-content-end">
+                                                <button wire:click="updateFamiliarForm({{ $familiar['id'] }})"
+                                                    class="btn btn-primary mr-2">Editar</button>
+                                                <button wire:click="deleteFamiliar({{ $familiar['id'] }})"
+                                                    class="btn btn-danger">Eliminar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
                                 @endforeach
                                 <hr>
                             @endif
                             <button wire:click="addFormFamiliar" class="btn btn-success"><i class="fas fa-plus"></i>
-                                <strong>Añadir</strong></button>
+                                Añadir</button>
                         @endif
                     @endif
                 </div>
@@ -233,8 +259,12 @@
                         <button wire:click="atras" type="button" class="btn btn-danger"><i
                                 class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i> Atras</button>
                     @endif
-                    <button wire:click="siguente" class="btn btn-primary">Siguente <i
-                            class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button>
+                    @if ($progress == 4)
+                        <button wire:click="finalizar" class="btn btn-primary"><i class="fas fa-check"></i> Finalizar</button>
+                    @else
+                        <button wire:click="siguente" class="btn btn-primary">Siguente <i
+                                class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button>
+                    @endif
                 </div>
             </div>
         </div>
