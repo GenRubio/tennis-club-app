@@ -47,7 +47,7 @@ class Instalacione extends Model
     */
     public function instalacionImages()
     {
-        return InstalacionImage::where('id_estalacion', $this->attributes['id'])->get();
+        return InstalacionImage::where('id_estalacion', $this->attributes['id'])->limit(9)->get();
     }
 
     /*

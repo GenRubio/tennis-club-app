@@ -11,7 +11,7 @@ class InstalacionesController extends Controller
     public function index($slug)
     {
         $instalacion = Instalacione::where('slug', $slug)->first();
-        $instalaciones = Instalacione::where('slug', '!=', $slug)->get();
+        $instalaciones = Instalacione::where('activo',  1)->get();
         if ($instalacion) {
             return view('pages.home.instalaciones', compact('instalacion', 'instalaciones'));
         } else {
