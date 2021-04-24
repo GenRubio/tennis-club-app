@@ -44,7 +44,7 @@
     }
 
     body::-webkit-scrollbar {
-        width: 15px;
+        width: 12px;
     }
 
     body::-webkit-scrollbar-track {
@@ -58,14 +58,14 @@
     }
 
     /* Works on Firefox */
-    * {
+    body {
         scrollbar-width: thin;
         scrollbar-color: #e3342f black;
     }
 
     /* Works on Chrome, Edge, and Safari */
     *::-webkit-scrollbar {
-        width: 12px;
+        width: 15px;
     }
 
     *::-webkit-scrollbar-track {
