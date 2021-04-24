@@ -240,7 +240,6 @@
     </style>
 @endsection
 @section('content')
-    <br><br><br>
     <livewire:home.tienda />
     <br><br>
     <div class="container-fluid border-top border-danger">

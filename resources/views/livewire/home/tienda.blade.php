@@ -51,7 +51,6 @@
     </style>
 
     <div class="container">
-        <br>
         <h1 class="color-red" style="font-weight: bold;">
             Nuestro catalago
         </h1>

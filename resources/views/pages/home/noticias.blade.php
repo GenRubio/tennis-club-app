@@ -181,8 +181,7 @@ if (isset($noticia)) {
 
 @if (isset($noticia))
     @section('content')
-        <br><br>
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-top: -50px;">
             <div class="row border-bottom border-dark p-2">
                 <div class="col">
                     <div class="container nav-bar-second">
@@ -285,7 +284,6 @@ if (isset($noticia)) {
     @endsection
 @else
     @section('content')
-        <br><br> <br><br>
         <div class="container">
             <h1 class="color-red" style="font-weight: bold;">
                 Noticias

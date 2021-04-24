@@ -89,7 +89,6 @@
 @endsection
 
 @section('content')
-    <br> <br> <br> <br>
     <div class="container">
         <h1 class="color-red" style="font-weight: bold;">
             Nuestra multimedia

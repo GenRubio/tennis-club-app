@@ -163,7 +163,6 @@
     </style>
 @endsection
 @section('content')
-    <br><br><br><br><br>
     <main class="d-flex align-items-center py-3 py-md-0 z-index:100">
         <div class="container">
             <div class="card login-card">

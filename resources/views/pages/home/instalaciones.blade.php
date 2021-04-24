@@ -1,6 +1,5 @@
 @extends('layouts.app')
-
-@section('content')
+@section('personal-style')
     <style>
         .img-cover {
             height: 100%;
@@ -26,16 +25,19 @@
         }
 
     </style>
-    <br> <br> <br> <br>
+@endsection
 
+@section('content')
     <div class="container">
         <h3 style="color: white">{{ $instalacion->titulo }}- INSTAL·LACIONS ESPORTIVES</h3>
         <hr class="featurette-divider">
         @foreach ($instalaciones as $item)
             @if ($item->slug == $instalacion->slug)
-                <a href="{{ route('instalacion', $item->slug) }}" class="btn btn-danger mr-2 mb-2"><strong>{{ $item->titulo }}</strong></a>
-            @else 
-                <a href="{{ route('instalacion', $item->slug) }}" class="btn btn-outline-danger mr-2 mb-2"><strong>{{ $item->titulo }}</strong></a>
+                <a href="{{ route('instalacion', $item->slug) }}"
+                    class="btn btn-danger mr-2 mb-2"><strong>{{ $item->titulo }}</strong></a>
+            @else
+                <a href="{{ route('instalacion', $item->slug) }}"
+                    class="btn btn-outline-danger mr-2 mb-2"><strong>{{ $item->titulo }}</strong></a>
             @endif
         @endforeach
         <br>
@@ -67,7 +69,8 @@
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 mb-5">
                             <div class="wrap-img-cover">
                                 <a class="lightbox" href="{{ url($image->image) }}">
-                                    <img class="img-cover" src="{{ url($image->image) }}" alt="{{ url($image->image) }}">
+                                    <img class="img-cover" src="{{ url($image->image) }}"
+                                        alt="{{ url($image->image) }}">
                                 </a>
                             </div>
                         </div>
@@ -81,5 +84,3 @@
     <br> <br>
     @include('components.footer')
 @endsection
-
-
