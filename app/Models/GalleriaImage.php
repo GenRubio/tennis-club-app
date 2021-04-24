@@ -57,6 +57,14 @@ class GalleriaImage extends Model
     | ACCESSORS
     |--------------------------------------------------------------------------
     */
+    public function getVideoAttribute()
+    {
+        return json_decode($this->attributes['url_youtube'], true);
+    }
+
+    public function getUrlVideoAttribute(){
+        return "https://www.youtube.com/embed/" . $this->video['id'];
+    }
 
     /*
     |--------------------------------------------------------------------------

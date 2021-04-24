@@ -23,7 +23,7 @@
 
 </style>
 
-<div class="container-fluid border-top border-danger background-footer">
+<div class="container-fluid  background-footer">
     <br>
     <br>
     <div class="container">

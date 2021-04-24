@@ -23,10 +23,12 @@
         }
 
         .noticia-titulo {
-            width: 100%;
+            min-height: 45px;
             overflow: hidden;
-            white-space: nowrap;
             text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
             color: #e3342f;
             font-weight: bold;
         }
@@ -48,6 +50,7 @@
         .card-title-color {
             background-color: #000000d9;
         }
+
     </style>
     <div class="row">
         @foreach ($noticias as $noticia)
@@ -61,7 +64,7 @@
                         <div class="card-body card-body-color">
                             <h5 class="card-title noticia-titulo">{{ $noticia->titulo }}</h5>
                             <div class="noticia-body">
-                                {!! str_limit(strip_tags($noticia->descripcion), $limit = 370, $end = '...') !!}
+                                {!! str_limit(strip_tags($noticia->descripcion), $limit = 280, $end = '...') !!}
                             </div>
                         </div>
                         <div class="card-footer border-0 card-title-color">

@@ -151,7 +151,7 @@
             font-weight: bold;
         }
         .back-ground-login-form{
-            background-color: #202123 !important;
+            background-color: #141414 !important;
         }
         .facebook {
             background-color: #1a538a !important;
@@ -202,7 +202,7 @@
         </div>
     </div>
 </main>
-<br> <br> <br>
+<br> <br> <br><br> <br>
 @include('components.footer')
 @endsection
 @section('personal-script')

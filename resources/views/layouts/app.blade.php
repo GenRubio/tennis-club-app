@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <link rel="stylesheet" href="{{ url('/js/baguetteBox/baguetteBox.css') }}" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     @livewireStyles
     @yield('personal-style')
     <title>Tennis Padel</title>
@@ -48,6 +49,7 @@
     @yield('content')
     <script src="{{ url('/js/baguetteBox/baguetteBox.js') }}"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     @yield('personal-script')
     @yield('components.footer')
 </body>

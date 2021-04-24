@@ -252,5 +252,6 @@
             </div>
         </div>
     </div>
+    <br><br><br><br>
     @include('components.footer')
 @endsection

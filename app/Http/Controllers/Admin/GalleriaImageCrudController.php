@@ -36,22 +36,22 @@ class GalleriaImageCrudController extends CrudController
         ]);
         $this->crud->addColumn([
             'name' => 'url_youtube',
-            'label' => 'Url Youtube',
-            'type'  => 'url',
+            'label' => 'Video',
+            'type'  => 'video',
         ]);
         $this->crud->addColumn([
             'name' => 'carusel',
-            'type' => 'check',
+            'type' => 'btnToggle',
             'label' => 'Carusel',
         ]);
         $this->crud->addColumn([
             'name' => 'destacada',
-            'type' => 'check',
+            'type' => 'btnToggle',
             'label' => 'Destacada',
         ]);
         $this->crud->addColumn([
             'name' => 'activo',
-            'type' => 'check',
+            'type' => 'btnToggle',
             'label' => 'Activo',
         ]);
     }
@@ -122,9 +122,9 @@ class GalleriaImageCrudController extends CrudController
             ],
             [ 
                 'name'  => 'url_youtube',
-                'type'  => 'text',
-                'label' => 'Url video de YouTube',
-                'tab' => 'Video YouTube',
+                'type'  => 'video',
+                'label' => 'Url de video YouTube o Vimeo',
+                'tab' => 'Video',
             ],
 
         ]);

@@ -263,7 +263,8 @@
                                 <div class="modal fade" id="plato{{ $plato->id }}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
+                                        <div class="modal-content" style="background-color: #1c1b1b;
+                                        border: 1px solid #5a0f0f;">
                                             <div class="modal-header">
                                                 <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle"
                                                     style="color: black;">
@@ -286,11 +287,11 @@
                                                     </div>
                                                 </div>
                                                 @if ($plato->description)
-                                                    <div style="color: black !important">
+                                                    <div style="color: white !important">
                                                         {!! $plato->description !!}
                                                     </div>
                                                 @endif
-                                                <p style="color: black;">Ingredientes: {{ $plato->ingredients }}</p>
+                                                <p style="color: white;">Ingredientes: {{ $plato->ingredients }}</p>
                                                 <br>
                                                 <div class="d-flex justify-content-center">
                                                     <strong
@@ -298,9 +299,6 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger"
-                                                    data-dismiss="modal"><strong>Cerrar</strong></button>
-
                                             </div>
                                         </div>
                                     </div>

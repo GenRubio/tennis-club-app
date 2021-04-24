@@ -57,6 +57,12 @@
 
     .nav-select {
         background-color: black;
+        margin-top: 6px;
+        border-right: 1px solid #5d1d1d;
+        border-bottom: 1px solid #5d1d1d;
+        border-left: 1px solid #5d1d1d;
+        box-shadow: 0 0 15px 0px #000;
+        clip-path: inset(0px -15px -15px -15px);
     }
 
     .nav-select-item {
@@ -89,6 +95,22 @@
 
     #userlogo:hover {
         color: #e3342f;
+    }
+
+    .dropdow-status {
+        margin-top: 6px;
+        width: 221px;
+        background-color: black;
+        border-right: 1px solid #5d1d1d;
+        border-bottom: 1px solid #5d1d1d;
+        border-left: 1px solid #5d1d1d;
+        box-shadow: 0 0 15px 0px #000;
+        clip-path: inset(0px -15px -15px -15px);
+    }
+
+    .dropdown-item:hover {
+        background-color: #252323;
+        color: white;
     }
 
 </style>
@@ -217,14 +239,22 @@
                                                 <img src="{{ auth()->user()->image ? url(auth()->user()->image) : url('/images/default.jpg') }}"
                                                     width="37" height="37" class="rounded-circle">
                                             </a>
-                                            <div class="dropdown-menu dropdown-menu-right anti-parpadeo">
-                                                <a class="dropdown-item" type="button"><i class="fas fa-user"></i> Mi
+                                            <div class="dropdown-menu dropdown-menu-right anti-parpadeo dropdow-status">
+                                                <div class="d-flex justify-content-center">
+                                                    <p style="color: #e3342f;
+                                                                font-weight: bold;
+                                                                font-size: 15px;">{{ auth()->user()->user_name }}</p>
+                                                </div>
+
+                                                <a href="{{ route('me') }}" style="color: white" class="dropdown-item" type="button"><i
+                                                        class="fas fa-user"></i> Mi
                                                     perfil</a>
-                                                <a class="dropdown-item" type="button"><i class="fas fa-cogs"></i>
+                                                <a style="color: white" class="dropdown-item" type="button"><i
+                                                        class="fas fa-cogs"></i>
                                                     Ajustes</a>
                                                 <div class="dropdown-divider"></div>
-                                                <a href="{{ route('user.logaut') }}" class="dropdown-item"
-                                                    type="button"><i class="fas fa-sign-out-alt"></i>
+                                                <a style="color: white" href="{{ route('user.logaut') }}"
+                                                    class="dropdown-item" type="button"><i class="fas fa-sign-out-alt"></i>
                                                     Salir</a>
                                             </div>
                                         </div>

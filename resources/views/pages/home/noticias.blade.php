@@ -115,10 +115,12 @@
         }
 
         .noticia-titulo {
-            width: 100%;
+            min-height: 45px;
             overflow: hidden;
-            white-space: nowrap;
             text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
             color: #e3342f;
             font-weight: bold;
         }
@@ -140,15 +142,25 @@
         .card-title-color {
             background-color: #000000d9;
         }
-        
-        
-        .div-image-noticias-todas{
+
+
+        .div-image-noticias-todas {
             position: relative;
             width: 100%;
             height: 180px;
             overflow: hidden;
         }
-        .img-auto-width-noticias-todas{
+
+        @media (max-width: 767.98px) {
+            .div-image-noticias-todas {
+                position: relative;
+                width: 100%;
+                height: 240px;
+                overflow: hidden;
+            }
+        }
+
+        .img-auto-width-noticias-todas {
             height: auto;
             left: 50%;
             position: absolute;
@@ -158,7 +170,6 @@
             max-width: none;
             width: 100%;
         }
-        
 
     </style>
 @endsection
@@ -176,11 +187,15 @@ if (isset($noticia)) {
                 <div class="col">
                     <div class="container nav-bar-second">
                         <div class="width-ellipse">
-                            <i class="far fa-newspaper"></i>
-                            <a href="{{ route('noticias') }}" class="sm-font-size text-danger nav-noticia">Noticias</a>
+                            <span style="font-size: 16px;">
+                                <i class="far fa-newspaper"></i>
+                                <a href="{{ route('noticias') }}"
+                                    class="sm-font-size text-danger nav-noticia">Noticias</a>
+                            </span>
                             <i class="fas fa-angle-right"></i>
-                            <span class="sm-font-size">{{ $noticia->titulo }}</span>
-                            <span class="sm-font-size text-secondary"></span>
+                            <span style="font-size: 13px;">
+                                <span class="sm-font-size">{{ $noticia->titulo }}</span>
+                            </span>
                         </div>
 
                     </div>
@@ -238,8 +253,7 @@ if (isset($noticia)) {
                             </li>
                         </ul>
                         <br> <br>
-                        <livewire:home.comentarios :noticia="$noticia->id" >
-                        <br><br>
+                        <livewire:home.comentarios :noticia="$noticia->id">
                     </div>
                     <div class="col-xl-3 d-none d-xl-block border-left border-dark">
                         <h4><strong class="color-red">Ultimas noticias</strong></h4>
@@ -266,6 +280,7 @@ if (isset($noticia)) {
                 </div>
             @endisset
         </div>
+        <br><br><br><br><br><br>
         @include('components.footer')
     @endsection
 @else
@@ -293,8 +308,8 @@ if (isset($noticia)) {
                                     </div>
                                 </div>
                                 <div class="card-footer border-0 card-title-color">
-                                    @php 
-                                         setlocale(LC_TIME, 'French');
+                                    @php
+                                        setlocale(LC_TIME, 'French');
                                     @endphp
                                     <small class="text-muted">Publicado:
                                         {{ $noticia->created_at->translatedFormat('jS F Y') }}</small>
@@ -305,6 +320,7 @@ if (isset($noticia)) {
                 @endforeach
             </div>
         </div>
+        <br><br><br><br><br><br>
         @include('components.footer')
     @endsection
 @endif

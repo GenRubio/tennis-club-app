@@ -139,7 +139,7 @@
             <iframe src="https://maps.google.com/maps?q=Diseminado+Club+Tenis,+1B&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
-        <br><br>
+        <br><br><br><br>
     </div>
     @include('components.footer')
 @endsection

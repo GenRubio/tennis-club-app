@@ -212,6 +212,7 @@
             min-height: 466px;
         }
 
+
     </style>
 @endsection
 @section('content')
@@ -353,7 +354,7 @@
         <div class="container">
             <br><br>
             <h1 class="color-red" style="font-weight: bold;position: relative;">
-                Eventos & Torneos
+                Nuestras actividades
                 <span style="font-size: 14px; position: relative;">
                     <a href="#" class="ver-mas-button" style="text-decoration: none;">Ver más <i
                             class="fas fa-arrow-right"></i></a>
@@ -577,7 +578,7 @@
         </div>
     </div>
     <br>
-    <br> <br>
+    <br> <br><br><br>
     @include('components.footer')
     <script src="{{ url('/js/scrollreveal.js') }}"></script>
 @endsection
@@ -663,14 +664,14 @@
             autoplaySpeed: 4000,
             adaptiveHeight: false,
             responsive: [{
-                    breakpoint: 1440,
+                    breakpoint: 1540,
                     settings: {
                         slidesToShow: 4,
                         slidesToScroll: 1
                     }
                 },
                 {
-                    breakpoint: 1160,
+                    breakpoint: 1260,
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 1
@@ -684,7 +685,7 @@
                     }
                 },
                 {
-                    breakpoint: 540,
+                    breakpoint: 640,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1

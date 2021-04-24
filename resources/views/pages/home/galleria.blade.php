@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('personal-style')
     <style>
         .wrap-img-cover {
             position: relative;
@@ -71,7 +71,24 @@
             box-shadow: 0 2px 18px 0 rgb(255 0 0 / 43%) !important;
         }
 
+        .swiper-container {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 200px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 300px;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #00000040);
+        }
+
     </style>
+@endsection
+
+@section('content')
     <br> <br> <br> <br>
     <div class="container">
         <h1 class="color-red" style="font-weight: bold;">
@@ -119,30 +136,14 @@
         @endif
         <br><br><br>
         @if (count($destacados) > 0)
-            <h3 class="color-red" style="font-weight: bold;">
-                Imagenes destacadas
-            </h3>
-            <hr class="featurette-divider">
-            <br>
-            <div class="row">
-                @foreach ($destacados as $item)
-                    <div class="col-xl-4 col-lg-12 mb-3">
-                        <div class="wrap-img-cover-second card-border-personal headline">
-                            <img class="img-cover-second" src="{{ url($item->image) }}" alt="First slide">
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <br><br>
-            <div class="d-flex justify-content-center">
-                <button id="tag1" class="btn btn-danger">
-                    <strong>
-                        <i class="far fa-image"></i> Ver todas las imagenes
-                    </strong>
-                </button>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    @foreach ($destacados as $item)
+                        <div class="swiper-slide" style="background-image:url({{ $item->image }})"></div>
+                    @endforeach
+                </div>
             </div>
         @endif
-        <br><br><br><br>
     </div>
     @if (count($videos) > 0)
         <div id="particles-js"></div>
@@ -150,25 +151,16 @@
             <div class="container">
                 <br><br>
                 <h1 class="color-red" style="font-weight: bold;">
-                    Videos de YouTube
+                    Nuestros videos
                 </h1>
                 <br>
-                <div class="row">
+                <div class="row align-self-center">
                     <div class="col-lx-6 col-lg-6 col-md-12 mb-4 col-sm-12">
                         @if (count($videos) > 0)
-                            <a class="lightbox" style="text-decoration: none;" href="">
-                                <div class="iteams-noticia">
-                                    <div class="card bg-blak"
-                                        style="background-color: black  !important; border: none !important">
-                                        <div class="card-image">
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe width="100%" src="{{ $videos[0]->url_youtube }}" frameborder="0"
-                                                    allowfullscreen></iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                            <div class="embed-responsive embed-responsive-16by9" style="height: 100% !important">
+                                <iframe width="100%" src="{{ $videos[0]->url_video }}" frameborder="0"
+                                    allowfullscreen></iframe>
+                            </div>
                         @endif
                     </div>
                     <div class="col-lx-6 col-lg-6 col-md-12 col-sm-12">
@@ -176,13 +168,13 @@
                             @foreach ($videos as $key => $video)
                                 @if ($key > 0)
                                     <div class="col-lx-6 col-lg-6 col-md-6 mb-4  col-sm-12">
-                                        <a class="lightbox" style="text-decoration: none;" href="">
+                                        <a class="lightbox" style="text-decoration: none; min-height: 100px;" href="">
                                             <div class="iteams-noticia">
-                                                <div class="card bg-blak  mb-3"
+                                                <div class="card bg-blak mb-3"
                                                     style="background-color: black !important; border: none !important">
                                                     <div class="card-image" style="background-color: black ">
                                                         <div class="embed-responsive embed-responsive-16by9">
-                                                            <iframe width="100%" src="{{ $video->url_youtube }}"
+                                                            <iframe width="100%" src="{{ $video->url_video }}"
                                                                 frameborder="0" allowfullscreen></iframe>
                                                         </div>
                                                     </div>
@@ -200,22 +192,22 @@
         </div>
     @endif
     <br><br>
-    <br>
+    <br><br><br>
     <div class="container">
-        <h3 class="color-red" style="font-weight: bold;">
-            Galería
-        </h3>
-        <hr class="featurette-divider" id="section1">
+
         <br>
-        <div class="row">
-            @foreach ($images as $item)
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="wrap-img-cover-tercero rounded headline">
-                        <img class="img-cover-tercero" src="{{ $item->image }}" alt="First slide">
+        <section class="gallery-block cards-gallery-fanart">
+            <div class="row">
+                @foreach ($images as $item)
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="wrap-img-cover-tercero rounded headline">
+                            <a class="lightbox" href="{{ $item->image }}"><img class="img-cover-tercero"
+                                    src="{{ $item->image }}" alt="First slide"></a>
+                        </div>
                     </div>
-                </div>
-            @endforeach
-        </div>
+                @endforeach
+            </div>
+        </section>
         <br><br><br><br>
     </div>
     <br>
@@ -228,10 +220,34 @@
     <script src="{{ url('/js/particles.js') }}"></script>
     <script src="{{ url('/js/particulas.js') }}"></script>
     <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 20,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            loop: true,
+        });
+
         ScrollReveal({
             reset: true
         });
         ScrollReveal().reveal('.headline');
+
+        baguetteBox.run('.cards-gallery-fanart', {
+            animation: 'slideIn'
+        });
+
         $(document).ready(function() {
             $("#tag1").click(function() {
                 $('html, body').animate({
@@ -239,5 +255,6 @@
                 }, 2000);
             });
         });
+
     </script>
 @endsection
