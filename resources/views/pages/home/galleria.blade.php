@@ -71,13 +71,18 @@
             box-shadow: 0 2px 18px 0 rgb(255 0 0 / 43%) !important;
         }
 
-        .swiper-container {
+    </style>
+@endsection
+
+@section('content')
+    <style>
+        .swiper-2 {
             width: 100%;
             padding-top: 50px;
             padding-bottom: 200px;
         }
 
-        .swiper-slide {
+        .slide-2 {
             background-position: center;
             background-size: cover;
             width: 300px;
@@ -86,9 +91,6 @@
         }
 
     </style>
-@endsection
-
-@section('content')
     <div class="container">
         <h1 class="color-red" style="font-weight: bold;">
             Nuestra multimedia
@@ -135,10 +137,10 @@
         @endif
         <br><br><br>
         @if (count($destacados) > 0)
-            <div class="swiper-container">
+            <div class="swiper-container swiper-2">
                 <div class="swiper-wrapper">
                     @foreach ($destacados as $item)
-                        <div class="swiper-slide" style="background-image:url({{ $item->image }})"></div>
+                        <div class="swiper-slide slide-2" style="background-image:url({{ $item->image }})"></div>
                     @endforeach
                 </div>
             </div>
@@ -219,7 +221,7 @@
     <script src="{{ url('/js/particles.js') }}"></script>
     <script src="{{ url('/js/particulas.js') }}"></script>
     <script>
-        var swiper = new Swiper('.swiper-container', {
+        var swiper = new Swiper('.swiper-2', {
             effect: 'coverflow',
             grabCursor: true,
             centeredSlides: true,

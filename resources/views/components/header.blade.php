@@ -103,35 +103,23 @@
         color: white;
     }
 
-    .swiper-container-2 {
+    .swiper-container {
         width: 100%;
         height: 100%;
     }
 
-    .swiper-slide-2 {
-        background-image: url("{{ url('/images/home/780473.jpg') }}");
+    .swiper-slide {
         width: 100%;
         height: 370px;
         background-repeat: no-repeat;
-        background-size: cover;
         background-position: center;
-    }
-
-    .swiper-slide-2 img {
-        width: 100%;
-        height: auto;
-    }
-
-    .slider-swiper-container {
-        height: 370px;
-        width: 100%;
-        overflow: hidden;
+        background-size: cover;
     }
 
     .logo {
         position: absolute;
         align-self: center;
-        top: 125px;
+        top: 145px;
         z-index: 9999999;
     }
 
@@ -156,22 +144,29 @@
             </div>
         </div>
     </div>
-    <div class="slider-swiper-container">
-        <div class="swiper-container-2 anti-parpadeo">
-            <div class="swiper-wrapper anti-parpadeo">
-                <div class="swiper-slide-2 anti-parpadeo">
-                    
-                </div>
+    <div class="swiper-container swiper-1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide anti-parpadeo"
+                style="background-image: url('{{ url('/images/home/780473.jpg') }}')"></div>
+
+            <div class="swiper-slide anti-parpadeo"
+                style="background-image: url('{{ url('/images/galleria/bbf684c7a2dce8024fd90cb098773ba5-image.jpg') }}')">
             </div>
-        </div>
-        <div class="d-flex justify-content-center">
-            <div class="logo">
-                <a href="{{ route('home') }}">
-                    <img src="{{ url('/images/logo.png') }}" height="170px;" width="170px">
-                </a>
+            <div class="swiper-slide anti-parpadeo"
+                style="background-image: url('{{ url('/images/home/780473.jpg') }}');"></div>
+            <div class="swiper-slide anti-parpadeo"
+                style="background-image: url('{{ url('/images/galleria/bbf684c7a2dce8024fd90cb098773ba5-image.jpg') }}')">
             </div>
         </div>
     </div>
+    <div class="d-flex justify-content-center">
+        <div class="logo">
+            <a href="{{ route('home') }}">
+                <img src="{{ url('/images/logo.png') }}" height="170px;" width="170px">
+            </a>
+        </div>
+    </div>
+
     <div class="nav-second-margin">
         <div class="container-fluid shadow nav-inferior-color">
             <div class="container p-0">
@@ -270,9 +265,10 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right anti-parpadeo dropdow-status">
                                             <div class="d-flex justify-content-center">
-                                                <p style="color: #e3342f;
-                                                                                                font-weight: bold;
-                                                                                                font-size: 15px;">
+                                                <p
+                                                    style="color: #e3342f;
+                                                                                                                font-weight: bold;
+                                                                                                                font-size: 15px;">
                                                     {{ auth()->user()->user_name }}
                                                 </p>
                                             </div>
@@ -314,8 +310,14 @@
 </div>
 <br> <br>
 <script>
-    var swiper = new Swiper('.swiper-container-2', {
-        slidesPerView: 'auto',
+    var swiper = new Swiper('.swiper-1', {
+        spaceBetween: 30,
+        effect: 'fade',
+        speed: 2000,
+        autoplay: {
+            delay: 4500,
+            disableOnInteraction: false,
+        },
     });
 
     $(document).ready(function() {
