@@ -43,6 +43,41 @@
         -webkit-backface-visibility: hidden;
     }
 
+    body::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    body::-webkit-scrollbar-track {
+        background: black;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #e3342f;
+        border-radius: 20px;
+        border: 3px solid;
+    }
+
+    /* Works on Firefox */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: #e3342f black;
+    }
+
+    /* Works on Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: black;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: #e3342f;
+        border-radius: 20px;
+        border: 3px solid ;
+    }
+
 </style>
 
 <body>
@@ -53,4 +88,5 @@
     @yield('personal-script')
     @yield('components.footer')
 </body>
+
 </html>
