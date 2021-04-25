@@ -339,7 +339,6 @@
         </div>
     </section>
 
-    @include('components.footer')
 @endsection
 
 @section('personal-script')

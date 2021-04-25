@@ -137,5 +137,5 @@
                 frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
     </div>
-    @include('components.footer')
+
 @endsection

@@ -86,7 +86,7 @@
     <script src="{{ url('/js/baguetteBox/baguetteBox.js') }}"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     @yield('personal-script')
-    @yield('components.footer')
+    @include('components.footer')
 </body>
 
 </html>

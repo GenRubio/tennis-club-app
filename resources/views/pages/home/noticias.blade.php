@@ -319,6 +319,5 @@ if (isset($noticia)) {
             </div>
         </div>
 
-        @include('components.footer')
     @endsection
 @endif

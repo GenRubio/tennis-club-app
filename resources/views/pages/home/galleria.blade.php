@@ -210,8 +210,8 @@
             </div>
         </section>
     </div>
+    
     <script src="{{ url('/js/scrollreveal.js') }}"></script>
-    @include('components.footer')
 @endsection
 
 @section('personal-script')
