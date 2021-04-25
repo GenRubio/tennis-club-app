@@ -220,7 +220,7 @@
             </div>
         </div>
     </main>
-    <br> <br> <br><br> <br>
+ 
     @include('components.footer')
 @endsection
 @section('personal-script')

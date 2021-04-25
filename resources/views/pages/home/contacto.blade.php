@@ -1,6 +1,5 @@
 @extends('layouts.app')
-
-@section('content')
+@section('personal-style')
     <style>
         .separador-blanco {
             background-color: white;
@@ -49,11 +48,10 @@
             transition: 0.3s;
             max-width: none;
             width: 100%;
-
         }
-        
-
     </style>
+@endsection
+@section('content')
     <div class="container">
         <h1 class="color-red" style="font-weight: bold;">
             Contacto
@@ -125,7 +123,7 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-12">
-                            <livewire:home.newsletter-form/>
+                            <livewire:home.newsletter-form />
                         </div>
                     </div>
                 </div>
@@ -138,7 +136,6 @@
             <iframe src="https://maps.google.com/maps?q=Diseminado+Club+Tenis,+1B&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
-        <br><br><br><br>
     </div>
     @include('components.footer')
 @endsection

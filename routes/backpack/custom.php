@@ -62,4 +62,6 @@ Route::group([
     Route::crud('servicio', 'ServicioCrudController');
 
     Route::crud('quotasocio', 'QuotaSocioCrudController');
+    Route::crud('actividade', 'ActividadeCrudController');
+    Route::crud('actividadtipo', 'ActividadTipoCrudController');
 });

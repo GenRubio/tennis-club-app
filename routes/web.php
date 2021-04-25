@@ -13,6 +13,7 @@ use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\InstalacionesController;
 use App\Http\Controllers\Home\NoticiasController;
 use App\Http\Controllers\Home\RestauranteController;
+use App\Http\Controllers\Home\SociosController;
 use App\Http\Controllers\Home\TiendaController;
 
 use Illuminate\Support\Facades\Route;
@@ -57,11 +58,10 @@ Route::get('/login', [LoginController::class, 'index'])
     ->name('login');
 //Noticias
 Route::get('/noticias/{slug?}', [NoticiasController::class, 'index'])->name('noticias');
-
 //Restaurante
 Route::get('/restaurante', [RestauranteController::class, 'index'])->name('restaurante');
-
-
+//Socios
+Route::get('/socio', [SociosController::class, 'index'])->name('socios');
 
 Route::middleware('auth')->group(function () {
     Route::get('/me', [DashboardController::class, 'index'])->name('me');

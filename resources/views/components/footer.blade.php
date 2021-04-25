@@ -23,9 +23,9 @@
 
 </style>
 
+<br><br><br><br><br><br>
 <div class="container-fluid  background-footer">
-    <br>
-    <br>
+    <br><br>
     <div class="container">
         <div class="row">
             <div class="col-xl-4 col-lg-4">

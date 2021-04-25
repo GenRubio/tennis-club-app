@@ -338,8 +338,7 @@
             </div>
         </div>
     </section>
-    <br> <br> <br> <br>
-    <br> <br>
+
     @include('components.footer')
 @endsection
 

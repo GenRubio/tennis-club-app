@@ -576,8 +576,6 @@
             </div>
         </div>
     </div>
-    <br>
-    <br> <br><br><br>
     @include('components.footer')
     <script src="{{ url('/js/scrollreveal.js') }}"></script>
 @endsection

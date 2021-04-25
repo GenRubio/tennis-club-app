@@ -209,10 +209,7 @@
                 @endforeach
             </div>
         </section>
-        <br><br><br><br>
     </div>
-    <br>
-    <br>
     <script src="{{ url('/js/scrollreveal.js') }}"></script>
     @include('components.footer')
 @endsection

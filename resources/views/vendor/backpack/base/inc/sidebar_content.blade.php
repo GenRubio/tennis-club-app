@@ -1,7 +1,7 @@
 <!-- This file is used to store sidebar items, starting with Backpack\Base 0.9.0 -->
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="la la-home nav-icon"></i>
         {{ trans('backpack::base.dashboard') }}</a></li>
-@if (backpack_user()->role->rol == "Superadmin" || backpack_user()->role->rol == "Administrador")
+@if (backpack_user()->role->rol == 'Superadmin' || backpack_user()->role->rol == 'Administrador')
 
     <li class="nav-title">Usuarios</li>
     <li class="nav-item nav-dropdown">
@@ -31,11 +31,19 @@
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('servicio') }}'><i
                 class='nav-icon la la-question'></i> Servicios</a></li>
 
+    <li class="nav-title">ACTIVIDADES</li>
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividade') }}'><i
+                class='nav-icon la la-question'></i> Actividades</a></li>
+                
+    @if (backpack_user()->role->rol == 'Superadmin')
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadtipo') }}'><i
+                    class='nav-icon la la-question'></i> Tipos actividad</a></li>
+    @endif
 @endif
 
 <li class="nav-title">Tenis y Padel Blanes</li>
 
-@if (backpack_user()->role->rol == "Superadmin" || backpack_user()->role->rol == "Administrador")
+@if (backpack_user()->role->rol == 'Superadmin' || backpack_user()->role->rol == 'Administrador')
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('noticia') }}'><i
                 class='nav-icon la la-question'></i>
             Noticias</a></li>

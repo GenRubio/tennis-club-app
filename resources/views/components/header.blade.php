@@ -214,8 +214,9 @@
                             </li>
 
                             <li class="nav-item t-border">
-                                <a class="nav-link" href="#">
-                                    <strong>CASAL</strong>
+                                <a class="nav-link" href="{{ route('socios') }}"
+                                    style="{{ Request::is('socio') ? 'color:whitesmoke !important' : '' }}">
+                                    <strong>SOCIOS</strong>
                                 </a>
                             </li>
                             <li class="nav-item t-border">
@@ -267,8 +268,8 @@
                                             <div class="d-flex justify-content-center">
                                                 <p
                                                     style="color: #e3342f;
-                                                                                                                font-weight: bold;
-                                                                                                                font-size: 15px;">
+                                                                                                                    font-weight: bold;
+                                                                                                                    font-size: 15px;">
                                                     {{ auth()->user()->user_name }}
                                                 </p>
                                             </div>
