@@ -29,6 +29,6 @@ class GalleriaController extends Controller
         ->where('activo', 1)
         ->limit(5)
         ->get();
-        return view('pages.home.galleria', compact('images', 'carusel', 'destacados', 'videos'));
+        return view('pages.home.multimedia', compact('images', 'carusel', 'destacados', 'videos'));
     }
 }
