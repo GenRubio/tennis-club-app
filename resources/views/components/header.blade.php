@@ -159,14 +159,15 @@
             </div>
         </div>
     </div>
-    <div class="d-flex justify-content-center">
-        <div class="logo">
-            <a href="{{ route('home') }}">
-                <img src="{{ url('/images/logo.png') }}" height="170px;" width="170px">
-            </a>
+    @if (!Request::is('me/datos-cliente'))
+        <div class="d-flex justify-content-center">
+            <div class="logo">
+                <a href="{{ route('home') }}">
+                    <img src="{{ url('/images/logo.png') }}" height="170px;" width="170px">
+                </a>
+            </div>
         </div>
-    </div>
-
+    @endif
     <div class="nav-second-margin">
         <div class="container-fluid shadow nav-inferior-color">
             <div class="container p-0">
@@ -261,29 +262,50 @@
                                         <a type="button" class="dropdown-toggle user-dropdown" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false" style="text-decoration: none;"
                                             id="userlogo">
-                                            <img src="{{ auth()->user()->image ? url(auth()->user()->image) : url('/images/default.jpg') }}"
-                                                width="37" height="37" class="rounded-circle">
+                                            <img src="{{ auth()->user()->cliente()->image ? url(auth()->user()->cliente()->image) : url('/images/default.jpg') }}"
+                                                width="37" height="37" class="rounded-circle" id="headerAvatar">
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right anti-parpadeo dropdow-status">
                                             <div class="d-flex justify-content-center">
-                                                <p
-                                                    style="color: #e3342f;
-                                                                                                                    font-weight: bold;
-                                                                                                                    font-size: 15px;">
+                                                <p style="color: #e3342f;font-weight: bold;font-size: 15px;">
                                                     {{ auth()->user()->user_name }}
                                                 </p>
                                             </div>
 
                                             <a href="{{ route('me') }}" style="color: white" class="dropdown-item"
-                                                type="button"><i class="fas fa-user"></i> Mi
-                                                perfil</a>
-                                            <a style="color: white" class="dropdown-item" type="button"><i
-                                                    class="fas fa-cogs"></i>
-                                                Ajustes</a>
+                                                type="button">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <i class="fas fa-user"></i>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        Mi perfil
+                                                    </div>
+                                                </div>
+
+                                            </a>
+                                            <a href="{{ route('profile') }}" style="color: white" class="dropdown-item" type="button">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <i class="fas fa-cogs"></i>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        Ajustes
+                                                    </div>
+                                                </div>
+                                            </a>
                                             <div class="dropdown-divider"></div>
                                             <a style="color: white" href="{{ route('user.logaut') }}"
-                                                class="dropdown-item" type="button"><i class="fas fa-sign-out-alt"></i>
-                                                Salir</a>
+                                                class="dropdown-item" type="button">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <i class="fas fa-sign-out-alt"></i>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        Salir
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </form>

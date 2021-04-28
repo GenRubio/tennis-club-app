@@ -23,11 +23,11 @@ class GoogleController extends Controller
             Auth::login($users);
         } else {
             $user = new User();
-            $user->name =  $socialUser->name;
+            $user->email = $socialUser->email;
             $user->provider_id = $socialUser->id;
             $user->email_validate = 1;
             $user->provider = 'google';
-            $user->image = $this->getBigAvatar($socialUser, 'google');
+            //$user->image = $this->getBigAvatar($socialUser, 'google');
             $user->save();
         }
         return redirect()->route('me');

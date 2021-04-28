@@ -85,7 +85,8 @@ class ClienteDatos extends Component
         return redirect()->route('login');
     }
 
-    public function finalizar(){
+    public function finalizar()
+    {
         $clientesFamiliares = [];
 
         Client::insert(array(
@@ -111,7 +112,7 @@ class ClienteDatos extends Component
 
         $clientePrincipal = Client::where('user_id', auth()->user()->id)->first();
 
-        foreach($this->familiares as $item){
+        foreach ($this->familiares as $item) {
             array_push($clientesFamiliares, array(
                 'user_id' => auth()->user()->id,
                 'first_name' => $item['nombre'],
@@ -132,13 +133,13 @@ class ClienteDatos extends Component
         Client::insert($clientesFamiliares);
 
         $familiares = Client::where('user_id', auth()->user()->id)
-        ->orderBy('id', 'DESC')
-        ->limit(count($clientesFamiliares))
-        ->get();
+            ->orderBy('id', 'DESC')
+            ->limit(count($clientesFamiliares))
+            ->get();
 
-        
+
         $insertClientFamiliares = [];
-        foreach($familiares as $item){
+        foreach ($familiares as $item) {
             array_push($insertClientFamiliares, array(
                 'client_id_1' => $clientePrincipal->id,
                 'client_id_2' => $item->id,
@@ -300,12 +301,15 @@ class ClienteDatos extends Component
     }
     ///Familiar form rules
 
-    private function calcular_edad($fecha)
+    private function calcular_edad($fechanacimiento)
     {
-        $dias = explode("-", $fecha, 3);
-        $dias = mktime(0, 0, 0, $dias[1], $dias[0], $dias[2]);
-        $edad = (int)((time() - $dias) / 31556926);
-        return $edad;
+        list($ano, $mes, $dia) = explode("-", $fechanacimiento);
+        $ano_diferencia  = date("Y") - $ano;
+        $mes_diferencia = date("m") - $mes;
+        $dia_diferencia   = date("d") - $dia;
+        if ($dia_diferencia < 0 || $mes_diferencia < 0)
+            $ano_diferencia--;
+        return $ano_diferencia;
     }
 
     private function validateTargetaSanitariaF()

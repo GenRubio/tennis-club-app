@@ -27,6 +27,8 @@ class ActividadeRequest extends FormRequest
     {
         return [
             'titulo' => 'required|max:255',
+            'descripcion' => 'required',
+            'imagen' => 'required',
         ];
     }
 

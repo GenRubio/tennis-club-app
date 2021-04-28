@@ -49,26 +49,45 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-/*
+    /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function cliente()
+    {
+        $cliente = Client::where('user_id',  $this->attributes['id'])
+            ->join('client_parientes_relacions', 'client_parientes_relacions.client_id_1', 'clients.id')
+            ->where('client_parientes_relacions.client_id_1', 1)
+            ->orWhere('client_parientes_relacions.client_id_1', 2)
+            ->limit(1)
+            ->first();
 
+        if ($cliente) {
+            return $cliente;
+        } else {
+            $cliente = Client::where('user_id',  $this->attributes['id'])->first();
+
+            return $cliente;
+        }
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function newsletter(){
+    public function newsletter()
+    {
         return $this->hasOne(Newsletter::class, 'email', 'email');
     }
 
-    public function role(){
+    public function role()
+    {
         return $this->hasOne(Role::class, 'id', 'rol_id');
     }
 
-    public function clients(){
+    public function clients()
+    {
         return $this->hasMany(Client::class, 'user_id', 'id');
     }
     /*
@@ -82,29 +101,28 @@ class User extends Authenticatable
     | ACCESSORS
     |--------------------------------------------------------------------------
     */
-    public function getUserNameAttribute(){
+
+    public function getUserNameAttribute()
+    {
         $cliente = Client::where('user_id',  $this->attributes['id'])
-        ->join('client_parientes_relacions', 'client_parientes_relacions.client_id_1', 'clients.id')
-        ->where('client_parientes_relacions.client_id_1', 1)
-        ->orWhere('client_parientes_relacions.client_id_1', 2)
-        ->limit(1)
-        ->first();
-        
-        if ($cliente){
+            ->join('client_parientes_relacions', 'client_parientes_relacions.client_id_1', 'clients.id')
+            ->where('client_parientes_relacions.client_id_1', 1)
+            ->orWhere('client_parientes_relacions.client_id_1', 2)
+            ->limit(1)
+            ->first();
+
+        if ($cliente) {
             return $cliente->full_name;
-        }
-        else{
+        } else {
             $cliente = Client::where('user_id',  $this->attributes['id'])->first();
 
             return $cliente->full_name;
         }
     }
-    
+
     /*
     |--------------------------------------------------------------------------
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-
-
 }

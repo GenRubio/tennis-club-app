@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\EmailValidateController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\Profile\SettingsController;
 use App\Http\Controllers\Auth\RecoverPasswordController;
 use App\Http\Controllers\Auth\RegistroController;
 use App\Http\Controllers\Dashboard\DashboardController;
@@ -68,5 +69,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [DashboardController::class, 'logout'])->name('user.logaut');
 
     Route::get('/me/datos-cliente', [DashboardController::class, 'datosCliente'])->name('datos.cliente');
+
+    Route::get('/profile', [SettingsController::class, 'index'])->name('profile');
+    Route::post('/profile/update/avatar', [SettingsController::class, 'updateAvatar'])->name('update.avatar');
 
 });

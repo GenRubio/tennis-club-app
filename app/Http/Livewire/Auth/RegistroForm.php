@@ -22,7 +22,7 @@ class RegistroForm extends Component
     }
     protected $rules = [
         'email' => ['required', 'email', 'unique:users,email'],
-        'password' => ['required', 'regex:/^(?=(?:.*[0-9]){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){2})\S{8,}$/'],
+        'password' => ['required', 'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/'],
         'password_repeat' => ['required', 'required_with:password', 'same:password'],
         'terminos' => 'accepted',
     ];

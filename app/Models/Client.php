@@ -67,6 +67,10 @@ class Client extends Model
         return $clients->pluck('id')->toArray();
     }
 
+    public function familiares(){
+        return Client::whereIn('id', $this->parentsIds())->get();
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

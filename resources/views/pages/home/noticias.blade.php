@@ -279,8 +279,6 @@ if (isset($noticia)) {
                 </div>
             @endisset
         </div>
-        <br><br><br><br><br><br>
-        @include('components.footer')
     @endsection
 @else
     @section('content')

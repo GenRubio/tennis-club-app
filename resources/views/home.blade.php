@@ -212,7 +212,6 @@
             min-height: 466px;
         }
 
-
     </style>
 @endsection
 @section('content')

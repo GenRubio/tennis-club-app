@@ -447,6 +447,24 @@
             text-decoration: none;
         }
 
+        .div-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            margin: 5px;
+        }
+
+        .div-img-img {
+            height: 100% !important;
+            left: 50% !important;
+            position: absolute !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            transition: 0.3s !important;
+            max-width: none !important;
+            width: auto !important;
+        }
+
     </style>
 @endsection
 
@@ -480,7 +498,8 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div>
+                <div class="div-image shadow-lg ronded">
+                    <img class="div-img-img" src="{{ url('/images/2016_tennispadelblanes.jpg') }}">
                 </div>
             </div>
         </div>
