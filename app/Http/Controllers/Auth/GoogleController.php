@@ -25,6 +25,7 @@ class GoogleController extends Controller
             $user = new User();
             $user->name =  $socialUser->name;
             $user->provider_id = $socialUser->id;
+            $user->email_validate = 1;
             $user->provider = 'google';
             $user->image = $this->getBigAvatar($socialUser, 'google');
             $user->save();

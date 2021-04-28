@@ -8,14 +8,7 @@
                 </div>
             </a>
         </div>
-        <div class="form-group">
-            <a href="#" class="facebook btn btn-block btn-dark shadow-sm bg-white disabled">
-                <div>
-                    <i><img src="{{ url('/images/home/login/facebook-2.svg') }}" height="20" , width="20"></i>
-                    <span class="ml-2"> Continuar con Facebook</span>
-                </div>
-            </a>
-        </div>
+        <hr style="border: 1px solid #e3342f">
         @if (session()->has('error'))
             <span class="error" style="color: red;">{{ session('error') }}</span>
         @endif
