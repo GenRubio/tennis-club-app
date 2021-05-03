@@ -68,7 +68,8 @@ class Client extends Model
     }
 
     public function familiares(){
-        return Client::whereIn('id', $this->parentsIds())->get();
+        $familiaresId = ClientParientesRelacion::where('client_id_2', $this->attributes['id'])->pluck('client_id_1')->toArray();
+        return Client::whereIn('id', $familiaresId)->get();
     }
 
     /*

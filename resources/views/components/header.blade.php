@@ -192,12 +192,15 @@
 
                             <li class="nav-item dropdown t-border">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    style="{{ Request::is('escuela-padel') ? 'color:whitesmoke !important' : '' }}">
                                     <strong>PADEL</strong>
                                 </a>
                                 <div class="dropdown-menu anti-parpadeo nav-select" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item nav-select-item" href="#">Escuela infantil de padel</a>
-                                    <a class="dropdown-item nav-select-item" href="#">Torneos</a>
+                                    <a class="dropdown-item nav-select-item" href="{{ route('escuela.padel') }}"
+                                        style="{{ Request::is('escuela-padel') ? 'color:whitesmoke !important' : '' }}">
+                                        Escuela de padel</a>
+                                    <a class="dropdown-item nav-select-item" href="#">Competiciones / Torneos</a>
                                     <a class="dropdown-item nav-select-item" href="#">Reserva de pista</a>
                                 </div>
                             </li>
@@ -208,7 +211,7 @@
                                     <strong>TENNIS</strong>
                                 </a>
                                 <div class="dropdown-menu anti-parpadeo nav-select" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item nav-select-item" href="#">Escuela infantil de tenis</a>
+                                    <a class="dropdown-item nav-select-item" href="#">Escuela de tenis</a>
                                     <a class="dropdown-item nav-select-item" href="#">Competiciones / Torneos</a>
                                     <a class="dropdown-item nav-select-item" href="#">Reserva de pista</a>
                                 </div>
@@ -245,24 +248,21 @@
                                     <strong>CONTACTO</strong>
                                 </a>
                             </li>
-
-                            <li class="nav-item">
-                                <div class="btn-group" role="group">
-                                    <button type="button"
-                                        class="btn btn-outline-danger d-block d-sm-none mr-2">LOGIN</button>
-                                    <button type="button" class="btn btn-danger d-block d-sm-none ml-2">SING
-                                        UP</button>
-                                </div>
-                            </li>
                         </ul>
-                        @auth
+                    </div>
+                    @auth
+                        <div style="position: relative;">
                             @if (count(auth()->user()->clients) > 0)
                                 <form class="form-inline my-2 my-lg-0">
                                     <div class="btn-group">
                                         <a type="button" class="dropdown-toggle user-dropdown" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false" style="text-decoration: none;"
                                             id="userlogo">
-                                            <img src="{{ auth()->user()->cliente()->image ? url(auth()->user()->cliente()->image) : url('/images/default.jpg') }}"
+                                            <img src="{{ auth()->user()->cliente()->image
+    ? url(
+        auth()->user()->cliente()->image,
+    )
+    : url('/images/default.jpg') }}"
                                                 width="37" height="37" class="rounded-circle" id="headerAvatar">
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right anti-parpadeo dropdow-status">
@@ -275,21 +275,22 @@
                                             <a href="{{ route('me') }}" style="color: white" class="dropdown-item"
                                                 type="button">
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-2">
                                                         <i class="fas fa-user"></i>
                                                     </div>
-                                                    <div class="col-md-10">
+                                                    <div class="col-9">
                                                         Mi perfil
                                                     </div>
                                                 </div>
 
                                             </a>
-                                            <a href="{{ route('profile') }}" style="color: white" class="dropdown-item" type="button">
+                                            <a href="{{ route('profile') }}" style="color: white" class="dropdown-item"
+                                                type="button">
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-2">
                                                         <i class="fas fa-cogs"></i>
                                                     </div>
-                                                    <div class="col-md-10">
+                                                    <div class="col-10">
                                                         Ajustes
                                                     </div>
                                                 </div>
@@ -298,10 +299,10 @@
                                             <a style="color: white" href="{{ route('user.logaut') }}"
                                                 class="dropdown-item" type="button">
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-2">
                                                         <i class="fas fa-sign-out-alt"></i>
                                                     </div>
-                                                    <div class="col-md-10">
+                                                    <div class="col-10">
                                                         Salir
                                                     </div>
                                                 </div>
@@ -320,12 +321,13 @@
                         @else
                             <form class="form-inline my-2 my-lg-0">
                                 <a href="{{ route('login') }}" type="button"
-                                    class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block">ENTRAR</a>
+                                    class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block d-block">ENTRAR</a>
                                 <a href="{{ route('registro') }}" type="button"
-                                    class="btn btn-danger mt-1 d-none d-sm-block">REGISTRO</a>
+                                    class="btn btn-danger mt-1 d-none d-sm-block d-block">REGISTRO</a>
                             </form>
                         @endauth
                     </div>
+
                 </nav>
             </div>
         </div>

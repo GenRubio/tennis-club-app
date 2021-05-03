@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Home;
 
+use App\Mail\NewsletterConfirmEmail;
 use App\Models\Newsletter;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class NewsletterForm extends Component
@@ -27,16 +29,30 @@ class NewsletterForm extends Component
     {
         $this->validate();
 
-        $newsletterCheck = Newsletter::where('email', $this->email)->first();
-        if (!$newsletterCheck){
+        $newsletterCheck = Newsletter::where('email', $this->email)->where('activo', 0)->first();
+        if (!$newsletterCheck) {
             $newsletter = new Newsletter();
             $newsletter->email = $this->email;
+            $newsletter->token = md5(uniqid(mt_rand(), false));
+            $newsletter->activo = 1;
             $newsletter->save();
+
+            //Mail::to($this->email)->send(new NewsletterConfirmEmail);
+        } else {
+            $newsletterCheck->delete();
+
+            $newsletter = new Newsletter();
+            $newsletter->email = $this->email;
+            $newsletter->token = md5(uniqid(mt_rand(), false));
+            $newsletter->activo = 1;
+            $newsletter->save();
+
+            //Mail::to($this->email)->send(new NewsletterConfirmEmail);
         }
-      
+
         $this->dispatchBrowserEvent(
             'alertNewsletter',
-            ['message' => 'Gracias por suscribirse a nuestro newsletter.']
+            ['message' => '¡GRACIAS POR SUSCRIBIRTE! ¡Te has suscrito correctamente! Pronto recibirás las novedades sobre nuestro club. Revisa tu correo electrónico para estar enterado de los próximas publicaciones.']
         );
         $this->resetForm();
     }

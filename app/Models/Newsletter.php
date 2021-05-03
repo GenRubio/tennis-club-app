@@ -20,7 +20,9 @@ class Newsletter extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'email'
+        'email',
+        'token',
+        'activo',
     ];
     // protected $hidden = [];
     // protected $dates = [];

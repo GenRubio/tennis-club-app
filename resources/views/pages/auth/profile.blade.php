@@ -113,6 +113,7 @@
                     <div class="d-flex justify-content-center">
                         <h5 class="name-user">{{ auth()->user()->user_name }}</h5>
                     </div>
+                    <hr style="border: 1px solid #9c9a9a;">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <a class="nav-link-1 active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
                             role="tab" aria-controls="v-pills-profile" aria-selected="true">Mi perfil</a>
@@ -164,7 +165,11 @@
                         </div>
                         <div class="tab-pane fade tab-height" id="v-pills-family" role="tabpanel"
                             aria-labelledby="v-pills-family-tab">
-                            ...
+                            <h2 style="font-weight: bold; color:#e3342f;">Familiares</h2>
+                            <hr style="border: 1px solid #9c9a9a;">
+                            <h4 style="font-weight: bold; color:#e3342f;">Lista de familiares</h4>
+                            <br>
+                            <livewire:auth.profile-familiares-form :user="auth()->user()" />
                         </div>
                         <div class="tab-pane fade tab-height" id="v-pills-image" role="tabpanel"
                             aria-labelledby="v-pills-image-tab">
