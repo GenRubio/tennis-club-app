@@ -47,7 +47,7 @@ class ShopArticleCrudController extends CrudController
             'name' => 'precio',
             'label' => 'Precio',
             'type' => 'number',
-            'prefix'        => '$',
+            'prefix'        => '€',
             'decimals'      => 2,
         ]);
         $this->crud->addColumn([

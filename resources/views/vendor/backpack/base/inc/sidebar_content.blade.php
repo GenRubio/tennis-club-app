@@ -34,11 +34,16 @@
     <li class="nav-title">ACTIVIDADES</li>
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividade') }}'><i
                 class='nav-icon la la-question'></i> Actividades</a></li>
-                
-    @if (backpack_user()->role->rol == 'Superadmin')
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadtipo') }}'><i
-                    class='nav-icon la la-question'></i> Tipos actividad</a></li>
-    @endif
+
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadtipo') }}'><i
+                class='nav-icon la la-question'></i> Tipos actividad</a></li>
+
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadformsimple') }}'><i
+                class='nav-icon la la-question'></i> Formulario simple</a></li>
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadformmultiple') }}'><i
+                class='nav-icon la la-question'></i> Formulario multiple</a></li>
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadextra') }}'><i
+                class='nav-icon la la-question'></i> Extras</a></li>
 @endif
 
 <li class="nav-title">Tenis y Padel Blanes</li>

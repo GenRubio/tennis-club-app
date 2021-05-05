@@ -23,6 +23,7 @@ class ActividadeCrudController extends CrudController
 
     protected function setupListOperation()
     {
+        $this->crud->addButtonFromView('line', 'inscripciones', 'inscripciones', 'beginning');
         $this->crud->addColumn([
             'name' => 'created_at',
             'label' => 'Publicado',
@@ -39,13 +40,6 @@ class ActividadeCrudController extends CrudController
             'type'  => 'text',
         ]);
         $this->crud->addColumn([
-            'name' => 'actividadTipo',
-            'label' => 'Tipo',
-            'type' => 'relationship',
-            'attribute' => 'titulo',
-            'model'     => App\Models\ActividadTipo::class,
-        ]);
-        $this->crud->addColumn([
             'name' => 'visible',
             'type' => 'btnToggle',
             'label' => 'Visible',
@@ -54,6 +48,18 @@ class ActividadeCrudController extends CrudController
             'name' => 'activo',
             'type' => 'btnToggle',
             'label' => 'Activo',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'extras',
+            'type' => 'relationship',
+            'label' => 'Extras',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'actividadTipo',
+            'label' => 'Tipo',
+            'type' => 'relationship',
+            'attribute' => 'titulo',
+            'model'     => App\Models\ActividadTipo::class,
         ]);
     }
     protected function basicFields()
@@ -71,6 +77,11 @@ class ActividadeCrudController extends CrudController
                 'limint' => -1,
             ],
             [
+                'name' => 'imagen',
+                'label' => 'Imagen',
+                'type' => 'image',
+            ],
+            [
                 'label' => 'Tipo de actividad',
                 'type' => 'select2',
                 'name' => 'tipo',
@@ -78,9 +89,29 @@ class ActividadeCrudController extends CrudController
                 'attribute' => 'titulo',
             ],
             [
-                'name' => 'imagen',
-                'label' => 'Imagen',
-                'type' => 'image',
+                'name'  => 'separator',
+                'type'  => 'custom_html',
+                'value' => '<hr>'
+            ],
+            [
+                'name' => 'formulario',
+                'label' => 'Formulario de inscripcion',
+                'type' => 'radio',
+                'options'     => [
+                    0 => "Inscripcion directa / sin formulario",
+                    1 => "Formulario con respuestas simples",
+                    2 => "Formulario con respuestas multiples"
+                ],
+            ],
+            [
+                'label'     => "Extras",
+                'type'      => 'select2_multiple',
+                'name'      => 'extras',
+                'model'     => "App\Models\ActividadExtra",
+                'attribute' => 'titulo',
+                'options'   => (function ($query) {
+                    return $query->orderBy('titulo', 'ASC')->get();
+                }),
             ],
             [
                 'name' => 'slug',

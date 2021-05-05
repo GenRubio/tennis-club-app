@@ -5,6 +5,8 @@
 // --------------------------
 // This route file is loaded automatically by Backpack\Base.
 // Routes you generate using Backpack\Generators will be placed here.
+
+use App\Http\Controllers\Admin\FormSimpleRespuestaCrudController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -15,6 +17,14 @@ Route::group([
     ),
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
+    /*
+    * AJAX
+    */
+    /* Toggle Active */
+    Route::post('toggleField', function (Illuminate\Http\Request $request) {
+        return toggleField($request);
+    })->name('toggleField');
+    /********************************************************************** */
 
     Route::crud('shoparticle', 'ShopArticleCrudController');
 
@@ -49,19 +59,21 @@ Route::group([
         Route::crud('familiares', 'ClientCrudController');
     });
 
-
-    
-    /*
-    * AJAX
-    */
-    /* Toggle Active */
-    Route::post('toggleField', function (Illuminate\Http\Request $request) {
-        return toggleField($request);
-    })->name('toggleField');
     Route::crud('clienttipospariente', 'ClientTiposParienteCrudController');
     Route::crud('servicio', 'ServicioCrudController');
 
     Route::crud('quotasocio', 'QuotaSocioCrudController');
     Route::crud('actividade', 'ActividadeCrudController');
     Route::crud('actividadtipo', 'ActividadTipoCrudController');
+    Route::crud('actividadextra', 'ActividadExtraCrudController');
+    
+    Route::crud('actividadformsimple', 'ActividadFormSimpleCrudController');
+    Route::group(['prefix' => 'actividadformsimple/{form_id}'], function () {
+        Route::crud('respuestas', 'FormSimpleRespuestaCrudController');
+    });
+
+    Route::crud('actividadformmultiple', 'ActividadFormMultipleCrudController');
+    Route::group(['prefix' => 'actividadformmultiple/{form_id}'], function () {
+        Route::crud('respuestas', 'FormMultipleRespuestaCrudController');
+    });
 });

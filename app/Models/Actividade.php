@@ -27,6 +27,7 @@ class Actividade extends Model
         'imagen',
         'slug',
         'tipo',
+        'formulario',
         'visible',
         'activo',
     ];
@@ -48,6 +49,15 @@ class Actividade extends Model
     {
         return $this->hasOne(ActividadTipo::class, 'id', 'tipo');
     }
+
+    public function extras(){
+        return $this->belongsToMany(ActividadExtra::class);
+    }
+
+    public function formularioSimple(){
+        return $this->hasMany(ActividadFormSimple::class, 'actividad_id', 'id');
+    }
+    
     /*
     |--------------------------------------------------------------------------
     | SCOPES
