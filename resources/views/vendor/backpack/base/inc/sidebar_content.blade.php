@@ -37,13 +37,22 @@
 
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadtipo') }}'><i
                 class='nav-icon la la-question'></i> Tipos actividad</a></li>
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadcategoria') }}'><i
+                class='nav-icon la la-question'></i> Categorias</a></li>
 
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadformsimple') }}'><i
-                class='nav-icon la la-question'></i> Formulario simple</a></li>
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadformmultiple') }}'><i
-                class='nav-icon la la-question'></i> Formulario multiple</a></li>
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadextra') }}'><i
                 class='nav-icon la la-question'></i> Extras</a></li>
+
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-newspaper-o"></i>Formulario</a>
+        <ul class="nav-dropdown-items">
+            <li class="nav-title">Grupos de opciones</li>
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('formgrupoopcione') }}'><i
+                        class='nav-icon la la-question'></i> Grupos</a></li>
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('formgrupoextra') }}'><i
+                        class='nav-icon la la-question'></i> Grupos extras</a></li>
+        </ul>
+    </li>
 @endif
 
 <li class="nav-title">Tenis y Padel Blanes</li>
@@ -83,3 +92,5 @@
                     class='nav-icon la la-question'></i> Galería</a></li>
     </ul>
 </li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('webvista') }}'><i class='nav-icon la la-question'></i> Web Vistas</a></li>

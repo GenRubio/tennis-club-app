@@ -197,7 +197,8 @@
                                     <strong>PADEL</strong>
                                 </a>
                                 <div class="dropdown-menu anti-parpadeo nav-select" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item nav-select-item" href="{{ route('escuela.padel') }}"
+                                    <a class="dropdown-item nav-select-item"
+                                        href="{{ route('escuela', ['slug' => 'escuela-padel']) }}"
                                         style="{{ Request::is('escuela-padel') ? 'color:whitesmoke !important' : '' }}">
                                         Escuela de padel</a>
                                     <a class="dropdown-item nav-select-item" href="#">Competiciones / Torneos</a>
@@ -211,7 +212,10 @@
                                     <strong>TENNIS</strong>
                                 </a>
                                 <div class="dropdown-menu anti-parpadeo nav-select" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item nav-select-item" href="#">Escuela de tenis</a>
+                                    <a class="dropdown-item nav-select-item"
+                                        href="{{ route('escuela', ['slug' => 'escuela-tenis']) }}"
+                                        style="{{ Request::is('escuela-tenis') ? 'color:whitesmoke !important' : '' }}">
+                                        Escuela de tenis</a>
                                     <a class="dropdown-item nav-select-item" href="#">Competiciones / Torneos</a>
                                     <a class="dropdown-item nav-select-item" href="#">Reserva de pista</a>
                                 </div>

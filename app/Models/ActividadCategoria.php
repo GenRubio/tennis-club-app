@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class FormMultipleRespuesta extends Model
+class ActividadCategoria extends Model
 {
     use CrudTrait;
 
@@ -15,16 +15,13 @@ class FormMultipleRespuesta extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'form_multiple_respuestas';
+    protected $table = 'actividad_categorias';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'actividad_form_multiple_id',
         'titulo',
         'activo',
-        'precio_normal',
-        'precio_socio'
     ];
     // protected $hidden = [];
     // protected $dates = [];

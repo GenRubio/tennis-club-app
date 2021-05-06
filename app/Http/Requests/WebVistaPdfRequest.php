@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class FormSimpleRespuestaRequest extends FormRequest
+class WebVistaPdfRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,9 @@ class FormSimpleRespuestaRequest extends FormRequest
     public function rules()
     {
         return [
-            'titulo' => 'required|max:255'
+            'titulo' => 'required|max:255',
+            'url' => 'required',
+
         ];
     }
 

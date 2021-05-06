@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class FormSimpleRespuesta extends Model
+class FormGrupoOpcione extends Model
 {
     use CrudTrait;
 
@@ -15,16 +15,16 @@ class FormSimpleRespuesta extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'form_simple_respuestas';
+    protected $table = 'form_grupo_opciones';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'actividad_form_simple_id',
+        'actividad_id',
         'titulo',
-        'activo',
-        'precio_normal',
-        'precio_socio'
+        'descripcion',
+        'tipo_respuestas',
+        'activo'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -40,7 +40,17 @@ class FormSimpleRespuesta extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function extras(){
+        return $this->belongsToMany(ActividadExtra::class);
+    }
 
+    public function actividade(){
+        return $this->hasOne(Actividade::class, 'id', 'actividad_id');
+    }
+
+    public function opciones(){
+        return $this->hasMany(FormOpcionOpcione::class, 'form_grupo_opcion_id', 'id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

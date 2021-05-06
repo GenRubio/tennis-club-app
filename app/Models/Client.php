@@ -72,6 +72,19 @@ class Client extends Model
         return Client::whereIn('id', $familiaresId)->get();
     }
 
+    public function inscritoActividad($actividadId){
+        $inscripcion = ActividadInscripcione::where('cliente_id', $this->attributes['id'])
+        ->where('actividad_id', $actividadId)
+        ->first();
+
+        if ($inscripcion){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegistroController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Home\CalendarController;
 use App\Http\Controllers\Home\ContactoController;
+use App\Http\Controllers\Home\EscuelaController;
 use App\Http\Controllers\Home\EscuelaPadelController;
 use App\Http\Controllers\Home\GalleriaController;
 use App\Http\Controllers\Home\HomeController;
@@ -66,7 +67,7 @@ Route::get('/restaurante', [RestauranteController::class, 'index'])->name('resta
 Route::get('/socio', [SociosController::class, 'index'])->name('socios');
 
 //Escuelas
-Route::get('/escuela-padel', [EscuelaPadelController::class, 'index'])->name('escuela.padel');
+Route::get('/escuela/{slug}', [EscuelaController::class, 'index'])->name('escuela');
 
 Route::middleware('auth')->group(function () {
     Route::get('/me', [DashboardController::class, 'index'])->name('me');

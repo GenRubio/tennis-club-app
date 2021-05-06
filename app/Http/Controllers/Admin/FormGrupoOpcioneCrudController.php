@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ActividadFormMultipleRequest;
-use App\Models\Actividade;
+use App\Http\Requests\FormGrupoOpcioneRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
-class ActividadFormMultipleCrudController extends CrudController
+class FormGrupoOpcioneCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -15,17 +14,16 @@ class ActividadFormMultipleCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
-
     public function setup()
     {
-        CRUD::setModel(\App\Models\ActividadFormMultiple::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/actividadformmultiple');
-        CRUD::setEntityNameStrings('formulario', 'Formulario multiple');
+        CRUD::setModel(\App\Models\FormGrupoOpcione::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/formgrupoopcione');
+        CRUD::setEntityNameStrings('grupo', 'Grupos De Opciones');
     }
 
     protected function setupListOperation()
     {
-        $this->crud->addButtonFromView('line', 'formulario-respuestas-multiples', 'formulario-respuestas-multiples', 'beginning');
+        $this->crud->addButtonFromView('line', 'formulario-respuestas', 'formulario-respuestas', 'beginning');
 
         $this->crud->addColumn([
             'name' => 'actividade',
@@ -49,15 +47,11 @@ class ActividadFormMultipleCrudController extends CrudController
             'label' => 'Activo',
             'type' => 'btnToggle',
         ]);
-
-        $this->crud->addFilter(
-            [
-                'name' => 'actividad_id',
-                'type' => 'dropdown',
-                'label' => 'Actividades',
-            ],
-            Actividade::where('formulario', 2)->pluck('titulo', 'id')->toArray(),
-        );
+        $this->crud->addColumn([
+            'name' => 'extras',
+            'type' => 'relationship',
+            'label' => 'Extras',
+        ]);
     }
 
     protected function basicFields()
@@ -70,7 +64,7 @@ class ActividadFormMultipleCrudController extends CrudController
                 'model'     => "App\Models\Actividade",
                 'attribute' => 'titulo',
                 'options'   => (function ($query) {
-                    return $query->where('formulario', 2)
+                    return $query->where('formulario', 1)
                         ->orderBy('titulo', 'ASC')->get();
                 }),
             ],
@@ -85,21 +79,39 @@ class ActividadFormMultipleCrudController extends CrudController
                 'type' => 'text',
             ],
             [
-                'label'     => "Extras",
+                'name' => 'tipo_respuestas',
+                'label' => 'Tipo de opciones del grupo <br>
+                    <small>
+                       Simple: El cliente podra escoger solo 1 opcion del grupo
+                    </small>
+                    <br>
+                    <small>
+                       Multiple: El cliente podra escoger mas de 1 opcion del grupo
+                    </small>
+                    ',
+                'type' => 'select_from_array',
+                'options' => config('app.opciones-grupo'),
+            ],
+            [
+                'label' => 'Extras (Opciones extras del grupo de opciones) <br>
+                        <small>
+                        Las opciones extras apareceran al final del grupo. El cliente podra escoger una o todas opciones.
+                        </small>
+                ',
                 'type'      => 'select2_multiple',
                 'name'      => 'extras',
                 'model'     => "App\Models\ActividadExtra",
                 'attribute' => 'titulo',
                 'options'   => (function ($query) {
                     return $query->orderBy('titulo', 'ASC')->get();
-                }), 
+                }),
             ],
         ]);
     }
 
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(ActividadFormMultipleRequest::class);
+        CRUD::setValidation(FormGrupoOpcioneRequest::class);
 
         $this->basicFields();
     }

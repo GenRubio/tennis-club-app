@@ -236,4 +236,9 @@ return [
         'horario-atencion' => '9:00 a 18:00',
     ],
 
+    'opciones-grupo' => [
+        0 => 'Simples',
+        1 => 'Multiples',
+    ],
+
 ];

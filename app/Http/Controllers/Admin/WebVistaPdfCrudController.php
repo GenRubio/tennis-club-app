@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\FormMultipleRespuestaRequest;
+use App\Http\Requests\WebVistaPdfRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Illuminate\Support\Facades\Route;
 
-class FormMultipleRespuestaCrudController extends CrudController
+class WebVistaPdfCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -15,69 +15,60 @@ class FormMultipleRespuestaCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
-    protected $formId;
+    protected $vistaId;
 
     public function setup()
     {
-        CRUD::setModel(\App\Models\FormMultipleRespuesta::class);
-
+        CRUD::setModel(\App\Models\WebVistaPdf::class);
+        
         $this->setRoute();
         $this->breadCrumbs();
         $this->filterList();
 
-        CRUD::setEntityNameStrings('respuesta', 'Formulario respuestas');
+        CRUD::setEntityNameStrings('PDF', 'Pdfs');
     }
 
     private function setRoute()
     {
-        $this->formId = Route::current()->parameter('form_id');
+        $this->vistaId = Route::current()->parameter('vista_id');
 
-        $this->crud->setRoute("admin/actividadformmultiple/"
-            . $this->formId . '/respuestas');
+        $this->crud->setRoute(
+            "admin/webvista/"
+                . $this->vistaId . "/pdfs"
+        );
     }
-
     private function breadCrumbs()
     {
         $this->data['breadcrumbs'] = [
             trans('backpack::crud.admin') => backpack_url('dashboard'),
 
-            'Formularios' => backpack_url('actividadformmultiple'),
-            'Respuestas' => false,
-
+            'Vistas' => backpack_url('webvista'),
+            'Pdf' => false,
             trans('backpack::crud.list') => false,
         ];
     }
 
     private function filterList()
     {
-        $this->crud->addClause('where', 'actividad_form_multiple_id', $this->formId);
+        $this->crud->addClause('where', 'web_vista_id', $this->vistaId);
     }
 
     protected function setupListOperation()
     {
         $this->crud->addColumn([
+            'name' => 'url',
+            'label' => 'Archivo PDF',
+            'type' => 'image'
+        ]);
+        $this->crud->addColumn([
             'name' => 'titulo',
             'label' => 'Titulo',
-            'type'  => 'text',
-        ]);
-        $this->crud->addColumn([
-            'name' => 'precio_socio',
-            'label' => 'Precio socio',
-            'type' => 'number',
-            'prefix'        => '€',
-            'decimals'      => 2,
-        ]);
-        $this->crud->addColumn([
-            'name' => 'precio_normal',
-            'label' => 'Precio normal',
-            'type' => 'number',
-            'prefix'        => '€',
-            'decimals'      => 2,
+            'type' => 'text'
         ]);
         $this->crud->addColumn([
             'name' => 'activo',
-            'label' => 'Activo',
             'type' => 'btnToggle',
+            'label' => 'Activo',
         ]);
     }
 
@@ -90,20 +81,10 @@ class FormMultipleRespuestaCrudController extends CrudController
                 'type' => 'text',
             ],
             [
-                'name' => 'precio_socio',
-                'label' => 'Precio socio',
-                'type' => 'number',
-                'attributes' => [
-                    'step' => 'any',
-                ],
-            ],
-            [
-                'name' => 'precio_normal',
-                'label' => 'Precio normal',
-                'type' => 'number',
-                'attributes' => [
-                    'step' => 'any',
-                ],
+                'name' => 'url',
+                'label' => 'Archivo',
+                'type' => 'upload',
+                'upload'    => true,
             ],
             [
                 'name' => 'activo',
@@ -111,19 +92,23 @@ class FormMultipleRespuestaCrudController extends CrudController
                 'type' => 'checkbox',
             ],
             [
-                'name' => 'actividad_form_multiple_id',
+                'name' => 'web_vista_id',
                 'label' => '',
                 'type' => 'hidden',
-                'value' => $this->formId
+                'value' => $this->vistaId
             ],
+
         ]);
     }
+
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(FormMultipleRespuestaRequest::class);
+        CRUD::setValidation(WebVistaPdfRequest::class);
 
         $this->basicFields();
+
     }
+
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();

@@ -13,6 +13,7 @@ class ActividadeCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
 
     public function setup()
     {
@@ -69,29 +70,48 @@ class ActividadeCrudController extends CrudController
                 'name' => 'titulo',
                 'label' => 'Titulo',
                 'type' => 'text',
+                'tab'  => 'Descripcion',
             ],
             [
                 'name' => 'descripcion',
                 'label' => 'Descripcion',
                 'type' => 'ckeditor',
                 'limint' => -1,
+                'tab'  => 'Descripcion',
             ],
             [
                 'name' => 'imagen',
                 'label' => 'Imagen',
                 'type' => 'image',
+                'tab'  => 'Descripcion',
             ],
             [
-                'label' => 'Tipo de actividad',
+                'label' => 'Tipo de actividad <br>
+                    <small>
+                      Es usado en la inscripcion de la actividad.
+                    </small>
+                    <br>
+                    <small>
+                      Solo podran inscribirse los clientes que cumplan el requesito.
+                    </small>
+                ',
                 'type' => 'select2',
                 'name' => 'tipo',
                 'model'     => "App\Models\ActividadTipo",
                 'attribute' => 'titulo',
+                'tab'  => 'Descripcion',
             ],
             [
-                'name'  => 'separator',
-                'type'  => 'custom_html',
-                'value' => '<hr>'
+                'label'     => "Categorias (Son usadas para filtrar actividades)",
+                'type'      => 'select2_multiple',
+                'name'      => 'actividadCategoria',
+                'model'     => "App\Models\ActividadCategoria",
+                'attribute' => 'titulo',
+
+                'options'   => (function ($query) {
+                    return $query->orderBy('titulo', 'ASC')->get();
+                }),
+                'tab'  => 'Descripcion',
             ],
             [
                 'name' => 'formulario',
@@ -99,12 +119,44 @@ class ActividadeCrudController extends CrudController
                 'type' => 'radio',
                 'options'     => [
                     0 => "Inscripcion directa / sin formulario",
-                    1 => "Formulario con respuestas simples",
-                    2 => "Formulario con respuestas multiples"
+                    1 => "Inscripcion con formulario",
                 ],
+                'default' => 0,
+                'tab'  => 'Formulario',
             ],
             [
-                'label'     => "Extras",
+                'label'     => "Grupo opciones extras (Ej. Nivel padel) <br>
+                    <small>
+                    Añadir grupos de opciones extras. Por ejemplo Nivel de Padel, Torneo
+                    </small>
+                    <br>
+                    <small>
+                    Los grupos de opciones saldran al final de formulario de inscripcion.
+                    </small>
+                    <br>
+                    <small>
+                    Ejemplo: Grupo: Nivel padel -> Opciones a escoger: Profecional, Principiante o Avanzado
+                    </small>
+                    <br>
+                    <small>
+                    Añadir mas grupos: Actividades/Formulario/Grupos extras
+                    </small>
+                ",
+                'type'      => 'select2_multiple',
+                'name'      => 'formGrupoExtras',
+                'model'     => "App\Models\FormGrupoExtra",
+                'attribute' => 'titulo',
+                'options'   => (function ($query) {
+                    return $query->orderBy('titulo', 'ASC')->get();
+                }),
+                'tab'  => 'Formulario',
+            ],
+            [
+                'label' => 'Extras (Opciones extras del grupo de opciones) <br>
+                <small>
+                  Las opciones extras apareceran al final de formulario. El cliente podra escoger una o todas opciones
+                </small>
+                 ',
                 'type'      => 'select2_multiple',
                 'name'      => 'extras',
                 'model'     => "App\Models\ActividadExtra",
@@ -112,6 +164,7 @@ class ActividadeCrudController extends CrudController
                 'options'   => (function ($query) {
                     return $query->orderBy('titulo', 'ASC')->get();
                 }),
+                'tab'  => 'Formulario',
             ],
             [
                 'name' => 'slug',

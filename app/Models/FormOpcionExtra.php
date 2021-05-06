@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class ActividadFormMultiple extends Model
+class FormOpcionExtra extends Model
 {
     use CrudTrait;
 
@@ -15,15 +15,14 @@ class ActividadFormMultiple extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'actividad_form_multiples';
+    protected $table = 'form_opcion_extras';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'actividad_id',
+        'form_grupo_extra_id',
         'titulo',
-        'descripcion',
-        'activo'
+        'activo',
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -39,15 +38,7 @@ class ActividadFormMultiple extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function actividade()
-    {
-        return $this->hasOne(Actividade::class, 'id', 'actividad_id');
-    }
 
-    public function extras()
-    {
-        return $this->belongsToMany(ActividadExtra::class);
-    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

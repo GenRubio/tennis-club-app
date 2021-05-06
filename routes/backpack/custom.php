@@ -67,13 +67,19 @@ Route::group([
     Route::crud('actividadtipo', 'ActividadTipoCrudController');
     Route::crud('actividadextra', 'ActividadExtraCrudController');
     
-    Route::crud('actividadformsimple', 'ActividadFormSimpleCrudController');
-    Route::group(['prefix' => 'actividadformsimple/{form_id}'], function () {
-        Route::crud('respuestas', 'FormSimpleRespuestaCrudController');
+    Route::crud('formgrupoextra', 'FormGrupoExtraCrudController');
+    Route::group(['prefix' => 'formgrupoextra/{form_id}'], function (){
+        Route::crud('opciones', 'FormOpcionExtraCrudController');
     });
-
-    Route::crud('actividadformmultiple', 'ActividadFormMultipleCrudController');
-    Route::group(['prefix' => 'actividadformmultiple/{form_id}'], function () {
-        Route::crud('respuestas', 'FormMultipleRespuestaCrudController');
+    
+    Route::crud('formgrupoopcione', 'FormGrupoOpcioneCrudController');
+    Route::group(['prefix' => 'formgrupoopcione/{form_id}'], function (){
+        Route::crud('opciones', 'FormOpcionOpcioneCrudController');
+    });
+    Route::crud('actividadcategoria', 'ActividadCategoriaCrudController');
+    
+    Route::crud('webvista', 'WebVistaCrudController');
+    Route::group(['prefix' => 'webvista/{vista_id}'], function (){
+        Route::crud('pdfs', 'WebVistaPdfCrudController');
     });
 });

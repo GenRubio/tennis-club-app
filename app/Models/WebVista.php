@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
-class Actividade extends Model
+class WebVista extends Model
 {
     use CrudTrait;
 
@@ -17,19 +17,15 @@ class Actividade extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'actividades';
+    protected $table = 'web_vistas';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
+        'slug',
         'titulo',
         'descripcion',
-        'imagen',
-        'slug',
-        'tipo',
-        'formulario',
-        'visible',
-        'activo',
+        'image'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -40,34 +36,20 @@ class Actividade extends Model
     |--------------------------------------------------------------------------
     */
 
-
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function actividadTipo()
-    {
-        return $this->hasOne(ActividadTipo::class, 'id', 'tipo');
+
+    public function pdfs(){
+        return $this->hasMany(WebVistaPdf::class, 'web_vista_id', 'id');
     }
 
-    public function extras(){
-        return $this->belongsToMany(ActividadExtra::class);
+    public function activePdfs(){
+        return $this->pdfs()->where('activo', 1);
     }
 
-    public function formGrupoExtras(){
-        return $this->belongsToMany(FormGrupoExtra::class);
-    }
-
-    public function formGrupoOpciones(){
-        return $this->hasMany(FormGrupoOpcione::class, 'actividad_id', 'id');
-    }
-
-    public function actividadCategoria(){
-        return $this->belongsToMany(ActividadCategoria::class);
-    }
-
-    
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -85,19 +67,14 @@ class Actividade extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-    public function setSlugAttribute($value)
+    public function setImageAttribute($value)
     {
-        $this->attributes['slug'] = str_slug(mb_strtolower($this->attributes['titulo']));
-    }
-
-    public function setImagenAttribute($value)
-    {
-        $attribute_name = 'imagen';
+        $attribute_name = 'image';
 
         if (!$this->preventAttrSet) {
             $disk = config('backpack.base.root_disk_name');
-            $destination_path = 'public/images/actividades/';
-            $destination_path_db = 'images/actividades/';
+            $destination_path = 'public/images/web-vistas/';
+            $destination_path_db = 'images/web-vistas/';
             if ($value == null) {
                 Storage::disk($disk)->delete('public/'.$this->{$attribute_name});
                 $this->attributes[$attribute_name] = null;
