@@ -101,8 +101,7 @@
         visibility: hidden;
     }
     .fc-event-title-container{
-        background-color: red !important;
-        border: red !important;
+        background-color: #e3342f !important;
     }
     .fc-event-title.fc-sticky{
         font-weight: bold !important;
@@ -112,7 +111,12 @@
         cursor: pointer;
     }
     .fc-list-event.fc-event.fc-event-start.fc-event-future{
-        background-color: red !important;
+        background-color: #e3342f !important;
+        transition: all 2s ease !important;
+    }
+    .fc-list-event.fc-event.fc-event-today.fc-event-future{
+        background-color: #e3342f !important;
+        transition: all 2s ease !important;
     }
     .fc-list-event.fc-event.fc-event-end.fc-event-future{
         background-color: red !important;
@@ -146,6 +150,10 @@
     .modal-header{
         border-bottom: 1px solid red !important;
     }
+    .fc-h-event{
+        border: 1px black !important;
+    }
+    
 
 </style>
 
@@ -159,16 +167,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <p id="inicioEvento"></p>
-                <p id="finalEvento"></p>
-                <div class="modal-evento-image-div">
-                    <img id="imagen">
-                </div>
-                <hr class="featurette-divider">
-                <div id="descripcion">
-                </div>
-            </div>
+            <div class="modal-body"></div>
         </div>
     </div>
 </div>
@@ -176,7 +175,6 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
-
         var calendar = new FullCalendar.Calendar(calendarEl, {
             locale: 'es',
             headerToolbar: {
@@ -189,15 +187,10 @@
             eventClick: function(arg) {
                 let event = arg.event;
                 console.log(event);
-                $('#titulo').text(event.title);
-                $('#inicioEvento').text('Inicio evento: ' + event.extendedProps.fInici);
-                $('#finalEvento').text('Final evento: ' + event.extendedProps.fFinal);
-                $('#descripcion').html(event.extendedProps.description);
-                $("#imagen").attr("src", event.extendedProps.image)
+                $('.modal-body').html(event.extendedProps.content);
                 $('#calendarModal').modal();
             },
         });
-
         calendar.render();
     });
 

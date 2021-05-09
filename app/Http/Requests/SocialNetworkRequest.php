@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ClientRequest extends FormRequest
+class SocialNetworkRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,17 +26,9 @@ class ClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => ['required', 'max:50'],
-            'second_name' => ['required', 'max:50'],
-            'sexe' => ['required'],
-            'dni' => ['required', 'max:20'],
-            'nacionalidad' => ['required', 'max:20'],
-            'address' => ['required', 'max:50'],
-            'poblacio' => ['required', 'max:50'],
-            'cp' => ['required'],
-            'provincia' => ['required', 'max:20'],
-            'data_naxement' => ['required'],
-            'telefono_1' => ['required', 'max:20'],
+            'titulo' => 'required|max:255',
+            'url' => 'required',
+            'icon' => 'required',
         ];
     }
 

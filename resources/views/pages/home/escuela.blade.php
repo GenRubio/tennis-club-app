@@ -23,6 +23,12 @@
             overflow: hidden;
         }
 
+        @media screen and (min-width: 676px) {
+            .modal-dialog {
+                max-width: 650px;
+            }
+        }
+
     </style>
 @endsection
 @section('content')
@@ -42,16 +48,15 @@
                         <br>
                         <hr class="featurette-divider">
                         <br>
-                        <p class="color-red"
-                            style="font-weight: bold;
-                                                                                                          font-size: 20px;">
+                        <p class="color-red" style="font-weight: bold; font-size: 20px;">
                             Mas informacion aqui:
                         </p>
                         @foreach ($vista->activePdfs as $key => $pdf)
-                            <a class="color-red" style="font-weight: bold;font-size: 15px; text-decoration:none"
-                                href="{{ url($pdf->url) }}" target="_black">{{ $key + 1 }}.
-                                {{ $pdf->titulo }}.pdf</a>
-
+                            <div class="mb-2">
+                                <a class="color-red" style="font-weight: bold;font-size: 15px; text-decoration:none"
+                                    href="{{ url($pdf->url) }}" target="_black"><i class="far fa-file"></i>
+                                    {{ $pdf->titulo }}.pdf</a>
+                            </div>
                         @endforeach
                     @endif
                     <br><br>
@@ -76,26 +81,17 @@
                                     </div>
                                     <div class="modal-body">
                                         <div style="min-height: 300px;">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="exampleFormControlSelect1">Escuela</label>
-                                                    <select class="form-control" name="actividad">
-                                                        @foreach ($actividades as $actividad)
-                                                            <option>{{ $actividad->titulo }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    <div id="opciones-infantil">
-                                                        <br>
-                                                         @include('components.opciones-formulario', ['actividad' => $infantil])
-                                                    </div>
-                                                    <div id="opciones-adulto" class="d-none">
-                                                    </div>
-                                                </div>
-                                            </form>
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Escuela</label>
+                                                <select class="form-control" id="option-actividad">
+                                                    @foreach ($actividades as $actividad)
+                                                        <option value="{{ $actividad->slug }}">
+                                                            {{ $actividad->titulo }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <div id="actividadForm"></div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" id="siguente">Inscribirse</button>
                                     </div>
                                 </div>
                             </div>
@@ -125,8 +121,61 @@
 @section('personal-script')
     <script>
         $(document).ready(function() {
-            $(document).on('click', '#siguente', function() {
+            loadFormActividad('escola-infantil-tennis');
 
+            $("#option-actividad").change(function() {
+                loadFormActividad($("#option-actividad").val());
+            });
+
+
+            function loadFormActividad(actividad) {
+                $.ajax({
+                    url: "{{ route('load.form') }}",
+                    method: "POST",
+                    data: {
+                        '_token': '{{ csrf_token() }}',
+                        slug: actividad
+                    },
+                    success: function(data) {
+                        $("#actividadForm").html(data.content);
+                    }
+                })
+            }
+
+            $(document).on('submit', '#inscriptionForm', function(event) {
+                event.preventDefault();
+
+                $.ajax({
+                    url: "{{ route('inscripcion.actividad') }}",
+                    method: "POST",
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        toastr.options.closeButton = true;
+                        toastr.success(
+                            'Gracias por inscribirse nos ponremos en contacto con tigo en breve.'
+                            );
+                        $('#inscripcion').modal('hide');
+
+                        loadFormActividad('escola-infantil-tennis');
+                    }
+                })
+            })
+
+            $(document).on('submit', '#getFamiliar', function(event) {
+                event.preventDefault();
+
+                $.ajax({
+                    url: "{{ route('load.form') }}",
+                    method: "POST",
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        $("#actividadForm").html(data.content);
+                    }
+                })
+            })
+
+            $(document).on('click', '.cancelar-inscripcion', function(event) {
+                loadFormActividad('escola-infantil-tennis');
             })
         });
 

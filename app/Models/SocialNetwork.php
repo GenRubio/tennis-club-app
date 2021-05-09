@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class FormOpcionOpcione extends Model
+class SocialNetwork extends Model
 {
     use CrudTrait;
 
@@ -15,18 +15,15 @@ class FormOpcionOpcione extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'form_opcion_opciones';
+    protected $table = 'social_networks';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'form_grupo_opcion_id',
+        'icon',
         'titulo',
-        'precio_normal',
-        'precio_socio',
-        'precio_persona',
-        'precio_mensual',
-        'activo',
+        'url',
+        'activo'
     ];
     // protected $hidden = [];
     // protected $dates = [];

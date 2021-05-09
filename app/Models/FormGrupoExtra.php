@@ -27,6 +27,17 @@ class FormGrupoExtra extends Model
     ];
     // protected $hidden = [];
     // protected $dates = [];
+    
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($grupo) {
+            foreach ($grupo->opciones as $opcion) {
+                $opcion->delete();
+            }
+        });
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -41,6 +52,10 @@ class FormGrupoExtra extends Model
     */
     public function opciones(){
         return $this->hasMany(FormOpcionExtra::class, 'form_grupo_extra_id', 'id');
+    }
+
+    public function activeOpciones(){
+        return $this->opciones()->where('activo', 1);
     }
     /*
     |--------------------------------------------------------------------------

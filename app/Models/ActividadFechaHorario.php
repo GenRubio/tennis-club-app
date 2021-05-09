@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class FormOpcionOpcione extends Model
+class ActividadFechaHorario extends Model
 {
     use CrudTrait;
 
@@ -15,18 +15,15 @@ class FormOpcionOpcione extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'form_opcion_opciones';
+    protected $table = 'actividad_fecha_horarios';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'form_grupo_opcion_id',
-        'titulo',
-        'precio_normal',
-        'precio_socio',
-        'precio_persona',
-        'precio_mensual',
-        'activo',
+        'actividad_fecha_id',
+        'dia',
+        'hora_inicio',
+        'hora_final',
     ];
     // protected $hidden = [];
     // protected $dates = [];

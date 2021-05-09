@@ -108,6 +108,16 @@ class FormOpcionOpcioneCrudController extends CrudController
                 ],
             ],
             [
+                'name' => 'precio_persona',
+                'label' => 'Precio por persona',
+                'type' => 'checkbox',
+            ],
+            [
+                'name' => 'precio_mensual',
+                'label' => 'Precio mensual',
+                'type' => 'checkbox',
+            ],
+            [
                 'name' => 'activo',
                 'label' => 'Activo',
                 'type' => 'checkbox',

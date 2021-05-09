@@ -44,12 +44,20 @@ class FormGrupoOpcione extends Model
         return $this->belongsToMany(ActividadExtra::class);
     }
 
+    public function activeExtras(){
+        return $this->extras()->where('activo', 1);
+    }
+
     public function actividade(){
         return $this->hasOne(Actividade::class, 'id', 'actividad_id');
     }
 
     public function opciones(){
         return $this->hasMany(FormOpcionOpcione::class, 'form_grupo_opcion_id', 'id');
+    }
+
+    public function activeOpciones(){
+        return $this->opciones()->where('activo', 1);
     }
     /*
     |--------------------------------------------------------------------------

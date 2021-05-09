@@ -34,12 +34,28 @@ class Actividade extends Model
     // protected $hidden = [];
     // protected $dates = [];
 
+
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
 
+    public function grupoPermitido($grupo, $cliente){
+        $opciones = $grupo->opciones()->whereNotNull('precio_socio')
+        ->whereNull('precio_normal')
+        ->get();
+        if (count($opciones) > 0){
+            if ($cliente->quotaSocio){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }else{
+            return true;
+        }
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -55,19 +71,40 @@ class Actividade extends Model
         return $this->belongsToMany(ActividadExtra::class);
     }
 
+    public function activeExtras(){
+        return $this->extras()->where('activo', 1);
+    }
+
     public function formGrupoExtras(){
         return $this->belongsToMany(FormGrupoExtra::class);
+    }
+
+    public function activeGrupoExtras(){
+        return $this->formGrupoExtras()->where('activo', 1);
     }
 
     public function formGrupoOpciones(){
         return $this->hasMany(FormGrupoOpcione::class, 'actividad_id', 'id');
     }
 
+    public function activeGrupoOpciones(){
+        return $this->formGrupoOpciones()->where('activo', 1);
+    }
+
     public function actividadCategoria(){
         return $this->belongsToMany(ActividadCategoria::class);
     }
 
-    
+    public function fechas(){
+        return $this->hasMany(ActividadFecha::class, 'actividad_id', 'id')
+        ->where('activo', 1);
+    }
+
+    public function fechasCalendario(){
+        return $this->hasMany(ActividadFecha::class, 'actividad_id', 'id')
+        ->where('activo', 1)
+        ->where('calendario', 1);
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

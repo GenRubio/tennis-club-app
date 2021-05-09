@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\EmailValidateController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Auth\InscripcionesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\Profile\SettingsController;
 use App\Http\Controllers\Auth\RecoverPasswordController;
@@ -78,4 +79,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [SettingsController::class, 'index'])->name('profile');
     Route::post('/profile/update/avatar', [SettingsController::class, 'updateAvatar'])->name('update.avatar');
 
+    Route::post('/inscripcion-actividad', [InscripcionesController::class, 'store'])->name('inscripcion.actividad');
+    Route::post('/actividad-form', [InscripcionesController::class, 'loadForm'])->name('load.form');
+
+    //Backpack Route AJAX
+    Route::post('/aseptar-pagar', [InscripcionesController::class, 'aceptarPago'])->name('aceptar.pago');
+    Route::post('/cancelar-pagar', [InscripcionesController::class, 'cancelarPago'])->name('cancelar.pago');
 });

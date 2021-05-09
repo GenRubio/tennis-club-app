@@ -79,6 +79,16 @@ class NoticiaCrudController extends CrudController
                 'type' => 'hidden',
             ],
             [
+                'label' => "Actividad",
+                'type' => "select2",
+                'name' => 'actividad_id',
+                'attribute' => "titulo",
+                'model' => "App\Models\Actividade",
+                'options'   => (function ($query) {
+                    return $query->orderBy('created_at', 'DESC')->get();
+                }),
+            ],
+            [
                 'name' => 'activo',
                 'label' => 'Activo',
                 'type' => 'checkbox',

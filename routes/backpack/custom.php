@@ -29,7 +29,6 @@ Route::group([
     Route::crud('shoparticle', 'ShopArticleCrudController');
 
     Route::crud('alquilerpista', 'AlquilerPistaCrudController');
-    Route::crud('calendarevento', 'CalendarEventoCrudController');
     Route::crud('instalacione', 'InstalacioneCrudController');
 
     Route::group(['prefix' => 'instalacione/{instalacion_id}'], function () {
@@ -63,7 +62,18 @@ Route::group([
     Route::crud('servicio', 'ServicioCrudController');
 
     Route::crud('quotasocio', 'QuotaSocioCrudController');
+
     Route::crud('actividade', 'ActividadeCrudController');
+    Route::group(['prefix' => 'actividade/{actividad_id}'], function (){
+        Route::crud('inscripciones', 'InscripcionesCrudController');
+
+        Route::crud('fechas', 'ActividadFechaCrudController');
+        Route::group(['prefix' => 'fechas/{fecha_id}'], function (){
+            Route::crud('horarios', 'ActividadFechaHorarioCrudController');
+        });
+    });
+
+
     Route::crud('actividadtipo', 'ActividadTipoCrudController');
     Route::crud('actividadextra', 'ActividadExtraCrudController');
     
@@ -82,4 +92,5 @@ Route::group([
     Route::group(['prefix' => 'webvista/{vista_id}'], function (){
         Route::crud('pdfs', 'WebVistaPdfCrudController');
     });
+    Route::crud('socialnetwork', 'SocialNetworkCrudController');
 });

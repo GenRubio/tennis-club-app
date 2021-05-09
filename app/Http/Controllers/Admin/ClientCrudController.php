@@ -76,6 +76,7 @@ class ClientCrudController extends CrudController
 
     protected function setupListOperation()
     {
+        $this->crud->denyAccess('delete');
         if (!$this->clientId) {
             $this->crud->addButtonFromView('line', 'ver-familiares', 'ver-familiares', 'beginning');
         }

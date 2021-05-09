@@ -139,6 +139,9 @@ class Client extends Model
             ->first();
         return $clientPariente ? $clientPariente->clientTipo->nom : '---';
     }
+
+ 
+
     /*
     |--------------------------------------------------------------------------
     | MUTATORS

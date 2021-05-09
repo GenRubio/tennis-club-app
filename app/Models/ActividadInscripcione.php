@@ -12,5 +12,7 @@ class ActividadInscripcione extends Model
     protected $fillable = [
         'cliente_id',
         'actividad_id',
+        'pagado',
+        'opciones'
     ];
 }

@@ -272,8 +272,16 @@
                                         <div class="dropdown-menu dropdown-menu-right anti-parpadeo dropdow-status">
                                             <div class="d-flex justify-content-center">
                                                 <p style="color: #e3342f;font-weight: bold;font-size: 15px;">
-                                                    {{ auth()->user()->user_name }}
+                                                    {{ auth()->user()->user_name }} <br>
                                                 </p>
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <div>
+                                                    <p
+                                                        style="color: #e3342f;font-weight: bold;font-size: 13px;margin-top: -16px;">
+                                                        {{ auth()->user()->email }}
+                                                    </p>
+                                                </div>
                                             </div>
 
                                             <a href="{{ route('me') }}" style="color: white" class="dropdown-item"

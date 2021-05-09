@@ -22,6 +22,7 @@ class Noticia extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
+        'actividad_id',
         'titulo',
         'descripcion',
         'image',
@@ -40,6 +41,10 @@ class Noticia extends Model
 
     public function comments(){
         return $this->hasMany(NoticiaComentario::class, 'noticia_id', 'id');
+    }
+
+    public function actividad(){
+        return $this->hasOneThrough(Actividade::class, Noticia::class);
     }
 
     /*

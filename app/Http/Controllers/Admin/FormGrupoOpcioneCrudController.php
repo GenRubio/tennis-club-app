@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\FormGrupoOpcioneRequest;
+use App\Models\Actividade;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -23,6 +24,7 @@ class FormGrupoOpcioneCrudController extends CrudController
 
     protected function setupListOperation()
     {
+        $this->crud->denyAccess('delete');
         $this->crud->addButtonFromView('line', 'formulario-respuestas', 'formulario-respuestas', 'beginning');
 
         $this->crud->addColumn([
@@ -52,6 +54,15 @@ class FormGrupoOpcioneCrudController extends CrudController
             'type' => 'relationship',
             'label' => 'Extras',
         ]);
+
+        $this->crud->addFilter(
+            [
+                'name' => 'actividad_id',
+                'type' => 'select2',
+                'label' => 'Actividad',
+            ],
+            Actividade::orderBy('created_at', 'DESC')->get()->pluck('titulo', 'id')->toArray(),
+        );
     }
 
     protected function basicFields()
@@ -64,8 +75,7 @@ class FormGrupoOpcioneCrudController extends CrudController
                 'model'     => "App\Models\Actividade",
                 'attribute' => 'titulo',
                 'options'   => (function ($query) {
-                    return $query->where('formulario', 1)
-                        ->orderBy('titulo', 'ASC')->get();
+                    return $query->orderBy('titulo', 'ASC')->get();
                 }),
             ],
             [

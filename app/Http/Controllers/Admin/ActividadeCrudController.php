@@ -24,7 +24,9 @@ class ActividadeCrudController extends CrudController
 
     protected function setupListOperation()
     {
+        $this->crud->denyAccess('delete');
         $this->crud->addButtonFromView('line', 'inscripciones', 'inscripciones', 'beginning');
+        $this->crud->addButtonFromView('line', 'fechas-actividad', 'fechas-actividad', 'beginning');
         $this->crud->addColumn([
             'name' => 'created_at',
             'label' => 'Publicado',
@@ -70,20 +72,17 @@ class ActividadeCrudController extends CrudController
                 'name' => 'titulo',
                 'label' => 'Titulo',
                 'type' => 'text',
-                'tab'  => 'Descripcion',
             ],
             [
                 'name' => 'descripcion',
                 'label' => 'Descripcion',
                 'type' => 'ckeditor',
                 'limint' => -1,
-                'tab'  => 'Descripcion',
             ],
             [
                 'name' => 'imagen',
                 'label' => 'Imagen',
                 'type' => 'image',
-                'tab'  => 'Descripcion',
             ],
             [
                 'label' => 'Tipo de actividad <br>
@@ -99,7 +98,6 @@ class ActividadeCrudController extends CrudController
                 'name' => 'tipo',
                 'model'     => "App\Models\ActividadTipo",
                 'attribute' => 'titulo',
-                'tab'  => 'Descripcion',
             ],
             [
                 'label'     => "Categorias (Son usadas para filtrar actividades)",
@@ -111,18 +109,6 @@ class ActividadeCrudController extends CrudController
                 'options'   => (function ($query) {
                     return $query->orderBy('titulo', 'ASC')->get();
                 }),
-                'tab'  => 'Descripcion',
-            ],
-            [
-                'name' => 'formulario',
-                'label' => 'Formulario de inscripcion',
-                'type' => 'radio',
-                'options'     => [
-                    0 => "Inscripcion directa / sin formulario",
-                    1 => "Inscripcion con formulario",
-                ],
-                'default' => 0,
-                'tab'  => 'Formulario',
             ],
             [
                 'label'     => "Grupo opciones extras (Ej. Nivel padel) <br>
@@ -149,7 +135,6 @@ class ActividadeCrudController extends CrudController
                 'options'   => (function ($query) {
                     return $query->orderBy('titulo', 'ASC')->get();
                 }),
-                'tab'  => 'Formulario',
             ],
             [
                 'label' => 'Extras (Opciones extras del grupo de opciones) <br>
@@ -164,7 +149,6 @@ class ActividadeCrudController extends CrudController
                 'options'   => (function ($query) {
                     return $query->orderBy('titulo', 'ASC')->get();
                 }),
-                'tab'  => 'Formulario',
             ],
             [
                 'name' => 'slug',

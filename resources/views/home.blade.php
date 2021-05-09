@@ -211,6 +211,7 @@
             background-size: 638px 449px;
             min-height: 466px;
         }
+       
 
     </style>
 @endsection

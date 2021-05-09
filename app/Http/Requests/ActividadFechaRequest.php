@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CalendarEventoRequest extends FormRequest
+class ActividadFechaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,7 @@ class CalendarEventoRequest extends FormRequest
     public function rules()
     {
         return [
-            'url' => 'required|max:255',
-            'titulo' => 'required|max:255',
-            'descripcion' => 'required|max:255',
             'data_inicio' => 'required',
-            'data_final' => 'required',
         ];
     }
 
