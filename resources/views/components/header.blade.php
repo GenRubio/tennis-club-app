@@ -129,18 +129,18 @@
     <div class="nav-superior">
         <div class="container">
             <div class="d-flex justify-content-end">
-                <div class="social-network m-1">
-                    <i class="fab fa-facebook"></i>
-                </div>
-                <div class="social-network m-1">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <div class="social-network m-1">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-                <div class="social-network m-1">
-                    <i class="fab fa-twitter"></i>
-                </div>
+                @php
+                    use App\Models\SocialNetwork;
+                    
+                    $socialNetworks = SocialNetwork::where('activo', 1)->get();
+                @endphp
+                @foreach ($socialNetworks as $network)
+                    <div class="social-network m-1">
+                        <a href="{{ $network->url }}" target="_black" style="text-decoration: none; color:#e3342f">
+                            <i class="{{ $network->icon }}"></i>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
