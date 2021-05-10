@@ -4,29 +4,27 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
-use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
-class QuotaSocio extends Model
+class ActividadPdf extends Model
 {
     use CrudTrait;
-    use HasTranslations;
+
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'quota_socios';
+    protected $table = 'actividad_pdfs';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'titulo'
+        'actividad_id',
+        'titulo',
+        'url',
+        'activo'
     ];
-    protected $translatable = [
-        'titulo', 
-    ];
-    // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -42,9 +40,6 @@ class QuotaSocio extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function servicios(){
-        return $this->belongsToMany(Servicio::class);
-    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

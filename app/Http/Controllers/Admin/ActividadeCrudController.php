@@ -25,6 +25,7 @@ class ActividadeCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->denyAccess('delete');
+        $this->crud->addButtonFromView('line', 'pdf', 'pdf', 'beginning');
         $this->crud->addButtonFromView('line', 'inscripciones', 'inscripciones', 'beginning');
         $this->crud->addButtonFromView('line', 'fechas-actividad', 'fechas-actividad', 'beginning');
         $this->crud->addColumn([

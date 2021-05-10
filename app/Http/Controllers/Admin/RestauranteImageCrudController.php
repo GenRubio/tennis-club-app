@@ -33,7 +33,7 @@ class RestauranteImageCrudController extends CrudController
        
         $this->crud->addColumn([
             'name' => 'active',
-            'type' => 'check',
+            'type' => 'btnToggle',
             'label' => 'Activo',
         ]);
 

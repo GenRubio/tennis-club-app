@@ -105,6 +105,10 @@ class Actividade extends Model
         ->where('activo', 1)
         ->where('calendario', 1);
     }
+
+    public function actividadPdfs(){
+        return $this->hasMany(ActividadPdf::class, 'actividad_id', 'id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

@@ -66,6 +66,7 @@ Route::group([
     Route::crud('actividade', 'ActividadeCrudController');
     Route::group(['prefix' => 'actividade/{actividad_id}'], function (){
         Route::crud('inscripciones', 'InscripcionesCrudController');
+        Route::crud('pdfs', 'ActividadPdfCrudController');
 
         Route::crud('fechas', 'ActividadFechaCrudController');
         Route::group(['prefix' => 'fechas/{fecha_id}'], function (){
