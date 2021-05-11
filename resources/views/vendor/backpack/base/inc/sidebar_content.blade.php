@@ -2,15 +2,22 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="la la-home nav-icon"></i>
         {{ trans('backpack::base.dashboard') }}</a></li>
 @if (backpack_user()->role->rol == 'Superadmin' || backpack_user()->role->rol == 'Administrador')
-
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-cogs"></i>Ajustes</a>
+        <ul class="nav-dropdown-items">
+            <li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}"><i
+                        class="nav-icon la la-files-o"></i>
+                    <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
+        </ul>
+    </li>
     <li class="nav-title">Usuarios</li>
     <li class="nav-item nav-dropdown">
-        <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-newspaper-o"></i>Autentificación</a>
+        <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-group"></i>Autentificación</a>
         <ul class="nav-dropdown-items">
             <li class='nav-item'><a class='nav-link' href='{{ backpack_url('user') }}'><i
-                        class='nav-icon la la-question'></i> Usuarios</a></li>
+                        class='nav-icon la la-user'></i> Usuarios</a></li>
             <li class='nav-item'><a class='nav-link' href='{{ backpack_url('role') }}'><i
-                        class='nav-icon la la-question'></i> Roles</a></li>
+                        class='nav-icon la la-group'></i> Roles</a></li>
         </ul>
     </li>
     <li class="nav-item nav-dropdown">
@@ -47,7 +54,7 @@
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadtipo') }}'><i
                 class='nav-icon la la-question'></i> Tipos actividad</a></li>
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadcategoria') }}'><i
-                class='nav-icon la la-question'></i> Categorias</a></li>
+                class='nav-icon la la-list'></i> Categorias</a></li>
 
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('actividadextra') }}'><i
                 class='nav-icon la la-question'></i> Extras</a></li>
@@ -70,7 +77,7 @@
             <li class='nav-item'><a class='nav-link' href='{{ backpack_url('shoparticle') }}'><i
                         class='nav-icon la la-question'></i> Articulos</a></li>
             <li class='nav-item'><a class='nav-link' href='{{ backpack_url('shopcategorie') }}'><i
-                        class='nav-icon la la-question'></i> Categorias</a></li>
+                        class='nav-icon la la-list'></i> Categorias</a></li>
             <li class='nav-item'><a class='nav-link' href='{{ backpack_url('shopbannerimage') }}'><i
                         class='nav-icon la la-question'></i> Carusel Imagenes</a></li>
         </ul>
@@ -81,7 +88,7 @@
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-newspaper-o"></i>Restaurante</a>
     <ul class="nav-dropdown-items">
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('restaurantecategoria') }}'><i
-                    class='nav-icon la la-question'></i> Categorias</a></li>
+                    class='nav-icon la la-list'></i> Categorias</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('restauranteplato') }}'><i
                     class='nav-icon la la-question'></i> Platos menu</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('restauranteimage') }}'><i

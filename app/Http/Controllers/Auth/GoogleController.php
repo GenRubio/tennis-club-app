@@ -29,6 +29,8 @@ class GoogleController extends Controller
             $user->provider = 'google';
             //$user->image = $this->getBigAvatar($socialUser, 'google');
             $user->save();
+
+            Auth::login($users);
         }
         return redirect()->route('me');
     }

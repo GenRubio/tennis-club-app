@@ -314,8 +314,15 @@ class ClienteDatos extends Component
 
     private function validateTargetaSanitariaF()
     {
+       
         if ($this->tagetaSanitariaF == "") {
             $this->addError('errorTargeta', 'El campo targeta es requerido.');
+        }
+        else {
+            $cliente = Client::where('cat_salut', $this->tagetaSanitariaF)->first();
+            if ($cliente){
+                $this->addError('errorTargeta', 'Este cliente ya esta registrado.');
+            }
         }
     }
 
@@ -411,6 +418,10 @@ class ClienteDatos extends Component
             if (!$this->validateNie($this->identificador)) {
                 $this->addError('errorIdentificador', 'El campo NIE es incorrecto.');
             }
+        } 
+        $cliente = Client::where('dni', $this->identificador)->first();
+        if ($cliente){
+            $this->addError('errorIdentificador', 'Este cliente ya esta registrado.');
         }
     }
     private function cif_validation($cif)
