@@ -232,7 +232,7 @@
                     <h2 class="text-color-white">Noticias</h2>
                 </div>
                 <div class="category-div">
-                    <p class="text-color-white">Descubra las últimas noticias sobre nuestro centro aquí. Las ofertas
+                    <p class="text-color-white" style="font-size: 16px;">Descubra las últimas noticias sobre nuestro centro aquí. Las ofertas
                         especiales, renovaciones, colaboraciones u otras novedades. <br> Las podrá encontrar en el bloque de
                         noticias.</p>
                 </div>
@@ -256,7 +256,7 @@
                     <h2 class="text-color-white">Torneos</h2>
                 </div>
                 <div class="category-div">
-                    <p class="text-color-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum quam
+                    <p class="text-color-white" style="font-size: 16px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum quam
                         expedita
                         soluta fugiat dolor
                         natus. Labore architecto, consequuntur vel modi temporibus, nesciunt, repellendus minus repudiandae
@@ -284,7 +284,7 @@
                     </div>
                 </div>
                 <div class="category-div">
-                    <p class="text-color-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem modi
+                    <p class="text-color-white" style="font-size: 16px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem modi
                         illo
                         inventore similique
                         facilis, ipsum eaque iste ipsa, atque consectetur adipisci exercitationem ab debitis. Eaque magnam
@@ -314,7 +314,7 @@
                     </div>
                 </div>
                 <div class="category-div">
-                    <p class="text-color-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem modi
+                    <p class="text-color-white" style="font-size: 16px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem modi
                         illo
                         inventore similique
                         facilis, ipsum eaque iste ipsa, atque consectetur adipisci exercitationem ab debitis. Eaque magnam
@@ -336,11 +336,11 @@
         <h1 class="color-red" style="font-weight: bold;">
             Ultimas noticias
             <span style="font-size: 14px;">
-                <a href="{{ route('noticias') }}" class="ver-mas-button" style="text-decoration: none;">Ver más <i
+                <a href="{{ route('noticias') }}" class="ver-mas-button" style="text-decoration: none;font-size: 18px;">Ver más <i
                         class="fas fa-arrow-right"></i></a>
             </span>
         </h1>
-        <p style="color: whitesmoke; font-size: 16px;">Mantente informado de todas nuestras novedades</p>
+        <p style="color: whitesmoke; font-size: 18px;">Mantente informado de todas nuestras novedades</p>
         <hr class="featurette-divider" id="section1">
         <br>
         <livewire:home.noticias />
@@ -354,8 +354,8 @@
             <br><br>
             <h1 class="color-red" style="font-weight: bold;position: relative;">
                 Nuestras actividades
-                <span style="font-size: 14px; position: relative;">
-                    <a href="#" class="ver-mas-button" style="text-decoration: none;">Ver más <i
+                <span style="font-size: 18px; position: relative;">
+                    <a href="{{ route('actividades') }}" class="ver-mas-button" style="text-decoration: none; font-size: 18px;">Ver más <i
                             class="fas fa-arrow-right"></i></a>
                 </span>
             </h1>
@@ -389,7 +389,7 @@
         <div class="row featurette">
             <div class="col-md-5">
                 <h2 class="featurette-heading">CALENDARIO DE EVENTOS</h2>
-                <p class="lead text-color-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta iure
+                <p class="lead text-color-white" style="font-size: 18px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta iure
                     laborum minima quis,
                     dolores laboriosam nulla, perferendis facilis ipsa praesentium adipisci, aliquid voluptatum maiores.
                     Sint quia itaque aliquam quam asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
@@ -425,7 +425,7 @@
         <br>
         <br>
         <h1 class="color-red" style="font-weight: bold; z-index:999;">Instalaciones</h1>
-        <p style="color: whitesmoke; font-size: 16px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
+        <p style="color: whitesmoke; font-size: 18px; ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
             deleniti </p>
         <hr class="featurette-divider" id="instalaciones">
         <br>
@@ -533,7 +533,7 @@
             <h1 class="color-red" style="font-weight: bold; position: relative;">
                 Nuestra galeria
                 <span style="font-size: 14px;">
-                    <a href="{{ route('galleria') }}" class="ver-mas-button" style="text-decoration: none;">Ver más <i
+                    <a href="{{ route('galleria') }}" class="ver-mas-button" style="text-decoration: none; font-size: 18px;">Ver más <i
                             class="fas fa-arrow-right"></i></a>
                 </span>
             </h1>

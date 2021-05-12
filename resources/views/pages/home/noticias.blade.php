@@ -71,7 +71,7 @@
         .nav-bar-second {
             color: #e3342f;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 18px;
             margin-top: 10px;
         }
 
@@ -186,13 +186,13 @@ if (isset($noticia)) {
                 <div class="col">
                     <div class="container nav-bar-second">
                         <div class="width-ellipse">
-                            <span style="font-size: 16px;">
+                            <span style="font-size: 18px;">
                                 <i class="far fa-newspaper"></i>
                                 <a href="{{ route('noticias') }}"
                                     class="sm-font-size text-danger nav-noticia">Noticias</a>
                             </span>
                             <i class="fas fa-angle-right"></i>
-                            <span style="font-size: 13px;">
+                            <span style="font-size: 16px;">
                                 <span class="sm-font-size">{{ $noticia->titulo }}</span>
                             </span>
                         </div>
@@ -208,7 +208,7 @@ if (isset($noticia)) {
                     <div class="col-xl-9 col-lg-12 col-md-12">
                         <div class="color-whitesmoke">
                             <h2><strong class="color-whitesmoke">{!! $noticia->titulo !!}</strong></h2>
-                            <p>Publicado: {{ $noticia->created_at->translatedFormat('jS F Y') }}</p>
+                            <p style="font-size: 18px;">Publicado: {{ $noticia->created_at->translatedFormat('jS F Y') }}</p>
                         </div>
                         <div>
                             {{-- <h5style="margin-bottom:20px;"><strong>!!$noticia->sub_titulo!!</strong></h5> --}}
@@ -216,31 +216,22 @@ if (isset($noticia)) {
                         @if ($noticia->image != '')
                             <img src="{{ url($noticia->image) }}" class="card-img-top margin-b-20">
                         @endif
-                        <div class="d-flex justify-content-end">
-                            <li>
-                                <a href="#" id="gmail-btn"><i class="fa fa-envelope-o" aria-hidden="true"
-                                        style="color: #cf3e39; font-size: 2rem"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" id="facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"
-                                        style="color: #3b5998; font-size: 2rem"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" id="twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"
-                                        style="color: #1da1f2; font-size: 2rem"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" id="whatsapp-btn"><i class="fa fa-whatsapp" aria-hidden="true"
-                                        style="color: #25d366; font-size: 2rem"></i>
-                                </a>
-                            </li>
-                        </div>
                         <br>
-                        <div class="color-whitesmoke">
+                        <div class="color-whitesmoke" style="font-size: 18px;">
                             <p class="font-size-17">{!! $noticia->descripcion !!}
                             <p>
                         </div>
+                        <br>
+                        @if ($noticia->actividadNoticia)
+                            <br>
+                            <div class="d-flex justify-content-center">
+                                <a href="{{ route('actividades', $noticia->actividadNoticia->slug) }}" class="btn btn-danger btn-lg">
+                                    <strong>
+                                        <i class="fas fa-location-arrow"></i> Ir a la actividad
+                                    </strong>
+                                </a>
+                            </div>
+                        @endif
                         <br>
                         <ul class="nav mt-3">
                             <li class="nav-item">
@@ -255,7 +246,7 @@ if (isset($noticia)) {
                         <livewire:home.comentarios :noticia="$noticia->id">
                     </div>
                     <div class="col-xl-3 d-none d-xl-block border-left border-dark">
-                        <h4><strong class="color-red">Ultimas noticias</strong></h4>
+                        <h4><strong class="color-red" style="font-size: 24px;">Ultimas noticias</strong></h4>
                         <div class="row">
                             @foreach ($ultimasNoticias as $noticia)
                                 <div class="col-12">
@@ -291,7 +282,8 @@ if (isset($noticia)) {
             <div class="row">
                 @foreach ($noticias as $noticia)
                     <div class="col-xl-4 col-lg-4 col-md-6 mb-5">
-                        <a href="{{ route('noticias', $noticia->slug) }}" style="text-decoration: none; color:whitesmoke">
+                        <a href="{{ route('noticias', $noticia->slug) }}"
+                            style="text-decoration: none; color:whitesmoke">
                             <div class="card border-0 rounded card-border-personal card-point">
                                 <div class="div-image-noticias-todas">
                                     <img class="img-auto-width-noticias-todas rounded"

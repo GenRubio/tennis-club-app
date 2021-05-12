@@ -84,7 +84,7 @@
     </form>
 </div>
 <script>
-    window.addEventListener('alert', event => {
+    window.addEventListener('alertProfile', event => {
         toastr.options.closeButton = true;
         toastr.success(event.detail.message);
     })

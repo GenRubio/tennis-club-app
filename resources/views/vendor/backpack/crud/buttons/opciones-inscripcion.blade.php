@@ -109,7 +109,7 @@ $data = json_decode($inscripcion->opciones);
             },
             success: function(data) {
                 $("#estado").html(`
-                <button class="btn btn-primary" style="width: 70px;" id="aceptar">
+                <button class="btn btn-primary" style="width: 70px;" id="aceptar{{ $clienteId }}">
                                         Si
                                     </button>
                 `)
@@ -128,7 +128,7 @@ $data = json_decode($inscripcion->opciones);
             },
             success: function(data) {
                 $("#estado").html(`
-                <button class="btn btn-danger" style="width: 70px;" id="aceptar">
+                <button class="btn btn-danger" style="width: 70px;" id="denegar{{ $clienteId }}">
                                         No
                                     </button>
                 `)

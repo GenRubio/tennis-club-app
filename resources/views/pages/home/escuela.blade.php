@@ -41,7 +41,7 @@
             <br>
             <div class="row">
                 <div class="col-xl-7 col-lg-7 col-md-12">
-                    <div style="color: whitesmoke">
+                    <div style="color: whitesmoke;font-size: 18px;">
                         {!! $vista->descripcion !!}
                     </div>
                     @if (count($vista->activePdfs) > 0)
@@ -53,7 +53,7 @@
                         </p>
                         @foreach ($vista->activePdfs as $key => $pdf)
                             <div class="mb-2">
-                                <a class="color-red" style="font-weight: bold;font-size: 15px; text-decoration:none"
+                                <a class="color-red" style="font-weight: bold;font-size: 18px; text-decoration:none"
                                     href="{{ url($pdf->url) }}" target="_black"><i class="far fa-file"></i>
                                     {{ $pdf->titulo }}.pdf</a>
                             </div>

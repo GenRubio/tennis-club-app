@@ -60,7 +60,7 @@
         <br>
         <div class="row">
             <div class="col-md-6">
-                <div style="color: whitesmoke;">
+                <div style="color: whitesmoke; font-size: 18px;">
                     Si deseas contactar con nosotros puedes hacerlo a través de los siguientes canales:
                     <br><br>
                     Servicio de Atención al Cliente en el teléfono {{ config('app.datos-contacto')['telefono'] }}

@@ -171,7 +171,7 @@
     <div class="nav-second-margin">
         <div class="container-fluid shadow nav-inferior-color">
             <div class="container p-0">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light nav-inferior-color" style="z-index: 1">
+                <nav class="navbar navbar-expand-xl navbar-light bg-light nav-inferior-color" style="z-index: 1">
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -185,7 +185,7 @@
                         <ul class="navbar-nav  text-xl-center text-lg-center mr-auto ml-auto">
                             <li class="nav-item t-border">
                                 <a class="nav-link" href="{{ route('home') }}"
-                                    style="{{ Request::is('/') ? 'color:whitesmoke !important' : '' }}">
+                                    style="{{ Request::is('/') ? 'color:whitesmoke !important' : '' }}; font-size:16px;">
                                     <strong>HOME</strong>
                                 </a>
                             </li>
@@ -193,13 +193,13 @@
                             <li class="nav-item dropdown t-border">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                    style="{{ Request::is('escuela-padel') ? 'color:whitesmoke !important' : '' }}">
+                                    style="{{ Request::is('escuela-padel') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
                                     <strong>PADEL</strong>
                                 </a>
                                 <div class="dropdown-menu anti-parpadeo nav-select" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item nav-select-item"
                                         href="{{ route('escuela', ['slug' => 'escuela-padel']) }}"
-                                        style="{{ Request::is('escuela-padel') ? 'color:whitesmoke !important' : '' }}">
+                                        style="{{ Request::is('escuela-padel') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
                                         Escuela de padel</a>
                                     <a class="dropdown-item nav-select-item" href="#">Competiciones / Torneos</a>
                                     <a class="dropdown-item nav-select-item" href="#">Reserva de pista</a>
@@ -208,7 +208,7 @@
 
                             <li class="nav-item dropdown t-border">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=";font-size:16px;">
                                     <strong>TENNIS</strong>
                                 </a>
                                 <div class="dropdown-menu anti-parpadeo nav-select" aria-labelledby="navbarDropdown">
@@ -223,32 +223,32 @@
 
                             <li class="nav-item t-border">
                                 <a class="nav-link" href="{{ route('socios') }}"
-                                    style="{{ Request::is('socio') ? 'color:whitesmoke !important' : '' }}">
+                                    style="{{ Request::is('socio') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
                                     <strong>SOCIOS</strong>
                                 </a>
                             </li>
                             <li class="nav-item t-border">
                                 <a class="nav-link" href="{{ route('tienda') }}"
-                                    style="{{ Request::is('tienda') ? 'color:whitesmoke !important' : '' }}">
+                                    style="{{ Request::is('tienda') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
                                     <strong>TIENDA</strong>
                                 </a>
                             </li>
 
                             <li class="nav-item t-border">
                                 <a class="nav-link" href="{{ route('restaurante') }}"
-                                    style="{{ Request::is('restaurante') ? 'color:whitesmoke !important' : '' }}">
+                                    style="{{ Request::is('restaurante') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
                                     <strong>RESTAURANTE</strong>
                                 </a>
                             </li>
                             <li class="nav-item t-border">
                                 <a class="nav-link" href="{{ route('galleria') }}"
-                                    style="{{ Request::is('multimedia') ? 'color:whitesmoke !important' : '' }}">
+                                    style="{{ Request::is('multimedia') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
                                     <strong>MULTIMEDIA</strong>
                                 </a>
                             </li>
                             <li class="nav-item t-border">
                                 <a class="nav-link" href="{{ route('contacto') }}"
-                                    style="{{ Request::is('contacto') ? 'color:whitesmoke !important' : '' }}">
+                                    style="{{ Request::is('contacto') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
                                     <strong>CONTACTO</strong>
                                 </a>
                             </li>

@@ -44,10 +44,10 @@
                         {{ $familiar->full_name }}
                     </div>
                     <div>
-                        <button class="btn btn-danger bold" data-toggle="modal"
-                            data-target="#deletePerson{{ $familiar->id }}">Eliminar</button>
-                        <button wire:click="updateForm({{ $familiar->id }})" class="btn btn-primary bold" data-toggle="modal"
-                            data-target="#updateFamiliar{{ $familiar->id }}">Editar</button>
+                       {{--  <button class="btn btn-danger bold" data-toggle="modal"
+                            data-target="#deletePerson{{ $familiar->id }}">Eliminar</button>--}}
+                        <button wire:click="updateForm({{ $familiar->id }})" class="btn btn-primary bold"
+                            data-toggle="modal" data-target="#updateFamiliar{{ $familiar->id }}">Editar</button>
                     </div>
                 </div>
             </div>
@@ -81,8 +81,8 @@
                 </div>
             </div>
 
-            <div wire:ignore.self class="modal fade" id="updateFamiliar{{ $familiar->id }}" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div wire:ignore.self class="modal fade" id="updateFamiliar{{ $familiar->id }}" tabindex="-1"
+                role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -113,7 +113,8 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label style="color: black">Data naixement <span style="color: red">*</span></label>
+                                        <label style="color: black">Data naixement <span
+                                                style="color: red">*</span></label>
                                         @error('errorDataNacimiento') <span
                                                 style="color: red">{{ $message }}</span>
                                         @enderror
@@ -134,7 +135,8 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label style="color: black">Targeta sanitaria <span style="color: red">*</span></label>
+                                        <label style="color: black">Targeta sanitaria <span
+                                                style="color: red">*</span></label>
                                         @error('errorTargeta') <span style="color: red">{{ $message }}</span>
                                         @enderror
                                         <input wire:model="targetaU" type="text" class="form-control">
@@ -145,7 +147,8 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-cancel"
                                 data-dismiss="modal">Cancelar</button>
-                            <button wire:click="updateF({{ $familiar->id }})" type="button" class="btn btn-danger">Guardar</button>
+                            <button wire:click="updateF({{ $familiar->id }})" type="button"
+                                class="btn btn-danger">Guardar</button>
                         </div>
                     </div>
                 </div>
@@ -156,37 +159,86 @@
             <i class="fas fa-plus"></i>
             Añadir
         </button>
-        <div class="modal fade" id="addFamiliar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-cancel"
-                            data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     @else
         <div style="color: whitesmoke; 67px">
             Actualmente no tienes hijos añadidos
         </div>
+        <br>
+        <button class="btn btn-success bold" data-toggle="modal" data-target="#addFamiliar">
+            <i class="fas fa-plus"></i>
+            Añadir
+        </button>
     @endif
+    <div wire:ignore.self class="modal fade" id="addFamiliar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Añadir familiar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label style="color: black;">Nombre <span style="color: red">*</span></label>
+                            @error('errorNombreFAdd') <span style="color: red">{{ $message }}</span> @enderror
+                            <input wire:model="nombreFAdd" type="text" class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label style="color: black;">Apellidos <span style="color: red">*</span></label>
+                            @error('errorApellidosFAdd') <span style="color: red">{{ $message }}</span>
+                            @enderror
+                            <input wire:model="apellidosFAdd" type="text" class="form-control" placeholder="Apellidos">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label  style="color: black;">Data naixement <span style="color: red">*</span></label>
+
+                            @error('errorDataNacimientoFAdd') <span style="color: red">{{ $message }}</span>
+                            @enderror
+
+                            <input wire:model="dataNacimientoFAdd" type="date" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label  style="color: black;">Sexe <span style="color: red">*</span></label>
+                            @error('errorSexeFAdd') <span style="color: red">{{ $message }}</span> @enderror
+                            <select wire:model="sexeFAdd" class="form-control">
+                                <option selected value="-1">---</option>
+                                <option value="0">Niño</option>
+                                <option value="1">Niña</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label  style="color: black;">Targeta sanitaria <span style="color: red">*</span></label>
+                            @error('errorTargetaFAdd') <span style="color: red">{{ $message }}</span>
+                            @enderror
+                            <input wire:model="tagetaSanitariaFAdd" type="text" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label  style="color: black;">Nacionalitat <span style="color: red">*</span></label>
+                            @error('errorNacionalidadFAdd') <span style="color: red">{{ $message }}</span>
+                            @enderror
+                            <select wire:model="nacionalidadFAdd" class="form-control">
+                                @include('components.nacionalidades')
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-cancel" data-dismiss="modal">Cancelar</button>
+                    <button wire:click="createFormF" type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
     window.addEventListener('alertFamiliar', event => {
+        $('#addFamiliar').modal('hide');
         toastr.options.closeButton = true;
         toastr.success(event.detail.message);
+         
     })
 
 </script>

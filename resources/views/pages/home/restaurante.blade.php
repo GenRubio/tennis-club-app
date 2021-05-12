@@ -175,7 +175,7 @@
                             Bienvenido
                         </h1>
                     </div>
-                    <div style="color:whitesmoke;">
+                    <div style="color:whitesmoke; font-size: 18px;">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam maiores quibusdam consequuntur et
                         sit
                         nulla quasi dolorum? Aliquam, dignissimos? Qui id dolor minus enim praesentium doloremque beatae
@@ -245,8 +245,8 @@
                                             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-6 p-xl-0 p-lg-0 p-md-0">
                                                 <div class="">
                                                     <p class="title-plato"><strong
-                                                            style="font-size: 18px;">{{ $plato->name }}</strong></p>
-                                                    <p style="font-size: 15px;">{{ $plato->ingredients }}</p>
+                                                            style="font-size: 21px;">{{ $plato->name }}</strong></p>
+                                                    <p style="font-size: 18px;">{{ $plato->ingredients }}</p>
                                                 </div>
                                             </div>
                                             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
@@ -286,11 +286,11 @@
                                                     </div>
                                                 </div>
                                                 @if ($plato->description)
-                                                    <div style="color: white !important">
+                                                    <div style="color: white !important; font-size:18px;">
                                                         {!! $plato->description !!}
                                                     </div>
                                                 @endif
-                                                <p style="color: white;">Ingredientes: {{ $plato->ingredients }}</p>
+                                                <p style="color: white; font-size:18px;">Ingredientes: {{ $plato->ingredients }}</p>
                                                 <br>
                                                 <div class="d-flex justify-content-center">
                                                     <strong

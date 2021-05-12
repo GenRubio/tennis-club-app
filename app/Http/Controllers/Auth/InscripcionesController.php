@@ -19,7 +19,7 @@ class InscripcionesController extends Controller
         ->where('activo', 1)
         ->where('visible', 1)
         ->first();
-
+ 
         if ($actividad){
             $cliente = Client::where('id', $request->cliente)
             ->where('user_id', auth()->user()->id)

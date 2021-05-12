@@ -477,7 +477,7 @@
         <br>
         <div class="row">
             <div class="col-md-6">
-                <div class="text-white">
+                <div class="text-white" style="font-size: 18px;">
                     Vine a veure’ns a les nostres instal·lacions i comprova de primera mà tot el que el Club Tennis i Pàdel
                     Blanes et pot oferir a tu i la teva família.<br><br>
 

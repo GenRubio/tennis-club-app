@@ -75,7 +75,14 @@
     *::-webkit-scrollbar-thumb {
         background-color: #e3342f;
         border-radius: 20px;
-        border: 3px solid ;
+        border: 3px solid;
+    }
+
+    @media (min-width: 1200px) {
+        .container {
+            max-width: 1197px;
+
+        }
     }
 
 </style>
