@@ -96,6 +96,10 @@ class Client extends Model
         return $this->hasOne(QuotaSocio::class, 'id', 'quota_socio_id');
     }
 
+    public function actividadInscripciones(){
+        return $this->hasMany(ActividadInscripcione::class, 'cliente_id', 'id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

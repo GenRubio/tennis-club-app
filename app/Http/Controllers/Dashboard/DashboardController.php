@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Actividade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +14,12 @@ class DashboardController extends Controller
             return redirect()->route('datos.cliente');
         }
         
-        return view('pages.auth.dashboard');
+        $actividades = Actividade::where('activo', 1)
+        ->where('visible', 1)
+        ->orderBy('id', 'DESC')
+        ->limit(4)
+        ->get();
+        return view('pages.auth.dashboard', compact('actividades'));
     }
     public function logout(){
         Auth::logout();

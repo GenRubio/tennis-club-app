@@ -75,7 +75,6 @@
         text-decoration: none;
         font-weight: bold;
         color: #e3342f;
-        font-size: 16px;
     }
 
     .nav-bar-logo {
@@ -121,6 +120,13 @@
         align-self: center;
         top: 145px;
         z-index: 9999999;
+    }
+    .avatar {
+        vertical-align: middle;
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+        background-color: black;
     }
 
 </style>
@@ -208,7 +214,8 @@
 
                             <li class="nav-item dropdown t-border">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=";font-size:16px;">
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    style=";font-size:16px;">
                                     <strong>TENNIS</strong>
                                 </a>
                                 <div class="dropdown-menu anti-parpadeo nav-select" aria-labelledby="navbarDropdown">
@@ -259,7 +266,7 @@
                             @if (count(auth()->user()->clients) > 0)
                                 <form class="form-inline my-2 my-lg-0">
                                     <div class="btn-group">
-                                        <a type="button" class="dropdown-toggle user-dropdown" data-toggle="dropdown"
+                                        <a type="button"  role="button" class="dropdown-toggle user-dropdown" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false" style="text-decoration: none;"
                                             id="userlogo">
                                             <img src="{{ auth()->user()->cliente()->image
@@ -267,18 +274,18 @@
         auth()->user()->cliente()->image,
     )
     : url('/images/default.jpg') }}"
-                                                width="37" height="37" class="rounded-circle" id="headerAvatar">
+                                                 class="avatar" id="headerAvatar">
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right anti-parpadeo dropdow-status">
                                             <div class="d-flex justify-content-center">
-                                                <p style="color: #e3342f;font-weight: bold;font-size: 15px;">
+                                                <p style="color: #e3342f;font-weight: bold;font-size: 21px;">
                                                     {{ auth()->user()->user_name }} <br>
                                                 </p>
                                             </div>
                                             <div class="d-flex justify-content-center">
                                                 <div>
                                                     <p
-                                                        style="color: #e3342f;font-weight: bold;font-size: 13px;margin-top: -16px;">
+                                                        style="color: #e3342f;font-weight: bold;font-size: 14px;margin-top: -16px;">
                                                         {{ auth()->user()->email }}
                                                     </p>
                                                 </div>

@@ -15,4 +15,12 @@ class ActividadInscripcione extends Model
         'pagado',
         'opciones'
     ];
+
+    public function actividad(){
+        return $this->hasOne(Actividade::class, 'id', 'actividad_id');
+    }
+
+    public function cliente(){
+        return $this->hasOne(Client::class, 'id', 'cliente_id');
+    }
 }

@@ -53,7 +53,7 @@
                     </div>
                     <br>
                 @endif
-                <div style="color: white;">
+                <div style="color: white; font-size:18px;">
                     {!! $instalacion->descripcion !!}
                 </div>
                 <br>
