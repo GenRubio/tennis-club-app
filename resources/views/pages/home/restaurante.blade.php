@@ -172,26 +172,11 @@
                 <div>
                     <div>
                         <h1 class="color-red" style="font-weight: bold;">
-                            Bienvenido
+                            {{ translate('bienvenido') }}
                         </h1>
                     </div>
                     <div style="color:whitesmoke; font-size: 18px;">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam maiores quibusdam consequuntur et
-                        sit
-                        nulla quasi dolorum? Aliquam, dignissimos? Qui id dolor minus enim praesentium doloremque beatae
-                        reiciendis quibusdam. Sit.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam maiores quibusdam consequuntur et
-                        sit
-                        nulla quasi dolorum? Aliquam, dignissimos? Qui id dolor minus enim praesentium doloremque beatae
-                        reiciendis quibusdam. Sit.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam maiores quibusdam consequuntur et
-                        sit
-                        nulla quasi dolorum? Aliquam, dignissimos? Qui id dolor minus enim praesentium doloremque beatae
-                        reiciendis quibusdam. Sit.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam maiores quibusdam consequuntur et
-                        sit
-                        nulla quasi dolorum? Aliquam, dignissimos? Qui id dolor minus enim praesentium doloremque beatae
-                        reiciendis quibusdam. Sit.
+                         {!! translate('restaurante_texto') !!}
                     </div>
 
                 </div>
@@ -208,7 +193,7 @@
     <div class="parallax" style="background-image: url({{ url('/images/restaurante/bg_3.jpg') }})">
         <div class="container">
             <div class="d-flex justify-content-center">
-                <h1>Comida exquisita & Horas divertidas</h1>
+                <h1>{{ translate('comida_exquisita') }}</h1>
             </div>
         </div>
     </div>
@@ -218,7 +203,7 @@
         <div class="container">
             <div class="d-flex justify-content-center">
                 <h1 class="color-red" style="font-weight: bold;">
-                    Nuestro Menu
+                   {{ translate('nuestro_menu') }}
                 </h1>
             </div>
             <br><br>
@@ -290,7 +275,7 @@
                                                         {!! $plato->description !!}
                                                     </div>
                                                 @endif
-                                                <p style="color: white; font-size:18px;">Ingredientes: {{ $plato->ingredients }}</p>
+                                                <p style="color: white; font-size:18px;">{{ translate('ingredientes') }}: {{ $plato->ingredients }}</p>
                                                 <br>
                                                 <div class="d-flex justify-content-center">
                                                     <strong
@@ -314,7 +299,7 @@
     <div class="parallax pra2" style="background-image: url({{ url('/images/restaurante/descarga100.png') }})">
         <div class="container">
             <div class="d-flex justify-content-center">
-                <h1>Descubre nuestra galería</h1>
+                <h1>{{ translate('descubre_galleria') }}</h1>
             </div>
             <div class="d-flex justify-content-center">
                 <h2><i class="fas fa-chevron-down"></i></h2>

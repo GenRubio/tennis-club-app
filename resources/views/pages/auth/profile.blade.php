@@ -116,13 +116,13 @@
                     <hr style="border: 1px solid #9c9a9a;">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <a class="nav-link-1 active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
-                            role="tab" aria-controls="v-pills-profile" aria-selected="true">Mi perfil</a>
+                            role="tab" aria-controls="v-pills-profile" aria-selected="true">{{ translate('mi_perfil') }}</a>
                         <a class="nav-link-1" id="v-pills-family-tab" data-toggle="pill" href="#v-pills-family" role="tab"
-                            aria-controls="v-pills-family" aria-selected="false">Familiares</a>
+                            aria-controls="v-pills-family" aria-selected="false">{{ translate('familiares') }}</a>
                         <a class="nav-link-1" id="v-pills-image-tab" data-toggle="pill" href="#v-pills-image" role="tab"
-                            aria-controls="v-pills-image" aria-selected="false">Imagen</a>
+                            aria-controls="v-pills-image" aria-selected="false">{{ translate('imagen') }}</a>
                         <a class="nav-link-1" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
-                            role="tab" aria-controls="v-pills-settings" aria-selected="false">Contraseña</a>
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">{{ translate('contraseña') }}</a>
                     </div>
                 </div>
             </div>
@@ -144,37 +144,37 @@
                         </div>
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link-1 active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
-                                role="tab" aria-controls="v-pills-profile" aria-selected="true">Mi perfil</a>
+                                role="tab" aria-controls="v-pills-profile" aria-selected="true">{{ translate('mi_perfil') }}</a>
                             <a class="nav-link-1" id="v-pills-family-tab" data-toggle="pill" href="#v-pills-family"
-                                role="tab" aria-controls="v-pills-family" aria-selected="false">Familiares</a>
+                                role="tab" aria-controls="v-pills-family" aria-selected="false">{{ translate('familiares') }}</a>
                             <a class="nav-link-1" id="v-pills-image-tab" data-toggle="pill" href="#v-pills-image" role="tab"
-                                aria-controls="v-pills-image" aria-selected="false">Imagen</a>
+                                aria-controls="v-pills-image" aria-selected="false">{{ translate('imagen') }}</a>
                             <a class="nav-link-1" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
-                                role="tab" aria-controls="v-pills-settings" aria-selected="false">Contraseña</a>
+                                role="tab" aria-controls="v-pills-settings" aria-selected="false">{{ translate('contraseña') }}</a>
                         </div>
                         <hr style="border: 1px solid #9c9a9a;">
                     </div>
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active tab-height" id="v-pills-profile" role="tabpanel"
                             aria-labelledby="v-pills-profile-tab">
-                            <h2 style="font-weight: bold; color:#e3342f;">Mi perfil</h2>
+                            <h2 style="font-weight: bold; color:#e3342f;">{{ translate('mi_perfil') }}</h2>
                             <hr style="border: 1px solid #9c9a9a;">
-                            <h4 style="font-weight: bold; color:#e3342f;">Datos personales</h4>
+                            <h4 style="font-weight: bold; color:#e3342f;">{{ translate('personal_data') }}</h4>
                             <br>
                             <livewire:auth.profile-form :user="auth()->user()" />
                         </div>
                         <div class="tab-pane fade tab-height" id="v-pills-family" role="tabpanel"
                             aria-labelledby="v-pills-family-tab">
-                            <h2 style="font-weight: bold; color:#e3342f;">Familiares</h2>
+                            <h2 style="font-weight: bold; color:#e3342f;">{{ translate('familiares') }}</h2>
                             <hr style="border: 1px solid #9c9a9a;">
-                            <h4 style="font-weight: bold; color:#e3342f;">Lista de familiares</h4>
+                            <h4 style="font-weight: bold; color:#e3342f;">{{ translate('familiares_list') }}</h4>
                             <br>
                             <livewire:auth.profile-familiares-form :user="auth()->user()" />
                         </div>
                         <div class="tab-pane fade tab-height" id="v-pills-image" role="tabpanel"
                             aria-labelledby="v-pills-image-tab">
                             <div>
-                                <h2 style="font-weight: bold; color:#e3342f;">Cambiar foto perfil</h2>
+                                <h2 style="font-weight: bold; color:#e3342f;">{{ translate('change_foto') }}</h2>
                                 <hr style="border: 1px solid #9c9a9a;">
                                 <br>
                                 <div class="d-flex justify-content-center">
@@ -188,22 +188,25 @@
                                     </div>
                                 </div>
                                 <form id="changeAvatar">
-                                    <label style="color: white">Sube tu imagen:</label>
+                                    <label style="color: white">{{ translate('upload_image') }}:</label>
                                     <div class="custom-file mb-3">
                                         <input type="file" class="custom-file-input" id="customFile" name="filename">
-                                        <label class="custom-file-label" for="customFile">Escoge imagen</label>
+                                        <label class="custom-file-label" for="customFile">{{ translate('ecoge_imagen') }}</label>
                                     </div>
                                     <br> <br>
                                     <div class="d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-danger"><strong>Guardar
-                                                cambios</strong></button>
+                                        <button type="submit" class="btn btn-danger">
+                                            <strong>
+                                                {{ translate('guardar_cambios') }}
+                                            </strong>
+                                        </button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                         <div class="tab-pane fade tab-height" id="v-pills-settings" role="tabpanel"
                             aria-labelledby="v-pills-settings-tab">
-                            <h2 style="font-weight: bold; color:#e3342f;">Actualizar contraseña</h2>
+                            <h2 style="font-weight: bold; color:#e3342f;">{{ translate('update_password') }}</h2>
                             <hr style="border: 1px solid #9c9a9a;">
                             <br>
                             <livewire:auth.profile-password-form :user="auth()->user()" />

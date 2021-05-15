@@ -205,14 +205,15 @@
                     </div>
                     <div class="col-md-7">
                         <div class="card-body back-ground-login-form">
-                            <p class="login-card-description login-title">Inicie sesión</p>
+                            <p class="login-card-description login-title">{{ translate('open_session') }}</p>
 
                             <livewire:auth.login-form />
 
-                            <a href="{{ route('recover.password') }}" class="login-recover-password color-whitesmoke">¿Has
-                                olvidado la contraseña?</a>
-                            <p class="login-card-footer-text color-whitesmoke">¿No tienes cuenta?
-                                <a href="{{ route('registro') }}" class="text-reset button-login-here">Registrarse</a>
+                            <a href="{{ route('recover.password') }}" class="login-recover-password color-whitesmoke">
+                                {{ translate('pass_recover') }}
+                            </a>
+                            <p class="login-card-footer-text color-whitesmoke">{{ translate('no_account') }}
+                                <a href="{{ route('registro') }}" class="text-reset button-login-here">{{ translate('registrarse') }}</a>
                             </p>
                         </div>
                     </div>

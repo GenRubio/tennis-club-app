@@ -2,6 +2,7 @@
 
 use App\CrudHelper;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use App\Models\Translation;
 
 function eliminar_tildes($cadena)
 {
@@ -73,4 +74,16 @@ if (!function_exists('toggleField')) {
     {
         return CrudHelper::toggleField($request);
     }
+}
+
+function translate($label){
+    $translation = Translation::where('key', $label)->first();
+
+    if ($translation->text){
+        return $translation->text;
+    }
+    else if ($translation->text_description){
+        return $translation->text_description;
+    }
+    return "undefined";
 }

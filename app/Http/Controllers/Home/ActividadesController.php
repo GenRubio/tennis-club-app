@@ -8,27 +8,32 @@ use Illuminate\Http\Request;
 
 class ActividadesController extends Controller
 {
-    public function index ($slug = null){
+    public function index($slug = null)
+    {
         $all = true;
         $actividades = [];
         $actividad = null;
-        if ($slug){
+        if ($slug) {
             $all = false;
 
             $actividad = Actividade::where('slug', $slug)->first();
-            if ($actividad){
-                return view('pages.home.actividades', compact('actividad', 'all'));
-            }
-            else{
+            $actividades = Actividade::where('activo', 1)
+                ->where('visible', 1)
+                ->whereNotIn('id', [10, 11, 12, 13, $actividad->id])
+                ->orderBy('id', 'DESC')
+                ->limit(4)
+                ->get();
+            if ($actividad) {
+                return view('pages.home.actividades', compact('actividad', 'all', 'actividades'));
+            } else {
                 return redirect()->route('home');
             }
-        }
-        else{
+        } else {
             $actividades = Actividade::whereNotIn('id', [10, 11, 12, 13])
-            ->where('visible', 1)
-            ->where('activo', 1)
-            ->orderBy('id', 'DESC')
-            ->get();
+                ->where('visible', 1)
+                ->where('activo', 1)
+                ->orderBy('id', 'DESC')
+                ->get();
 
             return view('pages.home.actividades', compact('actividades', 'all'));
         }

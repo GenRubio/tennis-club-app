@@ -73,7 +73,7 @@ class MisActividades extends Component
                 $this->dispatchBrowserEvent(
                     'alert',
                     [
-                        'message' => 'Tu solicitud ha sido procesada correctamente.',
+                        'message' => translate('cancelar_inscripcion'),
                         'id' => $inscripcion->id
                     ]
                 );

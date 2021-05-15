@@ -10,8 +10,8 @@
             <div class="col-md-6">
                 <div>
                     <div class="form-group">
-                        <label for="">Contraseña actual</label>
-                        <input wire:model="passwordOld" type="password" class="form-control" id="" placeholder="Contraseña actual">
+                        <label for="">{{ translate('actual_password') }}</label>
+                        <input wire:model="passwordOld" type="password" class="form-control" id="" placeholder="{{ translate('actual_password') }}">
                     </div>
                 </div>
             </div>
@@ -20,23 +20,23 @@
             <div class="col-md-6">
                 <div>
                     <div class="form-group">
-                        <label for="">Nueva contraseña</label>
-                        <input wire:model="password" type="password" class="form-control" id="" placeholder="Nueva actual">
+                        <label for="">{{ translate('new_password') }}</label>
+                        <input wire:model="password" type="password" class="form-control" id="" placeholder="{{ translate('new_password') }}">
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div>
                     <div class="form-group">
-                        <label for="">Repite contraseña</label>
-                        <input wire:model="passwordRepeat" type="password" class="form-control" id="" placeholder="Repite nueva contraseña">
+                        <label for="">{{ translate('repeat_new_password') }}</label>
+                        <input wire:model="passwordRepeat" type="password" class="form-control" id="" placeholder="{{ translate('repeat_new_password') }}">
                     </div>
                 </div>
             </div>
         </div>
         <br>
         <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-danger"><strong>Guardar cambios</strong></button>
+            <button type="submit" class="btn btn-danger"><strong>{{ translate('guardar_cambios') }}</strong></button>
         </div>
     </form>
 </div>

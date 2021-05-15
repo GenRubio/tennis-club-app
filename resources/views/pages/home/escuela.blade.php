@@ -21,6 +21,11 @@
             width: 100%;
             height: 570px;
             overflow: hidden;
+            border-radius: 2%;
+            border: 0;
+            border-radius: 5.5px;
+            box-shadow: 0 10px 30px 0 rgba(255, 0, 0, 0.43);
+            overflow: hidden;
         }
 
         @media screen and (min-width: 676px) {
@@ -49,7 +54,7 @@
                         <hr class="featurette-divider">
                         <br>
                         <p class="color-red" style="font-weight: bold; font-size: 20px;">
-                            Mas informacion aqui:
+                            {{ translate('ver_mas_info') }}:
                         </p>
                         @foreach ($vista->activePdfs as $key => $pdf)
                             <div class="mb-2">
@@ -64,7 +69,7 @@
                         <div class="d-flex justify-content-center">
                             <a href="" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#inscripcion">
                                 <strong>
-                                    <i class="far fa-file-alt"></i> Inscribirse YA!
+                                    <i class="far fa-file-alt"></i> {{ translate('inscribete') }}
                                 </strong>
                             </a>
                         </div>
@@ -73,7 +78,7 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Inscripcion:
+                                        <h5 class="modal-title" id="exampleModalLongTitle">{{ translate('inscripcion') }}:
                                             {{ $vista->slug == 'escuela-tenis' ? 'Escuela tenis' : 'Escuela padel' }}</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
@@ -82,7 +87,7 @@
                                     <div class="modal-body">
                                         <div style="min-height: 300px;">
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Escuela</label>
+                                                <label for="exampleFormControlSelect1">{{ translate('escuela') }}</label>
                                                 <select class="form-control" id="option-actividad">
                                                     @foreach ($actividades as $actividad)
                                                         <option value="{{ $actividad->slug }}">
@@ -100,11 +105,12 @@
                         <div class="d-flex justify-content-center">
                             <a href="{{ route('login') }}" class="btn btn-danger btn-lg">
                                 <strong>
-                                    <i class="far fa-file-alt"></i> Inscribirse YA!
+                                    <i class="far fa-file-alt"></i> {{ translate('inscribete') }}
                                 </strong>
                             </a>
                         </div>
                     @endauth
+
                 </div>
                 <div class="col-5 d-xl-block d-lg-block d-none">
                     <div>
@@ -115,6 +121,15 @@
                 </div>
             </div>
         </div>
+        <br><br><br><br><br><br><br><br>
+        <h1 class="color-red" style="font-weight: bold;font-size: 30px;" id="section2">
+            {{ translate('ultimas_actividades') }}
+            <span style="font-size: 14px;">
+                <a href="{{ route('actividades') }}" class="ver-mas-button"
+                    style="text-decoration: none;font-size: 18px;">{{ translate('ver_mas') }} <i class="fas fa-arrow-right"></i></a>
+            </span>
+        </h1>
+        @include('components.ultimas-actividades', ['actividades' => $actividadesAll])
     </div>
 @endsection
 
@@ -153,7 +168,7 @@
                         toastr.options.closeButton = true;
                         toastr.success(
                             'Gracias por inscribirse nos ponremos en contacto con tigo en breve.'
-                            );
+                        );
                         $('#inscripcion').modal('hide');
 
                         loadFormActividad('escola-infantil-tennis');

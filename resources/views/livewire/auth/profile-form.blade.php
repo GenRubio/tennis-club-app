@@ -10,23 +10,23 @@
             <div class="col-md-6">
                 <div>
                     <div class="form-group">
-                        <label for="">Nombre</label>
-                        <input wire:model="nombre" type="text" class="form-control" id="" placeholder="Nombre">
+                        <label for="">{{ translate('nombre') }}</label>
+                        <input wire:model="nombre" type="text" class="form-control" id="" placeholder="{{ translate('nombre') }}">
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div>
                     <div class="form-group">
-                        <label for="">Apellidos</label>
-                        <input wire:model="apellidos" type="text" class="form-control" id="" placeholder="Apellidos">
+                        <label for="">{{ translate('apellidos') }}</label>
+                        <input wire:model="apellidos" type="text" class="form-control" id="" placeholder="{{ translate('apellidos') }}">
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div>
                     <div class="form-group">
-                        <label for="">Fecha de nacimineto</label>
+                        <label for="">{{ translate('fecha_nacimiento') }}</label>
                         <input wire:model="fecha" type="date" class="form-control" id="">
                     </div>
                 </div>
@@ -36,24 +36,24 @@
             <div class="col-md-6">
                 <div>
                     <div class="form-group">
-                        <label for="">Telefono mobil</label>
-                        <input wire:model="mobil" type="text" class="form-control" id="" placeholder="Telefono mobil">
+                        <label for="">{{ translate('telefono_mobil') }}</label>
+                        <input wire:model="mobil" type="text" class="form-control" id="" placeholder="{{ translate('telefono_mobil') }}">
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div>
                     <div class="form-group">
-                        <label for="">Telefono fijo</label>
-                        <input wire:model="fijo" type="text" class="form-control" id="" placeholder="Telefono fijo">
+                        <label for="">{{ translate('telefono_fijo') }}</label>
+                        <input wire:model="fijo" type="text" class="form-control" id="" placeholder="{{ translate('telefono_fijo') }}">
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div>
                     <div class="form-group">
-                        <label for="">Nombre emergencia</label>
-                        <input wire:model="nombreEmergencia" type="text" class="form-control" id="" placeholder="Nombre de contacto de emergencia">
+                        <label for="">{{ translate('nom_emergencia') }}</label>
+                        <input wire:model="nombreEmergencia" type="text" class="form-control" id="" placeholder="{{ translate('nombre_emer_place') }}">
                     </div>
                 </div>
             </div>
@@ -62,24 +62,24 @@
             <div class="col-md-6">
                 <div>
                     <div class="form-group">
-                        <label for="">Numero emergencia</label>
-                        <input wire:model="numero1Emergencia" type="text" class="form-control" id="" placeholder="Numero de contacto de emergencia">
+                        <label for="">{{ translate('numero_emergencia') }}</label>
+                        <input wire:model="numero1Emergencia" type="text" class="form-control" id="" placeholder="{{ translate('numero_emergencia_place') }}">
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div>
                     <div class="form-group">
-                        <label for="">Segundo numero emergencia</label>
+                        <label for="">{{ translate('segundo_num_emer') }}</label>
                         <input wire:model="numero2Emergencia" type="text" class="form-control" id=""
-                            placeholder="Segundo numero de contacto de emergencia">
+                            placeholder="{{ translate('segundo_num_emer_place') }}">
                     </div>
                 </div>
             </div>
         </div>
         <br>
         <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-danger"><strong>Guardar cambios</strong></button>
+            <button type="submit" class="btn btn-danger"><strong>{{ translate('guardar_cambios') }}</strong></button>
         </div>
     </form>
 </div>

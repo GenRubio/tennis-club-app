@@ -1,18 +1,18 @@
 <div>
     <h4>
-        <strong class="color-red">Respuestas {{ count($totalComentarios) }}</strong>
+        <strong class="color-red">{{ translate('respuestas') }} {{ count($totalComentarios) }}</strong>
         <span id="countComments" style="color: #e7e0e0;font-size: 16px;"></span>
     </h4>
     <hr class="featurette-divider">
     @auth
         <form wire:submit.prevent="submit">
             <div class="form-group">
-                <textarea wire:model="message" class="form-control" placeholder="Escribe tu comentario aquí..." rows="5"
+                <textarea wire:model="message" class="form-control" placeholder="{{ translate('comentario_place') }}" rows="5"
                     name="comentario" required></textarea>
             </div>
             <div class="d-flex justify-content-end">
-                <button type="reset" class="btn btn-outline-danger mr-3"><strong>Cancelar</strong></button>
-                <button type="submit" class="btn btn-danger"><strong>Publicar comentario</strong></button>
+                <button type="reset" class="btn btn-outline-danger mr-3"><strong>{{ translate('cancel') }}</strong></button>
+                <button type="submit" class="btn btn-danger"><strong>{{ translate('publicar_comentario') }}</strong></button>
             </div>
         </form>
         <br> <br>
@@ -21,15 +21,15 @@
         <form>
             <div class="d-flex justify-content-end">
                 <a href="{{ route('login') }}" class="login-link" style="text-decoration: none;">
-                    <i class="far fa-bell"></i> Iniciar sesión
+                    <i class="far fa-bell"></i> {{ translate('session_start') }}
                 </a>
             </div>
             <div class="form-group">
-                <textarea class="form-control" id="editor" placeholder="Escribe tu comentario aquí..." rows="5"
+                <textarea class="form-control" id="editor" placeholder="{{ translate('comentario_place') }}" rows="5"
                     disabled></textarea>
             </div>
             <div class="d-flex justify-content-end">
-                <a href="{{ route('registro') }}" class="btn btn-danger"><strong>Registrarse</strong></a>
+                <a href="{{ route('registro') }}" class="btn btn-danger"><strong>{{ translate('registrarse') }}</strong></a>
             </div>
         </form>
         <br> <br>
@@ -37,7 +37,7 @@
     @if (count($comentarios) == 0)
         <div class="p-4 border-bottom border-top border-dark">
             <div class="d-flex justify-content-center" style="color:whitesmoke;">
-                SE EL PRIMERO EN COMENTAR
+                {{ translate('first_comment') }}
             </div>
         </div>
     @else
@@ -61,7 +61,7 @@
         @if (count($totalComentarios) >= $amount + 1)
             <div class="d-flex justify-content-center">
                 <button wire:click="load" type="button" class="btn btn-danger" class="link-font">
-                    <strong>Mostrar más comentarios</strong>
+                    <strong>{{ translate('mas_comentarios') }}</strong>
                 </button>
             </div>
         @endif

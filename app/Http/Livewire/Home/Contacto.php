@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Home;
 
+use App\Mail\ContactarNosotros;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class Contacto extends Component
@@ -21,16 +23,24 @@ class Contacto extends Component
 
 
     protected $messages = [
-        'email.required' => 'Campo email no puede estar vacio.',
-        'email.email' => 'El formato de email es incorrecto.',
+        'email.required' => "translate('error_email')",
+        'email.email' => "translate('error_email_2')",
     ];
     public function send()
     {
         $this->validate();
 
+        $data = [
+            'name' => $this->nombre,
+            'email' => $this->email,
+            'subject' => $this->mensaje
+        ];
+
+        Mail::to('burbianio@gmail.com')->send(new ContactarNosotros($data));
+
         $this->dispatchBrowserEvent(
             'alert',
-            ['message' => 'Gracias por contactar con nosotros. Nos pondremos en contacto contigo lo antes posible.']
+            ['message' => translate('contact_message')]
         );
 
         $this->resetForm();

@@ -173,12 +173,12 @@
                     </div>
                     <div class="col-md-7">
                         <div class="card-body back-ground-login-form">
-                            <p class="login-card-description login-title">Crea tu cuenta ahora</p>
+                            <p class="login-card-description login-title">{{ translate('create_account') }}</p>
 
                             <livewire:auth.registro-form/>
 
-                            <p class="login-card-footer-text color-whitesmoke">¿Ya tienes una cuenta? <a
-                                    href="{{ route('login') }}" class="text-reset button-login-here">Login here</a></p>
+                            <p class="login-card-footer-text color-whitesmoke">{{ translate('tienes_cuenta') }} <a
+                                    href="{{ route('login') }}" class="text-reset button-login-here">{{ translate('entrar') }}</a></p>
                         </div>
                     </div>
                 </div>

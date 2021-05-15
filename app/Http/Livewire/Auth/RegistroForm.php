@@ -28,8 +28,8 @@ class RegistroForm extends Component
     ];
 
     protected $messages = [
-        'email.required' => 'Campo email no puede estar vacio.',
-        'email.email' => 'El formato de email es incorrecto.',
+        'email.required' => "translate('error_email')",
+        'email.email' => "translate('error_email_2')",
     ];
 
     public function create()
@@ -60,7 +60,7 @@ class RegistroForm extends Component
         $this->newsletter();
 
         //********************************************** */
-        session()->flash('status', 'Hemos enviado correo electrónico de verificación a tu bandeja de entrada.');
+        session()->flash('status', translate('email_validation'));
         return redirect(route('login'));
 
         $this->resetForm();

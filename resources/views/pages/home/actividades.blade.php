@@ -58,10 +58,10 @@
     @if ($all)
         <div class="container">
             <h1 class="color-red" style="font-weight: bold;">
-                Actividades
+                {{ translate('actividades') }}
             </h1>
             <div style="font-size: 18px;color:whitesmoke;">
-                Descubre y participa en nuestras actividades. Estaremos encantados de verte.
+                {{ translate('descubre_actividades') }}
             </div>
             <hr class="featurette-divider">
             <br>
@@ -76,7 +76,7 @@
                             <span style="font-size: 18px;">
                                 <i class="far fa-newspaper"></i>
                                 <a href="{{ route('actividades') }}"
-                                    class="sm-font-size text-danger nav-noticia">Actividades</a>
+                                    class="sm-font-size text-danger nav-noticia">{{ translate('actividades') }}</a>
                             </span>
                             <i class="fas fa-angle-right"></i>
                             <span style="font-size: 16px;">
@@ -94,7 +94,7 @@
                     <div class="col-xl-8 col-lg-7 col-md-12">
                         <div class="color-whitesmoke">
                             <h2><strong class="color-whitesmoke">{!! $actividad->titulo !!}</strong></h2>
-                            <p style="font-size: 18px;">Publicado:
+                            <p style="font-size: 18px;">{{ translate('publicado') }}:
                                 {{ $actividad->created_at->translatedFormat('jS F Y') }}</p>
                             <hr class="featurette-divider" id="section34">
                             <br>
@@ -112,7 +112,7 @@
                     <div class="col-md-12">
                         <div class="color-whitesmoke">
                             <h2><strong class="color-whitesmoke">{!! $actividad->titulo !!}</strong></h2>
-                            <p style="font-size: 18px;">Publicado:
+                            <p style="font-size: 18px;">{{ translate('publicado') }}:
                                 {{ $actividad->created_at->translatedFormat('jS F Y') }}</p>
                             <hr class="featurette-divider" id="section34">
                             <br>
@@ -130,7 +130,7 @@
                         <hr class="featurette-divider">
                         <br>
                         <p class="color-red" style="font-weight: bold; font-size: 20px;">
-                            Mas informacion aqui:
+                            {{ translate('ver_mas_info') }}:
                         </p>
                         @foreach ($actividad->actividadPdfs as $key => $pdf)
                             <div class="mb-2">
@@ -150,7 +150,7 @@
                             <div class="d-flex justify-content-center">
                                 <a href="" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#inscripcion">
                                     <strong>
-                                        <i class="far fa-file-alt"></i> Inscribirse YA!
+                                        <i class="far fa-file-alt"></i> {{ translate('inscribete') }}
                                     </strong>
                                 </a>
                             </div>
@@ -160,7 +160,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLongTitle">
-                                                Inscripcion: {{ $actividad->titulo }}
+                                                {{ translate('inscripcion') }}: {{ $actividad->titulo }}
                                             </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -227,6 +227,19 @@
                                         })
                                     })
 
+                                    $(document).on('submit', '#getCliente', function(event) {
+                                        event.preventDefault();
+
+                                        $.ajax({
+                                            url: "{{ route('load.form') }}",
+                                            method: "POST",
+                                            data: $(this).serialize(),
+                                            success: function(data) {
+                                                $("#actividadForm").html(data.content);
+                                            }
+                                        })
+                                    })
+
                                     $(document).on('click', '.cancelar-inscripcion', function(event) {
                                         loadFormActividad('{{ $actividad->slug }}');
                                     })
@@ -237,7 +250,7 @@
                             <div class="d-flex justify-content-center">
                                 <a href="{{ route('login') }}" class="btn btn-danger btn-lg">
                                     <strong>
-                                        <i class="far fa-file-alt"></i> Inscribirse YA!
+                                        <i class="far fa-file-alt"></i> {{ translate('inscribete') }}
                                     </strong>
                                 </a>
                             </div>
@@ -245,6 +258,15 @@
                     </div>
                 </div>
             @endif
+            <br><br><br><br><br><br><br><br>
+            <h1 class="color-red" style="font-weight: bold;font-size: 30px;" id="section2">
+                {{ translate('ultimas_actividades') }} 
+                <span style="font-size: 14px;">
+                    <a href="{{ route('actividades') }}" class="ver-mas-button"
+                        style="text-decoration: none;font-size: 18px;">{{ translate('ver_mas') }} <i class="fas fa-arrow-right"></i></a>
+                </span>
+            </h1>
+            @include('components.ultimas-actividades', ['actividades' => $actividades])
         </div>
     @endif
 @endsection

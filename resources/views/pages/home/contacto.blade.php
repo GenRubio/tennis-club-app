@@ -37,6 +37,9 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
+            border-radius: 5.5px;
+            box-shadow: 0 10px 30px 0 rgba(255, 0, 0, 0.43);
+            overflow: hidden;
         }
 
         .img-contacto {
@@ -54,30 +57,14 @@
 @section('content')
     <div class="container">
         <h1 class="color-red" style="font-weight: bold;">
-            Contacto
+            {{ translate('contacto') }}
         </h1>
         <hr class="featurette-divider">
         <br>
         <div class="row">
             <div class="col-md-6">
                 <div style="color: whitesmoke; font-size: 18px;">
-                    Si deseas contactar con nosotros puedes hacerlo a través de los siguientes canales:
-                    <br><br>
-                    Servicio de Atención al Cliente en el teléfono {{ config('app.datos-contacto')['telefono'] }}
-                    o a través de Whatsapp en el teléfono {{ config('app.datos-contacto')['whatsapp'] }}.<br>
-                    Por email: {{ config('app.datos-contacto')['email'] }}<br>
-                    Formulario de contacto que hay más abajo.<br>
-                    Horario de Atención al Cliente
-                    <br><br>
-                    El horario de Atención Comercial es de Lunes a Viernes de
-                    {{ config('app.datos-contacto')['horario-atencion'] }}
-                    horas. En Verano, los sábados el
-                    horario de atención comercial será de {{ config('app.datos-contacto')['horario-atencion'] }}
-                    horas., ininterrumpidamente.
-                    <br><br>
-                    Fuera de ese horario, realiza tus consultas a través de nuestro correo electrónico
-                    {{ config('app.datos-contacto')['email'] }}
-                    y nos pondremos en contacto contigo lo antes posible.
+                    {!! translate('contact_text') !!}
                 </div>
 
             </div>
@@ -90,7 +77,7 @@
         </div>
         <br> <br><br>
         <h3 class="color-red" style="font-weight: bold;">
-            Envíanos tu consulta
+            {{ translate('send_consult') }}
         </h3>
         <hr class="featurette-divider">
         <br>
@@ -119,7 +106,7 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6">
                             <div class="mb-3" style="color: white;font-size: 28px;font-weight: bold;">
-                                SUSCRÍBETE A NUESTRA NEWSLETTER
+                                {{ translate('inscrigete_newsletter') }}
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-12">

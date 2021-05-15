@@ -29,7 +29,7 @@
 
 @section('content')
     <div class="container">
-        <h3 style="color: white">{{ $instalacion->titulo }}- INSTAL·LACIONS ESPORTIVES</h3>
+        <h3 style="color: white">{{ $instalacion->titulo }} - {{ translate('isntalaciones_titulo') }}</h3>
         <hr class="featurette-divider">
         @foreach ($instalaciones as $item)
             @if ($item->slug == $instalacion->slug)

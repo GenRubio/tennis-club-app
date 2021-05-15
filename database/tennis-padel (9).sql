@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2021 a las 18:32:24
+-- Tiempo de generación: 15-05-2021 a las 10:31:43
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.1
 
@@ -52,9 +52,11 @@ INSERT INTO `actividades` (`id`, `titulo`, `descripcion`, `imagen`, `slug`, `tip
 (11, 'ESCOLA ADULTS TENNIS', '<p>MAX. 4 ALUMNES</p>', NULL, 'escola-adults-tennis', 3, 0, 1, 1, 1, '2021-05-07 17:09:40', '2021-05-04 16:03:05'),
 (12, 'ESCOLA INFANTIL PADEL', '<p>MATRICULA: 20&euro; AL COMEN&Ccedil;AR EL CURS / GERMANS -10%</p>', NULL, 'escola-infantil-padel', 2, 0, 1, 1, 1, '2021-05-08 05:11:09', '2021-05-04 16:03:39'),
 (13, 'ESCOLA ADULTS PADEL', '<p>MAX. 4 ALUMNES</p>', NULL, 'escola-adults-padel', 3, 0, 1, 1, 1, '2021-05-08 05:11:08', '2021-05-04 16:04:02'),
-(17, 'CASAL D\'ESTIU 2021', NULL, NULL, 'casal-destiu-2021', 2, 0, 1, 1, 1, '2021-05-07 18:55:47', '2021-05-04 16:51:18'),
-(18, 'Abrimos las inscripciones para la Escuela de Verano 2021 del Cl', '<p>Nos alegra comunicaros que una vez m&aacute;s el Club N&agrave;utic Estartit organizar&aacute; los cursos en format casal semanal tambi&eacute;n conocidos como Escuela de Verano.</p>\r\n\r\n<p>Y ponemos a vuestra disposici&oacute;n una oferta de lanzamiento, y es que todos aquellos formalic&eacute;is las inscripciones durante este mes de Mayo tendr&eacute;is un 10 % de bonificaci&oacute;n extra en el precio final.</p>\r\n\r\n<p>Esta oferta es acumulable a otros descuentos que tenemos disponibles para familias con m&aacute;s de un hijo o para cursos de m&aacute;s de una semana.</p>\r\n\r\n<p>Para m&aacute;s informaci&oacute;n, pod&eacute;is contactar con activitats@cnestartit.com o llamando al 972 751 402</p>', 'images/actividades/c9833ebbd360e2dd1f9d1f42c83816ee-imagen.jpg', 'abrimos-las-inscripciones-para-la-escuela-de-verano-2021-del-cl', 1, 0, 0, 0, 0, '2021-05-09 07:32:22', '2021-05-09 07:32:22'),
-(19, 'El equipo absoluto de tenis a dos victorias de la temporada', '<p>El equipo absoluto de tenis ha conseguido esta semana una nueva victoria. Ya no es noticia, porque esta temporada nos tienen mal acostumbrados, contiene las jornadas con victorias y la &uacute;ltima, la m&aacute;s importante y decisiva, ni m&aacute;s ni menos contra el segundo clasificado, el CT Banyoles, invicto hasta entonces. Aunque el resultado de 4-1, no ha sido nada f&aacute;cil, se ha trabajado hasta el final, y as&iacute; lo han reflejado los resultados de los partidos.</p>\r\n\r\n<p>Albert Feixas, actual n&uacute;mero 1 del equipo se ha impuesto en un partido muy serio en el n&uacute;mero 1 del equipo del plan del lago, por un doble 6-3. Los otros partidos han sido m&aacute;s igualados, con suspenso hasta el final y con posibilidad de la victoria por cualquier jugador.</p>\r\n\r\n<p>Oliver Moreno ha sudado para derrotar al n&uacute;mero dos del equipo visitante, un jugador muy guerrero y incansable que ha disputado cada punto como si fuera el decisivo. El marcador final 5-7 6-4 7-6.En otro partido maratoniano &Aacute;lex Moreno, jugador 3 del equipo, ha disputado uno de sus mejores partidos de las &uacute;ltimas temporadas, consiguiendo un alto nivel de juego y solidez. Al final, el resultado de 6-3 3-6 6-4 ha supuesto el 3-0 en el marcador a falta del enfrentamiento de los jugadores 4 de cada equipo y el dobles. Gerard Carb&oacute; ha dado un salto cualitativo en su juego en las &uacute;ltimas semanas, aunque ha acabado perdiendo, en un partido muy interesante, por tres sets 3-6 6-1 1-6. El partido de dobles ha servido para aumentar la ventaja en el resultado final que ha sido de 4 a 1.</p>\r\n\r\n<p>A falta s&oacute;lo de dos jornadas, el equipo absoluto asegura el ascenso de categor&iacute;a y ahora faltar&aacute; saber si lo har&aacute; como campe&oacute;n y si lo har&aacute; sin perder ning&uacute;n partido.</p>\r\n\r\n<p>Por otra parte los equipos junior e infantil no han podido superar al CT Celr&agrave; y CT Porqueres respectivamente. Un CT Celr&agrave; de mucho nivel y un combativo Porqueres han sido demasiado rival para nuestros jugadores.</p>', 'images/actividades/fc079d8957c2376e72f8c081c1409d64-imagen.jpg', 'el-equipo-absoluto-de-tenis-a-dos-victorias-de-la-temporada', 1, 0, 0, 1, 1, '2021-05-09 13:41:27', '2021-05-09 07:33:21');
+(17, 'CASAL D\'ESTIU 2021', NULL, 'images/actividades/9f3b1064618418fc43af4bb42467f31b-imagen.jpg', 'casal-destiu-2021', 2, 0, 1, 1, 1, '2021-05-12 11:41:49', '2021-05-04 16:51:18'),
+(18, 'Abrimos las inscripciones para la Escuela de Verano 2021 del Cl', '<p>Nos alegra comunicaros que una vez m&aacute;s el Club N&agrave;utic Estartit organizar&aacute; los cursos en format casal semanal tambi&eacute;n conocidos como Escuela de Verano.</p>\r\n\r\n<p>Y ponemos a vuestra disposici&oacute;n una oferta de lanzamiento, y es que todos aquellos formalic&eacute;is las inscripciones durante este mes de Mayo tendr&eacute;is un 10 % de bonificaci&oacute;n extra en el precio final.</p>\r\n\r\n<p>Esta oferta es acumulable a otros descuentos que tenemos disponibles para familias con m&aacute;s de un hijo o para cursos de m&aacute;s de una semana.</p>\r\n\r\n<p>Para m&aacute;s informaci&oacute;n, pod&eacute;is contactar con activitats@cnestartit.com o llamando al 972 751 402</p>', 'images/actividades/c9833ebbd360e2dd1f9d1f42c83816ee-imagen.jpg', 'abrimos-las-inscripciones-para-la-escuela-de-verano-2021-del-cl', 1, 0, 0, 1, 1, '2021-05-11 17:34:34', '2021-05-09 07:32:22'),
+(19, 'El equipo absoluto de tenis a dos victorias de la temporada', '<p>El equipo absoluto de tenis ha conseguido esta semana una nueva victoria. Ya no es noticia, porque esta temporada nos tienen mal acostumbrados, contiene las jornadas con victorias y la &uacute;ltima, la m&aacute;s importante y decisiva, ni m&aacute;s ni menos contra el segundo clasificado, el CT Banyoles, invicto hasta entonces. Aunque el resultado de 4-1, no ha sido nada f&aacute;cil, se ha trabajado hasta el final, y as&iacute; lo han reflejado los resultados de los partidos.</p>\r\n\r\n<p>Albert Feixas, actual n&uacute;mero 1 del equipo se ha impuesto en un partido muy serio en el n&uacute;mero 1 del equipo del plan del lago, por un doble 6-3. Los otros partidos han sido m&aacute;s igualados, con suspenso hasta el final y con posibilidad de la victoria por cualquier jugador.</p>\r\n\r\n<p>Oliver Moreno ha sudado para derrotar al n&uacute;mero dos del equipo visitante, un jugador muy guerrero y incansable que ha disputado cada punto como si fuera el decisivo. El marcador final 5-7 6-4 7-6.En otro partido maratoniano &Aacute;lex Moreno, jugador 3 del equipo, ha disputado uno de sus mejores partidos de las &uacute;ltimas temporadas, consiguiendo un alto nivel de juego y solidez. Al final, el resultado de 6-3 3-6 6-4 ha supuesto el 3-0 en el marcador a falta del enfrentamiento de los jugadores 4 de cada equipo y el dobles. Gerard Carb&oacute; ha dado un salto cualitativo en su juego en las &uacute;ltimas semanas, aunque ha acabado perdiendo, en un partido muy interesante, por tres sets 3-6 6-1 1-6. El partido de dobles ha servido para aumentar la ventaja en el resultado final que ha sido de 4 a 1.</p>\r\n\r\n<p>A falta s&oacute;lo de dos jornadas, el equipo absoluto asegura el ascenso de categor&iacute;a y ahora faltar&aacute; saber si lo har&aacute; como campe&oacute;n y si lo har&aacute; sin perder ning&uacute;n partido.</p>\r\n\r\n<p>Por otra parte los equipos junior e infantil no han podido superar al CT Celr&agrave; y CT Porqueres respectivamente. Un CT Celr&agrave; de mucho nivel y un combativo Porqueres han sido demasiado rival para nuestros jugadores.</p>', 'images/actividades/fc079d8957c2376e72f8c081c1409d64-imagen.jpg', 'el-equipo-absoluto-de-tenis-a-dos-victorias-de-la-temporada', 3, 0, 0, 1, 1, '2021-05-13 12:06:05', '2021-05-09 07:33:21'),
+(20, 'El equipo absoluto de tenis continúa invicto', '<p>El pasado fin de semana se disput&oacute; la cuarta jornada de la Liga Catalana de Tenis, en categor&iacute;a Absoluto y consolida al equipo del club como l&iacute;deres y &uacute;nico equipo invicto.</p>\r\n\r\n<p>El CT Olot &ldquo;B&rdquo; visitaba a los l&iacute;deres con la esperanza de conseguir, lo que no hab&iacute;an hecho los &uacute;ltimos equipos, batir el equipo del N&aacute;utic Estartit. Y como ya nos tienen acostumbrados los jugadores del equipo absoluto, la jornada se desarrollar&iacute;a con suspenso hasta el final.</p>\r\n\r\n<p>Al final de los partidos individuales el marcador era de 2-2 al igual que en todos los dem&aacute;s enfrentamientos, se decidir&iacute;a el ganador en el partido de dobles.</p>\r\n\r\n<p>La pareja formada por Gerard Carb&oacute;n y &Oacute;liver Moreno ser&iacute;an los encargados de certificar 3 puntos m&aacute;s para el equipo, que sigue l&iacute;der invicto del grupo 3 de Gerona.</p>\r\n\r\n<p>En cuanto a los equipos juveniles, debutaron en la competici&oacute;n los cadetes, que se desplazaron hasta Porqueres para disputar la primera jornada y no lo hicieron nada mal. El gui&oacute;n fue id&eacute;ntico al del equipo absoluto, pero con un desenlace diferente. Si al final de los partidos individuales disputados por Miguel Mart&iacute;nez, Nilo Cat, Eloi S&aacute;nchez y Hugo LLoret era de 2 a 2, el partido de dobles que disput&oacute; en Nico Garcia y Ca&iacute;n Subir&agrave; supuso el 3 a 2 para los locales.</p>\r\n\r\n<p>A pesar de la derrota general, el equipo cadete sum&oacute; dos puntos valiosos de cara a la clasificaci&oacute;n.</p>', 'images/actividades/ff1eb23e66661b387eb16583cf715d8d-imagen.jpg', 'el-equipo-absoluto-de-tenis-continua-invicto', 3, 0, 0, 1, 1, '2021-05-13 12:05:54', '2021-05-11 17:39:04'),
+(21, 'Únete al Club. ¡Hazte socio!', '<p>Empieza a disfrutar de los descuentos que obtendr&aacute;s en los diferentes servicios que ofrece el Club como por ejemplo el amarre, el restaurante, el Mini-market, la gasolinera, el Centro de Actividades y los servicios de gr&uacute;a y travelift.</p>\r\n\r\n<p>Adem&aacute;s, disfrutar&aacute;s de una bonificaci&oacute;n en tu tarifa anual de aparcamiento.</p>\r\n\r\n<p>Podr&aacute;s acceder de manera gratuita a las instalaciones de Torre Gran con acceso al campo multi deporte, la piscina, los vestuarios y podr&aacute;s utilizar entrega la sala polivalente, en julio y agosto.</p>\r\n\r\n<p>Finalmente tendr&aacute;s acceso a ventajas exclusivas gracias a los convenios que el Club ha establecido con diferentes entidades: Festival de Jazz de L&rsquo;Estartit, Espacio Ter, Generali Seguros, Costa Brava Space, etc &hellip;</p>\r\n\r\n<p>Las ventajas del Socio de n&uacute;mero (socio con derecho de uso de amarre) son:</p>\r\n\r\n<ul>\r\n	<li>Parking: 100% de descuento</li>\r\n	<li>Amarre y servicios: tarifa exclusiva</li>\r\n	<li>Centre d&rsquo;activitats y Complex Torre Gran: 20% de descuento</li>\r\n	<li>Entrada al Complex Torre Gran (campo multideporte, piscina, vestuarios y uso de la sala polivalente): gratuita con reserva previa</li>\r\n	<li>Bar-restaurante: 10% de descuento</li>\r\n	<li>Carburante: 0,05 &euro;/l de descuento</li>\r\n	<li>Minimarket: 5% de descuento</li>\r\n	<li>Abono anual boyas Illes Medes: 30% de descuento</li>\r\n	<li>Auditorio teatro Espai Ter: 25% de descuento</li>\r\n</ul>\r\n\r\n<p>Las ventajas del Socio deportivo y familiar son:</p>\r\n\r\n<ul>\r\n	<li>Parking: 88 % de descuento</li>\r\n	<li>Amarre y servicios: entre un 5% y un 10% de descuento en la tarifa de amarre de transe&uacute;ntes</li>\r\n	<li>Centre d&rsquo;activitats y Complex Torre Gran: 20% de descuento</li>\r\n	<li>Entrada al Complex Torre Gran (camp multideporte, piscina, vestuarios y uso de la sala polivalente): gratuita con reserva previa</li>\r\n	<li>Bar-restaurante: 10% de descuento</li>\r\n	<li>Carburante: 0,05 &euro;/l de descuento</li>\r\n	<li>Minimarket: 5% de descuento</li>\r\n	<li>Auditorio teatro Espai Ter: 25% de descuento</li>\r\n</ul>\r\n\r\n<p>Las ventajas del Socio juvenil y infantil son:</p>\r\n\r\n<ul>\r\n	<li>Centre d&rsquo;Activitats y Complex Torre Gran: 10% de descuento</li>\r\n	<li>Entrada al Complex Torre Gran (camp multideporte, piscina, vestuarios y uso de la sala polivalente): gratuita con reserva previa</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Si quieres m&aacute;s informaci&oacute;n cont&aacute;ctanos a info@cnestartit.com</p>', 'images/actividades/73b6de17874e224aacfea274e0aa52f6-imagen.jpg', 'unete-al-club-hazte-socio', 1, 0, 0, 1, 1, '2021-05-14 15:13:01', '2021-05-11 17:44:40');
 
 -- --------------------------------------------------------
 
@@ -69,6 +71,16 @@ CREATE TABLE `actividade_form_grupo_extra` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `actividade_form_grupo_extra`
+--
+
+INSERT INTO `actividade_form_grupo_extra` (`id`, `form_grupo_extra_id`, `actividade_id`, `created_at`, `updated_at`) VALUES
+(10, 2, 21, NULL, NULL),
+(11, 1, 21, NULL, NULL),
+(12, 2, 20, NULL, NULL),
+(13, 1, 20, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -181,7 +193,9 @@ INSERT INTO `actividad_extra_actividade` (`id`, `actividade_id`, `actividad_extr
 (15, 17, 4, NULL, NULL),
 (16, 17, 2, NULL, NULL),
 (17, 17, 9, NULL, NULL),
-(18, 17, 8, NULL, NULL);
+(18, 17, 8, NULL, NULL),
+(25, 21, 5, NULL, NULL),
+(26, 21, 6, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -273,7 +287,13 @@ CREATE TABLE `actividad_inscripciones` (
 --
 
 INSERT INTO `actividad_inscripciones` (`id`, `cliente_id`, `actividad_id`, `opciones`, `pagado`, `updated_at`, `created_at`) VALUES
-(24, 30, 10, '{\"COMPETICI\\u00d3 \":[\" 3 DIES A LA SETMANA\"],\"grupo-extras\":[\"Preparaci\\u00f3 f\\u00edsica \\u2013 1 dia a la setmana 10\\u20ac\\/MES\"]}', 1, '2021-05-09 06:44:12', '2021-05-08 14:57:00');
+(25, 33, 13, '{\"CLASSES MENSUALS \":[\" 2 PERSONAS \\u2013 1 DIA A LA SETMANA \\u2013 1H\"]}', 1, '2021-05-11 10:40:43', '2021-05-11 10:37:26'),
+(27, 37, 17, '{\"BLOC 1 \":[\" 28 de juny al 2 de julio\",\" 5 de juliol al 9 de juliol\"],\"BLOC 2 \":[\" 9 d\'agost al 13 d\'agost (festa 15 agost)\",\" 23 d\'agost al 27 d\'agost\"],\"extras\":[\"CURSOS TARDES: P\\u00c0DEL\",\"ESTADA MATINS  9 A 13 H\",\"HORA DE PERMANENCIA (GRATU\\u00cfTA)  7`45H A 9 H\"]}', 1, '2021-05-12 18:19:17', '2021-05-12 18:18:49'),
+(42, 38, 17, '{\"BLOC 1 \":[\" 5 de juliol al 9 de juliol\",\" 12 de juliol al 16 de juliol\"],\"BLOC 2 \":[\" 23 d\'agost al 27 d\'agost\"],\"extras\":[\"CURSOS TARDES: NATACI\\u00d3\"]}', 0, '2021-05-13 17:27:38', '2021-05-13 17:27:38'),
+(43, 33, 20, '{\"extra-grupos\":{\"Categor\\u00eda torneo\":\"Femenino\",\"Nivel padel\":\"Junior\"}}', 0, '2021-05-13 18:01:23', '2021-05-13 18:01:23'),
+(44, 33, 21, '{\"Prueba 2 \":[\" Prueba 2\"],\"extra-grupos\":{\"Categor\\u00eda torneo\":\"Femenino\",\"Nivel padel\":\"Profecional\"}}', 0, '2021-05-14 15:24:08', '2021-05-14 15:24:08'),
+(45, 37, 21, '{\"Prueba 2 \":[\" Prueba 2\"],\"extra-grupos\":{\"Categor\\u00eda torneo\":\"Femenino\",\"Nivel padel\":\"Profecional\"},\"extras\":[\"CURSOS TARDES:  TENNIS\",\"CURSOS TARDES: P\\u00c0DEL\"]}', 0, '2021-05-14 15:24:26', '2021-05-14 15:24:26'),
+(46, 38, 21, '{\"Hola 1 \":[\" Prueba 1\"],\"extra-grupos\":{\"Categor\\u00eda torneo\":\"Femenino\",\"Nivel padel\":\"Intermedio\"},\"extras\":[\"CURSOS TARDES:  TENNIS\"]}', 0, '2021-05-14 15:24:34', '2021-05-14 15:24:34');
 
 -- --------------------------------------------------------
 
@@ -290,6 +310,14 @@ CREATE TABLE `actividad_pdfs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `actividad_pdfs`
+--
+
+INSERT INTO `actividad_pdfs` (`id`, `actividad_id`, `titulo`, `url`, `activo`, `created_at`, `updated_at`) VALUES
+(1, 21, 'Evento 1', 'D:\\xampp2\\tmp\\phpDE9D.tmp', 1, '2021-05-12 14:53:34', '2021-05-12 14:53:34'),
+(2, 21, 'Evento 2', 'D:\\xampp2\\tmp\\phpE23E.tmp', 1, '2021-05-12 14:55:45', '2021-05-12 14:55:45');
 
 -- --------------------------------------------------------
 
@@ -362,7 +390,7 @@ CREATE TABLE `clients` (
   `cat_salut` varchar(30) DEFAULT NULL,
   `address` varchar(50) NOT NULL,
   `poblacio` varchar(50) NOT NULL,
-  `cp` int(10) NOT NULL,
+  `cp` varchar(10) NOT NULL,
   `provincia` varchar(20) NOT NULL,
   `data_naxement` date NOT NULL,
   `conte_bancari` varchar(30) DEFAULT NULL,
@@ -382,11 +410,9 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `user_id`, `first_name`, `second_name`, `sexe`, `dni`, `nacionalidad`, `cat_salut`, `address`, `poblacio`, `cp`, `provincia`, `data_naxement`, `conte_bancari`, `telefono_1`, `telefono_2`, `name_emergenica`, `telefono_1_emergencia`, `telefono_2_emergencia`, `quota_socio_id`, `image`, `created_at`, `updated_at`) VALUES
-(26, 64, 'Eugeny', 'Lyubeznyy', 0, 'Y1774178H', 'Barbados', NULL, '17310', 'LLoret de mar', 17310, 'Girona', '1998-02-13', NULL, '32423434', NULL, NULL, NULL, NULL, 5, 'images/profile/fea234d18e8dca2e27dcf3ca52ba0b98.jpg', NULL, '2021-05-08 07:16:44'),
-(29, 68, 'Mister', 'Potato', 0, 'Y1774178H', 'Afganistán', NULL, '17310', 'LLoret de mar', 17310, 'Girona', '1998-02-13', NULL, '67583442', NULL, NULL, NULL, NULL, 4, NULL, NULL, '2021-05-08 10:43:42'),
-(30, 68, 'Alibaba2', 'Mohamed', 0, NULL, 'Afganistán', '2134234', '17310', 'LLoret de mar', 17310, 'Girona', '2011-02-13', NULL, NULL, NULL, 'Mister', '67583442', NULL, 4, NULL, NULL, '2021-05-08 10:43:42'),
-(31, 68, 'Ainoa', 'Rubio', 1, NULL, 'Albania', '34324234', '17310', 'LLoret de mar', 17310, 'Girona', '2011-02-13', NULL, NULL, NULL, 'Mister', '67583442', NULL, 4, NULL, NULL, '2021-05-08 10:43:42'),
-(32, 68, 'Alibaba', 'III', 0, NULL, 'Albania', '213124241', '17310', 'LLoret de mar', 17310, 'Girona', '2011-02-13', NULL, NULL, NULL, 'Mister', '67583442', NULL, 4, NULL, NULL, '2021-05-08 10:43:42');
+(33, 64, 'Gen', 'Rubio', 0, 'Y1774178H', 'España', NULL, 'Av. Passapera', 'Lloret de Mar', '17310', 'Catalunya', '1998-02-13', NULL, '65456456', NULL, NULL, NULL, NULL, NULL, 'images/profile/c279d37a35a584787165e52f1c14fd61.jpg', NULL, '2021-05-13 14:34:54'),
+(37, 64, 'Potato', '234234', 0, NULL, 'Austria', '234234', 'Av. Passapera', 'Lloret de Mar', '17310', 'Catalunya', '2020-02-13', NULL, NULL, NULL, 'Gen Rubio', '65456456', NULL, NULL, NULL, '2021-05-11 14:05:06', '2021-05-11 14:05:06'),
+(38, 64, 'Potato2', 'sefewf', 0, NULL, 'Armenia', '3434234', 'Av. Passapera', 'Lloret de Mar', '17310', 'Catalunya', '2020-02-13', NULL, NULL, NULL, 'Gen Rubio', '65456456', NULL, NULL, NULL, '2021-05-11 14:07:01', '2021-05-11 14:07:01');
 
 -- --------------------------------------------------------
 
@@ -408,14 +434,10 @@ CREATE TABLE `client_parientes_relacions` (
 --
 
 INSERT INTO `client_parientes_relacions` (`id`, `client_id_1`, `client_id_2`, `client_tipo_id`, `updated_at`, `created_at`) VALUES
-(19, 26, 27, 1, NULL, NULL),
-(20, 27, 26, 3, NULL, NULL),
-(21, 29, 32, 1, NULL, NULL),
-(22, 32, 29, 3, NULL, NULL),
-(23, 29, 31, 1, NULL, NULL),
-(24, 31, 29, 3, NULL, NULL),
-(25, 29, 30, 1, NULL, NULL),
-(26, 30, 29, 3, NULL, NULL);
+(31, 33, 37, 1, '2021-05-11 14:05:06', '2021-05-11 14:05:06'),
+(32, 37, 33, 3, '2021-05-11 14:05:06', '2021-05-11 14:05:06'),
+(33, 33, 38, 1, '2021-05-11 14:07:01', '2021-05-11 14:07:01'),
+(34, 38, 33, 3, '2021-05-11 14:07:01', '2021-05-11 14:07:01');
 
 -- --------------------------------------------------------
 
@@ -497,7 +519,9 @@ INSERT INTO `form_grupo_opciones` (`id`, `actividad_id`, `titulo`, `descripcion`
 (12, 12, 'PERFECCIONAMENT', '(1.5h/classe) MÀXIM 4 ALUMNES', 0, 1, '2021-05-08 05:04:52', '2021-05-08 05:07:18'),
 (13, 12, 'COMPETICIÓ', '(2h/classe) MÀXIM 4 ALUMNES', 0, 1, '2021-05-08 05:06:17', '2021-05-08 05:07:17'),
 (14, 13, 'CLASSES MENSUALS', NULL, 0, 1, '2021-05-08 05:07:58', '2021-05-08 05:10:50'),
-(15, 13, 'CLASSES PARTICULARS', NULL, 0, 1, '2021-05-08 05:09:12', '2021-05-08 05:10:49');
+(15, 13, 'CLASSES PARTICULARS', NULL, 0, 1, '2021-05-08 05:09:12', '2021-05-08 05:10:49'),
+(16, 21, 'Hola 1', 'asdfasdfdsf', 0, 1, '2021-05-12 15:04:01', '2021-05-12 15:04:23'),
+(17, 21, 'Prueba 2', '234234324', 0, 1, '2021-05-12 15:18:42', '2021-05-12 15:18:45');
 
 -- --------------------------------------------------------
 
@@ -591,7 +615,9 @@ INSERT INTO `form_opcion_opciones` (`id`, `form_grupo_opcion_id`, `titulo`, `pre
 (39, 15, '1h / 3 persones', 12, 7.2, 0, 0, 1, '2021-05-08 05:09:56', '2021-05-08 05:09:56'),
 (40, 15, 'PACK 5h: INDIVIDUAL', 130, 78, 0, 0, 1, '2021-05-08 05:10:06', '2021-05-08 05:10:06'),
 (41, 15, 'PACK 5h: PARELLES', 70, 42, 0, 0, 1, '2021-05-08 05:10:26', '2021-05-08 05:10:26'),
-(42, 15, 'PACK 5h: 3 PERSONES', 50, 30, 0, 0, 1, '2021-05-08 05:10:42', '2021-05-08 05:10:42');
+(42, 15, 'PACK 5h: 3 PERSONES', 50, 30, 0, 0, 1, '2021-05-08 05:10:42', '2021-05-08 05:10:42'),
+(43, 16, 'Prueba 1', 50, 40, 0, 0, 1, '2021-05-12 15:18:05', '2021-05-12 15:04:15'),
+(44, 17, 'Prueba 2', 55, 33, 0, 0, 1, '2021-05-12 15:18:55', '2021-05-12 15:18:55');
 
 -- --------------------------------------------------------
 
@@ -765,7 +791,8 @@ CREATE TABLE `newsletters` (
 --
 
 INSERT INTO `newsletters` (`id`, `email`, `token`, `activo`, `created_at`, `updated_at`) VALUES
-(11, 'keylorubio@gmail.com', '715bc9f99697229ee5d5be010c4b100f', 1, '2021-05-10 04:10:01', '2021-05-10 04:10:01');
+(11, 'keylorubio@gmail.com', '715bc9f99697229ee5d5be010c4b100f', 1, '2021-05-10 04:10:01', '2021-05-10 04:10:01'),
+(12, 'evgeny.lyubeznyy@basetis.com', NULL, 0, '2021-05-10 17:54:51', '2021-05-10 17:54:51');
 
 -- --------------------------------------------------------
 
@@ -793,7 +820,7 @@ INSERT INTO `noticias` (`id`, `actividad_id`, `titulo`, `descripcion`, `image`, 
 (10, NULL, 'DESCUBRE PARA TUS HIJOS EL TENIS DE ALTO RENDIMIENTO', '<p>Nuestra Escuela de tenis est&aacute; dise&ntilde;ada para ofrecer la m&aacute;xima calidad de entreno en las actividades extra-escolares de los jugadores de entre 3 y 18 a&ntilde;os.</p>\r\n\r\n<p>Nuestra Escuela de tenis extra-escolar adapta el sistema exclusivo de entrenamiento, ASC 360 Tennis System &copy;, utilizando sus fundamentos b&aacute;sicos, para que nuestros j&oacute;venes se inicien y evolucionen en este deporte disfrutando desde el primer momento del alto rendimiento</p>\r\n\r\n<p>Inscr&iacute;bete ya y entrena con el mismo m&eacute;todo que siguieron tenistas como Andy Murray, Svetlana Kuznetsova o Grigor Dimitrov hasta convertirse en jugadores profesionales.</p>\r\n\r\n<h3><strong>&iexcl;AP&Uacute;NTATE AHORA CON INSCRIPCI&Oacute;N GRATUITA Y SEPTIEMBRE GRATIS!</strong></h3>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>V&aacute;lido para los alumnos que se inscriban en la Escuela de Club S&aacute;nchez-Casal antes del 15 de septiembre 2020, realizando el pago del mes de octubre. Las promociones y ofertas no son acumulables.</p>', 'images/noticias/89cd4218fa1bdbb7f6b3af2e1add3396-image.jpg', 'descubre-para-tus-hijos-el-tenis-de-alto-rendimiento', 1, '2021-03-26 14:53:02', '2021-03-26 14:53:02'),
 (11, NULL, 'EL CLUB RECIBE SELLO BIOSPHERE DE TURISMO SOSTENIBLE', '<p>La certificaci&oacute;n internacional por parte del Instituto de Turismo Responsable (ITR), reconoce el compromiso de la Academia S&aacute;nchez-Casal, por el respeto al medio ambiente, la sostenibilidad y el desarrollo econ&oacute;mico local en la sede de Barcelona, situada en El Prat de Llobregat, zona de alto valor ecol&oacute;gico.</p>\r\n\r\n<p>La entrega del sello Biosphere se ha hecho hoy efectiva en la Academia S&aacute;nchez-Casal situada en El Prat de Llobregat, siguiendo todos los protocolos de seguridad e higiene, por parte de Gemma Rodriguez, Consejera de Turismo Baix Llobregat y Debora Garc&iacute;a, Regidora de Turismo El Prat de Llobregat, a Marisa S&aacute;nchez Vicario, Directora sede ASC Barcelona y a Sergi Bonillo, Director de Servicios y Operaciones ASC Barcelona.</p>\r\n\r\n<p>La Academia S&aacute;nchez-Casal, est&aacute; comprometida con el medioambiente, y sensibiliza tanto en la sede de Barcelona como en Florida, a todos los empleados, estudiantes-atletas sobre el cambio clim&aacute;tico con diversas acciones a lo largo del a&ntilde;o.</p>\r\n\r\n<p>Los estudiantes-atletas de la Academia S&aacute;nchez-Casal y ES Internacional School no usan pl&aacute;stico, usan sus propias botellas de agua, tambi&eacute;n reciclan y el pasado a&ntilde;o se unieron al&nbsp; movimiento #fridaysforfuture para concienciar sobre el cambio clim&aacute;tico.</p>\r\n\r\n<p>El Biosphere es un sello del Sistema de Turismo Responsable del Instituto de Turismo Responsable (ITR), una certificaci&oacute;n de turismo sostenible, voluntario e independiente, que trabaja para aplicar al sector tur&iacute;stico los 17 objetivos de desarrollo sostenible de Naciones Unidas, la Carta Mundial de Turismo Sostenible y las directrices de la Cumbre del Clima de Par&iacute;s.</p>', 'images/noticias/3b84f8bf6eb58068f6521e3dc50ae08e-image.jpg', 'el-club-recibe-sello-biosphere-de-turismo-sostenible', 1, '2021-03-26 14:55:34', '2021-03-26 14:55:34'),
 (12, NULL, 'MATRÍCULA + 1 CLASE DE TENIS O PÁDEL GRATIS!', '<p>Club S&aacute;nchez-Casal es mucho m&aacute;s que un centro orientado a la pr&aacute;ctica deportiva. Es un lugar enfocado a familias donde todos podr&aacute;n disfrutar practicando su deporte favorito.</p>\r\n\r\n<p><strong>&iexcl;AP&Uacute;NTATE AHORA CON MATR&Iacute;CULA +&nbsp;1 CLASE DE TENIS O P&Aacute;DEL GRATIS!</strong></p>\r\n\r\n<p>Inscr&iacute;bete antes del 30 de septiembre 2020 y disfruta de matr&iacute;cula gratis + 1 clase de tenis / p&aacute;del gratuita (*).</p>\r\n\r\n<p>(*) La clase deber&aacute; ser realizada durante septiembre y octubre 2020, tanto para los nuevos abonados como para los abonados actuales, en muestra de gratitud a su fidelidad. La clase puede ser impartida en grupo reducido.</p>', 'images/noticias/c65e12c01ea09c011ffe8faa193dbaf0-image.jpg', 'matricula-+-1-clase-de-tenis-o-padel-gratis!', 1, '2021-03-26 14:56:16', '2021-03-26 14:56:16'),
-(13, NULL, 'INSCRIPCIONES CAMPUS VERANO 2020 ABIERTAS SUJETAS A CAMBIOS POR NORMATIVA COVID', '<p>Apreciadas familias,</p>\r\n\r\n<p>Son constantes los cambios en las normativas en cuanto a la realizaci&oacute;n de los campus de verano debido a la situaci&oacute;n causada por la pandemia del Coronavirus que estamos viviendo. Siguiendo la normativa, en las fechas en las que se realiza el campus, no habr&iacute;a problema en su realizaci&oacute;n. Campus S&aacute;nchez-Casal ha trabajado para implantar unos protocolos internos de m&aacute;xima seguridad que proteger&aacute;n&nbsp; la salud de sus hijos. Estamos sujetos a cualquier cambio en las actividades que se tengan que realizar para que se pueda realizar el campus. Por ahora, todas las actividades que ofrecemos se podr&iacute;an realizar con la implantaci&oacute;n de medidas de seguridad. A medida que las autoridades transmitan m&aacute;s informaci&oacute;n, podremos dar m&aacute;s detalles sobre las actividades a realizar y si alguna no se pudiera realizar os lo comunicar&iacute;amos a la mayor brevedad. A d&iacute;a de hoy, los cambios en cuanto a normativa son constantes pero nos adaptaremos a los cambios necesarios para que el Campus se pueda realizar.</p>\r\n\r\n<p>&iexcl;YA PUEDES RESERVAR TU PLAZA!</p>\r\n\r\n<p>&iexcl;TE ESPERAMOS!</p>\r\n\r\n<p><a href=\"http://www.sanchezcasal-campus.com/\">www.sanchezcasal-campus.com</a></p>', 'images/noticias/738ae5cc6e955b4bc815c90b9a8f88c8-image.jpg', 'inscripciones-campus-verano-2020-abiertas-sujetas-a-cambios-por-normativa-covid', 1, '2021-03-26 14:56:56', '2021-05-10 14:13:12');
+(13, 21, 'INSCRIPCIONES CAMPUS VERANO 2020 ABIERTAS SUJETAS A CAMBIOS POR NORMATIVA COVID', '<p>Apreciadas familias,</p>\r\n\r\n<p>Son constantes los cambios en las normativas en cuanto a la realizaci&oacute;n de los campus de verano debido a la situaci&oacute;n causada por la pandemia del Coronavirus que estamos viviendo. Siguiendo la normativa, en las fechas en las que se realiza el campus, no habr&iacute;a problema en su realizaci&oacute;n. Campus S&aacute;nchez-Casal ha trabajado para implantar unos protocolos internos de m&aacute;xima seguridad que proteger&aacute;n&nbsp; la salud de sus hijos. Estamos sujetos a cualquier cambio en las actividades que se tengan que realizar para que se pueda realizar el campus. Por ahora, todas las actividades que ofrecemos se podr&iacute;an realizar con la implantaci&oacute;n de medidas de seguridad. A medida que las autoridades transmitan m&aacute;s informaci&oacute;n, podremos dar m&aacute;s detalles sobre las actividades a realizar y si alguna no se pudiera realizar os lo comunicar&iacute;amos a la mayor brevedad. A d&iacute;a de hoy, los cambios en cuanto a normativa son constantes pero nos adaptaremos a los cambios necesarios para que el Campus se pueda realizar.</p>\r\n\r\n<p>&iexcl;YA PUEDES RESERVAR TU PLAZA!</p>\r\n\r\n<p>&iexcl;TE ESPERAMOS!</p>\r\n\r\n<p><a href=\"http://www.sanchezcasal-campus.com/\">www.sanchezcasal-campus.com</a></p>', 'images/noticias/738ae5cc6e955b4bc815c90b9a8f88c8-image.jpg', 'inscripciones-campus-verano-2020-abiertas-sujetas-a-cambios-por-normativa-covid', 1, '2021-03-26 14:56:56', '2021-05-12 15:26:49');
 
 -- --------------------------------------------------------
 
@@ -818,7 +845,8 @@ CREATE TABLE `noticia_comentarios` (
 INSERT INTO `noticia_comentarios` (`id`, `user_id`, `noticia_id`, `comentario`, `activo`, `created_at`, `updated_at`) VALUES
 (36, 64, 13, 'hola', 1, '2021-05-01 11:38:39', '2021-05-01 11:38:39'),
 (37, 64, 13, 'xd', 1, '2021-05-01 11:38:50', '2021-05-01 11:38:50'),
-(38, 64, 13, 'SD', 1, '2021-05-01 11:39:01', '2021-05-01 11:39:01');
+(38, 64, 13, 'SD', 1, '2021-05-01 11:39:01', '2021-05-01 11:39:01'),
+(39, 64, 13, 'hola', 1, '2021-05-13 18:02:07', '2021-05-13 18:02:07');
 
 -- --------------------------------------------------------
 
@@ -1236,6 +1264,235 @@ INSERT INTO `social_networks` (`id`, `titulo`, `url`, `icon`, `activo`, `created
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `translations`
+--
+
+CREATE TABLE `translations` (
+  `id` int(11) NOT NULL,
+  `key` varchar(255) NOT NULL,
+  `text` longtext DEFAULT NULL,
+  `text_description` longtext DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `translations`
+--
+
+INSERT INTO `translations` (`id`, `key`, `text`, `text_description`, `created_at`, `updated_at`) VALUES
+(21, 'error_postal', '{\"es\":\"C\\u00f3digo postal incorrecto.\"}', '{\"es\":null}', '2021-05-14 15:40:03', '2021-05-14 15:40:03'),
+(22, 'error_direcion', '{\"es\":\"Direcci\\u00f3n incorrecta.\"}', '{\"es\":null}', '2021-05-14 15:49:15', '2021-05-14 15:49:15'),
+(23, 'error_poblacion', '{\"es\":\"Poblaci\\u00f3n incorrecta.\"}', '{\"es\":null}', '2021-05-14 15:49:41', '2021-05-14 15:49:41'),
+(24, 'error_provincia', '{\"es\":\"Provincia incorrecta.\"}', '{\"es\":null}', '2021-05-14 15:50:07', '2021-05-14 15:50:07'),
+(25, 'error_tageta_1', '{\"es\":\"El campo tarjeta es requerido.\"}', '{\"es\":null}', '2021-05-14 15:50:33', '2021-05-14 15:50:33'),
+(26, 'error_cliente_exist', '{\"es\":\"Este cliente ya esta registrado.\"}', '{\"es\":null}', '2021-05-14 15:51:01', '2021-05-14 15:51:01'),
+(27, 'error_data', '{\"es\":\"La fecha de nacimiento incorrecta.\"}', '{\"es\":null}', '2021-05-14 15:51:21', '2021-05-14 15:51:21'),
+(28, 'error_sexe', '{\"es\":\"Por favor selecciona el sexe.\"}', '{\"es\":null}', '2021-05-14 15:52:02', '2021-05-14 15:52:02'),
+(29, 'error_nombre', '{\"es\":\"El campo nombre es requerido.\"}', '{\"es\":null}', '2021-05-14 15:52:20', '2021-05-14 15:52:20'),
+(30, 'error_apellido', '{\"es\":\"El campo apellidos es requerido.\"}', '{\"es\":null}', '2021-05-14 15:52:43', '2021-05-14 15:52:43'),
+(31, 'error_nacionalidad', '{\"es\":\"El campo nacionalidad es requerido.\"}', '{\"es\":null}', '2021-05-14 15:53:18', '2021-05-14 15:53:18'),
+(32, 'error_mobil', '{\"es\":\"El campo m\\u00f3vil es requerido.\"}', '{\"es\":null}', '2021-05-14 15:55:07', '2021-05-14 15:55:07'),
+(33, 'error_dni', '{\"es\":\"El campo DNI es incorrecto.\"}', '{\"es\":null}', '2021-05-14 15:55:25', '2021-05-14 15:55:25'),
+(34, 'error_cif', '{\"es\":\"El campo CIF es incorrecto.\"}', '{\"es\":null}', '2021-05-14 15:55:50', '2021-05-14 15:55:50'),
+(35, 'error_passaport', '{\"es\":\"El campo Pasaporte es incorrecto.\"}', '{\"es\":null}', '2021-05-14 15:56:16', '2021-05-14 15:56:16'),
+(36, 'error_nie', '{\"es\":\"El campo NIE es incorrecto.\"}', '{\"es\":null}', '2021-05-14 15:56:34', '2021-05-14 15:56:34'),
+(37, 'error_email', '{\"es\":\"Campo email no puede estar vaci\\u00f3.\"}', '{\"es\":null}', '2021-05-14 15:57:45', '2021-05-14 15:57:45'),
+(38, 'error_email_2', '{\"es\":\"El formato de email es incorrecto.\"}', '{\"es\":null}', '2021-05-14 15:58:11', '2021-05-14 15:58:11'),
+(39, 'error_session', '{\"es\":\"Email o contrase\\u00f1a son incorrectos.\"}', '{\"es\":null}', '2021-05-14 15:58:35', '2021-05-14 15:58:35'),
+(40, 'cancelar_inscripcion', '{\"es\":\"Tu solicitud ha sido procesada correctamente.\"}', '{\"es\":null}', '2021-05-14 15:59:41', '2021-05-14 15:59:41'),
+(41, 'nuevo_familiar', '{\"es\":\"Nuevo familiar se ha a\\u00f1adido correctamente.\"}', '{\"es\":null}', '2021-05-14 16:00:25', '2021-05-14 16:00:25'),
+(42, 'datos_actualizados', '{\"es\":\"Los datos del perfil se han actualizado correctamente.\"}', '{\"es\":null}', '2021-05-14 16:03:09', '2021-05-14 16:03:09'),
+(43, 'error_email_3', '{\"es\":\"Email incorrecto.\"}', '{\"es\":null}', '2021-05-14 16:04:58', '2021-05-14 16:04:58'),
+(44, 'recover_email', '{\"es\":\"Te hemos enviado un email de recuperaci\\u00f3n. Revisa tu bandeja de entrada.\"}', '{\"es\":null}', '2021-05-14 16:05:22', '2021-05-14 16:05:22'),
+(45, 'email_validation', '{\"es\":\"Hemos enviado correo electr\\u00f3nico de verificaci\\u00f3n a tu bandeja de entrada.\"}', '{\"es\":null}', '2021-05-14 16:06:45', '2021-05-14 16:06:45'),
+(46, 'contact_message', '{\"es\":\"Gracias por contactar con nosotros. Nos pondremos en contacto contigo lo antes posible.\"}', '{\"es\":null}', '2021-05-14 16:08:06', '2021-05-14 16:08:06'),
+(47, 'newsletter_message', '{\"es\":\"\\u00a1GRACIAS POR SUSCRIBIRTE! \\u00a1Te has suscrito correctamente! Pronto recibir\\u00e1s las novedades sobre nuestro club. Revisa tu correo electr\\u00f3nico para estar enterado de los pr\\u00f3ximas publicaciones.\"}', '{\"es\":null}', '2021-05-14 16:09:14', '2021-05-14 16:09:14'),
+(48, 'ir_actividad', '{\"es\":\"Ir a la actividad\"}', '{\"es\":null}', '2021-05-14 16:22:51', '2021-05-14 16:22:51'),
+(49, 'actividad', '{\"es\":\"Actividad\"}', '{\"es\":null}', '2021-05-14 16:23:51', '2021-05-14 16:23:51'),
+(50, 'copyright', '{\"es\":\"\\u00a9 2020 Copyright: TennisBlanes\"}', '{\"es\":null}', '2021-05-14 16:25:16', '2021-05-14 16:25:16'),
+(51, 'local', '{\"es\":\"LOCALIZACION\"}', '{\"es\":null}', '2021-05-14 16:25:51', '2021-05-14 16:25:51'),
+(52, 'contacto', '{\"es\":\"Contacto\"}', '{\"es\":null}', '2021-05-14 16:26:11', '2021-05-14 16:41:56'),
+(53, 'horario', '{\"es\":\"HORARIO\"}', '{\"es\":null}', '2021-05-14 16:26:39', '2021-05-14 16:26:39'),
+(54, 'web_descripcion', '{\"es\":null}', '{\"es\":\"<p>Foote-Description-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus esse itaque sunt neque voluptates odit adipisci recusandae! Assumenda, placeat iure dolorum esse tempore sed illo, consequatur, dolorem repellendus quaerat reiciendis?<\\/p>\"}', '2021-05-14 16:28:38', '2021-05-14 16:34:34'),
+(55, 'horario_descripcion', '{\"es\":null}', '{\"es\":\"<p>Dilluns a divendres<br \\/>\\r\\n7:00-22:30h<br \\/>\\r\\nDissabte 8:00-21:30h<br \\/>\\r\\nDiumenge 8:00-14:00h<br \\/>\\r\\n&Agrave;rea de raqueta de 8 h a 21 h<\\/p>\"}', '2021-05-14 16:31:23', '2021-05-14 16:32:08'),
+(56, 'contacto_descripcion', '{\"es\":null}', '{\"es\":\"<p>Telf. Secretaria del club:<br \\/>\\r\\n972 33 04 32 \\/ 634944021<br \\/>\\r\\nTelf. Director del club:<br \\/>\\r\\nJordi Sala 605820053<\\/p>\"}', '2021-05-14 16:32:54', '2021-05-14 16:32:54'),
+(57, 'home', '{\"es\":\"HOME\"}', '{\"es\":null}', '2021-05-14 16:35:13', '2021-05-14 16:35:13'),
+(58, 'padel', '{\"es\":\"PADEL\"}', '{\"es\":null}', '2021-05-14 16:35:57', '2021-05-14 16:35:57'),
+(59, 'escuela_padel', '{\"es\":\"Escuela de p\\u00e1del\"}', '{\"es\":null}', '2021-05-14 16:36:26', '2021-05-14 16:36:26'),
+(60, 'reservar_pista', '{\"es\":\"Reserva de pista\"}', '{\"es\":null}', '2021-05-14 16:37:06', '2021-05-14 16:37:06'),
+(61, 'escuela_tenis', '{\"es\":\"Escuela de tenis\"}', '{\"es\":null}', '2021-05-14 16:37:34', '2021-05-14 16:37:34'),
+(62, 'tenis', '{\"es\":\"TENNIS\"}', '{\"es\":null}', '2021-05-14 16:38:13', '2021-05-14 16:38:13'),
+(63, 'socios', '{\"es\":\"SOCIOS\"}', '{\"es\":null}', '2021-05-14 16:38:22', '2021-05-14 16:38:22'),
+(64, 'tienda', '{\"es\":\"TIENDA\"}', '{\"es\":null}', '2021-05-14 16:38:40', '2021-05-14 16:38:40'),
+(65, 'restaurante', '{\"es\":\"RESTAURANTE\"}', '{\"es\":null}', '2021-05-14 16:38:57', '2021-05-14 16:38:57'),
+(66, 'multimedia', '{\"es\":\"MULTIMEDIA\"}', '{\"es\":null}', '2021-05-14 16:39:18', '2021-05-14 16:39:18'),
+(67, 'mi_perfil', '{\"es\":\"Mi perfil\"}', '{\"es\":null}', '2021-05-14 16:43:38', '2021-05-14 16:43:38'),
+(68, 'ajustes', '{\"es\":\"Ajustes\"}', '{\"es\":null}', '2021-05-14 16:44:08', '2021-05-14 16:44:08'),
+(69, 'salir', '{\"es\":\"Salir\"}', '{\"es\":null}', '2021-05-14 16:44:29', '2021-05-14 16:44:29'),
+(70, 'entrar', '{\"es\":\"ENTRAR\"}', '{\"es\":null}', '2021-05-14 16:44:38', '2021-05-14 16:44:38'),
+(71, 'registro', '{\"es\":\"REGISTRO\"}', '{\"es\":null}', '2021-05-14 16:45:17', '2021-05-14 16:45:17'),
+(72, 'error_inscribirse_1', '{\"es\":\"Ya estas inscrito a esta actividad\"}', '{\"es\":null}', '2021-05-14 16:46:20', '2021-05-14 16:46:20'),
+(73, 'error_familiares_1', '{\"es\":\"No tienes familiares a\\u00f1adidos\"}', '{\"es\":null}', '2021-05-14 16:46:45', '2021-05-14 16:46:45'),
+(74, 'add_familiar', '{\"es\":\"A\\u00f1adir familiar\"}', '{\"es\":null}', '2021-05-14 16:47:19', '2021-05-14 16:47:19'),
+(75, 'añadir', '{\"es\":\"A\\u00f1adir\"}', '{\"es\":null}', '2021-05-14 16:47:44', '2021-05-14 16:47:44'),
+(76, 'error_familiares_2', '{\"es\":\"Todos familiares ya est\\u00e1n inscritos\"}', '{\"es\":null}', '2021-05-14 16:48:43', '2021-05-14 16:48:43'),
+(77, 'error', '{\"es\":\"Ha ocurrido un error\"}', '{\"es\":null}', '2021-05-14 16:49:04', '2021-05-14 16:49:04'),
+(78, 'cancel', '{\"es\":\"Cancelar\"}', '{\"es\":null}', '2021-05-14 16:50:15', '2021-05-14 16:50:15'),
+(79, 'inscribirse', '{\"es\":\"Inscribirse\"}', '{\"es\":null}', '2021-05-14 16:50:48', '2021-05-14 16:50:48'),
+(80, 'publicado', '{\"es\":\"Publicado\"}', '{\"es\":null}', '2021-05-14 16:51:42', '2021-05-14 16:51:42'),
+(81, 'nueva_alta', '{\"es\":\"Nova alta\"}', '{\"es\":null}', '2021-05-14 16:53:43', '2021-05-14 16:53:43'),
+(82, 'personales', '{\"es\":\"Personales\"}', '{\"es\":null}', '2021-05-14 16:54:15', '2021-05-14 16:54:15'),
+(83, 'adresa', '{\"es\":\"Adre\\u00e7a\"}', '{\"es\":null}', '2021-05-14 16:55:32', '2021-05-14 16:55:32'),
+(84, 'emergencia', '{\"es\":\"Emergencia\"}', '{\"es\":null}', '2021-05-14 16:55:48', '2021-05-14 16:55:48'),
+(85, 'hijos', '{\"es\":\"Hijos\"}', '{\"es\":null}', '2021-05-14 16:56:05', '2021-05-14 16:56:05'),
+(86, 'nombre', '{\"es\":\"Nombre\"}', '{\"es\":null}', '2021-05-14 16:56:26', '2021-05-14 16:56:26'),
+(87, 'apellidos', '{\"es\":\"Apellidos\"}', '{\"es\":null}', '2021-05-14 16:56:41', '2021-05-14 16:56:41'),
+(88, 'fecha_nacimiento', '{\"es\":\"Data naixement\"}', '{\"es\":null}', '2021-05-14 16:57:32', '2021-05-14 16:57:32'),
+(89, 'sexe', '{\"es\":\"Sexe\"}', '{\"es\":null}', '2021-05-14 16:57:54', '2021-05-14 16:57:54'),
+(90, 'hombre', '{\"es\":\"Home\"}', '{\"es\":null}', '2021-05-14 16:58:12', '2021-05-14 16:58:12'),
+(91, 'mujer', '{\"es\":\"Dona\"}', '{\"es\":null}', '2021-05-14 16:58:38', '2021-05-14 16:58:38'),
+(92, 'identificador', '{\"es\":\"Identificador\"}', '{\"es\":null}', '2021-05-14 16:59:00', '2021-05-14 16:59:00'),
+(93, 'dni', '{\"es\":\"DNI\"}', '{\"es\":null}', '2021-05-14 16:59:20', '2021-05-14 16:59:20'),
+(94, 'cif', '{\"es\":\"CIF\"}', '{\"es\":null}', '2021-05-14 16:59:36', '2021-05-14 16:59:36'),
+(95, 'pasaporte', '{\"es\":\"Passaport\"}', '{\"es\":null}', '2021-05-14 17:00:00', '2021-05-14 17:00:00'),
+(96, 'nie', '{\"es\":\"NIE\"}', '{\"es\":null}', '2021-05-14 17:00:13', '2021-05-14 17:00:13'),
+(97, 'numero_identificador', '{\"es\":\"Numero identificador\"}', '{\"es\":null}', '2021-05-14 17:00:32', '2021-05-14 17:00:32'),
+(98, 'nacionalidad', '{\"es\":\"Nacionalitat\"}', '{\"es\":null}', '2021-05-14 17:00:54', '2021-05-14 17:00:54'),
+(99, 'targeta_sanitaria', '{\"es\":\"Targeta sanitaria\"}', '{\"es\":null}', '2021-05-14 17:01:27', '2021-05-14 17:01:27'),
+(100, 'cuenta_bancaria', '{\"es\":\"N\\u00ba cuenta bancaria\"}', '{\"es\":null}', '2021-05-14 17:01:52', '2021-05-14 17:01:52'),
+(101, 'mobil', '{\"es\":\"M\\u00f2bil\"}', '{\"es\":null}', '2021-05-14 17:02:08', '2021-05-14 17:02:08'),
+(102, 'telefono', '{\"es\":\"Tel\\u00e8fon\"}', '{\"es\":null}', '2021-05-14 17:02:48', '2021-05-14 17:02:48'),
+(103, 'datos_adresa', '{\"es\":\"Introduce los datos de tu adre\\u00e7a\"}', '{\"es\":null}', '2021-05-14 17:03:08', '2021-05-14 17:03:08'),
+(104, 'codigo_postal', '{\"es\":\"Codigo postal\"}', '{\"es\":null}', '2021-05-14 17:04:07', '2021-05-14 17:04:07'),
+(105, 'direccion', '{\"es\":\"Direccion\"}', '{\"es\":null}', '2021-05-14 17:04:29', '2021-05-14 17:04:29'),
+(106, 'poblacion', '{\"es\":\"Poblacion\"}', '{\"es\":null}', '2021-05-14 17:04:51', '2021-05-14 17:04:51'),
+(107, 'provincia', '{\"es\":\"Provincia\"}', '{\"es\":null}', '2021-05-14 17:05:10', '2021-05-14 17:05:10'),
+(108, 'nom_emergencia', '{\"es\":\"Nom d\'emerg\\u00e8ncia\"}', '{\"es\":null}', '2021-05-14 17:05:38', '2021-05-14 17:05:38'),
+(109, 'mobil_emergencia', '{\"es\":\"Tel\\u00e8fon m\\u00f2bil d\'emerg\\u00e8ncia\"}', '{\"es\":null}', '2021-05-14 17:06:40', '2021-05-14 17:06:40'),
+(110, 'telefono_emergencia', '{\"es\":\"Tel\\u00e8fon d\'emerg\\u00e8ncia\"}', '{\"es\":null}', '2021-05-14 17:07:08', '2021-05-14 17:07:08'),
+(111, 'casi_terminado', '{\"es\":\"Ya casi hemos terminado...\"}', '{\"es\":null}', '2021-05-14 17:08:03', '2021-05-14 17:08:03'),
+(112, 'tienes_hijos', '{\"es\":\"\\u00bfTienes hijos y quieres darles de alta para inscribirlos a las actividades?\"}', '{\"es\":null}', '2021-05-14 17:08:25', '2021-05-14 17:08:25'),
+(113, 'mensaje_contrario', '{\"es\":\"En caso contrario siempre podras a\\u00f1adirlos mas adelante desde tu perfil\"}', '{\"es\":null}', '2021-05-14 17:08:51', '2021-05-14 17:08:51'),
+(114, 'niño', '{\"es\":\"Ni\\u00f1o\"}', '{\"es\":null}', '2021-05-14 17:11:17', '2021-05-14 17:11:29'),
+(115, 'niña', '{\"es\":\"Ni\\u00f1a\"}', '{\"es\":null}', '2021-05-14 17:11:43', '2021-05-14 17:11:43'),
+(116, 'actualizar', '{\"es\":\"Actualizar\"}', '{\"es\":null}', '2021-05-14 17:12:53', '2021-05-14 17:12:53'),
+(117, 'editar', '{\"es\":\"Editar\"}', '{\"es\":null}', '2021-05-14 17:13:48', '2021-05-14 17:13:48'),
+(118, 'eliminar', '{\"es\":\"Eliminar\"}', '{\"es\":null}', '2021-05-14 17:14:08', '2021-05-14 17:14:08'),
+(119, 'atras', '{\"es\":\"Atras\"}', '{\"es\":null}', '2021-05-14 17:14:45', '2021-05-14 17:14:45'),
+(120, 'finalizar', '{\"es\":\"Finalizar\"}', '{\"es\":null}', '2021-05-14 17:15:09', '2021-05-14 17:15:09'),
+(121, 'siguente', '{\"es\":\"Siguente\"}', '{\"es\":null}', '2021-05-14 17:15:32', '2021-05-14 17:15:39'),
+(122, 'continuar_google', '{\"es\":\"Continuar con Google\"}', '{\"es\":null}', '2021-05-14 17:16:33', '2021-05-14 17:16:33'),
+(123, 'email', '{\"es\":\"Correo electr\\u00f3nico\"}', '{\"es\":null}', '2021-05-14 17:17:09', '2021-05-14 17:53:06'),
+(124, 'contraseña', '{\"es\":\"Contrase\\u00f1a\"}', '{\"es\":null}', '2021-05-14 17:17:28', '2021-05-14 17:17:28'),
+(125, 'mis_actividades', '{\"es\":\"Mis actividades\"}', '{\"es\":null}', '2021-05-14 17:18:18', '2021-05-14 17:18:18'),
+(126, 'ficha_inscripcion', '{\"es\":\"Ficha de inscripcion\"}', '{\"es\":null}', '2021-05-14 17:19:02', '2021-05-14 17:19:02'),
+(127, 'cliente', '{\"es\":\"Cliente\"}', '{\"es\":null}', '2021-05-14 17:19:26', '2021-05-14 17:19:26'),
+(128, 'extras', '{\"es\":\"Extras\"}', '{\"es\":null}', '2021-05-14 17:19:44', '2021-05-14 17:19:44'),
+(129, 'categorias', '{\"es\":\"Categor\\u00edas\"}', '{\"es\":null}', '2021-05-14 17:20:12', '2021-05-14 17:20:12'),
+(130, 'mas_inscripcion', '{\"es\":\"Ver mas inscripciones\"}', '{\"es\":null}', '2021-05-14 17:20:37', '2021-05-14 17:20:37'),
+(131, 'actualizar_familiar', '{\"es\":\"Actualizar familiar\"}', '{\"es\":null}', '2021-05-14 17:24:38', '2021-05-14 17:24:38'),
+(132, 'guardar', '{\"es\":\"Guardar\"}', '{\"es\":null}', '2021-05-14 17:26:40', '2021-05-14 17:26:40'),
+(133, 'no_hijos_actual', '{\"es\":\"Actualmente no tienes hijos a\\u00f1adidos\"}', '{\"es\":null}', '2021-05-14 17:27:31', '2021-05-14 17:27:31'),
+(134, 'guardar_cambios', '{\"es\":\"Guardar cambios\"}', '{\"es\":null}', '2021-05-14 17:30:34', '2021-05-14 17:30:34'),
+(135, 'telefono_mobil', '{\"es\":\"Telefono mobil\"}', '{\"es\":null}', '2021-05-14 17:32:00', '2021-05-14 17:32:10'),
+(136, 'telefono_fijo', '{\"es\":\"Telefono fijo\"}', '{\"es\":null}', '2021-05-14 17:32:38', '2021-05-14 17:32:38'),
+(137, 'numero_emergencia', '{\"es\":\"Numero emergencia\"}', '{\"es\":null}', '2021-05-14 17:33:56', '2021-05-14 17:33:56'),
+(138, 'numero_emergencia_place', '{\"es\":\"Numero de contacto de emergencia\"}', '{\"es\":null}', '2021-05-14 17:34:21', '2021-05-14 17:34:21'),
+(139, 'nombre_emer_place', '{\"es\":\"Nombre de contacto de emergencia\"}', '{\"es\":null}', '2021-05-14 17:34:39', '2021-05-14 17:34:39'),
+(140, 'segundo_num_emer', '{\"es\":\"Segundo numero emergencia\"}', '{\"es\":null}', '2021-05-14 17:35:23', '2021-05-14 17:35:23'),
+(141, 'segundo_num_emer_place', '{\"es\":\"Segundo numero de contacto de emergencia\"}', '{\"es\":null}', '2021-05-14 17:35:44', '2021-05-14 17:35:44'),
+(142, 'actual_password', '{\"es\":\"Contrase\\u00f1a actual\"}', '{\"es\":null}', '2021-05-14 17:37:24', '2021-05-14 17:37:24'),
+(143, 'new_password', '{\"es\":\"Nueva contrase\\u00f1a\"}', '{\"es\":null}', '2021-05-14 17:37:49', '2021-05-14 17:37:49'),
+(144, 'repeat_new_password', '{\"es\":\"Repite nueva contrase\\u00f1a\"}', '{\"es\":null}', '2021-05-14 17:38:19', '2021-05-14 17:38:19'),
+(145, 'label_email', '{\"es\":\"Introduce el correo electr\\u00f3nico para buscar tu cuenta.\"}', '{\"es\":null}', '2021-05-14 17:39:01', '2021-05-14 17:39:01'),
+(146, 'buscar', '{\"es\":\"Buscar\"}', '{\"es\":null}', '2021-05-14 17:39:48', '2021-05-14 17:39:48'),
+(147, 'password_rules', '{\"es\":\"La contrase\\u00f1a debe contener minimo 8 caracteres letra mayuscula, minuscula y un  numero.\"}', '{\"es\":null}', '2021-05-14 17:40:21', '2021-05-14 17:40:21'),
+(148, 'repeat_password_message', '{\"es\":\"Vuelve a escribir la contrase\\u00f1a\"}', '{\"es\":null}', '2021-05-14 17:42:26', '2021-05-14 17:42:26'),
+(149, 'repeat_password', '{\"es\":\"Repite contrase\\u00f1a\"}', '{\"es\":null}', '2021-05-14 17:43:51', '2021-05-14 17:43:51'),
+(150, 'recibir_noticias', '{\"es\":\"Recibir noticias y novedades\"}', '{\"es\":null}', '2021-05-14 17:44:39', '2021-05-14 17:44:39'),
+(151, 'terminos', '{\"es\":\"Aceptar t\\u00e9rminos y condiciones\"}', '{\"es\":null}', '2021-05-14 17:44:57', '2021-05-14 17:44:57'),
+(152, 'registrarse', '{\"es\":\"Registrarse\"}', '{\"es\":null}', '2021-05-14 17:45:37', '2021-05-14 17:45:37'),
+(153, 'respuestas', '{\"es\":\"Respuestas\"}', '{\"es\":null}', '2021-05-14 17:47:55', '2021-05-14 17:47:55'),
+(154, 'comentario_place', '{\"es\":\"Escribe tu comentario aqu\\u00ed...\"}', '{\"es\":null}', '2021-05-14 17:48:20', '2021-05-14 17:48:20'),
+(155, 'publicar_comentario', '{\"es\":\"Publicar comentario\"}', '{\"es\":null}', '2021-05-14 17:49:42', '2021-05-14 17:49:42'),
+(156, 'session_start', '{\"es\":\"Iniciar sesi\\u00f3n\"}', '{\"es\":null}', '2021-05-14 17:50:12', '2021-05-14 17:50:12'),
+(157, 'first_comment', '{\"es\":\"SE EL PRIMERO EN COMENTAR\"}', '{\"es\":null}', '2021-05-14 17:50:48', '2021-05-14 17:50:48'),
+(158, 'mas_comentarios', '{\"es\":\"Mostrar m\\u00e1s comentarios\"}', '{\"es\":null}', '2021-05-14 17:51:11', '2021-05-14 17:51:11'),
+(159, 'mensaje', '{\"es\":\"Mensaje\"}', '{\"es\":null}', '2021-05-14 17:53:41', '2021-05-14 17:53:41'),
+(160, 'enviar', '{\"es\":\"ENVIAR\"}', '{\"es\":null}', '2021-05-14 17:54:01', '2021-05-14 17:54:01'),
+(161, 'suscribirme', '{\"es\":\"SUSCRIBIRME\"}', '{\"es\":null}', '2021-05-14 17:55:17', '2021-05-14 17:55:17'),
+(162, 'accept_terms', '{\"es\":\"Confirmo que he leido y estoy de acuerdo con la Pol\\u00edtica de privacidad.\"}', '{\"es\":null}', '2021-05-14 17:55:46', '2021-05-14 17:55:46'),
+(163, 'ver_mas_noticias', '{\"es\":\"Ver mas noticias\"}', '{\"es\":null}', '2021-05-14 17:56:49', '2021-05-14 17:56:49'),
+(164, 'nuestro_catalago', '{\"es\":\"Nuestro catalogo\"}', '{\"es\":null}', '2021-05-15 04:12:07', '2021-05-15 04:12:07'),
+(165, 'todas', '{\"es\":\"Todas\"}', '{\"es\":null}', '2021-05-15 04:13:39', '2021-05-15 04:13:39'),
+(166, 'categoria', '{\"es\":\"Categor\\u00eda\"}', '{\"es\":null}', '2021-05-15 04:14:28', '2021-05-15 04:14:28'),
+(167, 'articulos', '{\"es\":\"Articulos\"}', '{\"es\":null}', '2021-05-15 04:14:45', '2021-05-15 04:14:45'),
+(168, 'precio', '{\"es\":\"Precio\"}', '{\"es\":null}', '2021-05-15 04:15:16', '2021-05-15 04:15:16'),
+(169, 'ordenar_por', '{\"es\":\"Ordenar productos por\"}', '{\"es\":null}', '2021-05-15 04:15:49', '2021-05-15 04:15:49'),
+(170, 'mas_bajo', '{\"es\":\"el m\\u00e1s bajo primero\"}', '{\"es\":null}', '2021-05-15 04:16:18', '2021-05-15 04:16:18'),
+(171, 'mas_alto', '{\"es\":\"el m\\u00e1s alto primero\"}', '{\"es\":null}', '2021-05-15 04:16:46', '2021-05-15 04:16:46'),
+(172, 'mas_nuevo', '{\"es\":\"Lo nuevo primero\"}', '{\"es\":null}', '2021-05-15 04:17:13', '2021-05-15 04:17:13'),
+(173, 'ultimas_actividades', '{\"es\":\"Ultimas actividades\"}', '{\"es\":null}', '2021-05-15 04:19:28', '2021-05-15 04:19:28'),
+(174, 'ver_mas', '{\"es\":\"Ver mas\"}', '{\"es\":null}', '2021-05-15 04:19:47', '2021-05-15 04:19:47'),
+(175, 'calendario_actividades', '{\"es\":\"Calendario de actividades\"}', '{\"es\":null}', '2021-05-15 04:21:10', '2021-05-15 04:21:10'),
+(176, 'open_session', '{\"es\":\"Inicie sesi\\u00f3n\"}', '{\"es\":null}', '2021-05-15 04:22:03', '2021-05-15 04:22:03'),
+(177, 'pass_recover', '{\"es\":\"\\u00bfHas olvidado la contrase\\u00f1a?\"}', '{\"es\":null}', '2021-05-15 04:22:38', '2021-05-15 04:22:38'),
+(178, 'no_account', '{\"es\":\"\\u00bfNo tienes cuenta?\"}', '{\"es\":null}', '2021-05-15 04:23:02', '2021-05-15 04:23:02'),
+(179, 'familiares', '{\"es\":\"Familiares\"}', '{\"es\":null}', '2021-05-15 04:24:20', '2021-05-15 04:24:20'),
+(180, 'imagen', '{\"es\":\"Imagen\"}', '{\"es\":null}', '2021-05-15 04:24:45', '2021-05-15 04:24:45'),
+(181, 'personal_data', '{\"es\":\"Datos personales\"}', '{\"es\":null}', '2021-05-15 04:28:02', '2021-05-15 04:28:02'),
+(182, 'familiares_list', '{\"es\":\"Lista de familiares\"}', '{\"es\":null}', '2021-05-15 04:28:21', '2021-05-15 04:28:21'),
+(183, 'change_foto', '{\"es\":\"Cambiar foto perfil\"}', '{\"es\":null}', '2021-05-15 04:28:42', '2021-05-15 04:28:42'),
+(184, 'upload_image', '{\"es\":\"Sube tu imagen\"}', '{\"es\":null}', '2021-05-15 04:29:01', '2021-05-15 04:29:01'),
+(185, 'ecoge_imagen', '{\"es\":\"Escoge imagen\"}', '{\"es\":null}', '2021-05-15 04:29:24', '2021-05-15 04:29:24'),
+(186, 'update_password', '{\"es\":\"Actualizar contrase\\u00f1a\"}', '{\"es\":null}', '2021-05-15 04:32:20', '2021-05-15 04:32:20'),
+(187, 'restablecer_password', '{\"es\":\"Restablecer contrase\\u00f1a\"}', '{\"es\":null}', '2021-05-15 04:33:06', '2021-05-15 04:33:06'),
+(188, 'recover_account', '{\"es\":\"Recupera tu cuenta\"}', '{\"es\":null}', '2021-05-15 04:33:39', '2021-05-15 04:33:39'),
+(189, 'create_account', '{\"es\":\"Crea tu cuenta ahora\"}', '{\"es\":null}', '2021-05-15 04:34:04', '2021-05-15 04:34:04'),
+(190, 'tienes_cuenta', '{\"es\":\"\\u00bfYa tienes una cuenta?\"}', '{\"es\":null}', '2021-05-15 04:34:25', '2021-05-15 04:34:25'),
+(191, 'entrar', '{\"es\":\"Entrar\"}', '{\"es\":null}', '2021-05-15 04:34:41', '2021-05-15 04:34:41'),
+(192, 'actividades', '{\"es\":\"Actividades\"}', '{\"es\":null}', '2021-05-15 04:35:43', '2021-05-15 04:35:43'),
+(193, 'descubre_actividades', '{\"es\":\"Descubre y participa en nuestras actividades. Estaremos encantados de verte.\"}', '{\"es\":null}', '2021-05-15 04:36:03', '2021-05-15 04:36:03'),
+(194, 'ver_mas_info', '{\"es\":\"Mas informaci\\u00f3n aqu\\u00ed\"}', '{\"es\":null}', '2021-05-15 04:37:04', '2021-05-15 04:37:04'),
+(195, 'inscribete', '{\"es\":\"Inscribirse YA!\"}', '{\"es\":null}', '2021-05-15 04:37:25', '2021-05-15 04:37:25'),
+(196, 'inscripcion', '{\"es\":\"Inscripci\\u00f3n\"}', '{\"es\":null}', '2021-05-15 04:38:29', '2021-05-15 04:38:29'),
+(197, 'send_consult', '{\"es\":\"Env\\u00edanos tu consulta\"}', '{\"es\":null}', '2021-05-15 04:40:06', '2021-05-15 04:40:06'),
+(198, 'inscrigete_newsletter', '{\"es\":\"SUSCR\\u00cdBETE A NUESTRA NEWSLETTER\"}', '{\"es\":null}', '2021-05-15 04:40:30', '2021-05-15 04:40:30'),
+(199, 'contact_text', '{\"es\":null}', '{\"es\":\"<p>Si deseas contactar con nosotros puedes hacerlo a trav&eacute;s de los siguientes canales:<br \\/>\\r\\n<br \\/>\\r\\nServicio de Atenci&oacute;n al Cliente en el tel&eacute;fono 968 976 385 o a trav&eacute;s de Whatsapp en el tel&eacute;fono 661 325 106.<br \\/>\\r\\nPor email: contacto@streetpadel.com<br \\/>\\r\\nFormulario de contacto que hay m&aacute;s abajo.<br \\/>\\r\\nHorario de Atenci&oacute;n al Cliente<br \\/>\\r\\n<br \\/>\\r\\nEl horario de Atenci&oacute;n Comercial es de Lunes a Viernes de 9:00 a 18:00 horas. En Verano, los s&aacute;bados el horario de atenci&oacute;n comercial ser&aacute; de 9:00 a 18:00 horas., ininterrumpidamente.<br \\/>\\r\\n<br \\/>\\r\\nFuera de ese horario, realiza tus consultas a trav&eacute;s de nuestro correo electr&oacute;nico contacto@streetpadel.com y nos pondremos en contacto contigo lo antes posible.<\\/p>\"}', '2021-05-15 04:41:34', '2021-05-15 04:41:34'),
+(200, 'escuela', '{\"es\":\"Escuela\"}', '{\"es\":null}', '2021-05-15 04:44:23', '2021-05-15 04:44:23'),
+(201, 'isntalaciones_titulo', '{\"es\":\"INSTAL\\u00b7LACIONS ESPORTIVES\"}', '{\"es\":null}', '2021-05-15 04:45:03', '2021-05-15 04:45:03'),
+(202, 'multimedia_nuestra', '{\"es\":\"Nuestra multimedia\"}', '{\"es\":null}', '2021-05-15 04:45:35', '2021-05-15 04:45:35'),
+(203, 'nuestros_videos', '{\"es\":\"Nuestros videos\"}', '{\"es\":null}', '2021-05-15 04:46:04', '2021-05-15 04:46:04'),
+(204, 'noticias', '{\"es\":\"Noticias\"}', '{\"es\":null}', '2021-05-15 04:46:50', '2021-05-15 04:46:50'),
+(205, 'ultimas_noticias', '{\"es\":\"Ultimas noticias\"}', '{\"es\":null}', '2021-05-15 04:48:14', '2021-05-15 04:48:21'),
+(206, 'descubre_galleria', '{\"es\":\"Descubre nuestra galer\\u00eda\"}', '{\"es\":null}', '2021-05-15 04:49:37', '2021-05-15 04:49:37'),
+(207, 'ingredientes', '{\"es\":\"Ingredientes\"}', '{\"es\":null}', '2021-05-15 04:50:01', '2021-05-15 04:50:01'),
+(208, 'nuestro_menu', '{\"es\":\"Nuestro Menu\"}', '{\"es\":null}', '2021-05-15 04:50:22', '2021-05-15 04:50:22'),
+(209, 'comida_exquisita', '{\"es\":\"Comida exquisita & Horas divertidas\"}', '{\"es\":null}', '2021-05-15 04:50:45', '2021-05-15 04:50:45'),
+(210, 'restaurante_texto', '{\"es\":null}', '{\"es\":\"<p>Restaurante-Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam maiores quibusdam consequuntur et sit nulla quasi dolorum? Aliquam, dignissimos? Qui id dolor minus enim praesentium doloremque beatae reiciendis quibusdam. Sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam maiores quibusdam consequuntur et sit nulla quasi dolorum? Aliquam, dignissimos? Qui id dolor minus enim praesentium doloremque beatae reiciendis quibusdam. Sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam maiores quibusdam consequuntur et sit nulla quasi dolorum? Aliquam, dignissimos? Qui id dolor minus enim praesentium doloremque beatae reiciendis quibusdam. Sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam maiores quibusdam consequuntur et sit nulla quasi dolorum? Aliquam, dignissimos? Qui id dolor minus enim praesentium doloremque beatae reiciendis quibusdam. Sit.<\\/p>\"}', '2021-05-15 04:51:52', '2021-05-15 04:51:52'),
+(211, 'bienvenido', '{\"es\":\"Bienvenido\"}', '{\"es\":null}', '2021-05-15 04:52:31', '2021-05-15 04:52:31'),
+(212, 'socio_fes', '{\"es\":\"Fes-te soci\"}', '{\"es\":null}', '2021-05-15 04:53:04', '2021-05-15 04:53:04'),
+(213, 'socios_text', '{\"es\":null}', '{\"es\":\"<p>Vine a veure&rsquo;ns a les nostres instal&middot;lacions i comprova de primera m&agrave; tot el que el Club Tennis i P&agrave;del Blanes et pot oferir a tu i la teva fam&iacute;lia.<br \\/>\\r\\n<br \\/>\\r\\nI si ja ens coneixes i vols fer-te&rsquo;n soci, ara &eacute;s molt f&agrave;cil! Nom&eacute;s cal que omplis el full d&rsquo;inscripci&oacute; que tenim a la recepci&oacute; del Club amb les teves dades. Un cop omplert, cal que passis per les oficines del club o b&eacute; si ho prefereixes ens el facis arribar per correu electr&ograve;nic a l&rsquo;adre&ccedil;a seg&uuml;ent:&nbsp;<a href=\\\"http:\\/\\/127.0.0.1:8000\\/socio\\\">info@tennisblanes.com<\\/a><br \\/>\\r\\n<br \\/>\\r\\nEn aquest 2021 hi ha moltes novetats, entre elles:<br \\/>\\r\\n<br \\/>\\r\\nTots el socis juguen gratis al p&agrave;del a qualsevol hora i dia: americanes, partits etc&hellip; Tots el socis poden utilitzar les nostres instal&middot;lacions del nou servei de gimn&agrave;s, PISCINA<br \\/>\\r\\n<br \\/>\\r\\nAl ser socis del club Tennis i P&agrave;del Blanes tamb&eacute; podeu gaudir dels preus de soci del Fitness &amp; Spa del Club Vela Blanes<br \\/>\\r\\n<br \\/>\\r\\nCom cuidem als nostres socis!!!<\\/p>\"}', '2021-05-15 04:53:48', '2021-05-15 04:53:48'),
+(214, 'nuevas_quotas', '{\"es\":\"Hem creat noves quotes personalitzades\"}', '{\"es\":null}', '2021-05-15 04:54:24', '2021-05-15 04:54:24'),
+(215, 'calendario', '{\"es\":\"Calendario\"}', '{\"es\":null}', '2021-05-15 05:08:23', '2021-05-15 05:08:23'),
+(216, 'instalciones', '{\"es\":\"Instalaciones\"}', '{\"es\":null}', '2021-05-15 05:08:52', '2021-05-15 05:08:52'),
+(217, 'ultimas_noticias_desc', '{\"es\":\"Mantente informado de todas nuestras novedades\"}', '{\"es\":null}', '2021-05-15 05:10:19', '2021-05-15 05:10:19'),
+(218, 'instalaciones-desc', '{\"es\":\"instalaciones-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet deleniti\"}', '{\"es\":null}', '2021-05-15 05:11:32', '2021-05-15 05:11:32'),
+(219, 'ver_instalacion', '{\"es\":\"Ver instalacion\"}', '{\"es\":null}', '2021-05-15 05:12:09', '2021-05-15 05:12:09'),
+(220, 'contactenos', '{\"es\":\"Cont\\u00e1ctenos\"}', '{\"es\":null}', '2021-05-15 05:13:09', '2021-05-15 05:13:09'),
+(221, 'calendar_text', '{\"es\":null}', '{\"es\":\"<p>calendar_Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta iure laborum minima quis, dolores laboriosam nulla, perferendis facilis ipsa praesentium adipisci, aliquid voluptatum maiores. Sint quia itaque aliquam quam asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo totam quisquam tenetur dicta laudantium ipsam, quam optio consectetur necessitatibus sapiente, recusandae eaque enim. Rem voluptatibus deleniti sapiente, nemo deserunt iure?<\\/p>\"}', '2021-05-15 05:15:04', '2021-05-15 05:15:04'),
+(222, 'reserva', '{\"es\":\"RESERVA\"}', '{\"es\":null}', '2021-05-15 05:17:13', '2021-05-15 05:17:13'),
+(223, 'la_teva', '{\"es\":\"LA TEVA PISTA\"}', '{\"es\":null}', '2021-05-15 05:17:25', '2021-05-15 05:17:25'),
+(224, 'reservar_pista', '{\"es\":\"RESERVAR PISTA\"}', '{\"es\":null}', '2021-05-15 05:17:35', '2021-05-15 05:17:35'),
+(225, 'instalciones_texto', '{\"es\":null}', '{\"es\":\"<p>Visita nuestras instalaciones. Tenemos instalaciones de todo tipo gimnacio, picina, pistas de tenis y padel, salas de descanso y mucho mas.<\\/p>\"}', '2021-05-15 05:19:10', '2021-05-15 05:19:10'),
+(226, 'calendario_text', '{\"es\":null}', '{\"es\":\"<p>No te pierdas ninguna de las nuestras actividades. Aqui podras encontrar un calendario con las actividades semanales. A que esperas para verlo.<\\/p>\"}', '2021-05-15 05:20:04', '2021-05-15 05:20:04'),
+(227, 'actividades_text', '{\"es\":null}', '{\"es\":\"<p>Descubre y apuntate a nuestras actividades semanales. Pasa momentos divertidos con nosotros. Toneos, eventos y actividades de todo tipo.<\\/p>\"}', '2021-05-15 05:20:35', '2021-05-15 05:20:35'),
+(228, 'noticias_text', '{\"es\":null}', '{\"es\":\"<p>Descubra las &uacute;ltimas noticias sobre nuestro centro aqu&iacute;. Las ofertas especiales, renovaciones, colaboraciones u otras novedades.<br \\/>\\r\\nLas podr&aacute; encontrar en el bloque de noticias.<\\/p>\"}', '2021-05-15 05:21:51', '2021-05-15 05:21:51');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -1261,10 +1518,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `provider_id`, `provider`, `email_validate`, `token_validate_email`, `token_recover_email`, `active_token_email`, `remember_token`, `password`, `rol_id`, `activo`, `created_at`, `updated_at`) VALUES
-(64, 'keylorubio@gmail.com', NULL, NULL, 1, '', NULL, 0, 'AviYaOWPT6TRdJvHeFDa3AWNlbVudZvc62AJtBWSqxDXE29aXFhY1l869yVi', '$2y$10$F6GGEfS3n.v2h2S6xaO/Y./EJ6Xdfq7.uLezYeMLsb.Gzv2Ebz9yu', 2, 1, '2021-04-03 09:03:10', '2021-04-28 14:28:05'),
-(68, 'burbiantv@gmail.com', NULL, NULL, 1, '', NULL, 0, 'qUbu88WEJYuJkQvck9NDe6Q8pEi7oucHSDQbxCdp9qJSpOqi2vXLWD5ZuWZv', '$2y$10$JMWDmlYni97S7aNL2uJcm.tZefV25F3rG6E2A/CZg8jKu4UoGMXUm', 4, 1, '2021-04-18 07:57:54', '2021-04-20 11:50:08'),
-(69, 'evgeny.lyubeznyy@basetis.com', '108296221062956995621', 'google', 1, NULL, NULL, 0, NULL, NULL, 1, 1, '2021-04-28 11:13:33', '2021-04-28 11:13:33'),
-(70, 'e.lyubeznyy@sapalomera.cat', '102219447204809890077', 'google', 1, NULL, NULL, 0, NULL, NULL, 1, 1, '2021-05-07 17:59:46', '2021-05-07 17:59:46');
+(64, 'keylorubio@gmail.com', NULL, NULL, 1, '', '', 0, '0QwDzZMNHRIPd4hYkx604xoMRT7rWWF1MwkBreEMXiHo1VsE1mEKQPJNZYAv', '$2y$10$1K0X5Rsa2ceyV9bHJOS/7.y4KUuChD.zXy98GRt1a0C2y/NE3FUYy', 3, 1, '2021-04-03 09:03:10', '2021-05-15 06:31:17'),
+(82, 'e.lyubeznyy@sapalomera.cat', '102219447204809890077', 'google', 1, NULL, NULL, 0, NULL, NULL, 1, 1, '2021-05-14 15:48:07', '2021-05-14 15:48:07');
 
 -- --------------------------------------------------------
 
@@ -1554,6 +1809,12 @@ ALTER TABLE `social_networks`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `translations`
+--
+ALTER TABLE `translations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -1580,13 +1841,13 @@ ALTER TABLE `web_vista_pdfs`
 -- AUTO_INCREMENT de la tabla `actividades`
 --
 ALTER TABLE `actividades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `actividade_form_grupo_extra`
 --
 ALTER TABLE `actividade_form_grupo_extra`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `actividad_categorias`
@@ -1598,7 +1859,7 @@ ALTER TABLE `actividad_categorias`
 -- AUTO_INCREMENT de la tabla `actividad_categoria_actividade`
 --
 ALTER TABLE `actividad_categoria_actividade`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `actividad_extras`
@@ -1610,7 +1871,7 @@ ALTER TABLE `actividad_extras`
 -- AUTO_INCREMENT de la tabla `actividad_extra_actividade`
 --
 ALTER TABLE `actividad_extra_actividade`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `actividad_extra_form_grupo_opcione`
@@ -1634,13 +1895,13 @@ ALTER TABLE `actividad_fecha_horarios`
 -- AUTO_INCREMENT de la tabla `actividad_inscripciones`
 --
 ALTER TABLE `actividad_inscripciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `actividad_pdfs`
 --
 ALTER TABLE `actividad_pdfs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `actividad_tipos`
@@ -1658,13 +1919,13 @@ ALTER TABLE `alquiler_pistas`
 -- AUTO_INCREMENT de la tabla `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `client_parientes_relacions`
 --
 ALTER TABLE `client_parientes_relacions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `client_tipos_parientes`
@@ -1682,7 +1943,7 @@ ALTER TABLE `form_grupo_extras`
 -- AUTO_INCREMENT de la tabla `form_grupo_opciones`
 --
 ALTER TABLE `form_grupo_opciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `form_opcion_extras`
@@ -1694,7 +1955,7 @@ ALTER TABLE `form_opcion_extras`
 -- AUTO_INCREMENT de la tabla `form_opcion_opciones`
 --
 ALTER TABLE `form_opcion_opciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `galleria_images`
@@ -1724,7 +1985,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `newsletters`
 --
 ALTER TABLE `newsletters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `noticias`
@@ -1736,7 +1997,7 @@ ALTER TABLE `noticias`
 -- AUTO_INCREMENT de la tabla `noticia_comentarios`
 --
 ALTER TABLE `noticia_comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `quota_socios`
@@ -1805,10 +2066,16 @@ ALTER TABLE `social_networks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT de la tabla `translations`
+--
+ALTER TABLE `translations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
+
+--
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT de la tabla `web_vistas`

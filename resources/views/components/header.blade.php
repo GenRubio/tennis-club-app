@@ -121,6 +121,7 @@
         top: 145px;
         z-index: 9999999;
     }
+
     .avatar {
         vertical-align: middle;
         width: 37px;
@@ -153,15 +154,10 @@
     <div class="swiper-container swiper-1">
         <div class="swiper-wrapper">
             <div class="swiper-slide anti-parpadeo"
-                style="background-image: url('{{ url('/images/home/780473.jpg') }}')"></div>
+                style="background-image: url('{{ url('/uploads/header_1.jpg') }}')"></div>
 
             <div class="swiper-slide anti-parpadeo"
-                style="background-image: url('{{ url('/images/galleria/bbf684c7a2dce8024fd90cb098773ba5-image.jpg') }}')">
-            </div>
-            <div class="swiper-slide anti-parpadeo"
-                style="background-image: url('{{ url('/images/home/780473.jpg') }}');"></div>
-            <div class="swiper-slide anti-parpadeo"
-                style="background-image: url('{{ url('/images/galleria/bbf684c7a2dce8024fd90cb098773ba5-image.jpg') }}')">
+                style="background-image: url('{{ url('/uploads/header_2.jpg') }}')">
             </div>
         </div>
     </div>
@@ -169,7 +165,7 @@
         <div class="d-flex justify-content-center">
             <div class="logo">
                 <a href="{{ route('home') }}">
-                    <img src="{{ url('/images/logo.png') }}" height="170px;" width="170px">
+                    <img src="{{ url('/uploads/logo.png') }}" height="170px;" width="170px">
                 </a>
             </div>
         </div>
@@ -185,14 +181,14 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <a class="navbar-brand d-none d-lg-block" href="{{ route('home') }}">
-                            <img class="nav-bar-logo" src="{{ url('/images/logo.png') }}" width="46" height="46"
+                            <img class="nav-bar-logo" src="{{ url('/uploads/logo.png') }}" width="46" height="46"
                                 alt="">
                         </a>
                         <ul class="navbar-nav  text-xl-center text-lg-center mr-auto ml-auto">
                             <li class="nav-item t-border">
                                 <a class="nav-link" href="{{ route('home') }}"
                                     style="{{ Request::is('/') ? 'color:whitesmoke !important' : '' }}; font-size:16px;">
-                                    <strong>HOME</strong>
+                                    <strong>{{ translate('home') }}</strong>
                                 </a>
                             </li>
 
@@ -200,63 +196,67 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                     style="{{ Request::is('escuela-padel') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
-                                    <strong>PADEL</strong>
+                                    <strong>{{ translate('padel') }}</strong>
                                 </a>
                                 <div class="dropdown-menu anti-parpadeo nav-select" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item nav-select-item"
                                         href="{{ route('escuela', ['slug' => 'escuela-padel']) }}"
                                         style="{{ Request::is('escuela-padel') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
-                                        Escuela de padel</a>
-                                    <a class="dropdown-item nav-select-item" href="#">Competiciones / Torneos</a>
-                                    <a class="dropdown-item nav-select-item" href="#">Reserva de pista</a>
+                                        {{ translate('escuela_padel') }}
+                                    </a>
+                                    <a class="dropdown-item nav-select-item"
+                                        href="https://playtomic.io/tennis-blanes/745f469e-c8bd-4aa6-b427-90b080b53058?q=TENNIS~2021-05-15~~~"
+                                        target="_blank">{{ translate('reservar_pista') }}</a>
                                 </div>
                             </li>
 
                             <li class="nav-item dropdown t-border">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                    style=";font-size:16px;">
-                                    <strong>TENNIS</strong>
+                                    style="font-size:16px;">
+                                    <strong>{{ translate('tenis') }}</strong>
                                 </a>
                                 <div class="dropdown-menu anti-parpadeo nav-select" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item nav-select-item"
                                         href="{{ route('escuela', ['slug' => 'escuela-tenis']) }}"
                                         style="{{ Request::is('escuela-tenis') ? 'color:whitesmoke !important' : '' }}">
-                                        Escuela de tenis</a>
-                                    <a class="dropdown-item nav-select-item" href="#">Competiciones / Torneos</a>
-                                    <a class="dropdown-item nav-select-item" href="#">Reserva de pista</a>
+                                        {{ translate('escuela_tenis') }}
+                                    </a>
+                                    <a class="dropdown-item nav-select-item"
+                                        href="https://playtomic.io/tennis-blanes/745f469e-c8bd-4aa6-b427-90b080b53058?q=TENNIS~2021-05-15~~~"
+                                        target="_blank">{{ translate('reservar_pista') }}</a>
                                 </div>
                             </li>
 
                             <li class="nav-item t-border">
                                 <a class="nav-link" href="{{ route('socios') }}"
                                     style="{{ Request::is('socio') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
-                                    <strong>SOCIOS</strong>
+                                    <strong>{{ translate('socios') }}</strong>
                                 </a>
                             </li>
                             <li class="nav-item t-border">
                                 <a class="nav-link" href="{{ route('tienda') }}"
                                     style="{{ Request::is('tienda') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
-                                    <strong>TIENDA</strong>
+                                    <strong>{{ translate('tienda') }}</strong>
                                 </a>
                             </li>
 
                             <li class="nav-item t-border">
                                 <a class="nav-link" href="{{ route('restaurante') }}"
                                     style="{{ Request::is('restaurante') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
-                                    <strong>RESTAURANTE</strong>
+                                    <strong>{{ translate('restaurante') }}</strong>
                                 </a>
                             </li>
                             <li class="nav-item t-border">
                                 <a class="nav-link" href="{{ route('galleria') }}"
                                     style="{{ Request::is('multimedia') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
-                                    <strong>MULTIMEDIA</strong>
+                                    <strong>{{ translate('multimedia') }}</strong>
                                 </a>
                             </li>
                             <li class="nav-item t-border">
                                 <a class="nav-link" href="{{ route('contacto') }}"
                                     style="{{ Request::is('contacto') ? 'color:whitesmoke !important' : '' }};font-size:16px;">
-                                    <strong>CONTACTO</strong>
+                                    <strong>{{ strtoupper(translate('contacto')) }}</strong>
                                 </a>
                             </li>
                         </ul>
@@ -266,15 +266,15 @@
                             @if (count(auth()->user()->clients) > 0)
                                 <form class="form-inline my-2 my-lg-0">
                                     <div class="btn-group">
-                                        <a type="button"  role="button" class="dropdown-toggle user-dropdown" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false" style="text-decoration: none;"
-                                            id="userlogo">
+                                        <a type="button" role="button" class="dropdown-toggle user-dropdown"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                            style="text-decoration: none;" id="userlogo">
                                             <img src="{{ auth()->user()->cliente()->image
     ? url(
         auth()->user()->cliente()->image,
     )
     : url('/images/default.jpg') }}"
-                                                 class="avatar" id="headerAvatar">
+                                                class="avatar" id="headerAvatar">
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right anti-parpadeo dropdow-status">
                                             <div class="d-flex justify-content-center">
@@ -298,7 +298,7 @@
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                     <div class="col-9">
-                                                        Mi perfil
+                                                        {{ translate('mi_perfil') }}
                                                     </div>
                                                 </div>
 
@@ -310,7 +310,7 @@
                                                         <i class="fas fa-cogs"></i>
                                                     </div>
                                                     <div class="col-10">
-                                                        Ajustes
+                                                        {{ translate('ajustes') }}
                                                     </div>
                                                 </div>
                                             </a>
@@ -322,7 +322,7 @@
                                                         <i class="fas fa-sign-out-alt"></i>
                                                     </div>
                                                     <div class="col-10">
-                                                        Salir
+                                                        {{ translate('salir') }}
                                                     </div>
                                                 </div>
                                             </a>
@@ -332,17 +332,17 @@
                             @else
                                 <form class="form-inline my-2 my-lg-0">
                                     <a href="{{ route('login') }}" type="button"
-                                        class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block">ENTRAR</a>
+                                        class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block">{{ translate('entrar') }}</a>
                                     <a href="{{ route('registro') }}" type="button"
-                                        class="btn btn-danger mt-1 d-none d-sm-block">REGISTRO</a>
+                                        class="btn btn-danger mt-1 d-none d-sm-block">{{ translate('registro') }}</a>
                                 </form>
                             @endif
                         @else
                             <form class="form-inline my-2 my-lg-0">
                                 <a href="{{ route('login') }}" type="button"
-                                    class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block d-block">ENTRAR</a>
+                                    class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block d-block">{{ translate('entrar') }}</a>
                                 <a href="{{ route('registro') }}" type="button"
-                                    class="btn btn-danger mt-1 d-none d-sm-block d-block">REGISTRO</a>
+                                    class="btn btn-danger mt-1 d-none d-sm-block d-block">{{ translate('registro') }}</a>
                             </form>
                         @endauth
                     </div>

@@ -20,8 +20,8 @@ class LoginForm extends Component
     ];
 
     protected $messages = [
-        'email.required' => 'Campo email no puede estar vacio.',
-        'email.email' => 'El formato de email es incorrecto.',
+        'email.required' => "translate('error_email')",
+        'email.email' => "translate('error_email_2')",
     ];
     public function login(){
         $this->validate();
@@ -33,7 +33,7 @@ class LoginForm extends Component
             redirect()->route('me');
         }
         else{
-            session()->flash('error', 'Email o contraseña incorrectos.');
+            session()->flash('error', translate('error_session'));
         }
 
         $this->resetForm();

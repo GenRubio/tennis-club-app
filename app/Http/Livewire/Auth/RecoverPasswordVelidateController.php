@@ -17,13 +17,13 @@ class RecoverPasswordVelidateController extends Component
         return view('livewire.auth.recover-password-velidate-controller');
     }
     protected $rules = [
-        'password' => ['required', 'regex:/^(?=(?:.*[0-9]){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){2})\S{8,}$/'],
+        'password' => ['required', 'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/'],
         'password_repeat' => ['required', 'required_with:password', 'same:password'],
     ];
 
     protected $messages = [
-        'email.required' => 'Campo email no puede estar vacio.',
-        'email.email' => 'El formato de email es incorrecto.',
+        'email.required' => "translate('error_email')",
+        'email.email' => "translate('error_email_2')",
     ];
     public function change(){
         $this->validate();
@@ -35,8 +35,8 @@ class RecoverPasswordVelidateController extends Component
             'token_recover_email' => '',
             'active_token_email' => 0
         ]);
-
         //Redirect to user dashboard
+        return redirect()->route('login');
 
         $this->resetForm();
     }

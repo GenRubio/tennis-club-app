@@ -278,25 +278,25 @@ class ClienteDatos extends Component
     private function validateCodigoPostal()
     {
         if ($this->codigoPostal == "") {
-            $this->addError('errorCodigoPostal', 'Codigo postal incorrecto.');
+            $this->addError('errorCodigoPostal', translate('error_postal'));
         }
     }
     private function validateDireccion()
     {
         if ($this->direccion == "") {
-            $this->addError('errorDireccion', 'Direccion incorrecta.');
+            $this->addError('errorDireccion', translate('error_direcion'));
         }
     }
     private function validatePoblacion()
     {
         if ($this->poblacion == "") {
-            $this->addError('errorPoblacion', 'Poblacion incorrecta.');
+            $this->addError('errorPoblacion', translate('error_poblacion'));
         }
     }
     private function validateProvincia()
     {
         if ($this->provincia == "") {
-            $this->addError('errorProvincia', 'Provincia incorrecta.');
+            $this->addError('errorProvincia', translate('error_provincia'));
         }
     }
     ///Familiar form rules
@@ -316,12 +316,12 @@ class ClienteDatos extends Component
     {
        
         if ($this->tagetaSanitariaF == "") {
-            $this->addError('errorTargeta', 'El campo targeta es requerido.');
+            $this->addError('errorTargeta', translate('error_tageta_1'));
         }
         else {
             $cliente = Client::where('cat_salut', $this->tagetaSanitariaF)->first();
             if ($cliente){
-                $this->addError('errorTargeta', 'Este cliente ya esta registrado.');
+                $this->addError('errorTargeta', translate('error_cliente_exist'));
             }
         }
     }
@@ -330,34 +330,34 @@ class ClienteDatos extends Component
     {
         if ($this->dataNacimientoF) {
             if ($this->calcular_edad($this->dataNacimientoF) > 18 || $this->calcular_edad($this->dataNacimientoF) < 0) {
-                $this->addError('errorDataNacimiento', 'La fecha de nacimiento incorrecta.');
+                $this->addError('errorDataNacimiento', translate('error_data'));
             }
         } else {
-            $this->addError('errorDataNacimiento', 'La fecha de nacimiento incorrecta.');
+            $this->addError('errorDataNacimiento', translate('error_data'));
         }
     }
     private function validateSexeF()
     {
         if ($this->sexeF == -1 || $this->sexeF > 1) {
-            $this->addError('errorSexe', 'Porfavor seleciona el sexe.');
+            $this->addError('errorSexe', translate('error_sexe'));
         }
     }
     private function validateNameF()
     {
         if ($this->nombreF == "") {
-            $this->addError('errorNombre', 'El campo nombre es requerido.');
+            $this->addError('errorNombre', translate('error_nombre'));
         }
     }
     private function validateApellidosF()
     {
         if ($this->apellidosF == "") {
-            $this->addError('errorApellidos', 'El campo apellidos es requerido.');
+            $this->addError('errorApellidos', translate('error_apellido'));
         }
     }
     private function validateNacionalidadF()
     {
         if ($this->nacionalidadF == "null") {
-            $this->addError('errorNacionalidadF', 'El campo nacionalitat es requerido.');
+            $this->addError('errorNacionalidadF', translate('error_nacionalidad'));
         }
     }
 
@@ -367,61 +367,61 @@ class ClienteDatos extends Component
         $bday = new DateTime($this->dataNacimiento);
         $bday->add(new DateInterval("P18Y"));
         if ($bday > new DateTime()) {
-            $this->addError('errorDataNacimiento', 'La fecha de nacimiento incorrecta.');
+            $this->addError('errorDataNacimiento', translate('error_data'));
         }
     }
     private function validateSexe()
     {
         if ($this->sexe == -1 || $this->sexe > 1) {
-            $this->addError('errorSexe', 'Porfavor seleciona el sexe.');
+            $this->addError('errorSexe', translate('error_sexe'));
         }
     }
     private function validateName()
     {
         if ($this->nombre == "") {
-            $this->addError('errorNombre', 'El campo nombre es requerido.');
+            $this->addError('errorNombre', translate('error_nombre'));
         }
     }
     private function validateApellidos()
     {
         if ($this->apellidos == "") {
-            $this->addError('errorApellidos', 'El campo apellidos es requerido.');
+            $this->addError('errorApellidos', translate('error_apellido'));
         }
     }
     private function validateNacionalidad()
     {
         if ($this->nacionalidad == "null") {
-            $this->addError('errorNacionalidad', 'El campo nacionalitat es requerido.');
+            $this->addError('errorNacionalidad', translate('error_nacionalidad'));
         }
     }
     private function validateMobil()
     {
         if ($this->telefonoContacto1 == "") {
-            $this->addError('errorMobil', 'El campo mòbil es requerido.');
+            $this->addError('errorMobil', translate('error_mobil'));
         }
     }
     private function validateIdentificador()
     {
         if ($this->tipoIdentificador == 1) { //DNI
             if (!$this->validateNif($this->identificador)) {
-                $this->addError('errorIdentificador', 'El campo DNI es incorrecto.');
+                $this->addError('errorIdentificador', translate('error_dni'));
             }
         } else if ($this->tipoIdentificador == 2) { //CIF
             if (!$this->cif_validation($this->identificador)) {
-                $this->addError('errorIdentificador', 'El campo CIF es incorrecto.');
+                $this->addError('errorIdentificador', translate('error_cif'));
             }
         } else if ($this->tipoIdentificador == 3) { //Passaport
             if ($this->tipoIdentificador == "") {
-                $this->addError('errorIdentificador', 'El campo Passaport es incorrecto.');
+                $this->addError('errorIdentificador', translate('error_passaport'));
             }
         } else if ($this->tipoIdentificador == 4) { //NIE
             if (!$this->validateNie($this->identificador)) {
-                $this->addError('errorIdentificador', 'El campo NIE es incorrecto.');
+                $this->addError('errorIdentificador', translate('error_nie'));
             }
         } 
         $cliente = Client::where('dni', $this->identificador)->first();
         if ($cliente){
-            $this->addError('errorIdentificador', 'Este cliente ya esta registrado.');
+            $this->addError('errorIdentificador', translate('error_cliente_exist'));
         }
     }
     private function cif_validation($cif)

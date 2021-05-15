@@ -33,35 +33,30 @@
                     <img class="img-logo-footer" src="{{ url('/images/unnamed.png') }}">
                 </div>
                 <div style="color: whitesmoke; margin-top: 5px;">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus esse itaque sunt neque
-                    voluptates odit adipisci recusandae! Assumenda, placeat iure dolorum esse tempore sed illo,
-                    consequatur, dolorem repellendus quaerat reiciendis?
+                   {!! translate('web_descripcion') !!}
                 </div>
             </div>
             <div class="col-xl-5 col-lg-5">
                 <div>
                     <div class="row">
                         <div class="col-xl-6 col-lg-6">
-                            <p style="color:whitesmoke; font-weight:bold;">HORARI</p>
-                            <p style="color:whitesmoke">
-                                Dilluns a divendres <br>7:00-22:30h<br>
-                                Dissabte 8:00-21:30h<br>
-                                Diumenge 8:00-14:00h<br>
-                                Àrea de raqueta de 8 h a 20 h</p>
+                            <p style="color:whitesmoke; font-weight:bold;">{{ translate('horario') }}</p>
+                            <div style="color:whitesmoke">
+                                {!! translate('horario_descripcion') !!}
+                            </div>
                         </div>
                         <div class="col-md-6 col-lg-6">
-                            <p style="color: whitesmoke; font-weight:bold;">CONTACTO</p>
-                            <p style="color:whitesmoke"> Telf. Secretaria del club: <br>
-                                972 33 04 32 / 634944021<br>
-                                Telf. Director del club: <br>
-                                Jordi Sala 605820053</p>
+                            <p style="color: whitesmoke; font-weight:bold;">{{ strtoupper(translate('contacto')) }}</p>
+                            <div style="color:whitesmoke"> 
+                                {!! translate('contacto_descripcion') !!}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-3">
                 <div>
-                    <p style="color: whitesmoke; font-weight:bold;">LOCALIZACION</p>
+                    <p style="color: whitesmoke; font-weight:bold;">{{ translate('local') }}</p>
                     <div id="map-container-google-11" class="z-depth-1-half map-container-5" style="height: 100%; margin-top: 1px;">
                         <iframe src="https://maps.google.com/maps?q=Diseminado+Club+Tenis,+1B&t=&z=13&ie=UTF8&iwloc=&output=embed"
                             frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -71,7 +66,7 @@
         </div>
         <hr class="featurette-divider">
         <div class="d-flex justify-content-center">
-            <p style="color:whitesmoke">© 2020 Copyright: TennisBlanes</p>
+            <p style="color:whitesmoke">{{ translate('copyright') }}</p>
         </div>
     </div>
 

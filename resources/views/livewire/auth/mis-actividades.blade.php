@@ -1,7 +1,7 @@
 <div>
     @if (count($inscripciones) > 0)
         <h1 class="color-red" style="font-weight: bold;">
-            Mis actividades
+           {{ translate('mis_actividades') }}
         </h1>
         <hr class="featurette-divider">
         <br>
@@ -23,7 +23,7 @@
                                 @php
                                     setlocale(LC_TIME, 'French');
                                 @endphp
-                                <small class="text-muted">Publicado:
+                                <small class="text-muted">{{ translate('publicado') }}:
                                     {{ $inscripcion->actividad->created_at->translatedFormat('jS F Y') }}</small>
                             </div>
                         </div>
@@ -42,9 +42,9 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <strong style="font-size: 18px;">Ficha de inscripcion</strong><br>
+                                    <strong style="font-size: 18px;">{{ translate('ficha_inscripcion') }}</strong><br>
                                     <hr>
-                                    <p style="font-size: 18px;">Cliente:
+                                    <p style="font-size: 18px;">{{ translate('cliente') }}:
                                         <strong>{{ $inscripcion->cliente->full_name }}</strong>
                                     </p>
                                     @php
@@ -53,7 +53,7 @@
                                     @foreach ($opciones as $key => $values)
                                         @if ($key == 'extras')
                                             <div style="font-weight: bold; font-size:19px;">
-                                                Extras
+                                                {{ translate('extras') }}
                                             </div>
                                             @foreach ($values as $value)
                                                 <div>
@@ -68,7 +68,7 @@
                                             @endforeach
                                         @elseif ($key == 'extra-grupos')
                                             <div style="font-weight: bold; font-size:19px;">
-                                                Categorias
+                                                {{ translate('categorias') }}
                                             </div>
                                             @foreach ($values as $key2 => $value)
                                                 <div>
@@ -86,12 +86,12 @@
                                             @endforeach
                                         @endif
                                     @endforeach
-                                    @if ($inscripcion->pagado == false)
+                                    {{-- @if ($inscripcion->pagado == false)
                                         <hr>
                                         <button class="btn btn-danger"
                                             wire:click="cancel({{ $inscripcion->id }})"><strong>Cancelar
                                                 inscripcion</strong></button>
-                                    @endif
+                                    @endif--}}
                                 </div>
                                 <div class="modal-footer">
 
@@ -102,16 +102,16 @@
                 </div>
             @endforeach
         </div>
-        {{--@if (count($totalInscripciones) > $count)
+        @if (count($totalInscripciones) > $count)
             <br>
             <div class="d-flex justify-content-center">
                 <button wire:click="load" class="btn btn-danger btn-lg">
-                    <strong><i class="far fa-newspaper"></i> Ver mas inscripciones</strong>
+                    <strong><i class="far fa-newspaper"></i> {{ translate('mas_inscripcion') }}</strong>
                 </button>
             </div>
             <br>
         @endif
-        --}}
+       
     @endif
 </div>
 <script>

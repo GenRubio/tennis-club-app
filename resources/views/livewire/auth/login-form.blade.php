@@ -4,7 +4,7 @@
             <a href="{{ route('google.login') }}" class="google btn btn-block btn-secondary shadow-sm bg-white">
                 <div>
                     <i><img src="{{ url('/images/home/login/google-icon.svg') }}" height="20" , width="20"></i>
-                    <span class="ml-2"> Continuar con Google</span>
+                    <span class="ml-2"> {{ translate('continuar_google') }}</span>
                 </div>
             </a>
         </div>
@@ -14,11 +14,11 @@
         @endif
         <div class="form-group">
             <input wire:model="email" type="email" name="email" id="email" class="form-control inputs-style"
-                placeholder="Email">
+                placeholder="{{ translate('email') }}">
         </div>
         <div class="form-group mb-4">
             <input wire:model="password" type="password" name="password" id="password" class="form-control inputs-style"
-                placeholder="Contraseña">
+                placeholder="{{ translate('contraseña') }}">
         </div>
         <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Entrar">
     </form>

@@ -13,16 +13,16 @@
     @if ($error == 'error_inscrito')
         <br><br>
         <div class="d-flex justify-content-center">
-            <h4><strong>Ya estas inscrito a esta actividad</strong></h4>
+            <h4><strong>{{ translate('error_inscribirse_1') }}</strong></h4>
         </div>
 
     @elseif ($error == "error_not_found_familiares")
         <br><br>
         <div class="d-flex justify-content-center">
-            <h4><strong>No tienes familiares añadidos</strong></h4>
+            <h4><strong>{{ translate('error_familiares_1') }}</strong></h4>
         </div>
         <div class="d-flex justify-content-end">
-            <a href="{{ route('profile') }}" class="btn btn-success" style="font-weight: bold;">Añadir familiar</a>
+            <a href="{{ route('profile') }}" class="btn btn-success" style="font-weight: bold;">{{ translate('add_familiar') }}</a>
         </div>
 
     @elseif ($error == "error_multiples_familiares")
@@ -40,7 +40,28 @@
                                 <strong>{{ $familiar->full_name }}</strong>
                             </div>
                             <div>
-                                <button type="submit" class="btn btn-primary">Añadir</button>
+                                <button type="submit" class="btn btn-primary">{{ translate('añadir') }}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            @endif
+        @endforeach
+    @elseif ($error == "error_multiples_clientes")
+        <br>
+        @foreach ($clientesPendientes as $cliente)
+            @if (!$cliente->inscritoActividad($actividad->id))
+                <div class="border rounded p-2 mb-2 align-content-center">
+                    <form id="getCliente">
+                        @csrf
+                        <input type="hidden" name="clienteInscripcion" value="{{ $cliente->id }}">
+                        <input type="hidden" name="slug" value="{{ $actividad->slug }}">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <strong>{{ $cliente->full_name }}</strong>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-primary">{{ translate('añadir') }}</button>
                             </div>
                         </div>
                     </form>
@@ -50,13 +71,13 @@
     @elseif ($error == "error_0_options")
         <br><br>
         <div class="d-flex justify-content-center">
-            <h4><strong>Todos famliares ya estan inscritos</strong></h4>
+            <h4><strong>{{ translate('error_familiares_2') }}</strong></h4>
         </div>
 
     @elseif ($error == "error")
         <br><br>
         <div class="d-flex justify-content-center">
-            <h4><strong>Ha ocurrido un error</strong></h4>
+            <h4><strong>{{ translate('error') }}</strong></h4>
         </div>
     @endif
 @else
@@ -144,8 +165,8 @@
                         <div class="d-flex justify-content-between">
                             <div>
                                 <div class="form-check">
-                                    <input class="form-check-input" name="extraGroup[]"
-                                        type="checkbox" value="{{ $extra->titulo }}">
+                                    <input class="form-check-input" name="extraGroup[]" type="checkbox"
+                                        value="{{ $extra->titulo }}">
                                     <label class="form-check-label">
                                         {{ $extra->titulo }}
                                     </label>
@@ -179,16 +200,17 @@
                                     @if ($opcion->tipo_respuestas == 0)
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio"
-                                                name="answerGroup2[{{ $opcion->titulo }}]" value="{{ $item->titulo }}"
-                                                required>
+                                                name="answerGroup2[{{ $opcion->titulo }}]"
+                                                value="{{ $item->titulo }}" required>
                                             <label class="form-check-label">
                                                 {{ $item->titulo }}
                                             </label>
                                         </div>
                                     @else
                                         <div class="form-check checkbox-group required">
-                                            <input class="form-check-input" name="answerGroup2[{{ $opcion->titulo }}]"
-                                                type="checkbox" value="{{ $item->titulo }}">
+                                            <input class="form-check-input"
+                                                name="answerGroup2[{{ $opcion->titulo }}]" type="checkbox"
+                                                value="{{ $item->titulo }}">
                                             <label class="form-check-label">
                                                 {{ $item->titulo }}
                                             </label>
@@ -245,10 +267,10 @@
         <hr>
         <div class="d-flex justify-content-end">
             <div>
-                <button class="btn btn-secondary cancelar-inscripcion">Cancelar</button>
+                <button class="btn btn-secondary cancelar-inscripcion">{{ translate('cancel') }}</button>
             </div>
             <div class="ml-2">
-                <button type="submit" class="btn btn-danger" style="font-weight: bold;">Inscribirse</button>
+                <button type="submit" class="btn btn-danger" style="font-weight: bold;">{{ translate('inscribirse') }}</button>
             </div>
         </div>
     </form>

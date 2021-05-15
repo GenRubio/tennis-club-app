@@ -10,6 +10,14 @@
                     <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
         </ul>
     </li>
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-globe"></i>
+            Traducciones</a>
+        <ul class="nav-dropdown-items">
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaltion') }}'><i
+                        class='nav-icon la la-language'></i> Traducciones</a></li>
+        </ul>
+    </li>
     <li class="nav-title">Usuarios</li>
     <li class="nav-item nav-dropdown">
         <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-group"></i>Autentificación</a>

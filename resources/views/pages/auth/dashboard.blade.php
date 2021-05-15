@@ -81,10 +81,10 @@
     </style>
     <div class="container">
         <h1 class="color-red" style="font-weight: bold;">
-            Ultimas actividades
+            {{ translate('ultimas_actividades') }}
             <span style="font-size: 14px;">
                 <a href="{{ route('actividades') }}" class="ver-mas-button"
-                    style="text-decoration: none;font-size: 18px;">Ver más <i class="fas fa-arrow-right"></i></a>
+                    style="text-decoration: none;font-size: 18px;">{{ translate('ver_mas') }} <i class="fas fa-arrow-right"></i></a>
             </span>
         </h1>
         <hr class="featurette-divider">
@@ -106,7 +106,7 @@
                                 @php
                                     setlocale(LC_TIME, 'French');
                                 @endphp
-                                <small class="text-muted">Publicado:
+                                <small class="text-muted">{{ translate('publicado') }}:
                                     {{ $actividad->created_at->translatedFormat('jS F Y') }}</small>
                             </div>
                         </div>
@@ -118,7 +118,7 @@
         <livewire:auth.mis-actividades />
         <br><br><br>
         <h1 class="color-red" style="font-weight: bold;">
-            Calendario de actividades
+            {{ translate('calendario_actividades') }}
         </h1>
         <hr class="featurette-divider">
         <br>

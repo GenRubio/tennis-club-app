@@ -16,33 +16,32 @@ class InscripcionesController extends Controller
     public function store(Request $request)
     {
         $actividad = Actividade::where('slug',  $request->actividad)
-        ->where('activo', 1)
-        ->where('visible', 1)
-        ->first();
- 
-        if ($actividad){
-            $cliente = Client::where('id', $request->cliente)
-            ->where('user_id', auth()->user()->id)
+            ->where('activo', 1)
+            ->where('visible', 1)
             ->first();
-            if ($cliente){
-                $inscripcion = ActividadInscripcione::where('cliente_id', $cliente->id)
-                ->where('actividad_id', $actividad->id)
-                ->first();
 
-                if (!$inscripcion){
+        if ($actividad) {
+            $cliente = Client::where('id', $request->cliente)
+                ->where('user_id', auth()->user()->id)
+                ->first();
+            if ($cliente) {
+                $inscripcion = ActividadInscripcione::where('cliente_id', $cliente->id)
+                    ->where('actividad_id', $actividad->id)
+                    ->first();
+
+                if (!$inscripcion) {
                     $opciones = array();
-                    if (isset($request->answerGroup1)){
+                    if (isset($request->answerGroup1)) {
                         $titulo = null;
                         $values = array();
-                        foreach ($request->answerGroup1 as $opcionesG1){
+                        foreach ($request->answerGroup1 as $opcionesG1) {
                             $splitOption = explode("@", $opcionesG1);
                             $key = $splitOption[0];
                             $value = $splitOption[1];
-                            
-                            if ($titulo == null){
+
+                            if ($titulo == null) {
                                 $titulo = $key;
-                            }
-                            else if ($titulo != $key){
+                            } else if ($titulo != $key) {
                                 $opciones[$titulo] = $values;
                                 $values = array();
                                 $titulo = $key;
@@ -51,27 +50,27 @@ class InscripcionesController extends Controller
                         }
                         $opciones[$titulo] = $values;
                     }
-                    if (isset($request->extraGroup)){
+                    if (isset($request->extraGroup)) {
                         $titulo = 'grupo-extras';
                         $values = array();
-                        foreach ($request->extraGroup as $extraGroupOption){
+                        foreach ($request->extraGroup as $extraGroupOption) {
                             array_push($values, $extraGroupOption);
                         }
                         $opciones[$titulo] = $values;
                     }
-                    if (isset($request->answerGroup2)){
+                    if (isset($request->answerGroup2)) {
                         $titulo = 'extra-grupos';
                         $opcionesGrupo = array();
-                       
-                        foreach ($request->answerGroup2 as $key => $opcionesG2){
+
+                        foreach ($request->answerGroup2 as $key => $opcionesG2) {
                             $opcionesGrupo[$key] = $opcionesG2;
                         }
                         $opciones[$titulo] = $opcionesGrupo;
                     }
-                    if (isset($request->answerGroup3)){
+                    if (isset($request->answerGroup3)) {
                         $titulo = 'extras';
                         $opcionesGrupo = array();
-                        foreach ($request->answerGroup3 as $opcionesG3){
+                        foreach ($request->answerGroup3 as $opcionesG3) {
                             array_push($opcionesGrupo, $opcionesG3);
                         }
                         $opciones[$titulo] = $opcionesGrupo;
@@ -83,8 +82,7 @@ class InscripcionesController extends Controller
                     $newInscripcion->opciones = json_encode($opciones);
                     $newInscripcion->save();
 
-                    return response()->json([
-                    ], Response::HTTP_CREATED);
+                    return response()->json([], Response::HTTP_CREATED);
                 }
             }
         }
@@ -99,26 +97,26 @@ class InscripcionesController extends Controller
         if ($actividad) {
             $error = null;
             $cliente = null;
+            $clientesPendientes = [];
 
             if ($actividad->actividadTipo->id == 3) {
                 //Adultos
                 if (auth()->user()->cliente()->inscritoActividad($actividad->id)) {
                     $error = "error_inscrito";
-                }
-                else{
+                } else {
                     $cliente = auth()->user()->cliente();
                 }
-            } else if ($actividad->actividadTipo->id == 2) {    
+            } else if ($actividad->actividadTipo->id == 2) {
                 //Infantil
                 if (isset($request->familiar)) {
                     $familiares = auth()->user()->cliente()->familiares();
                     $cliente = null;
-                    foreach ($familiares as $familiar){
-                        if ($familiar->id == $request->familiar){
+                    foreach ($familiares as $familiar) {
+                        if ($familiar->id == $request->familiar) {
                             $cliente = $familiar;
                         }
                     }
-                    if (!$cliente){
+                    if (!$cliente) {
                         $error = "error";
                     }
                 } else {
@@ -132,12 +130,10 @@ class InscripcionesController extends Controller
                         }
                         if (count($familiaresNoInscritos) > 1) {
                             $error = "error_multiples_familiares";
-                        }
-                        else {
-                            if (count($familiaresNoInscritos) == 0){
+                        } else {
+                            if (count($familiaresNoInscritos) == 0) {
                                 $error = "error_0_options";
-                            }
-                            else{
+                            } else {
                                 $cliente = $familiaresNoInscritos[0];
                             }
                         }
@@ -147,35 +143,69 @@ class InscripcionesController extends Controller
                 }
             } else if ($actividad->actividadTipo->id == 1) {
                 //Sin preferencia
+                if (isset($request->clienteInscripcion)) {
+                    $clientesId = array();
+                    array_push($clientesId, auth()->user()->cliente()->id);
 
+                    foreach (auth()->user()->cliente()->familiares() as $familiar) {
+                        array_push($clientesId, $familiar->id);
+                    }
+
+                    if (in_array($request->clienteInscripcion, $clientesId)){
+                        $cliente = Client::where('id', $request->clienteInscripcion)->first();
+                    }
+
+
+                } else {
+                    $clientesId = array();
+                    array_push($clientesId, auth()->user()->cliente()->id);
+
+                    foreach (auth()->user()->cliente()->familiares() as $familiar) {
+                        array_push($clientesId, $familiar->id);
+                    }
+
+                    $clientes = Client::whereIn('id', $clientesId)->get();
+
+                    foreach ($clientes as $cliente) {
+                        if (!$cliente->inscritoActividad($actividad->id)) {
+                            array_push($clientesPendientes, $cliente);
+                        }
+                    }
+
+                    if (count($clientesPendientes) < 1) {
+                        $error = "error_inscrito";
+                    } else {
+                        $error = "error_multiples_clientes";
+                    }
+                }
             }
             return response()->json([
-                'content' => view('components.opciones-formulario', compact('actividad', 'error', 'cliente'))->render(),
+                'content' => view('components.opciones-formulario', compact('actividad', 'error', 'cliente', 'clientesPendientes'))->render(),
             ], Response::HTTP_CREATED);
         }
     }
-   
-    public function aceptarPago(Request $request){
-        
-        ActividadInscripcione::where('cliente_id', $request->cliente)
-        ->where('actividad_id', $request->actividad)
-        ->update([
-            'pagado' => 1
-        ]);
 
-        return response()->json([
-        ], Response::HTTP_CREATED);
+    public function aceptarPago(Request $request)
+    {
+
+        ActividadInscripcione::where('cliente_id', $request->cliente)
+            ->where('actividad_id', $request->actividad)
+            ->update([
+                'pagado' => 1
+            ]);
+
+        return response()->json([], Response::HTTP_CREATED);
     }
 
-    public function cancelarPago(Request $request){
-        
-        ActividadInscripcione::where('cliente_id', $request->cliente)
-        ->where('actividad_id', $request->actividad)
-        ->update([
-            'pagado' => 0
-        ]);
+    public function cancelarPago(Request $request)
+    {
 
-        return response()->json([
-        ], Response::HTTP_CREATED);
+        ActividadInscripcione::where('cliente_id', $request->cliente)
+            ->where('actividad_id', $request->actividad)
+            ->update([
+                'pagado' => 0
+            ]);
+
+        return response()->json([], Response::HTTP_CREATED);
     }
 }

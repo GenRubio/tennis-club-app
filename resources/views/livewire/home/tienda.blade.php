@@ -52,7 +52,7 @@
 
     <div class="container">
         <h1 class="color-red" style="font-weight: bold;">
-            Nuestro catalago
+            {{ translate('nuestro_catalago') }}
         </h1>
         <hr class="featurette-divider">
         <br>
@@ -97,10 +97,10 @@
         <div class="dropdown mr-4">
             <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <strong><i class="fas fa-bars"></i> CATEGORIAS</strong>
+                <strong><i class="fas fa-bars"></i> {{ strtoupper(translate('categorias')) }}</strong>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button wire:click="getCategory('all')" class="dropdown-item" type="button">Todas</button>
+                <button wire:click="getCategory('all')" class="dropdown-item" type="button">{{ translate('todas') }}</button>
                 @foreach ($categorias as $item)
                     <button wire:click="getCategory('{{ $item->id }}')"
                         class="dropdown-item">{{ $item->titulo }}</button>
@@ -108,26 +108,29 @@
             </div>
         </div>
         <br>
-        <h3 style="font-weight:bold; color:whitesmoke;">Categoria: <span style="color:#e3342f; ">
+        <h3 style="font-weight:bold; color:whitesmoke;">{{ translate('categoria') }}: <span style="color:#e3342f; ">
                 {{ $tituloCategoria }}</span></h3>
         <hr class="featurette-divider">
         <div class="row justify-content-between">
             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-                <p class="numero-articulos">{{ $totalItems }} Articulos</p>
+                <p class="numero-articulos">{{ $totalItems }} {{ translate('articulos') }}</p>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 text-right">
                 <div class="btn-group">
                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" style="width: 228px !important">
-                        <strong>Ordenar productos por:</strong>
+                        <strong>{{ translate('ordenar_por') }}:</strong>
                     </button>
                     <div class="dropdown-menu dropdown-menu">
-                        <button wire:click="orderBy('ASC')" class="dropdown-item" type="button">Precio - el más bajo
-                            primero</button>
-                        <button wire:click="orderBy('DESC')" class="dropdown-item" type="button">Precio - el más alto
-                            primero</button>
-                        <button wire:click="orderBy('NEW')" class="dropdown-item" type="button">Lo nuevo
-                            primero</button>
+                        <button wire:click="orderBy('ASC')" class="dropdown-item" type="button">
+                            {{ translate('precio') }} - {{ translate('mas_bajo') }}
+                        </button>
+                        <button wire:click="orderBy('DESC')" class="dropdown-item" type="button">
+                            {{ translate('precio') }} - {{ translate('mas_alto') }}
+                        </button>
+                        <button wire:click="orderBy('NEW')" class="dropdown-item" type="button">
+                            {{ translate('mas_nuevo') }}
+                        </button>
                     </div>
                 </div>
 

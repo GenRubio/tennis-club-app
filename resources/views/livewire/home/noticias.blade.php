@@ -71,7 +71,7 @@
                             @php 
                                  setlocale(LC_TIME, 'French');
                             @endphp
-                            <small class="text-muted">Publicado:
+                            <small class="text-muted">{{ translate('publicado') }}:
                                 {{ $noticia->created_at->translatedFormat('jS F Y') }}</small>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
     <div class="d-flex justify-content-center">
         @if (count($totalNews) >= $amount)
             <button wire:click="load" class="btn btn-danger btn-lg">
-                <strong><i class="far fa-newspaper"></i> Ver mas noticias</strong>
+                <strong><i class="far fa-newspaper"></i> {{ translate('ver_mas_noticias') }}</strong>
             </button>
         @endif
     </div>

@@ -452,6 +452,11 @@
             height: 300px;
             overflow: hidden;
             margin: 5px;
+            border-radius: 2% !important;
+            border: 0;
+            border-radius: 5.5px;
+            box-shadow: 0 10px 30px 0 rgba(255, 0, 0, 0.43) !important;
+            overflow: hidden;
         }
 
         .div-img-img {
@@ -471,41 +476,25 @@
 @section('content')
     <div class="container">
         <h1 class="color-red" style="font-weight: bold;">
-            Fes-te soci
+            {{ translate('socio_fes') }}
         </h1>
         <hr class="featurette-divider">
         <br>
         <div class="row">
             <div class="col-md-6">
                 <div class="text-white" style="font-size: 18px;">
-                    Vine a veure’ns a les nostres instal·lacions i comprova de primera mà tot el que el Club Tennis i Pàdel
-                    Blanes et pot oferir a tu i la teva família.<br><br>
-
-                    I si ja ens coneixes i vols fer-te’n soci, ara és molt fàcil!
-                    Només cal que omplis el full d’inscripció que tenim a la recepció del Club amb les teves dades. Un cop
-                    omplert, cal que passis per les oficines del club o bé si ho prefereixes ens el facis arribar per correu
-                    electrònic a l’adreça següent: <a href="">info@tennisblanes.com</a><br><br>
-
-                    En aquest 2021 hi ha moltes novetats, entre elles:<br><br>
-
-                    Tots el socis juguen gratis al pàdel a qualsevol hora i dia: americanes, partits etc…
-                    Tots el socis poden utilitzar les nostres instal·lacions del nou servei de gimnàs, PISCINA<br><br>
-
-                    Al ser socis del club Tennis i Pàdel Blanes també podeu gaudir dels preus de soci del Fitness & Spa del
-                    Club Vela Blanes<br><br>
-
-                    Com cuidem als nostres socis!!!
+                    {!! translate('socios_text') !!}
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="div-image shadow-lg ronded">
-                    <img class="div-img-img" src="{{ url('/images/2016_tennispadelblanes.jpg') }}">
+                    <img class="div-img-img" src="{{ url('/uploads/socios/socios.jpg') }}">
                 </div>
             </div>
         </div>
         <br><br>
         <div class="text-white" style="font-weight: bold;color:#e3342f !important; font-size: 18px !important;">
-            Hem creat noves quotes personalitzades:
+            {{ translate('nuevas_quotas') }}:
         </div>
         <br>
         <div class="row">

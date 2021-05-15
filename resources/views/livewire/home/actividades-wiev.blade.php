@@ -73,7 +73,7 @@
                             @php
                                 setlocale(LC_TIME, 'French');
                             @endphp
-                            <small class="text-muted">Publicado:
+                            <small class="text-muted">{{ translate('publicado') }}:
                                 {{ $actividad->created_at->translatedFormat('jS F Y') }}</small>
                         </div>
                     </div>

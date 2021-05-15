@@ -51,7 +51,7 @@ class ProfileForm extends Component
 
             $this->dispatchBrowserEvent(
                 'alertProfile',
-                ['message' => 'Los datos del perfil se han actualizado correctamente.']
+                ['message' => translate('datos_actualizados')]
             );
         }
     }

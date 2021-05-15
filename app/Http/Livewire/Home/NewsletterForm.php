@@ -21,8 +21,8 @@ class NewsletterForm extends Component
     ];
 
     protected $messages = [
-        'email.required' => 'Campo email no puede estar vacio.',
-        'email.email' => 'El formato de email es incorrecto.',
+        'email.required' => "translate('error_email')",
+        'email.email' => "translate('error_email_2')",
     ];
 
     public function create()
@@ -36,8 +36,7 @@ class NewsletterForm extends Component
             $newsletter->token = md5(uniqid(mt_rand(), false));
             $newsletter->activo = 1;
             $newsletter->save();
-
-            //Mail::to($this->email)->send(new NewsletterConfirmEmail);
+            
         } else {
             $newsletterCheck->delete();
 
@@ -46,13 +45,11 @@ class NewsletterForm extends Component
             $newsletter->token = md5(uniqid(mt_rand(), false));
             $newsletter->activo = 1;
             $newsletter->save();
-
-            //Mail::to($this->email)->send(new NewsletterConfirmEmail);
         }
 
         $this->dispatchBrowserEvent(
             'alertNewsletter',
-            ['message' => '¡GRACIAS POR SUSCRIBIRTE! ¡Te has suscrito correctamente! Pronto recibirás las novedades sobre nuestro club. Revisa tu correo electrónico para estar enterado de los próximas publicaciones.']
+            ['message' => translate('newsletter_message')]
         );
         $this->resetForm();
     }

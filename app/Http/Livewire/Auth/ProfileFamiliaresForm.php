@@ -69,7 +69,7 @@ class ProfileFamiliaresForm extends Component
 
             $this->dispatchBrowserEvent(
                 'alertFamiliar',
-                ['message' => 'Nuevo familiar se ha añadido correctamente.']
+                ['message' => translate('nuevo_familiar')]
             );
         }
     }
@@ -104,11 +104,11 @@ class ProfileFamiliaresForm extends Component
     {
 
         if ($this->tagetaSanitariaFAdd == "") {
-            $this->addError('errorTargetaFAdd', 'El campo targeta es requerido.');
+            $this->addError('errorTargetaFAdd', translate('error_tageta_1'));
         } else {
             $cliente = Client::where('cat_salut', $this->tagetaSanitariaFAdd)->first();
             if ($cliente) {
-                $this->addError('errorTargetaFAdd', 'Este cliente ya esta registrado.');
+                $this->addError('errorTargetaFAdd', translate('error_cliente_exist'));
             }
         }
     }
@@ -117,10 +117,10 @@ class ProfileFamiliaresForm extends Component
     {
         if ($this->dataNacimientoFAdd) {
             if ($this->calcular_edad($this->dataNacimientoFAdd) > 18 || $this->calcular_edad($this->dataNacimientoFAdd) < 0) {
-                $this->addError('errorDataNacimientoFAdd', 'La fecha de nacimiento incorrecta.');
+                $this->addError('errorDataNacimientoFAdd', translate('error_data'));
             }
         } else {
-            $this->addError('errorDataNacimientoFAdd', 'La fecha de nacimiento incorrecta.');
+            $this->addError('errorDataNacimientoFAdd', translate('error_data'));
         }
     }
     private function calcular_edad($fechanacimiento)
@@ -136,25 +136,25 @@ class ProfileFamiliaresForm extends Component
     private function validateSexeF()
     {
         if ($this->sexeFAdd == -1 || $this->sexeFAdd > 1) {
-            $this->addError('errorSexeFAdd', 'Porfavor seleciona el sexe.');
+            $this->addError('errorSexeFAdd', translate('error_sexe'));
         }
     }
     private function validateNameF()
     {
         if ($this->nombreFAdd == "") {
-            $this->addError('errorNombreFAdd', 'El campo nombre es requerido.');
+            $this->addError('errorNombreFAdd', translate('error_nombre'));
         }
     }
     private function validateApellidosF()
     {
         if ($this->apellidosFAdd == "") {
-            $this->addError('errorApellidosFAdd', 'El campo apellidos es requerido.');
+            $this->addError('errorApellidosFAdd', translate('error_apellido'));
         }
     }
     private function validateNacionalidadF()
     {
         if ($this->nacionalidadFAdd == "null") {
-            $this->addError('errorNacionalidadFAdd', 'El campo nacionalitat es requerido.');
+            $this->addError('errorNacionalidadFAdd', translate('error_nacionalidad'));
         }
     }
 
@@ -182,7 +182,7 @@ class ProfileFamiliaresForm extends Component
             ]);
             $this->dispatchBrowserEvent(
                 'alertFamiliar',
-                ['message' => 'Los datos del perfil se han actualizado correctamente.']
+                ['message' => translate('datos_actualizados')]
             );
         }
     }

@@ -86,7 +86,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Actualizar familiar</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">{{ translate('actualizar_familiar') }}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -95,25 +95,25 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label style="color: black">Nombre <span style="color: red">*</span></label>
+                                        <label style="color: black">{{ translate('nombre') }} <span style="color: red">*</span></label>
                                         @error('errorNombre') <span style="color: red">{{ $message }}</span>
                                         @enderror
                                         <input wire:model="nombreU" type="text" class="form-control"
-                                            placeholder="Nombre">
+                                            placeholder="{{ translate('nombre') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label style="color: black">Apellidos <span style="color: red">*</span></label>
+                                        <label style="color: black">{{ translate('apellidos') }} <span style="color: red">*</span></label>
                                         @error('errorApellidos') <span style="color: red">{{ $message }}</span>
                                         @enderror
                                         <input wire:model="apellidosU" type="text" class="form-control"
-                                            placeholder="Apellidos">
+                                            placeholder="{{ translate('apellidos') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label style="color: black">Data naixement <span
+                                        <label style="color: black">{{ translate('fecha_nacimiento') }} <span
                                                 style="color: red">*</span></label>
                                         @error('errorDataNacimiento') <span
                                                 style="color: red">{{ $message }}</span>
@@ -123,19 +123,19 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label style="color: black">Sexe <span style="color: red">*</span></label>
+                                        <label style="color: black">{{ translate('sexe') }} <span style="color: red">*</span></label>
                                         @error('errorSexeU') <span style="color: red">{{ $message }}</span>
                                         @enderror
                                         <select wire:model="sexeU" class="form-control">
                                             <option selected value="-1">---</option>
-                                            <option value="0">Niño</option>
-                                            <option value="1">Niña</option>
+                                            <option value="0">{{ translate('niño') }}</option>
+                                            <option value="1">{{ translate('niña') }}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label style="color: black">Targeta sanitaria <span
+                                        <label style="color: black">{{ translate('targeta_sanitaria') }} <span
                                                 style="color: red">*</span></label>
                                         @error('errorTargeta') <span style="color: red">{{ $message }}</span>
                                         @enderror
@@ -146,9 +146,9 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-cancel"
-                                data-dismiss="modal">Cancelar</button>
+                                data-dismiss="modal">{{ translate('cancel') }}</button>
                             <button wire:click="updateF({{ $familiar->id }})" type="button"
-                                class="btn btn-danger">Guardar</button>
+                                class="btn btn-danger">{{ translate('guardar') }}</button>
                         </div>
                     </div>
                 </div>
@@ -157,16 +157,16 @@
         <br>
         <button class="btn btn-success bold" data-toggle="modal" data-target="#addFamiliar">
             <i class="fas fa-plus"></i>
-            Añadir
+            {{ translate('añadir') }}
         </button>
     @else
         <div style="color: whitesmoke; 67px">
-            Actualmente no tienes hijos añadidos
+            {{ translate('no_hijos_actual') }}
         </div>
         <br>
         <button class="btn btn-success bold" data-toggle="modal" data-target="#addFamiliar">
             <i class="fas fa-plus"></i>
-            Añadir
+            {{ translate('añadir') }}
         </button>
     @endif
     <div wire:ignore.self class="modal fade" id="addFamiliar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -174,7 +174,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Añadir familiar</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{ translate('add_familiar') }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -182,18 +182,18 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label style="color: black;">Nombre <span style="color: red">*</span></label>
+                            <label style="color: black;">{{ translate('nombre') }} <span style="color: red">*</span></label>
                             @error('errorNombreFAdd') <span style="color: red">{{ $message }}</span> @enderror
-                            <input wire:model="nombreFAdd" type="text" class="form-control" placeholder="Nombre">
+                            <input wire:model="nombreFAdd" type="text" class="form-control" placeholder="{{ translate('nombre') }} ">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label style="color: black;">Apellidos <span style="color: red">*</span></label>
+                            <label style="color: black;">{{ translate('apellidos') }}  <span style="color: red">*</span></label>
                             @error('errorApellidosFAdd') <span style="color: red">{{ $message }}</span>
                             @enderror
-                            <input wire:model="apellidosFAdd" type="text" class="form-control" placeholder="Apellidos">
+                            <input wire:model="apellidosFAdd" type="text" class="form-control" placeholder="{{ translate('apellidos') }}">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label  style="color: black;">Data naixement <span style="color: red">*</span></label>
+                            <label  style="color: black;">{{ translate('fecha_nacimiento') }} <span style="color: red">*</span></label>
 
                             @error('errorDataNacimientoFAdd') <span style="color: red">{{ $message }}</span>
                             @enderror
@@ -201,22 +201,22 @@
                             <input wire:model="dataNacimientoFAdd" type="date" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label  style="color: black;">Sexe <span style="color: red">*</span></label>
+                            <label  style="color: black;">{{ translate('sexe') }} <span style="color: red">*</span></label>
                             @error('errorSexeFAdd') <span style="color: red">{{ $message }}</span> @enderror
                             <select wire:model="sexeFAdd" class="form-control">
                                 <option selected value="-1">---</option>
-                                <option value="0">Niño</option>
-                                <option value="1">Niña</option>
+                                <option value="0">{{ translate('niño') }}</option>
+                                <option value="1">{{ translate('niña') }}</option>
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label  style="color: black;">Targeta sanitaria <span style="color: red">*</span></label>
+                            <label  style="color: black;">{{ translate('targeta_sanitaria') }} <span style="color: red">*</span></label>
                             @error('errorTargetaFAdd') <span style="color: red">{{ $message }}</span>
                             @enderror
                             <input wire:model="tagetaSanitariaFAdd" type="text" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label  style="color: black;">Nacionalitat <span style="color: red">*</span></label>
+                            <label  style="color: black;">{{ translate('nacionalidad') }} <span style="color: red">*</span></label>
                             @error('errorNacionalidadFAdd') <span style="color: red">{{ $message }}</span>
                             @enderror
                             <select wire:model="nacionalidadFAdd" class="form-control">
@@ -226,8 +226,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-cancel" data-dismiss="modal">Cancelar</button>
-                    <button wire:click="createFormF" type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary btn-cancel" data-dismiss="modal">{{ translate('cancel') }}</button>
+                    <button wire:click="createFormF" type="button" class="btn btn-primary">{{ translate('guardar_cambios') }}</button>
                 </div>
             </div>
         </div>

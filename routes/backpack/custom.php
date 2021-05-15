@@ -94,4 +94,5 @@ Route::group([
         Route::crud('pdfs', 'WebVistaPdfCrudController');
     });
     Route::crud('socialnetwork', 'SocialNetworkCrudController');
+    Route::crud('transaltion', 'TransaltionCrudController');
 });

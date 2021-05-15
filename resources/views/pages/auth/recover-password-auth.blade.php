@@ -192,7 +192,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="card-body back-ground-login-form">
-                        <p class="login-card-description login-title">Restablecer contraseña</p>
+                        <p class="login-card-description login-title">{{ translate('restablecer_password') }}</p>
                         <hr class="featurette-divider">
                         <livewire:auth.recover-password-velidate-controller :idUser="$userId" :tokenUser='$token'/>
                     </div>

@@ -9,7 +9,7 @@
         }
 
         .img-cover {
-            height: 200% !important;
+            height: 220% !important;
             left: 50% !important;
             position: absolute !important;
             top: 50% !important;
@@ -93,7 +93,7 @@
     </style>
     <div class="container">
         <h1 class="color-red" style="font-weight: bold;">
-            Nuestra multimedia
+            {{ translate('multimedia_nuestra') }}
         </h1>
         <hr class="featurette-divider">
         <br>
@@ -152,7 +152,7 @@
             <div class="container">
                 <br><br>
                 <h1 class="color-red" style="font-weight: bold;">
-                    Nuestros videos
+                    {{ translate('nuestros_videos') }}
                 </h1>
                 <br>
                 <div class="row align-self-center">

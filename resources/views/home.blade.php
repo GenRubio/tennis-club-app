@@ -206,10 +206,14 @@
         }
 
         .contacto-div-internal {
-            background-image: url("{{ url('/images/contact-us-banner-img.png') }}");
+            background-image: url("{{ url('/uploads/inicio/contacto.png') }}");
             background-repeat: no-repeat;
             background-size: 638px 449px;
             min-height: 466px;
+        }
+
+        .bold{
+            font-weight: bold;
         }
        
 
@@ -229,17 +233,17 @@
                 </div>
                 <br>
                 <div class="d-flex justify-content-center">
-                    <h2 class="text-color-white">Noticias</h2>
+                    <h2 class="text-color-white">{{ translate('noticias') }}</h2>
                 </div>
                 <div class="category-div">
-                    <p class="text-color-white" style="font-size: 16px;">Descubra las últimas noticias sobre nuestro centro aquí. Las ofertas
-                        especiales, renovaciones, colaboraciones u otras novedades. <br> Las podrá encontrar en el bloque de
-                        noticias.</p>
+                    <div class="text-color-white" style="font-size: 16px;">
+                        {!! translate('noticias_text') !!}
+                    </div>
                 </div>
 
                 <div class="d-flex justify-content-center">
                     <button id="tag1" class="btn btn-secondary mb-2 button-see-more">
-                        <strong>Ver más</strong></button>
+                        <strong>{{ translate('ver_mas') }}</strong></button>
                 </div>
             </div>
             <div class="col-lg-3 d-none d-lg-block">
@@ -253,18 +257,16 @@
                 </div>
                 <br>
                 <div class="d-flex justify-content-center">
-                    <h2 class="text-color-white">Torneos</h2>
+                    <h2 class="text-color-white">{{ translate('actividades') }}</h2>
                 </div>
                 <div class="category-div">
-                    <p class="text-color-white" style="font-size: 16px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum quam
-                        expedita
-                        soluta fugiat dolor
-                        natus. Labore architecto, consequuntur vel modi temporibus, nesciunt, repellendus minus repudiandae
-                        aperiam doloribus ipsum. Reiciendis, atque.</p>
+                    <div class="text-color-white" style="font-size: 16px;">
+                        {!! translate('actividades_text') !!}
+                    </div>
                 </div>
                 <div class="d-flex justify-content-center">
                     <button id="tag2" class="btn btn-secondary mb-2 button-see-more">
-                        <strong>Ver más</strong>
+                        <strong>{{ translate('ver_mas') }}</strong>
                     </button>
                 </div>
             </div>
@@ -280,20 +282,18 @@
                 <br>
                 <div class="d-flex justify-content-center">
                     <div class="my-auto">
-                        <h2 class="text-color-white">Eventos</h2>
+                        <h2 class="text-color-white">{{ translate('calendario') }}</h2>
                     </div>
                 </div>
                 <div class="category-div">
-                    <p class="text-color-white" style="font-size: 16px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem modi
-                        illo
-                        inventore similique
-                        facilis, ipsum eaque iste ipsa, atque consectetur adipisci exercitationem ab debitis. Eaque magnam
-                        perferendis ducimus ea corrupti.</p>
+                    <div class="text-color-white" style="font-size: 16px;">
+                        {!! translate('calendario_text') !!}
+                    </div>
                 </div>
                 <div class="d-flex justify-content-center">
                     <div class="d-flex justify-content-center">
                         <button id="tag3" class="btn btn-secondary mb-2 button-see-more">
-                            <strong>Ver más</strong>
+                            <strong>{{ translate('ver_mas') }}</strong>
                         </button>
                     </div>
                 </div>
@@ -310,112 +310,82 @@
                 <br>
                 <div class="d-flex justify-content-center">
                     <div class="my-auto">
-                        <h2 class="text-color-white">Instalaciones</h2>
+                        <h2 class="text-color-white">{{ translate('instalciones') }}</h2>
                     </div>
                 </div>
                 <div class="category-div">
-                    <p class="text-color-white" style="font-size: 16px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem modi
-                        illo
-                        inventore similique
-                        facilis, ipsum eaque iste ipsa, atque consectetur adipisci exercitationem ab debitis. Eaque magnam
-                        perferendis ducimus ea corrupti.</p>
+                    <div class="text-color-white" style="font-size: 16px;">
+                        {!! translate('instalciones_texto') !!}
+                    </div>
                 </div>
 
 
                 <div class="d-flex justify-content-center">
                     <div class="d-flex justify-content-center">
                         <button id="tag4" class="btn btn-secondary mb-2 button-see-more">
-                            <strong>Ver más</strong>
+                            <strong>{{ translate('ver_mas') }}</strong>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- START THE FEATURETTES -->
         <br> <br>
-        <h1 class="color-red" style="font-weight: bold;">
-            Ultimas noticias
+    </div>
+    <div class="container">
+        <h1 class="color-red" style="font-weight: bold;" id="section2">
+            {{ translate('ultimas_actividades') }}
             <span style="font-size: 14px;">
-                <a href="{{ route('noticias') }}" class="ver-mas-button" style="text-decoration: none;font-size: 18px;">Ver más <i
+                <a href="{{ route('actividades') }}" class="ver-mas-button" style="text-decoration: none;font-size: 18px;">{{ translate('ver_mas') }} <i
                         class="fas fa-arrow-right"></i></a>
             </span>
         </h1>
-        <p style="color: whitesmoke; font-size: 18px;">Mantente informado de todas nuestras novedades</p>
-        <hr class="featurette-divider" id="section1">
-        <br>
-        <livewire:home.noticias />
-        <br>
-        <br>
-        <br>
-    </div>
-    <div id="particles-js"></div>
-    <div class="container-fluid" style="background-color: black; overflow: hidden;">
-        <div class="container">
-            <br><br>
-            <h1 class="color-red" style="font-weight: bold;position: relative;">
-                Nuestras actividades
-                <span style="font-size: 18px; position: relative;">
-                    <a href="{{ route('actividades') }}" class="ver-mas-button" style="text-decoration: none; font-size: 18px;">Ver más <i
-                            class="fas fa-arrow-right"></i></a>
-                </span>
-            </h1>
-        </div>
-        <div class="torneos">
-            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
-                    src="{{ url('/images/home/torneos/actualidad_526710657_162107073_855x1140.jpg') }}"></div>
-            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
-                    src="{{ url('/images/home/torneos/C0BFD825-DD3B-493B-B6B9-5ED502469E23-540x750.jpeg') }}"></div>
-            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
-                    src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}"></div>
-            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
-                    src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}"></div>
-            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
-                    src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}"></div>
-            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
-                    src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}"></div>
-            <div class="wrap-img-cover-torneos"><img class="img-cover-torneos"
-                    src="{{ url('/images/home/torneos/Grand-Slam-Tenis-Portada-274_Abril-2020.jpg') }}"></div>
-        </div>
-        <br>
-    </div>
-    <br>
-    <div class="container">
+        @include('components.ultimas-actividades', ['actividades' => $actividades])
         <br><br>
-        <h1 class="color-red" style="font-weight: bold;">
-            Calendario de eventos
+        <h1 class="color-red" style="font-weight: bold;" id="section3">
+            {{ translate('calendario_actividades') }}
         </h1>
-        <hr class="featurette-divider" id="section34">
+        <hr class="featurette-divider">
         <br>
         <div class="row featurette">
             <div class="col-md-5">
-                <h2 class="featurette-heading">CALENDARIO DE EVENTOS</h2>
-                <p class="lead text-color-white" style="font-size: 18px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta iure
-                    laborum minima quis,
-                    dolores laboriosam nulla, perferendis facilis ipsa praesentium adipisci, aliquid voluptatum maiores.
-                    Sint quia itaque aliquam quam asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                    totam quisquam tenetur dicta laudantium ipsam, quam optio consectetur necessitatibus sapiente,
-                    recusandae eaque enim. Rem voluptatibus deleniti sapiente, nemo deserunt iure?</p>
+                <div class="lead text-color-white" style="font-size: 18px;">
+                   {!! translate('calendar_text') !!}
+                </div>
             </div>
             <div class="col-md-7">
                 @include('components.calendar')
             </div>
         </div>
         <br>
+        <br>
+        <br>
+        <h1 class="color-red" style="font-weight: bold;" id="section1">
+            {{ translate('ultimas_noticias') }}
+            <span style="font-size: 14px;">
+                <a href="{{ route('noticias') }}" class="ver-mas-button" style="text-decoration: none;font-size: 18px;">{{ translate('ver_mas') }} <i
+                        class="fas fa-arrow-right"></i></a>
+            </span>
+        </h1>
+        <p style="color: whitesmoke; font-size: 18px;">{{ translate('ultimas_noticias_desc') }}</p>
         <hr class="featurette-divider">
         <br>
+        <livewire:home.noticias />
+        <br><br>
+        <hr class="featurette-divider">
+        <br><br>
     </div>
     <div class="parallax" style="background-image: url({{ url('/images/reserva/gral.jpeg') }})">
         <div class="container">
             <div class="d-flex justify-content-center">
-                <h3>RESERVA</h3>
+                <h3>{{ translate('reserva') }}</h3>
             </div>
             <div class="d-flex justify-content-center">
-                <h2>LA TEVA PISTA</h2>
+                <h2>{{ translate('la_teva') }}</h2>
             </div>
             <br>
             <div class="d-flex justify-content-center">
-                <a class="btn btn-danger" style="position: relative;">
-                    <strong>RESERVAR PISTA</strong>
+                <a href="https://playtomic.io/tennis-blanes/745f469e-c8bd-4aa6-b427-90b080b53058?q=TENNIS~2021-05-15~~~" target="_blank" class="btn btn-danger" style="position: relative;">
+                    <strong>{{ translate('reservar_pista') }}</strong>
                 </a>
             </div>
         </div>
@@ -424,9 +394,10 @@
     <div class="container">
         <br>
         <br>
-        <h1 class="color-red" style="font-weight: bold; z-index:999;">Instalaciones</h1>
-        <p style="color: whitesmoke; font-size: 18px; ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
-            deleniti </p>
+        <h1 class="color-red" style="font-weight: bold; z-index:999;" id="section4">{{ translate('instalciones') }}</h1>
+        <p style="color: whitesmoke; font-size: 18px; ">
+            {{ translate('instalaciones-desc') }}
+        </p>
         <hr class="featurette-divider" id="instalaciones">
         <br>
         @foreach ($instalaciones as $index => $instalacion)
@@ -437,21 +408,25 @@
                             <div class="h-100">
                                 <div class="h-50">
                                     <div class="d-flex justify-content-center">
-                                        <h2 class="featurette-heading">{{ $instalacion->titulo }}</h2>
+                                        <h2 class="featurette-heading color-red bold">{{ $instalacion->titulo }}</h2>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <div class="lead" style="color: whitesmoke">Donec ullamcorper nulla non metus auctor
-                                            fringilla. Vestibulum id ligula porta felis
-                                            euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                                            Fusce
-                                            dapibus,
-                                            tellus ac cursus commodo.</div>
+                                        <div class="lead" style="color: whitesmoke">
+                                            <div style="height: 243px; overflow:hidden">
+                                                {!! $instalacion->descripcion !!}                       
+                                            </div>
+                                            <div class="d-flex justify-content-center" style="font-weight: bold;">
+                                                ......
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-end justify-content-center h-50">
                                     <a href="{{ route('instalacion', $instalacion->slug) }}" type="button"
                                         class="btn btn-danger mb-4">
-                                        <i class="far fa-eye"></i> Ver instalacion
+                                        <strong>
+                                            <i class="far fa-eye"></i> {{ translate('ver_instalacion') }}
+                                        </strong>
                                     </a>
                                 </div>
                             </div>
@@ -459,21 +434,27 @@
                             <div class="mt-4 h-100">
                                 <div class="h-50">
                                     <div class="d-flex justify-content-center">
-                                        <h2 class="featurette-heading">{{ $instalacion->titulo }}</h2>
+                                        <h2 class="featurette-heading color-red bold">{{ $instalacion->titulo }}</h2>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <div class="lead" style="color: whitesmoke">Donec ullamcorper nulla non metus auctor
-                                            fringilla. Vestibulum id ligula porta felis
-                                            euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                                            Fusce
-                                            dapibus,
-                                            tellus ac cursus commodo.</div>
+                                        <div class="lead" style="color: whitesmoke">
+                                            <div class="lead" style="color: whitesmoke">
+                                                <div style="height: 243px; overflow:hidden">
+                                                    {!! $instalacion->descripcion !!}                       
+                                                </div>
+                                                <div class="d-flex justify-content-center" style="font-weight: bold;">
+                                                    ......
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-end justify-content-center h-50">
                                     <a href="{{ route('instalacion', $instalacion->slug) }}" type="button"
                                         class="btn btn-danger mb-5">
-                                        <i class="far fa-eye"></i> Ver instalacion
+                                        <strong>
+                                            <i class="far fa-eye"></i> {{ translate('ver_instalacion') }}
+                                        </strong>
                                     </a>
                                 </div>
                             </div>
@@ -492,21 +473,28 @@
                         <div class="mt-4 h-100">
                             <div class="h-50">
                                 <div class="d-flex justify-content-center">
-                                    <h2 class="featurette-heading">{{ $instalacion->titulo }}</h2>
+                                    <h2 class="featurette-heading color-red bold">{{ $instalacion->titulo }}</h2>
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                    <div class="lead" style="color: whitesmoke">Donec ullamcorper nulla non metus auctor
-                                        fringilla. Vestibulum id ligula porta felis
-                                        euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                                        Fusce
-                                        dapibus,
-                                        tellus ac cursus commodo.</div>
+                                    <div class="lead" style="color: whitesmoke">
+                                        <div class="lead" style="color: whitesmoke">
+                                            <div style="height: 243px; overflow:hidden">
+                                                {!! $instalacion->descripcion !!}                       
+                                            </div>
+                                            <div class="d-flex justify-content-center" style="font-weight: bold;">
+                                                ......
+                                            </div>
+                                         
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="d-flex align-items-end justify-content-center h-50">
                                 <a href="{{ route('instalacion', $instalacion->slug) }}" type="button"
                                     class="btn btn-danger mb-5">
-                                    <i class="far fa-eye"></i> Ver instalacion
+                                    <strong>
+                                        <i class="far fa-eye"></i> {{ translate('ver_instalacion') }}
+                                    </strong>
                                 </a>
                             </div>
                         </div>
@@ -531,9 +519,9 @@
         <br><br>
         <div class="container">
             <h1 class="color-red" style="font-weight: bold; position: relative;">
-                Nuestra galeria
+                {{ translate('multimedia_nuestra') }}
                 <span style="font-size: 14px;">
-                    <a href="{{ route('galleria') }}" class="ver-mas-button" style="text-decoration: none; font-size: 18px;">Ver más <i
+                    <a href="{{ route('galleria') }}" class="ver-mas-button" style="text-decoration: none; font-size: 18px;">{{ translate('ver_mas') }} <i
                             class="fas fa-arrow-right"></i></a>
                 </span>
             </h1>
@@ -553,7 +541,7 @@
     <br>
     <div class="container">
         <h1 class="color-red" style="font-weight: bold; position: relative;">
-            Contáctenos
+            {{ translate('contactenos') }}
         </h1>
         <hr class="featurette-divider" id="instalaciones">
     </div>
@@ -594,21 +582,21 @@
             $("#tag1").click(function() {
                 $('html, body').animate({
                     scrollTop: $("#section1").offset().top
-                }, 1000);
+                }, 2000);
             });
             $("#tag2").click(function() {
                 $('html, body').animate({
-                    scrollTop: $("#particles-js").offset().top
-                }, 2000);
+                    scrollTop: $("#section2").offset().top
+                }, 1000);
             });
             $("#tag3").click(function() {
                 $('html, body').animate({
-                    scrollTop: $("#section34").offset().top
+                    scrollTop: $("#section3").offset().top
                 }, 2000);
             });
             $("#tag4").click(function() {
                 $('html, body').animate({
-                    scrollTop: $("#instalaciones").offset().top
+                    scrollTop: $("#section4").offset().top
                 }, 2000);
             });
         });
@@ -645,7 +633,7 @@
                 {
                     breakpoint: 540,
                     settings: {
-                        slidesToShow: 2,
+                        slidesToShow: 1,
                         slidesToScroll: 1
                     }
                 }

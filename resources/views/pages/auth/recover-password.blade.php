@@ -192,7 +192,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="card-body back-ground-login-form">
-                        <p class="login-card-description login-title">Recupera tu cuenta</p>
+                        <p class="login-card-description login-title">{{ translate('recover_account') }}</p>
                         <hr class="featurette-divider">
                         <livewire:auth.recover-password-form/>
                     </div>

@@ -121,16 +121,6 @@
     .fc-list-event.fc-event.fc-event-end.fc-event-future{
         background-color: red !important;
     }
-    #inicioEvento{
-        color: whitesmoke;
-    }
-    #finalEvento{
-        color: whitesmoke; 
-        margin-top: -17px;
-    }
-    #descripcion{
-        color:whitesmoke !important;
-    }
     .modal-evento-image-div{
         height: 500px; 
         width:100%;
@@ -139,9 +129,6 @@
         height: 100%; 
         width: 100%; 
         object-fit: contain;
-    }
-    .color-modal{
-        background-color: #43464d !important;
     }
     #titulo{
         color: red !important;
@@ -160,14 +147,14 @@
 <div id="calendar"></div>
 <div id="calendarModal" class="modal fade">
     <div class="modal-dialog" role="document">
-        <div class="modal-content color-modal">
+        <div class="modal-content  color-modal">
             <div class="modal-header">
-                <h5 class="modal-title w-100 text-center" id="titulo"></h5>
+                <h5 class="modal-title w-100 text-center" id="titulo"><strong>{{ translate('actividad') }}</strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body"></div>
+            <div class="modal-body calendar-modal-body"></div>
         </div>
     </div>
 </div>
@@ -187,7 +174,7 @@
             eventClick: function(arg) {
                 let event = arg.event;
                 console.log(event);
-                $('.modal-body').html(event.extendedProps.content);
+                $('.calendar-modal-body').html(event.extendedProps.content);
                 $('#calendarModal').modal();
             },
         });

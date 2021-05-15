@@ -19,8 +19,8 @@ class RecoverPasswordForm extends Component
     ];
 
     protected $messages = [
-        'email.required' => 'Campo email no puede estar vacio.',
-        'email.email' => 'El formato de email es incorrecto.',
+        'email.required' => '',
+        'email.email' => '',
     ];
     public function search()
     {
@@ -41,10 +41,10 @@ class RecoverPasswordForm extends Component
             ->send(new RecoverPassword($url, $user->first_name . ', ' . $user->second_name));
 
             $this->dispatchBrowserEvent(
-                'alert', ['message' => 'Te hemos enviado un email de recuperación. Revisa tu bandeja de entrada.']);
+                'alert', ['message' => translate('recover_email')]);
 
         } else {
-            session()->flash('error', 'Email incorecto.');
+            session()->flash('error', translate('error_email_3'));
         }
 
         $this->resetForm();

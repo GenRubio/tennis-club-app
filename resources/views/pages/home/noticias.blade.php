@@ -189,7 +189,7 @@ if (isset($noticia)) {
                             <span style="font-size: 18px;">
                                 <i class="far fa-newspaper"></i>
                                 <a href="{{ route('noticias') }}"
-                                    class="sm-font-size text-danger nav-noticia">Noticias</a>
+                                    class="sm-font-size text-danger nav-noticia">{{ translate('noticias') }}</a>
                             </span>
                             <i class="fas fa-angle-right"></i>
                             <span style="font-size: 16px;">
@@ -208,7 +208,7 @@ if (isset($noticia)) {
                     <div class="col-xl-9 col-lg-12 col-md-12">
                         <div class="color-whitesmoke">
                             <h2><strong class="color-whitesmoke">{!! $noticia->titulo !!}</strong></h2>
-                            <p style="font-size: 18px;">Publicado: {{ $noticia->created_at->translatedFormat('jS F Y') }}</p>
+                            <p style="font-size: 18px;">{{ translate('publicado') }}: {{ $noticia->created_at->translatedFormat('jS F Y') }}</p>
                         </div>
                         <div>
                             {{-- <h5style="margin-bottom:20px;"><strong>!!$noticia->sub_titulo!!</strong></h5> --}}
@@ -227,7 +227,7 @@ if (isset($noticia)) {
                             <div class="d-flex justify-content-center">
                                 <a href="{{ route('actividades', $noticia->actividadNoticia->slug) }}" class="btn btn-danger btn-lg">
                                     <strong>
-                                        <i class="fas fa-location-arrow"></i> Ir a la actividad
+                                        <i class="fas fa-location-arrow"></i> {{ translate('ir_actividad') }}
                                     </strong>
                                 </a>
                             </div>
@@ -246,7 +246,7 @@ if (isset($noticia)) {
                         <livewire:home.comentarios :noticia="$noticia->id">
                     </div>
                     <div class="col-xl-3 d-none d-xl-block border-left border-dark">
-                        <h4><strong class="color-red" style="font-size: 24px;">Ultimas noticias</strong></h4>
+                        <h4><strong class="color-red" style="font-size: 24px;">{{ translate('ultimas_noticias') }}</strong></h4>
                         <div class="row">
                             @foreach ($ultimasNoticias as $noticia)
                                 <div class="col-12">
@@ -275,7 +275,7 @@ if (isset($noticia)) {
     @section('content')
         <div class="container">
             <h1 class="color-red" style="font-weight: bold;">
-                Noticias
+                {{ translate('noticias') }}
             </h1>
             <hr class="featurette-divider">
             <br>
@@ -299,7 +299,7 @@ if (isset($noticia)) {
                                     @php
                                         setlocale(LC_TIME, 'French');
                                     @endphp
-                                    <small class="text-muted">Publicado:
+                                    <small class="text-muted">{{ translate('publicado') }}:
                                         {{ $noticia->created_at->translatedFormat('jS F Y') }}</small>
                                 </div>
                             </div>
