@@ -6,11 +6,12 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class ShopArticle extends Model
 {
     use CrudTrait;
-
+    use HasTranslations;
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -28,6 +29,10 @@ class ShopArticle extends Model
         'precio',
         'activo',
         'shop_categorie_id'
+    ];
+    protected $translatable = [
+        'name', 
+        'descripcion',
     ];
     // protected $hidden = [];
     // protected $dates = [];

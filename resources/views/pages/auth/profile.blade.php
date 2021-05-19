@@ -116,13 +116,18 @@
                     <hr style="border: 1px solid #9c9a9a;">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <a class="nav-link-1 active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
-                            role="tab" aria-controls="v-pills-profile" aria-selected="true">{{ translate('mi_perfil') }}</a>
+                            role="tab" aria-controls="v-pills-profile"
+                            aria-selected="true">{{ translate('mi_perfil') }}</a>
                         <a class="nav-link-1" id="v-pills-family-tab" data-toggle="pill" href="#v-pills-family" role="tab"
                             aria-controls="v-pills-family" aria-selected="false">{{ translate('familiares') }}</a>
                         <a class="nav-link-1" id="v-pills-image-tab" data-toggle="pill" href="#v-pills-image" role="tab"
                             aria-controls="v-pills-image" aria-selected="false">{{ translate('imagen') }}</a>
-                        <a class="nav-link-1" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
-                            role="tab" aria-controls="v-pills-settings" aria-selected="false">{{ translate('contraseña') }}</a>
+                        @if (auth()->user()->password)
+                            <a class="nav-link-1" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
+                                role="tab" aria-controls="v-pills-settings"
+                                aria-selected="false">{{ translate('contraseña') }}</a>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -144,13 +149,16 @@
                         </div>
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link-1 active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
-                                role="tab" aria-controls="v-pills-profile" aria-selected="true">{{ translate('mi_perfil') }}</a>
+                                role="tab" aria-controls="v-pills-profile"
+                                aria-selected="true">{{ translate('mi_perfil') }}</a>
                             <a class="nav-link-1" id="v-pills-family-tab" data-toggle="pill" href="#v-pills-family"
-                                role="tab" aria-controls="v-pills-family" aria-selected="false">{{ translate('familiares') }}</a>
+                                role="tab" aria-controls="v-pills-family"
+                                aria-selected="false">{{ translate('familiares') }}</a>
                             <a class="nav-link-1" id="v-pills-image-tab" data-toggle="pill" href="#v-pills-image" role="tab"
                                 aria-controls="v-pills-image" aria-selected="false">{{ translate('imagen') }}</a>
                             <a class="nav-link-1" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
-                                role="tab" aria-controls="v-pills-settings" aria-selected="false">{{ translate('contraseña') }}</a>
+                                role="tab" aria-controls="v-pills-settings"
+                                aria-selected="false">{{ translate('contraseña') }}</a>
                         </div>
                         <hr style="border: 1px solid #9c9a9a;">
                     </div>
@@ -191,7 +199,8 @@
                                     <label style="color: white">{{ translate('upload_image') }}:</label>
                                     <div class="custom-file mb-3">
                                         <input type="file" class="custom-file-input" id="customFile" name="filename">
-                                        <label class="custom-file-label" for="customFile">{{ translate('ecoge_imagen') }}</label>
+                                        <label class="custom-file-label"
+                                            for="customFile">{{ translate('ecoge_imagen') }}</label>
                                     </div>
                                     <br> <br>
                                     <div class="d-flex justify-content-end">

@@ -183,14 +183,14 @@
             </div>
             <div class="col-md-6">
                 <div class="wrap-img-cover-welcome rounded">
-                    <img class="img-cover-welcome" src="{{ url('/images/restaurante/comida.png') }}">
+                    <img class="img-cover-welcome" src="{{ url('/uploads/restaurante/imagen_3.png') }}">
                 </div>
             </div>
         </div>
         <br><br>
         <br><br>
     </div>
-    <div class="parallax" style="background-image: url({{ url('/images/restaurante/bg_3.jpg') }})">
+    <div class="parallax" style="background-image: url({{ url('/uploads/restaurante/imagen_1.jpg') }})">
         <div class="container">
             <div class="d-flex justify-content-center">
                 <h1>{{ translate('comida_exquisita') }}</h1>
@@ -296,7 +296,7 @@
     @endif
     <br>
     <br>
-    <div class="parallax pra2" style="background-image: url({{ url('/images/restaurante/descarga100.png') }})">
+    <div class="parallax pra2" style="background-image: url({{ url('/uploads/restaurante/imagen_2.png') }})">
         <div class="container">
             <div class="d-flex justify-content-center">
                 <h1>{{ translate('descubre_galleria') }}</h1>

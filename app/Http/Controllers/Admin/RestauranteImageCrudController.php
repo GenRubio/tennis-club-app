@@ -58,7 +58,7 @@ class RestauranteImageCrudController extends CrudController
     {
         CRUD::setValidation(RestauranteImageRequest::class);
 
-        $this->basicFields();; 
+        $this->basicFields();
     }
 
     protected function setupUpdateOperation()

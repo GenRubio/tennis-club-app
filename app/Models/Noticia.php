@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class Noticia extends Model
 {
     use CrudTrait;
-
+    use HasTranslations;
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -32,6 +33,10 @@ class Noticia extends Model
         'slug',
         'created_at',
     ];
+    protected $translatable = [
+        'titulo', 
+        'descripcion',
+    ];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -40,12 +45,6 @@ class Noticia extends Model
         parent::boot();
 
         self::created(function ($noticia) {
-            if ($noticia->activo == 1) {
-                $usersEmail = Newsletter::all()->pluck("email")->toArray();
-                Mail::bcc($usersEmail)->send(new NewsletterEmail($noticia));
-            }
-        });
-        self::updated(function ($noticia) {
             if ($noticia->activo == 1) {
                 $usersEmail = Newsletter::all()->pluck("email")->toArray();
                 Mail::bcc($usersEmail)->send(new NewsletterEmail($noticia));
@@ -93,8 +92,7 @@ class Noticia extends Model
     */
     public function setSlugAttribute($value)
     {
-        $name = mb_strtolower($this->attributes['titulo']);
-        $this->attributes['slug'] =  str_replace(' ', '-', eliminar_tildes($name));
+        $this->attributes['slug'] = str_slug(mb_strtolower($this->attributes['titulo']));
     }
     public function setImageAttribute($value)
     {

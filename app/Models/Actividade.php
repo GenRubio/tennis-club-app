@@ -6,11 +6,12 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class Actividade extends Model
 {
     use CrudTrait;
-
+    use HasTranslations;
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -30,6 +31,10 @@ class Actividade extends Model
         'formulario',
         'visible',
         'activo',
+    ];
+    protected $translatable = [
+        'titulo', 
+        'descripcion',
     ];
     // protected $hidden = [];
     // protected $dates = [];

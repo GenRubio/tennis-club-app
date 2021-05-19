@@ -3,46 +3,32 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Exception;
 use Illuminate\Database\Eloquent\Model;
-use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
-class FormGrupoExtra extends Model
+class Idioma extends Model
 {
     use CrudTrait;
-    use HasTranslations;
+
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'form_grupo_extras';
+    protected $table = 'idiomas';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'titulo',
-        'descripcion',
-        'tipo_respuestas',
-        'activo'
-    ];
-    protected $translatable = [
-        'titulo', 
-        'descripcion',
+        'name',
+        'abbr',
+        'native',
+        'active',
+        'defecto',
     ];
     // protected $hidden = [];
     // protected $dates = [];
-    
-    public static function boot()
-    {
-        parent::boot();
-
-        static::deleting(function ($grupo) {
-            foreach ($grupo->opciones as $opcion) {
-                $opcion->delete();
-            }
-        });
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -55,13 +41,7 @@ class FormGrupoExtra extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function opciones(){
-        return $this->hasMany(FormOpcionExtra::class, 'form_grupo_extra_id', 'id');
-    }
 
-    public function activeOpciones(){
-        return $this->opciones()->where('activo', 1);
-    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

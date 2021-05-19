@@ -6,11 +6,12 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class GalleriaImage extends Model
 {
     use CrudTrait;
-
+    use HasTranslations;
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -30,6 +31,10 @@ class GalleriaImage extends Model
         'destacada',
         'carusel',
         'tipo',
+    ];
+    protected $translatable = [
+        'titulo', 
+        'descripcion',
     ];
     // protected $hidden = [];
     // protected $dates = [];

@@ -384,8 +384,8 @@
             </div>
             <br>
             <div class="d-flex justify-content-center">
-                <a href="https://playtomic.io/tennis-blanes/745f469e-c8bd-4aa6-b427-90b080b53058?q=TENNIS~2021-05-15~~~" target="_blank" class="btn btn-danger" style="position: relative;">
-                    <strong>{{ translate('reservar_pista') }}</strong>
+                <a href="https://playtomic.io/tennis-blanes/745f469e-c8bd-4aa6-b427-90b080b53058?q=TENNIS~2021-05-15~~~" target="_blank" class="btn btn-danger btn-lg" style="position: relative;">
+                    <strong><i class="far fa-file-alt"></i> {{ translate('reservar_pista') }}</strong>
                 </a>
             </div>
         </div>

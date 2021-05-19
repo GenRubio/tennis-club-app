@@ -6,11 +6,12 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class WebVista extends Model
 {
     use CrudTrait;
-
+    use HasTranslations;
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -26,6 +27,11 @@ class WebVista extends Model
         'titulo',
         'descripcion',
         'image'
+    ];
+
+    protected $translatable = [
+        'titulo', 
+        'descripcion',
     ];
     // protected $hidden = [];
     // protected $dates = [];

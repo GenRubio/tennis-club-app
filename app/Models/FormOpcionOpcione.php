@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class FormOpcionOpcione extends Model
 {
     use CrudTrait;
-
+    use HasTranslations;
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -27,6 +28,9 @@ class FormOpcionOpcione extends Model
         'precio_persona',
         'precio_mensual',
         'activo',
+    ];
+    protected $translatable = [
+        'titulo', 
     ];
     // protected $hidden = [];
     // protected $dates = [];

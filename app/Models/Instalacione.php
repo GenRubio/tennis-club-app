@@ -6,11 +6,12 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class Instalacione extends Model
 {
     use CrudTrait;
-
+    use HasTranslations;
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -30,7 +31,11 @@ class Instalacione extends Model
         'slug',
         'activo',
     ];
-
+    protected $translatable = [
+        'titulo', 
+        'subtitulo',
+        'descripcion',
+    ];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -77,8 +82,8 @@ class Instalacione extends Model
     }
     public function setSlugAttribute($value)
     {
-        $name = mb_strtolower($this->attributes['titulo']);
-        $this->attributes['slug'] =  str_replace(' ', '-', eliminar_tildes($name));
+        $this->attributes['slug'] = str_slug(mb_strtolower($this->attributes['titulo']));
+
     }
     public function setImageAttribute($value)
     {

@@ -30,11 +30,22 @@ class RestauranteCategoriaCrudController extends CrudController
         CRUD::setFromDb(); // columns
 
     }
+    protected function basicFields()
+    {
+        $this->crud->addFields([
+            [
+                'name' => 'name',
+                'label' => 'Nombre',
+                'type' => 'text',
+            ],
+
+        ]);
+    }
     protected function setupCreateOperation()
     {
         CRUD::setValidation(RestauranteCategoriaRequest::class);
 
-        CRUD::setFromDb(); // fields
+        $this->basicFields();
     }
 
     protected function setupUpdateOperation()

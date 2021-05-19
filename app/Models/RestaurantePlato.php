@@ -6,11 +6,12 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class RestaurantePlato extends Model
 {
     use CrudTrait;
-
+    use HasTranslations;
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -30,6 +31,11 @@ class RestaurantePlato extends Model
         'price',
         'plato_especial',
         'active'
+    ];
+    protected $translatable = [
+        'name', 
+        'description',
+        'ingredients',
     ];
     // protected $hidden = [];
     // protected $dates = [];

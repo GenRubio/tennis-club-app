@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class ShopCategorie extends Model
 {
     use CrudTrait;
-
+    use HasTranslations;
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -23,6 +24,9 @@ class ShopCategorie extends Model
         'titulo',
         'slug',
         'activo',
+    ];
+    protected $translatable = [
+        'titulo', 
     ];
     // protected $hidden = [];
     // protected $dates = [];

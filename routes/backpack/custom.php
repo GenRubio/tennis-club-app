@@ -95,4 +95,5 @@ Route::group([
     });
     Route::crud('socialnetwork', 'SocialNetworkCrudController');
     Route::crud('transaltion', 'TransaltionCrudController');
+    Route::crud('idioma', 'IdiomaCrudController');
 });

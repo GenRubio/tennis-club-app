@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col-xl-4 col-lg-4">
                 <div class="d-flex justify-content-center">
-                    <img class="img-logo-footer" src="{{ url('/images/unnamed.png') }}">
+                    <img class="img-logo-footer" src="{{ url('/uploads/footer.png') }}">
                 </div>
                 <div style="color: whitesmoke; margin-top: 5px;">
                    {!! translate('web_descripcion') !!}

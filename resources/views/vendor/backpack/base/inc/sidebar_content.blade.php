@@ -14,6 +14,8 @@
         <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-globe"></i>
             Traducciones</a>
         <ul class="nav-dropdown-items">
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('idioma') }}'><i
+                        class='nav-icon la la-flag-checkered'></i> Idiomas</a></li>
             <li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaltion') }}'><i
                         class='nav-icon la la-language'></i> Traducciones</a></li>
         </ul>
