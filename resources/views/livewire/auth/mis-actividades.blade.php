@@ -114,17 +114,4 @@
        
     @endif
 </div>
-<script>
-    window.addEventListener('alert', event => {
-        $('.modal').modal('hide').data('bs.modal', null);
-        $('.modal').remove();
-        $('.modal-backdrop').remove();
-        $('body').removeClass('modal-open');
-        $('body').removeAttr('style');
 
-         toastr.options.closeButton = true;
-         toastr.success(event.detail.message);
-
-    })
-
-</script>

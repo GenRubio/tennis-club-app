@@ -130,24 +130,109 @@
         background-color: black;
     }
 
+    .idiomas-boton {
+        color: #e3342f;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .idiomas-boton:hover {
+        color: #e3342f;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .contenedor-idiomas {
+        margin-top: -6px;
+        margin-right: -3px;
+        background-color: black;
+        border-right: 1px solid #5d1d1d;
+        border-bottom: 1px solid #5d1d1d;
+        border-left: 1px solid #5d1d1d;
+        box-shadow: 0 0 15px 0px #000;
+        clip-path: inset(0px -15px -15px -15px);
+    }
+
+    .item-language {
+        color: #e3342f;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .network-button{
+        color:#e3342f;
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        transition: all .3s linear
+    }
+    .network-button:hover{
+        color:white;
+    }
+    
+
 </style>
 <div id="header">
-
     <div class="nav-superior">
         <div class="container">
-            <div class="d-flex justify-content-end">
-                @php
-                    use App\Models\SocialNetwork;
-                    
-                    $socialNetworks = SocialNetwork::where('activo', 1)->get();
-                @endphp
-                @foreach ($socialNetworks as $network)
-                    <div class="social-network m-1">
-                        <a href="{{ $network->url }}" target="_black" style="text-decoration: none; color:#e3342f">
-                            <i class="{{ $network->icon }}"></i>
-                        </a>
+            <div class="d-flex justify-content-between">
+
+                <div class="d-flex">
+                    @php
+                        use App\Models\SocialNetwork;
+                        
+                        $socialNetworks = SocialNetwork::where('activo', 1)->get();
+                    @endphp
+                    @foreach ($socialNetworks as $network)
+                        <div class="social-network m-1">
+                            <a href="{{ $network->url }}" class="network-button" target="_black">
+                                <i class="{{ $network->icon }}"></i>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="d-flex">
+                    @php
+                        use App\Models\Idioma;
+                        $idiomas = Idioma::where('active', 1)->get();
+                    @endphp
+                    <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle idiomas-boton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            @if (session()->has('language'))
+                                @if (Session::get('language') == 'es')
+                                    Español
+                                @elseif (Session::get('language') == "ca")
+                                    Català
+                                @elseif (Session::get('language') == "fr")
+                                    Français
+                                @elseif (Session::get('language') == "ru")
+                                    Pусский
+                                @elseif (Session::get('language') == "en")
+                                    English
+                                @endif
+                            @else
+                                @if (\App::getLocale() == 'es')
+                                    Español
+                                @elseif (\App::getLocale() == 'ca')
+                                    Català
+                                @elseif (\App::getLocale() == 'fr')
+                                    Français
+                                @elseif (\App::getLocale() == 'ru')
+                                    Pусский
+                                @elseif (\App::getLocale() == 'en')
+                                    English
+                                @endif
+                            @endif
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right contenedor-idiomas">
+                            @foreach ($idiomas as $idioma)
+                                <a class="dropdown-item item-language" href="{{ route('language', $idioma->abbr) }}"
+                                    type="button">{{ $idioma->native }}</a>
+                            @endforeach
+                        </div>
                     </div>
-                @endforeach
+
+                </div>
             </div>
         </div>
     </div>
@@ -332,7 +417,7 @@
                             @else
                                 <form class="form-inline my-2 my-lg-0">
                                     <a href="{{ route('login') }}" type="button"
-                                        class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block">{{ translate('entrar') }}</a>
+                                        class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block">{{ strtoupper(translate('entrar')) }}</a>
                                     <a href="{{ route('registro') }}" type="button"
                                         class="btn btn-danger mt-1 d-none d-sm-block">{{ translate('registro') }}</a>
                                 </form>
@@ -340,7 +425,7 @@
                         @else
                             <form class="form-inline my-2 my-lg-0">
                                 <a href="{{ route('login') }}" type="button"
-                                    class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block d-block">{{ translate('entrar') }}</a>
+                                    class="btn btn-outline-danger mr-2 mt-1 d-none d-sm-block d-block">{{ strtoupper(translate('entrar')) }}</a>
                                 <a href="{{ route('registro') }}" type="button"
                                     class="btn btn-danger mt-1 d-none d-sm-block d-block">{{ translate('registro') }}</a>
                             </form>

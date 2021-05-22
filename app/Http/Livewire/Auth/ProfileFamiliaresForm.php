@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auth;
 
+use App\Models\ActividadInscripcione;
 use App\Models\Client;
 use App\Models\ClientParientesRelacion;
 use Livewire\Component;
@@ -190,5 +191,26 @@ class ProfileFamiliaresForm extends Component
     private function validateUpdate()
     {
         return true;
+    }
+
+    public function deleteFForm($id){
+        $clientes = array();
+        $familiares = auth()->user()->cliente()->familiares();
+
+        array_push($clientes, auth()->user()->cliente()->id);
+
+        foreach ($familiares as $familiar){
+            array_push($clientes, $familiar->id);
+        }
+
+        if (in_array($id, $clientes)){
+            Client::where('id', $id)->delete();
+            ActividadInscripcione::where('cliente_id', $id)->delete();
+
+            $this->dispatchBrowserEvent(
+                'alertFamiliar',
+                ['message' => translate('familiar_delete')]
+            );
+        }
     }
 }

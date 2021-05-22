@@ -79,6 +79,9 @@ if (!function_exists('toggleField')) {
 function translate($label){
     $translation = Translation::where('key', $label)->first();
 
+    if (session()->has('language')){
+        app()->setLocale(session()->get('language'));
+    }
     if ($translation->text){
         return $translation->text;
     }

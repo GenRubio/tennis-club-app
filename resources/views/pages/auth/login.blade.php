@@ -147,6 +147,19 @@
 
         .color-whitesmoke {
             color: whitesmoke;
+
+        }
+
+        .password-olvidada {
+            -webkit-transition: all .3s linear;
+            -o-transition: all .3s linear;
+            transition: all .3s linear
+        }
+
+        .password-olvidada:hover {
+            text-decoration: none;
+            color: #e3342f;
+            font-weight: bold;
         }
 
         .button-login-here {
@@ -209,11 +222,13 @@
 
                             <livewire:auth.login-form />
 
-                            <a href="{{ route('recover.password') }}" class="login-recover-password color-whitesmoke">
+                            <a href="{{ route('recover.password') }}"
+                                class="login-recover-password color-whitesmoke password-olvidada">
                                 {{ translate('pass_recover') }}
                             </a>
                             <p class="login-card-footer-text color-whitesmoke">{{ translate('no_account') }}
-                                <a href="{{ route('registro') }}" class="text-reset button-login-here">{{ translate('registrarse') }}</a>
+                                <a href="{{ route('registro') }}"
+                                    class="text-reset button-login-here">{{ translate('registrarse') }}</a>
                             </p>
                         </div>
                     </div>
@@ -233,6 +248,7 @@
                 toastr.success(status);
             }
         })
+
     </script>
 
 @endsection

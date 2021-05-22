@@ -22,8 +22,14 @@ use App\Http\Controllers\Home\SociosController;
 use App\Http\Controllers\Home\TiendaController;
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/lang/{language}', function ($language) {
+    Session::put('language', $language);
+    return redirect()->back();
+})->name('language');
 
 //Google Auth
 Route::get('/auth/redirect/google', [GoogleController::class, 'redirectToGoogle'])
