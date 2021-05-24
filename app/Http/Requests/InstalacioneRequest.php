@@ -22,7 +22,6 @@ class InstalacioneRequest extends FormRequest
             'titulo' => ['required'],
             'descripcion' => ['required'],
             'image' => ['required'],
-            'video' => [new YouTubeUrl]
         ];
     }
 

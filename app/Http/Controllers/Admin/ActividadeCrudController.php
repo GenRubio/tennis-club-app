@@ -138,7 +138,7 @@ class ActividadeCrudController extends CrudController
                 }),
             ],
             [
-                'label' => 'Extras (Opciones extras del grupo de opciones) <br>
+                'label' => 'Extras (Opciones extras de la actividad) <br>
                 <small>
                   Las opciones extras apareceran al final de formulario. El cliente podra escoger una o todas opciones
                 </small>

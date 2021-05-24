@@ -6,11 +6,6 @@ use App\Http\Requests\InstalacioneRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
-/**
- * Class InstalacioneCrudController
- * @package App\Http\Controllers\Admin
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
- */
 class InstalacioneCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
@@ -77,8 +72,8 @@ class InstalacioneCrudController extends CrudController
             ],
             [
                 'name' => 'video',
-                'label' => 'Url video YouTube',
-                'type' => 'text',
+                'label' => 'Video de YouTube o Vmeo',
+                'type' => 'video',
             ],
             [
                 'name' => 'image',

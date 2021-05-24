@@ -59,7 +59,7 @@
                 <br>
                 @if ($instalacion->video != '')
                     <div class="embed-responsive embed-responsive-21by9" style="height: 250px">
-                        <iframe class="embed-responsive-item" src="{{ $instalacion->video }}"></iframe>
+                        <iframe class="embed-responsive-item" src="{{ $instalacion->url_video }}"></iframe>
                     </div>
                 @endif
             </div>

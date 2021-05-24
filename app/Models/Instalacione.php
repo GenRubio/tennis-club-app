@@ -66,20 +66,21 @@ class Instalacione extends Model
     | ACCESSORS
     |--------------------------------------------------------------------------
     */
+    public function getVideoAttribute()
+    {
+        return json_decode($this->attributes['video'], true);
+    }
 
+    public function getUrlVideoAttribute(){
+        if ($this->video['provider'] == "youtube"){
+            return "https://www.youtube.com/embed/" . $this->video['id'];
+        }
+    }
     /*
     |--------------------------------------------------------------------------
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-    public function setVideoAttribute($value)
-    {
-        if ($value != null) {
-            $this->attributes['video'] = str_replace("https://youtu.be/", "https://www.youtube.com/embed/", $value);
-        } else {
-            $this->attributes['video'] = "";
-        }
-    }
     public function setSlugAttribute($value)
     {
         $this->attributes['slug'] = str_slug(mb_strtolower($this->attributes['titulo']));
