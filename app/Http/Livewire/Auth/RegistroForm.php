@@ -69,6 +69,7 @@ class RegistroForm extends Component
         if (($this->newsletter != "1" ? "0" : $this->newsletter) == "1"){
             $newsletter = new Newsletter();
             $newsletter->email = $this->email;
+            $newsletter->activo = $this->newsletter != "1" ? "0" : $this->newsletter;
             $newsletter->save();
         }
     }
