@@ -14,10 +14,10 @@ class EscuelaController extends Controller
         $slug = $request->slug;
         $vista = null;
         if ($slug == "escuela-padel") {
-            $actividades = Actividade::whereIn('titulo', ['ESCOLA INFANTIL PADEL', 'ESCOLA ADULTS PADEL'])->get();
+            $actividades = Actividade::whereIn('id', [12,13])->get();
             $vista = WebVista::where('slug', $slug)->first();
         } else if ($slug == "escuela-tenis") {
-            $actividades = Actividade::whereIn('titulo', ['ESCOLA ADULTS TENNIS', 'ESCOLA INFANTIL TENNIS'])->get();
+            $actividades = Actividade::whereIn('id', [10, 11])->get();
             $vista = WebVista::where('slug', $slug)->first();
         }
         if ($vista) {
@@ -27,6 +27,7 @@ class EscuelaController extends Controller
                 ->orderBy('id', 'DESC')
                 ->limit(4)
                 ->get();
+        
             return view('pages.home.escuela', compact('vista', 'actividades', 'actividadesAll'));
         } else {
             return redirect()->route('home');

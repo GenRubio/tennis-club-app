@@ -43,11 +43,6 @@ class NoticiaCrudController extends CrudController
             'type'  => 'text',
         ]);
         $this->crud->addColumn([
-            'name' => 'titulo',
-            'label' => 'Titulo',
-            'type'  => 'text',
-        ]);
-        $this->crud->addColumn([
             'name' => 'activo',
             'type' => 'btnToggle',
             'label' => 'Activo',

@@ -27,7 +27,7 @@ class TransaltionCrudController extends CrudController
             [
                 'type'  => 'text',
                 'name'  => 'key',
-                'label' => 'Key'
+                'label' => 'Llave'
             ],
             false,
             function ($value) {
@@ -38,11 +38,22 @@ class TransaltionCrudController extends CrudController
             [
                 'type'  => 'text',
                 'name'  => 'text',
-                'label' => 'Text'
+                'label' => 'Texto corto'
             ],
             false,
             function ($value) {
                 $this->crud->addClause('where', 'text', 'LIKE', "%$value%");
+            }
+        );
+        $this->crud->addFilter(
+            [
+                'type'  => 'text',
+                'name'  => 'text_description',
+                'label' => 'Texto descriptivo'
+            ],
+            false,
+            function ($value) {
+                $this->crud->addClause('where', 'text_description', 'LIKE', "%$value%");
             }
         );
         $this->crud->addColumn([

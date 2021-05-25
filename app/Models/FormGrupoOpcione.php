@@ -34,6 +34,7 @@ class FormGrupoOpcione extends Model
     // protected $hidden = [];
     // protected $dates = [];
 
+
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS

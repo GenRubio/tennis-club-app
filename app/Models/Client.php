@@ -44,6 +44,18 @@ class Client extends Model
     // protected $hidden = [];
     // protected $dates = [];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($client) {
+            //Deleting all clients
+            foreach ($client->actividadInscripciones as $inscripcion) {
+                $inscripcion->delete();
+            }
+        });
+    }
+
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS

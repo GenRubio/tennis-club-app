@@ -50,6 +50,13 @@ class Noticia extends Model
                 Mail::bcc($usersEmail)->send(new NewsletterEmail($noticia));
             }
         });
+
+        self::updating(function ($noticia) {
+            if ($noticia->activo == 1) {
+                $usersEmail = Newsletter::all()->pluck("email")->toArray();
+                Mail::bcc($usersEmail)->send(new NewsletterEmail($noticia));
+            }
+        });
     }
 
     /*

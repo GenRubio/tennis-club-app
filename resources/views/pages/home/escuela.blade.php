@@ -37,6 +37,7 @@
     </style>
 @endsection
 @section('content')
+
     <div class="container">
         <div>
             <h1 class="color-red" style="font-weight: bold;">

@@ -28,6 +28,7 @@ class NoticiaRequest extends FormRequest
         return [
             'titulo' => 'required|min:5|max:255',
             'descripcion' => 'required|min:5',
+            'image' => 'required'
         ];
     }
 
