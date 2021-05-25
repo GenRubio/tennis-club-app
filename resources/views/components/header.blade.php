@@ -377,19 +377,14 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right anti-parpadeo dropdow-status">
                                             <div class="d-flex justify-content-center">
-                                                <div class="width-ellipse-name">
-                                                    <p style="color: #e3342f;font-weight: bold;font-size: 21px;">
-                                                        {{ auth()->user()->user_name }}
-                                                    </p>
+                                                <div class="width-ellipse-name" style="color: #e3342f;font-weight: bold;font-size: 21px;">
+                                                    {{ auth()->user()->user_name }}
                                                 </div>
                                                 
                                             </div>
                                             <div class="d-flex justify-content-center">
-                                                <div class="width-ellipse-email">
-                                                    <p
-                                                        style="color: #e3342f;font-weight: bold;font-size: 14px;margin-top: -16px;">
-                                                        {{ auth()->user()->email }}
-                                                    </p>
+                                                <div class="width-ellipse-email" style="color: #e3342f;font-weight: bold;font-size: 14px;margin-top: -16px;">
+                                                    {{ auth()->user()->email }}
                                                 </div>
                                             </div>
 
