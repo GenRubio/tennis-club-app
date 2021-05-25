@@ -205,46 +205,7 @@ if (isset($noticia)) {
         <div class="container">
             @isset($noticia)
                 <div class="row">
-                    <div class="col-xl-9 col-lg-12 col-md-12">
-                        <div class="color-whitesmoke">
-                            <h2><strong class="color-whitesmoke">{!! $noticia->titulo !!}</strong></h2>
-                            <p style="font-size: 18px;">{{ translate('publicado') }}: {{ $noticia->created_at->translatedFormat('jS F Y') }}</p>
-                        </div>
-                        <div>
-                            {{-- <h5style="margin-bottom:20px;"><strong>!!$noticia->sub_titulo!!</strong></h5> --}}
-                        </div>
-                        @if ($noticia->image)
-                            <img src="{{ url($noticia->image) }}" class="card-img-top margin-b-20">
-                        @endif
-                        <br>
-                        <div class="color-whitesmoke" style="font-size: 18px;">
-                            <p class="font-size-17">{!! $noticia->descripcion !!}
-                            <p>
-                        </div>
-                        <br>
-                        @if ($noticia->actividadNoticia)
-                            <br>
-                            <div class="d-flex justify-content-center">
-                                <a href="{{ route('actividades', $noticia->actividadNoticia->slug) }}" class="btn btn-danger btn-lg">
-                                    <strong>
-                                        <i class="fas fa-location-arrow"></i> {{ translate('ir_actividad') }}
-                                    </strong>
-                                </a>
-                            </div>
-                        @endif
-                        <br>
-                        <ul class="nav mt-3">
-                            <li class="nav-item">
-                                <a class="nav-link active p-0" href="{{ route('home') }}">
-                                    <button class="btn btn-danger">
-                                        <strong>Volver</strong>
-                                    </button>
-                                </a>
-                            </li>
-                        </ul>
-                        <br> <br>
-                        <livewire:home.comentarios :noticia="$noticia->id">
-                    </div>
+                 
                     <div class="col-xl-3 d-none d-xl-block border-left border-dark">
                         <h4><strong class="color-red" style="font-size: 24px;">{{ translate('ultimas_noticias') }}</strong></h4>
                         <div class="row">
