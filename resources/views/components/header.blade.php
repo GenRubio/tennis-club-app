@@ -382,6 +382,7 @@
                                                 </div>
                                                 
                                             </div>
+                                            <br>
                                             <div class="d-flex justify-content-center">
                                                 <div class="width-ellipse-email" style="color: #e3342f;font-weight: bold;font-size: 14px;margin-top: -16px;">
                                                     {{ auth()->user()->email }}
