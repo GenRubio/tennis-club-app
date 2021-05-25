@@ -207,7 +207,7 @@ if (isset($noticia)) {
                 <div class="row">
                     <div class="col-xl-9 col-lg-12 col-md-12">
                         <div class="color-whitesmoke">
-                            <h2><strong class="color-whitesmoke">{!! $noticia->titulo !!}</strong></h2>
+                            <h2><strong class="color-whitesmoke">{{ $noticia->titulo }}</strong></h2>
                             <p style="font-size: 18px;">{{ translate('publicado') }}: {{ $noticia->created_at->translatedFormat('jS F Y') }}</p>
                         </div>
                         <div>
@@ -243,7 +243,7 @@ if (isset($noticia)) {
                             </li>
                         </ul>
                         <br> <br>
-                       
+                        <livewire:home.comentarios :noticia="$noticia->id">
                     </div>
                     <div class="col-xl-3 d-none d-xl-block border-left border-dark">
                         <h4><strong class="color-red" style="font-size: 24px;">{{ translate('ultimas_noticias') }}</strong></h4>
