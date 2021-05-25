@@ -245,7 +245,28 @@ if (isset($noticia)) {
                         <br> <br>
                         <livewire:home.comentarios :noticia="$noticia->id">
                     </div>
-                    
+                    <div class="col-xl-3 d-none d-xl-block border-left border-dark">
+                        <h4><strong class="color-red" style="font-size: 24px;">{{ translate('ultimas_noticias') }}</strong></h4>
+                        <div class="row">
+                            @foreach ($ultimasNoticias as $noticia)
+                                <div class="col-12">
+                                    <a href="{{ route('noticias', $noticia->slug) }}" style="text-decoration: none;">
+                                        <div class="div-image margin-b-10">
+                                            <img class="img-auto-width" src="{{ url($noticia->image ? $noticia->image : '') }}">
+                                        </div>
+                                        <div>
+                                            <p class="text-muted card-text margin-b-0">
+                                                <strong class="color-whitesmoke">{{ $noticia->titulo }}</strong>
+                                            </p>
+                                            <p class="div-data-nuevas-noticias">
+                                                {{ $noticia->created_at->format('jS F Y') }}</p>
+                                        </div>
+                                    </a>
+                                    <hr class="border border-dark">
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             @endisset
         </div>
