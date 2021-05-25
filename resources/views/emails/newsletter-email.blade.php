@@ -156,7 +156,7 @@
                                             <tr>
                                                 @if ($noticia->actividad_id)
                                                     <td align="center" style="padding-top: 20px;padding-bottom: 51px;">
-                                                        <a href="#">
+                                                        <a href="{{ route('actividades', $noticia->actividadNoticia->slug) }}">
                                                             <button style="
                                        border: 1px solid #000000;
                                        background-color: #dc3931;
