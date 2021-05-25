@@ -243,7 +243,7 @@ if (isset($noticia)) {
                             </li>
                         </ul>
                         <br> <br>
-                        <livewire:home.comentarios :noticia="$noticia->id">
+                       
                     </div>
                     <div class="col-xl-3 d-none d-xl-block border-left border-dark">
                         <h4><strong class="color-red" style="font-size: 24px;">{{ translate('ultimas_noticias') }}</strong></h4>

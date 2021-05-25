@@ -53,6 +53,8 @@ class Client extends Model
             foreach ($client->actividadInscripciones as $inscripcion) {
                 $inscripcion->delete();
             }
+
+            
         });
     }
 

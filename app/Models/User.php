@@ -59,6 +59,10 @@ class User extends Authenticatable
             foreach ($user->clients as $cliente) {
                 $cliente->delete();
             }
+
+            foreach ($user->comentarios as $comentario) {
+                $comentario->delete();
+            }
         });
     }
 
@@ -103,6 +107,10 @@ class User extends Authenticatable
     public function clients()
     {
         return $this->hasMany(Client::class, 'user_id', 'id');
+    }
+
+    public function comentarios(){
+        return $this->hasMany(NoticiaComentario::class, 'user_id', 'id');
     }
     /*
     |--------------------------------------------------------------------------
