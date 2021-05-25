@@ -376,10 +376,13 @@
                                                 class="avatar" id="headerAvatar">
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right anti-parpadeo dropdow-status">
-                                            <div class="d-flex justify-content-center width-ellipse-name">
-                                                <p style="color: #e3342f;font-weight: bold;font-size: 21px;">
-                                                    {{ auth()->user()->user_name }}
-                                                </p>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="width-ellipse-name">
+                                                    <p style="color: #e3342f;font-weight: bold;font-size: 21px;">
+                                                        {{ auth()->user()->user_name }}
+                                                    </p>
+                                                </div>
+                                                
                                             </div>
                                             <div class="d-flex justify-content-center">
                                                 <div class="width-ellipse-email">
