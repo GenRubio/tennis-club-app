@@ -171,14 +171,14 @@
     }
 
     .width-ellipse-name {
-        width: 100%;
+        width: 90%;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
     }
 
     .width-ellipse-email {
-        width: 100%;
+        width: 90%;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
