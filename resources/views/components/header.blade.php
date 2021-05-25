@@ -159,16 +159,30 @@
         font-size: 15px;
     }
 
-    .network-button{
-        color:#e3342f;
+    .network-button {
+        color: #e3342f;
         -webkit-transition: all .3s linear;
         -o-transition: all .3s linear;
         transition: all .3s linear
     }
-    .network-button:hover{
-        color:white;
+
+    .network-button:hover {
+        color: white;
     }
-    
+
+    .width-ellipse-name {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .width-ellipse-email {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 
 </style>
 <div id="header">
@@ -362,13 +376,13 @@
                                                 class="avatar" id="headerAvatar">
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right anti-parpadeo dropdow-status">
-                                            <div class="d-flex justify-content-center">
+                                            <div class="d-flex justify-content-center width-ellipse-name">
                                                 <p style="color: #e3342f;font-weight: bold;font-size: 21px;">
                                                     {{ auth()->user()->user_name }} <br>
                                                 </p>
                                             </div>
                                             <div class="d-flex justify-content-center">
-                                                <div>
+                                                <div class="width-ellipse-email">
                                                     <p
                                                         style="color: #e3342f;font-weight: bold;font-size: 14px;margin-top: -16px;">
                                                         {{ auth()->user()->email }}
