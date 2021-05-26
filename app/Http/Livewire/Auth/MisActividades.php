@@ -14,6 +14,7 @@ class MisActividades extends Component
     public function render()
     {
         $actividadesId = array();
+        $todasActividadesId = array();
         $clientesId = array();
 
         foreach (auth()->user()->cliente()->actividadInscripciones as $inscripcion) {
@@ -25,10 +26,11 @@ class MisActividades extends Component
             )
             {
                 array_push($actividadesId, $inscripcion->actividad->id);
-                array_push($clientesId, auth()->user()->cliente()->id);
+               
                
             }
-           
+            array_push($clientesId, auth()->user()->cliente()->id);
+            array_push($todasActividadesId, $inscripcion->actividad->id);
         }
 
         foreach (auth()->user()->cliente()->familiares() as $familiar) {
@@ -40,8 +42,10 @@ class MisActividades extends Component
                     && $inscripcion->actividad->id != 13
                 ) {
                     array_push($actividadesId, $inscripcion->actividad->id);
-                    array_push($clientesId, $familiar->id);
+                   
                 }
+                array_push($clientesId, $familiar->id);
+                array_push($todasActividadesId, $inscripcion->actividad->id);
             }
         }
         $this->totalInscripciones =   $inscripciones = ActividadInscripcione::whereIn('actividad_id', $actividadesId)
@@ -55,9 +59,14 @@ class MisActividades extends Component
         ->limit($this->count)
         ->get();
 
+        $todasInscripciones = ActividadInscripcione::whereIn('actividad_id', $todasActividadesId)
+        ->whereIn('cliente_id', $clientesId)
+        ->orderBy('id', 'DESC')
+        ->get();
+
         $this->clientesIdProtected = $clientesId;
 
-        return view('livewire.auth.mis-actividades', compact('inscripciones'));
+        return view('livewire.auth.mis-actividades', compact('inscripciones', 'todasInscripciones'));
     }
 
     public function load(){

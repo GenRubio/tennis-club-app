@@ -80,9 +80,7 @@ class TransaltionCrudController extends CrudController
                 'name' => 'key',
                 'label' => 'Llave',
                 'type' => 'text',
-                'attributes' => [
-                    'readonly'    => 'readonly',
-                ],
+              
             ],
             [
                 'name' => 'text',
