@@ -58,6 +58,7 @@ class ActividadExtraCrudController extends CrudController
                 'type' => 'text',
             ],
             [
+                'prefix'     => 'EUR €',
                 'name' => 'precio_normal',
                 'label' => 'Precio normal',
                 'type' => 'number',
@@ -66,6 +67,7 @@ class ActividadExtraCrudController extends CrudController
                 ],
             ],
             [
+                'prefix'     => 'EUR €',
                 'name' => 'precio_socio',
                 'label' => 'Precio socio',
                 'type' => 'number',

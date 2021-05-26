@@ -90,6 +90,7 @@ class RestaurantePlatoCrudController extends CrudController
                 }),
             ],
             [
+                'prefix'     => 'EUR €',
                 'name' => 'price',
                 'label' => 'Precio',
                 'type' => 'number',

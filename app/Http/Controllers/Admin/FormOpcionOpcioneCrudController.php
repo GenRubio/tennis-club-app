@@ -92,6 +92,7 @@ class FormOpcionOpcioneCrudController extends CrudController
                 'type' => 'text',
             ],
             [
+                'prefix'     => 'EUR €',
                 'name' => 'precio_socio',
                 'label' => 'Precio socio',
                 'type' => 'number',
@@ -100,6 +101,7 @@ class FormOpcionOpcioneCrudController extends CrudController
                 ],
             ],
             [
+                'prefix'     => 'EUR €',
                 'name' => 'precio_normal',
                 'label' => 'Precio normal',
                 'type' => 'number',

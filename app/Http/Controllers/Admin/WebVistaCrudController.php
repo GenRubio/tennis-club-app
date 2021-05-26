@@ -68,6 +68,9 @@ class WebVistaCrudController extends CrudController
                 'name' => 'slug',
                 'label' => 'Slug',
                 'type' => 'text',
+                'attributes' => [
+                    'readonly'    => 'readonly',
+                ],
             ],
 
         ]);

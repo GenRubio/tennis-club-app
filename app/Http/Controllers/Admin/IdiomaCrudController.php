@@ -54,6 +54,9 @@ class IdiomaCrudController extends CrudController
                 'name' => 'name',
                 'label' => 'Nombre idioma',
                 'type' => 'text',
+                'attributes' => [
+                    'readonly'    => 'readonly',
+                ],
             ],
             [
                 'name' => 'native',
@@ -64,6 +67,9 @@ class IdiomaCrudController extends CrudController
                 'name' => 'abbr',
                 'label' => 'Code (ISO 639-1)',
                 'type' => 'text',
+                'attributes' => [
+                    'readonly'    => 'readonly',
+                ],
             ],
             [
                 'name' => 'active',
@@ -83,7 +89,6 @@ class IdiomaCrudController extends CrudController
         CRUD::setValidation(IdiomaRequest::class);
 
         $this->basicFields();
-
     }
 
     protected function setupUpdateOperation()

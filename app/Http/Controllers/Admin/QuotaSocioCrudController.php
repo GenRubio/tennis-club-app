@@ -53,6 +53,7 @@ class QuotaSocioCrudController extends CrudController
                 'type' => 'text',
             ],
             [
+                'prefix'     => 'EUR €',
                 'name' => 'precio',
                 'label' => 'Precio',
                 'type' => 'number',

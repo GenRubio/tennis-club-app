@@ -40,10 +40,6 @@ class ShopArticleCrudController extends CrudController
             'label' => 'Nombre',
         ]);
         $this->crud->addColumn([
-            'name' => 'descripcion',
-            'label' => 'Descripcion',
-        ]);
-        $this->crud->addColumn([
             'name' => 'precio',
             'label' => 'Precio',
             'type' => 'number',
@@ -87,6 +83,7 @@ class ShopArticleCrudController extends CrudController
                 }),
             ],
             [
+                'prefix'     => 'EUR €',
                 'name' => 'precio',
                 'label' => 'Precio',
                 'type' => 'number',

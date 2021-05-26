@@ -52,6 +52,9 @@ class SocialNetworkCrudController extends CrudController
                 'name' => 'icon',
                 'label' => 'Icono',
                 'type' => 'text',
+                'attributes' => [
+                    'readonly'    => 'readonly',
+                ],
             ],
             [
                 'name' => 'titulo',
