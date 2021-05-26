@@ -63,28 +63,6 @@ $data = json_decode($inscripcion->opciones);
                     @endif
                 @endforeach
                 <br>
-                <hr>
-                <div>
-                    <div class="d-flex">
-                        <div style="font-weight: bold">
-                            Pago realizado:
-                        </div>
-                        <div class="ml-2">
-                            <div id="estado">
-                                @if ($inscripcion->pagado == 1)
-                                    <button class="btn btn-primary" style="width: 70px;"
-                                        id="aceptar{{ $clienteId }}">
-                                        Si
-                                    </button>
-                                @else
-                                    <button class="btn btn-danger" style="width: 70px;" id="denegar{{ $clienteId }}">
-                                        No
-                                    </button>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

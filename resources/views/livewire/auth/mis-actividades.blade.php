@@ -1,7 +1,25 @@
 <div>
+    <style>
+        .header-cart-my {
+            position: absolute;
+            display: flex;
+            background-color: #000000b5;
+            width: 100%;
+            color: whitesmoke !important;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .user-name-inscription {
+            margin-left: 12px;
+        }
+
+    </style>
     @if (count($inscripciones) > 0)
         <h1 class="color-red" style="font-weight: bold;">
-           {{ translate('mis_actividades') }}
+            {{ translate('mis_actividades') }}
         </h1>
         <hr class="featurette-divider">
         <br>
@@ -26,7 +44,13 @@
                                 <small class="text-muted">{{ translate('publicado') }}:
                                     {{ $inscripcion->actividad->created_at->translatedFormat('jS F Y') }}</small>
                             </div>
+                            <div class="header-cart-my">
+                                <div class="user-name-inscription">
+                                    {{ $inscripcion->cliente->full_name }}
+                                </div>
+                            </div>
                         </div>
+
                     </a>
                     <div wire:ignore.self class="modal fade" id="inscripcion{{ $inscripcion->id }}" tabindex="-1"
                         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -91,7 +115,7 @@
                                         <button class="btn btn-danger"
                                             wire:click="cancel({{ $inscripcion->id }})"><strong>Cancelar
                                                 inscripcion</strong></button>
-                                    @endif--}}
+                                    @endif --}}
                                 </div>
                                 <div class="modal-footer">
 
@@ -111,7 +135,6 @@
             </div>
             <br>
         @endif
-       
+
     @endif
 </div>
-
