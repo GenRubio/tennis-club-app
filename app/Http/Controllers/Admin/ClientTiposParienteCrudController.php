@@ -19,11 +19,19 @@ class ClientTiposParienteCrudController extends CrudController
         CRUD::setModel(\App\Models\ClientTiposPariente::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/clienttipospariente');
         CRUD::setEntityNameStrings('tipo pariente', 'Pariente tipos');
+
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('create');
+        }
     }
 
 
     protected function setupListOperation()
     {
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('delete');
+        }
+        
         $this->crud->addColumn([
             'name' => 'nom',
             'label' => 'Tipo',

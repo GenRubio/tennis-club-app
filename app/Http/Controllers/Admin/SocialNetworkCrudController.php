@@ -22,12 +22,16 @@ class SocialNetworkCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/socialnetwork');
         CRUD::setEntityNameStrings('red', 'Social Networks');
 
-        $this->crud->denyAccess('create');
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('create');
+        }
     }
 
     protected function setupListOperation()
     {
-        $this->crud->denyAccess('delete');
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('delete');
+        }
         
         $this->crud->addColumn([
             'name' => 'titulo',

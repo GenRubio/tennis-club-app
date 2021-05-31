@@ -19,12 +19,18 @@ class WebVistaCrudController extends CrudController
         CRUD::setModel(\App\Models\WebVista::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/webvista');
         CRUD::setEntityNameStrings('vista', 'Web vistas');
-        $this->crud->denyAccess('create');
+        
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('create');
+        }
     }
 
     protected function setupListOperation()
     {
-        $this->crud->denyAccess('delete');
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('delete');
+        }
+        
         $this->crud->addButtonFromView('line', 'pdf', 'pdf', 'beginning');
         $this->crud->addColumn([
             'name' => 'image',

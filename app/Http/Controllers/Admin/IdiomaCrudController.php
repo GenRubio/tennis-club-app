@@ -21,12 +21,17 @@ class IdiomaCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/idioma');
         CRUD::setEntityNameStrings('idioma', 'idiomas');
 
-        $this->crud->denyAccess('create');
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('create');
+        }
     }
 
     protected function setupListOperation()
     {
-        $this->crud->denyAccess('delete');
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('delete');
+        }
+     
         $this->crud->addColumn([
             'name' => 'name',
             'label' => 'Nombre idioma',
@@ -55,7 +60,7 @@ class IdiomaCrudController extends CrudController
                 'label' => 'Nombre idioma',
                 'type' => 'text',
                 'attributes' => [
-                    'readonly'    => 'readonly',
+                    'readonly'    => backpack_user()->role->rol != 'Superadmin' ? 'readonly' : '',
                 ],
             ],
             [
@@ -68,7 +73,7 @@ class IdiomaCrudController extends CrudController
                 'label' => 'Code (ISO 639-1)',
                 'type' => 'text',
                 'attributes' => [
-                    'readonly'    => 'readonly',
+                    'readonly'    => backpack_user()->role->rol != 'Superadmin' ? 'readonly' : '',
                 ],
             ],
             [

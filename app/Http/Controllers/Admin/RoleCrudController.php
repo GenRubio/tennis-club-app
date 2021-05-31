@@ -6,11 +6,7 @@ use App\Http\Requests\RoleRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
-/**
- * Class RoleCrudController
- * @package App\Http\Controllers\Admin
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
- */
+
 class RoleCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
@@ -24,9 +20,20 @@ class RoleCrudController extends CrudController
         CRUD::setModel(\App\Models\Role::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/role');
         CRUD::setEntityNameStrings('role', 'roles');
+
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('create');
+        }
     }
     protected function setupListOperation()
     {
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('delete');
+        }
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('update');
+        }
+
         $this->crud->addColumn([
             'name' => 'rol',
             'label' => 'Rol',

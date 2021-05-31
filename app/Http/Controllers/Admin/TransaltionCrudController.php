@@ -19,10 +19,18 @@ class TransaltionCrudController extends CrudController
         CRUD::setModel(\App\Models\Translation::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/transaltion');
         CRUD::setEntityNameStrings('texto', 'Traducciones');
+
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('create');
+        }
     }
 
     protected function setupListOperation()
     {
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('delete');
+        }
+        
         $this->crud->addFilter(
             [
                 'type'  => 'text',

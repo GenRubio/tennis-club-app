@@ -38,7 +38,10 @@ class ClientCrudController extends CrudController
 
 
         //Denegar accesso a boton de creacion de cliente
-        $this->crud->denyAccess('create');
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('create');
+        }
+        
     }
 
     private function setRoute()
@@ -76,7 +79,10 @@ class ClientCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        $this->crud->denyAccess('delete');
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('delete');
+        }
+        
         if (!$this->clientId) {
             $this->crud->addButtonFromView('line', 'ver-familiares', 'ver-familiares', 'beginning');
         }

@@ -19,10 +19,21 @@ class ActividadTipoCrudController extends CrudController
         CRUD::setModel(\App\Models\ActividadTipo::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/actividadtipo');
         CRUD::setEntityNameStrings('tipo', 'Tipos actividad');
+
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('create');
+        }
     }
 
     protected function setupListOperation()
     {
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('delete');
+        }
+        if (backpack_user()->role->rol != 'Superadmin'){
+            $this->crud->denyAccess('update');
+        }
+
         CRUD::setFromDb(); // columns
 
     }
