@@ -39,6 +39,18 @@ class Actividade extends Model
     // protected $hidden = [];
     // protected $dates = [];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($actividade) {
+            //Deleting all fechas
+            foreach ($actividade->fechasAll as $fecha) {
+                $fecha->delete();
+            }
+        });
+    }
+
 
     /*
     |--------------------------------------------------------------------------
@@ -103,6 +115,10 @@ class Actividade extends Model
     public function fechas(){
         return $this->hasMany(ActividadFecha::class, 'actividad_id', 'id')
         ->where('activo', 1);
+    }
+
+    public function fechasAll(){
+        return $this->hasMany(ActividadFecha::class, 'actividad_id', 'id');
     }
 
     public function fechasCalendario(){
