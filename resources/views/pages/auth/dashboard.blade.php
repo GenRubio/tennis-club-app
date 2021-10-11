@@ -87,33 +87,7 @@
                     style="text-decoration: none;font-size: 18px;">{{ translate('ver_mas') }} <i class="fas fa-arrow-right"></i></a>
             </span>
         </h1>
-        <hr class="featurette-divider">
-        <br>
-        <div class="row">
-            @foreach ($actividades as $actividad)
-
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-5">
-                    <a href="{{ route('actividades', $actividad->slug) }}" class="text-actividad">
-                        <div class="card ronded card-effect border-0">
-                            <div class="card-div">
-                                <img class="card-img-top" src="{{ url($actividad->imagen ? $actividad->imagen : '') }}"
-                                    alt="Card image cap">
-                            </div>
-                            <div class="card-body border-top card-body-style">
-                                {{ $actividad->titulo }}
-                            </div>
-                            <div class="card-footer border-0 card-title-color">
-                                @php
-                                    setlocale(LC_TIME, 'French');
-                                @endphp
-                                <small class="text-muted">{{ translate('publicado') }}:
-                                    {{ $actividad->created_at->translatedFormat('jS F Y') }}</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
-        </div>
+        @include('components.actividades.actividades', ['actividades' => $actividades])
         <br><br><br>
         <livewire:auth.mis-actividades />
         <br><br><br>
